@@ -6,7 +6,7 @@ namespace WOPA
     {
         public static void main()
         {
-            Console.WriteLine("Hello, World!");
+            Console.WriteLine("Hello, World2!");
         }
     }
 }  
