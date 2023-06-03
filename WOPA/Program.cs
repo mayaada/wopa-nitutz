@@ -1,4 +1,4 @@
-namespace UI
+namespace WOPA
 {
     internal static class Program
     {
