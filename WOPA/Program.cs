@@ -11,6 +11,11 @@ namespace WOPA
     public class Program
     {
 
+
+        /// <summary>
+        /// The main entry point for the application.
+        /// </summary>
+        /// 
             //רשימות
         public static System.Collections.Generic.List<Employee> Employees ;
         public static System.Collections.Generic.List<Lead> Leads ;

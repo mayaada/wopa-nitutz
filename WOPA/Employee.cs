@@ -8,6 +8,7 @@ public class Employee
     private EmployeeType employeeType;
     private string password;
     private bool isActive;
+    public System.Collections.Generic.List<Tenant> workStationRequests; // 
 
     public Employee(string email, string name, string number, EmployeeType employeeType, string password,
         Boolean isActive, bool isNew)
@@ -22,6 +23,14 @@ public class Employee
         {
             createEmployee();
             Program.Employees.Add(this);
+        }
+    }
+
+    public void checkRequests()
+    {
+        while (workStationRequests.Count > 0)
+        {
+            lease.addWorkstation(tenant); // fix when tenant is new 
         }
     }
     
