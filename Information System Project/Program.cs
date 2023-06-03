@@ -17,6 +17,7 @@ namespace WOPA
         /// </summary>
         /// 
         //רשימות
+        //tumy
         public static System.Collections.Generic.List<Employee> Employees;
         public static System.Collections.Generic.List<Lead> Leads;
 
