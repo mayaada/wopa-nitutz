@@ -7,10 +7,10 @@ public class Employee
     private string number;
     private EmployeeType employeeType;
     private string password;
-    private Boolean isActive;
+    private bool isActive;
 
     public Employee(string email, string name, string number, EmployeeType employeeType, string password,
-        Boolean isActive, Boolean isNew)
+        Boolean isActive, bool isNew)
     {
         this.email = email;
         this.name = name;
@@ -24,7 +24,7 @@ public class Employee
             Program.Employees.Add(this);
         }
     }
-
+    
     public string getEmail()
     {
         return this.email;
@@ -97,4 +97,14 @@ public class Employee
         SQL_CON SC = new SQL_CON();
         SC.execute_non_query(c);
     }
+    
+public void activateEmployee()
+    {
+        SqlCommand c = new SqlCommand();
+        c.CommandText = "EXECUTE SP_activateEmployee @email";
+        c.Parameters.AddWithValue("@name", this.name);
+        SQL_CON SC = new SQL_CON();
+        SC.execute_non_query(c);
+    }
+
 }
