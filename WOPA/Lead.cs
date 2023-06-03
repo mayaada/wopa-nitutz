@@ -8,9 +8,9 @@ namespace WOPA
         private string number;
         private string email;
         private DateTime dateOpened;
-        private LeadStatus status;
+        private LeadStatus leadStatus;
         private int NumOfworkStation;
-        private LeadSource source;
+        private LeadSource leadSource;
         private Employee Added_By;
 
         public Lead(string companyName, string contact, string number, string email, DateTime dateOpened, int workStation,
@@ -21,49 +21,30 @@ namespace WOPA
             this.number = number;
             this.email = email;
             this.dateOpened = dateOpened;
-            this.status = status;
+            this.leadStatus = status;
             this.NumOfworkStation = workStation;
-            this.source = source;
+            this.leadSource = source;
             this.Added_By = Added_By;
             if (isNew)
             {
                 createLead();
-                Program.Lead.Add(this);
+                Program.Leads.Add(this);
             }
         }
-
-        public Lead(string? v1, string? v2, string? v3, string? v4, DateTime dateTime, Func<string?> toString, LeadStatus leadStatus, LeadSource leadSource, Employee employee, bool v5)
-        {
-        }
-
+        
         public string GetCompanyName()
         {
             return companyName;
-        }
-
-        public void SetCompanyName(string value)
-        {
-            companyName = value;
         }
 
         public string GetContact()
         {
             return contact;
         }
-
-        public void SetContact(string value)
+        
+        public string getNumber()
         {
-            contact = value;
-        }
-
-        public string GetNumber()
-        {
-            return number;
-        }
-
-        public void SetNumber(string value)
-        {
-            number = value;
+            return this.number;
         }
 
         public string GetEmail()
@@ -71,60 +52,73 @@ namespace WOPA
             return email;
         }
 
-        public void SetEmail(string value)
-        {
-            email = value;
-        }
-
         public DateTime GetDateOpened()
         {
             return dateOpened;
         }
 
-        public void SetDateOpened(DateTime value)
-        {
-            dateOpened = value;
-        }
-
         public LeadStatus GetStatus()
         {
-            return status;
+            return this.leadStatus;
         }
 
-        public void SetStatus(LeadStatus value)
+        public int GetWorkStationNumber()
         {
-            status = value;
-        }
-
-        public int GetWorkStation()
-        {
-            return workStation;
-        }
-
-        public void SetWorkStation(int value)
-        {
-            workStation = value;
+            return this.NumOfworkStation;
         }
 
         public LeadSource GetSource()
         {
-            return source;
+            return this.leadSource;
+        }
+        
+        public void updateContact(string contact)
+        {
+            this.contact = contact;
+        }
+        
+        public void updateNumber(string number)
+        {
+            this.number = number;
+        }
+        
+        public void updateEmail(string email)
+        {
+            this.email = email;
+        }
+        public void updateStatus(LeadStatus status)
+        {
+            this.leadStatus = status;
+        }
+        
+        public void updateWorkStationNumber(int workStation)
+        {
+            this.NumOfworkStation = workStation;
         }
 
-        public void SetSource(LeadSource value)
+        public void convertToNewTenant(string contactEmail, string website, DateTime dateJoined, int numberOfEmployees, bool isActive)
         {
-            source = value;
+            Tenant convertedTenant = new Tenant(this.companyName, contactEmail, website, dateJoined, numberOfEmployees, isActive, isNew: true);
         }
 
-        public Employee GetAddedBy()
+        public void createLead()
         {
-            return addedBy;
+            SqlCommand c = new SqlCommand();
+            c.CommandText =
+                "EXECUTE SP_addLead @companyName, @contact, @number, @email, @dateOpened, @leadStatus, @workStation, @leadSource";
+            c.Parameters.AddWithValue("@companyName", this.companyName);
+            c.Parameters.AddWithValue("@contact", this.contact);
+            c.Parameters.AddWithValue("@number", this.number);
+            c.Parameters.AddWithValue("@email", this.email);
+            c.Parameters.AddWithValue("@dateOpened", this.dateOpened);
+            c.Parameters.AddWithValue("@leadStatus", this.leadStatus);
+            c.Parameters.AddWithValue("@workStation", this.NumOfworkStation);
+            c.Parameters.AddWithValue("@leadSource", this.leadSource);
+            SQL_CON SC = new SQL_CON();
+            SC.execute_non_query(c);
         }
-
-        public void SetAddedBy(Employee value)
-        {
-            addedBy = seekEemploye(value);
-        }
+        
+        
 
 
     }
