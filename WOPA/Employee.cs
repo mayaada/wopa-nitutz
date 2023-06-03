@@ -64,6 +64,11 @@ public class Employee
     {
         this.password = newPassword;
     }
+
+    public void inactivate()
+    {
+        this.isActive = false;
+    }
     
     public void createEmployee()
     {
@@ -85,24 +90,6 @@ public class Employee
         c.Parameters.AddWithValue("@name", this.name);
         c.Parameters.AddWithValue("@employeeType", this.employeeType);
         c.Parameters.AddWithValue("@password", this.password);
-        SQL_CON SC = new SQL_CON();
-        SC.execute_non_query(c);
-    }
-
-    public void inactivateEmployee()
-    {
-        SqlCommand c = new SqlCommand();
-        c.CommandText = "EXECUTE SP_inactivateEmployee @email";
-        c.Parameters.AddWithValue("@email", this.email);
-        SQL_CON SC = new SQL_CON();
-        SC.execute_non_query(c);
-    }
-    
-public void activateEmployee()
-    {
-        SqlCommand c = new SqlCommand();
-        c.CommandText = "EXECUTE SP_activateEmployee @email";
-        c.Parameters.AddWithValue("@name", this.name);
         SQL_CON SC = new SQL_CON();
         SC.execute_non_query(c);
     }
