@@ -14,7 +14,7 @@ namespace WOPA
         private Employee Added_By;
 
         public Lead(string companyName, string contact, string number, string email, DateTime dateOpened, int workStation,
-         LeadStatus status, LeadSource source, Employee Added_By)
+         LeadStatus status, LeadSource source, Employee Added_By, Boolean isNew)
         {
             this.companyName = companyName;
             this.contact = contact;
