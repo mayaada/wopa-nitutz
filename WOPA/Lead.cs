@@ -9,12 +9,12 @@ namespace WOPA
         private string email;
         private DateTime dateOpened;
         private LeadStatus status;
-        private int workStation;
+        private int NumOfworkStation;
         private LeadSource source;
         private Employee Added_By;
 
         public Lead(string companyName, string contact, string number, string email, DateTime dateOpened, int workStation,
-         LeadStatus status, LeadSource source, Employee Added_By)
+         LeadStatus status, LeadSource source, Employee Added_By, Boolean isNew)
         {
             this.companyName = companyName;
             this.contact = contact;
@@ -22,7 +22,7 @@ namespace WOPA
             this.email = email;
             this.dateOpened = dateOpened;
             this.status = status;
-            this.workStation = workStation;
+            this.NumOfworkStation = workStation;
             this.source = source;
             this.Added_By = Added_By;
             if (isNew)
@@ -30,6 +30,10 @@ namespace WOPA
                 createLead();
                 Program.Lead.Add(this);
             }
+        }
+
+        public Lead(string? v1, string? v2, string? v3, string? v4, DateTime dateTime, Func<string?> toString, LeadStatus leadStatus, LeadSource leadSource, Employee employee, bool v5)
+        {
         }
 
         public string GetCompanyName()

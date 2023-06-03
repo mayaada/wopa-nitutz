@@ -1,0 +1,4 @@
+{
+    "editor.suggest.showIssues": false,
+    "omnisharp.disableMSBuildDiagnosticWarning": false
+}
