@@ -9,15 +9,13 @@ namespace WOPA
 {
     public class Program
     {
-        public static void main()
-        {
-            
+
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         /// 
-        //רשימות
-        //tumy
+            //רשימות
         public static System.Collections.Generic.List<Employee> Employees;
         public static System.Collections.Generic.List<Lead> Leads;
 
@@ -53,9 +51,9 @@ namespace WOPA
 
             while (rdr.Read())
             {
-                Title T = (Title)Enum.Parse(typeof(Title), rdr.GetValue(2).ToString());
-                Worker w = new Worker(rdr.GetValue(0).ToString(), rdr.GetValue(1).ToString(), T, false);
-                Workers.Add(w);
+                Employee_Type employee_type = (Employee_Type)Enum.Parse(typeof(Employee_Type), rdr.GetValue(4).ToString());
+                Employee employee = new Employee(rdr.GetValue(0).ToString(), rdr.GetValue(1).ToString(), rdr.GetValue(2).ToString(), rdr.GetValue(3).ToString(), employee_type , true , false);
+                Employee.Add(employee);
             }
         }
 
@@ -83,6 +81,5 @@ namespace WOPA
             Application.Run(new mainForm());
         }
     }
-        }
-    }
-}  
+}
+

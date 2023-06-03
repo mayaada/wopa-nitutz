@@ -10,4 +10,6 @@ public class Lead
     private LeadStatus status;
     private int workStation;
     private LeadSource source;
+
+    
 }
