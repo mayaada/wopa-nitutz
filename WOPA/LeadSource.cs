@@ -3,11 +3,11 @@ namespace WOPA
 
 public enum LeadSource
     {
-        [Description("Space Cenoter")]
+        [Description("Space Center")]
         CommunityManager,
         [Description("Spacing")]
         MarketingManager,
-        [Description("Recomendation")]
+        [Description("Recommendation")]
         MarketingManager,
         [Description("Website")]
         MarketingManager,
