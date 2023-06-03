@@ -1,9 +1,26 @@
+using System.ComponentModel;
+
 namespace WOPA;
 
-public static class EmployeeType
+public enum EmployeeType
 {
-    public static readonly string CommunityManager = "Community Manager";
-    public static readonly string MarketingManager = "Marketing Manager";
-    public static readonly string Maintenance = "Maintenance";
-    public static readonly string FinanceManager = "Finance Manager";
+    [Description("Community Manager")]
+    CommunityManager,
+    [Description("Marketing Manager")]
+    MarketingManager,
+    [Description("Maintenance")]
+    Maintenance,
+    [Description("Finance Manager")]
+    FinanceManager
+}
+
+public static class EnumExtensions
+{
+    public static string GetDescription(this Enum value)
+    {
+        var fieldInfo = value.GetType().GetField(value.ToString());
+        var attribute = (DescriptionAttribute)Attribute.GetCustomAttribute(fieldInfo, typeof(DescriptionAttribute));
+
+        return attribute?.Description ?? value.ToString();
+    }
 }
