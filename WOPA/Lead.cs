@@ -14,7 +14,7 @@ namespace WOPA
         private Employee Added_By;
 
         public Lead(string companyName, string contact, string number, string email, DateTime dateOpened, int workStation,
-         LeadStatus status, LeadSource source, Employee Added_By, Boolean isNew)
+         LeadStatus status, LeadSource source, Employee Added_By)
         {
             this.companyName = companyName;
             this.contact = contact;
@@ -32,31 +32,95 @@ namespace WOPA
             }
         }
 
-
-     public string get_name()
+        public string GetCompanyName()
         {
-            return this.WorkerName;
-        }
-        public string getID()
-        {
-            return this.WorkerId;
+            return companyName;
         }
 
-        public Title get_title()
+        public void SetCompanyName(string value)
         {
-            return this.workerTitle;
+            companyName = value;
         }
 
-        public void set_name(string name)
+        public string GetContact()
         {
-            this.WorkerName = name; ;
+            return contact;
         }
 
-        public void set_title(Title t)
+        public void SetContact(string value)
         {
-             this.workerTitle=t;
+            contact = value;
         }
 
+        public string GetNumber()
+        {
+            return number;
+        }
+
+        public void SetNumber(string value)
+        {
+            number = value;
+        }
+
+        public string GetEmail()
+        {
+            return email;
+        }
+
+        public void SetEmail(string value)
+        {
+            email = value;
+        }
+
+        public DateTime GetDateOpened()
+        {
+            return dateOpened;
+        }
+
+        public void SetDateOpened(DateTime value)
+        {
+            dateOpened = value;
+        }
+
+        public LeadStatus GetStatus()
+        {
+            return status;
+        }
+
+        public void SetStatus(LeadStatus value)
+        {
+            status = value;
+        }
+
+        public int GetWorkStation()
+        {
+            return workStation;
+        }
+
+        public void SetWorkStation(int value)
+        {
+            workStation = value;
+        }
+
+        public LeadSource GetSource()
+        {
+            return source;
+        }
+
+        public void SetSource(LeadSource value)
+        {
+            source = value;
+        }
+
+        public Employee GetAddedBy()
+        {
+            return addedBy;
+        }
+
+        public void SetAddedBy(Employee value)
+        {
+            addedBy = seekEemploye(value);
+        }
 
 
     }
