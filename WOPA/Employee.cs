@@ -25,37 +25,19 @@ public class Employee
         }
     }
 
-    public void createEmployee()
+    public string getEmail()
     {
-        SqlCommand c = new SqlCommand();
-        c.CommandText = "EXECUTE SP_add_employee @employeeId, @firstName, @lastName, @role, @password";
-        c.Parameters.AddWithValue("@employeeId", this.employeeId);
-        c.Parameters.AddWithValue("@firstName", this.firstName);
-        c.Parameters.AddWithValue("@lastName", this.lastName);
-        c.Parameters.AddWithValue("@role", this.role.ToString());
-        c.Parameters.AddWithValue("@password", this.password);
-        SQL_CON SC = new SQL_CON();
-        SC.execute_non_query(c);
+        return this.email;
     }
 
-    public int getId()
+    public string getName()
     {
-        return this.employeeId;
+        return this.name;
     }
 
-    public string getFirstName()
+    public EmployeeType getEmployeeType()
     {
-        return this.firstName;
-    }
-
-    public string getLastName()
-    {
-        return this.lastName;
-    }
-
-    public Role getRole()
-    {
-        return this.role;
+        return this.employeeType;
     }
 
     public string getPassword()
@@ -63,90 +45,56 @@ public class Employee
         return this.password;
     }
 
-    public void setFirstName(string firstName)
+    public void changeType(EmployeeType type)
     {
-        this.firstName = firstName;
+        this.employeeType = type;
     }
 
-    public void setLastName(string lastName)
+    public void changeEmail(string newEmail)
     {
-        this.lastName = lastName;
+        this.email = newEmail;
     }
 
-    public void setRole(Role role)
+    public void changeNumber(string newNumber)
     {
-        this.role = role;
+        this.number = newNumber;
     }
 
-    public void setPassword(string password)
+    public void resetPassword(string newPassword)
     {
-        this.password = password;
+        this.password = newPassword;
     }
-
-
-    public void updateEmployee()
+    
+    public void createEmployee()
     {
         SqlCommand c = new SqlCommand();
-        c.CommandText = "EXECUTE SP_update_employee @employeeId, @firstName, @lastName, @role, @password";
-        c.Parameters.AddWithValue("@employeeId", this.employeeId);
-        c.Parameters.AddWithValue("@firstName", this.firstName);
-        c.Parameters.AddWithValue("@lastName", this.lastName);
-        c.Parameters.AddWithValue("@role", this.role.ToString());
+        c.CommandText = "EXECUTE SP_add_employee @email, @name, @number, @employeeType, @password";
+        c.Parameters.AddWithValue("@email", this.email);
+        c.Parameters.AddWithValue("@name", this.name);
+        c.Parameters.AddWithValue("@employeeType", this.employeeType);
         c.Parameters.AddWithValue("@password", this.password);
         SQL_CON SC = new SQL_CON();
         SC.execute_non_query(c);
     }
 
-    public void deleteEmployee()
+    public void updateEmployee()
     {
         SqlCommand c = new SqlCommand();
-        c.CommandText = "EXECUTE SP_delete_employee @employeeId";
-        c.Parameters.AddWithValue("@employeeId", this.employeeId);
+        c.CommandText = "EXECUTE SP_Update_employees @email, @name, @number, @employeeType, @password";
+        c.Parameters.AddWithValue("@email", this.email);
+        c.Parameters.AddWithValue("@name", this.name);
+        c.Parameters.AddWithValue("@employeeType", this.employeeType);
+        c.Parameters.AddWithValue("@password", this.password);
         SQL_CON SC = new SQL_CON();
         SC.execute_non_query(c);
     }
 
-    public static void loadEmployees()
+    public void inactivateEmployee()
     {
         SqlCommand c = new SqlCommand();
-        c.CommandText = "EXECUTE SP_get_employees";
+        c.CommandText = "EXECUTE SP_inactivateEmployee @email";
+        c.Parameters.AddWithValue("@email", this.email);
         SQL_CON SC = new SQL_CON();
-        DataTable dt = SC.execute_query(c);
-        foreach (DataRow row in dt.Rows)
-        {
-            int employeeId = Convert.ToInt32(row["employeeId"]);
-            string firstName = row["firstName"].ToString();
-            string lastName = row["lastName"].ToString();
-            Role role = (Role)Enum.Parse(typeof(Role), row["role"].ToString());
-            string password = row["password"].ToString();
-            Employee employee = new Employee(employeeId, firstName, lastName, role, password, false);
-            Program.Employees.Add(employee);
-        }
-    }
-
-    public static Employee getEmployee(int employeeId)
-    {
-        foreach (Employee employee in Program.Employees)
-        {
-            if (employee.getId() == employeeId)
-            {
-                return employee;
-            }
-        }
-
-        return null;
-    }
-
-    public static Employee getEmployee(string firstName, string lastName)
-    {
-        foreach (Employee employee in Program.Employees)
-        {
-            if (employee.getFirstName() == firstName && employee.getLastName() == lastName)
-            {
-                return employee;
-            }
-        }
-
-        return null;
+        SC.execute_non_query(c);
     }
 }
