@@ -1,3 +1,10 @@
+using System.Xml.Serialization;
+using System.Collections.Generic;
+using System.Linq;
+using System.Windows.Forms; // winform 
+using System.Data;
+using System.Data.SqlClient;
+
 namespace WOPA
 {
     public class LeasedItem
@@ -22,7 +29,7 @@ namespace WOPA
                 createLeasedItem();
                 Program.LeasedItems.Add(this);
             }
-            Lease.addLeasedItem(this);
+            
         }
 
         public int getNumber()

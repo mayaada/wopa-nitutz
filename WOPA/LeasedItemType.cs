@@ -1,3 +1,10 @@
+using System.Xml.Serialization;
+using System.Collections.Generic;
+using System.Linq;
+using System.Windows.Forms; // winform 
+using System.Data;
+using System.Data.SqlClient;
+
 namespace WOPA;
 
 public class LeasedItemType
@@ -16,7 +23,7 @@ public class LeasedItemType
         this.deposit = deposit;
         if (isNew)
         {
-            createLeasedIteType();
+            createLeasedItemType();
             Program.LeasedItemTypes.Add(this);
         }
     }
@@ -86,4 +93,7 @@ public class LeasedItemType
         SQL_CON SC = new SQL_CON();
         SC.execute_non_query(c);
     }
+
+
+
 }

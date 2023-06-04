@@ -18,9 +18,16 @@ namespace WOPA
         /// 
             //רשימות
         public static System.Collections.Generic.List<Employee> Employees ;
-        public static System.Collections.Generic.List<Lead> Leads ;
-        public static System.Collections.Generic.List<Tenant> Tenants ;
+       public static System.Collections.Generic.List<Lead> Leads ;
+       public static System.Collections.Generic.List<Tenant> Tenants ;
         public static System.Collections.Generic.List<Lease> Leases ;
+
+        // crate LeasedItems list
+        public static System.Collections.Generic.List<LeasedItem> LeasedItems = new List<LeasedItem>();
+
+        // create LeasedItemTypes list
+        public static System.Collections.Generic.List<LeasedItemType> LeasedItemTypes = new List<LeasedItemType>();
+        
 
         [STAThread]
 
@@ -40,9 +47,9 @@ namespace WOPA
         public static void initLists()//מילוי הרשימות מתוך בסיס הנתונים
         {
             init_employees();//אתחול הרשימה של העובדים
-            init_leads();//אתחול הרשימה של לקוחות פוטנצייאלים
-            init_tenants();// אתחול הרשימה של הדיירים
-            init_leases();//אתחול הרשימה של החוזים
+           // init_leads();//אתחול הרשימה של לקוחות פוטנצייאלים
+           // init_tenants();// אתחול הרשימה של הדיירים
+           // init_leases();//אתחול הרשימה של החוזים
         }
 
         // init leases

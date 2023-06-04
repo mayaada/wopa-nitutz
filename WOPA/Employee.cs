@@ -33,14 +33,7 @@ public class Employee
         }
     }
 
-    public void checkRequests()
-    {
-        while (workStationRequests.Count > 0)
-        {
-            lease.addWorkstation(tenant); // fix when tenant is new 
-        }
-    }
-    
+   
     public string getEmail()
     {
         return this.email;

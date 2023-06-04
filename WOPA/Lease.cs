@@ -1,3 +1,10 @@
+using System.Xml.Serialization;
+using System.Collections.Generic;
+using System.Linq;
+using System.Windows.Forms; // winform 
+using System.Data;
+using System.Data.SqlClient;
+
 namespace WOPA
 {
     public class Lease
@@ -10,7 +17,6 @@ namespace WOPA
         private string termsAndConditions;
         private Employee signedByEmployee;
         private Tenant signedByTenant;
-        private list<LeasedItem> itemsLeased;
         
         // constructor for new lease
         public Lease(int leaseID, string signerName, DateTime startDate, DateTime endDate, int terminationNotice,
@@ -24,7 +30,6 @@ namespace WOPA
             this.termsAndConditions = termsAndConditions;
             this.signedByEmployee = signedByEmployee;
             this.signedByTenant = signedByTenant;
-            this.leasedItems = new list<LeasedItem>();
             if (isNew)
             {
                 createLease();
@@ -95,10 +100,7 @@ namespace WOPA
             this.termsAndConditions = termsAndConditions;
         }
         
-        public void addLeasedItem(LeasedItem leasedItem)
-        {
-            leasedItems.Add(leasedItem);
-        }
+        
 
         public void createLease()
         {

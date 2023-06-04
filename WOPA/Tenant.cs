@@ -7,6 +7,12 @@ Date_Joined     DATE                NOT NULL,
 Number_Of_Employees INT             NOT NULL
 )
 */
+using System.Xml.Serialization;
+using System.Collections.Generic;
+using System.Linq;
+using System.Windows.Forms; // winform 
+using System.Data;
+using System.Data.SqlClient;
 
 namespace WOPA
 {
