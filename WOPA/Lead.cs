@@ -32,9 +32,53 @@ namespace WOPA
             }
         }
 
-        private void createLead()
+       public void createLead()
         {
-            throw new NotImplementedException();
+            SqlCommand c = new SqlCommand();
+            c.CommandText = "EXECUTE dbo.Create_Lead @companyName, @contact, @number, @email,"
+                + " @dateOpened, @workStation, @status, @source, @Added_By";
+            c.Parameters.AddWithValue("@companyName", companyName);
+            c.Parameters.AddWithValue("@contact", contact);
+            c.Parameters.AddWithValue("@number", number);
+            c.Parameters.AddWithValue("@email", email);
+            c.Parameters.AddWithValue("@dateOpened", dateOpened);
+            c.Parameters.AddWithValue("@workStation", NumOfworkStation);
+            c.Parameters.AddWithValue("@status", status);
+            c.Parameters.AddWithValue("@source", source);
+            c.Parameters.AddWithValue("@Added_By", Added_By.getEmail());
+            SQL_CON SC = new SQL_CON();
+            SC.execute_non_query(c);
+        }
+
+        public void updateLead()
+        {
+            SqlCommand c = new SqlCommand();
+            c.CommandText = "EXECUTE dbo.Update_Lead @companyName, @contact, @number, @email,"
+                + " @dateOpened, @workStation, @status, @source, @Added_By";
+            c.Parameters.AddWithValue("@companyName", companyName);
+            c.Parameters.AddWithValue("@contact", contact);
+            c.Parameters.AddWithValue("@number", number);
+            c.Parameters.AddWithValue("@email", email);
+            c.Parameters.AddWithValue("@dateOpened", dateOpened);
+            c.Parameters.AddWithValue("@workStation", NumOfworkStation);
+            c.Parameters.AddWithValue("@status", status);
+            c.Parameters.AddWithValue("@source", source);
+            c.Parameters.AddWithValue("@Added_By", Added_By.getEmail());
+            SQL_CON SC = new SQL_CON();
+            SC.execute_non_query(c);
+        }
+
+        public void deleteLead()
+        {
+            SqlCommand c = new SqlCommand();
+            c.CommandText = "EXECUTE dbo.Delete_Lead @companyName, @contact, @number, @dateOpened, @Added_By";
+            c.Parameters.AddWithValue("@companyName", companyName);
+            c.Parameters.AddWithValue("@contact", contact);
+            c.Parameters.AddWithValue("@number", number);
+            c.Parameters.AddWithValue("@dateOpened", dateOpened);
+            c.Parameters.AddWithValue("@Added_By", Added_By.getEmail());
+            SQL_CON SC = new SQL_CON();
+            SC.execute_non_query(c);
         }
 
         public string GetCompanyName()
@@ -92,7 +136,7 @@ namespace WOPA
             return status;
         }
 
-        public void SetStatus(LeadStatus value)
+        public void updateStatus(LeadStatus value)
         {
             status = value;
         }
@@ -126,6 +170,15 @@ namespace WOPA
         {
             Added_By = Program.seekEemploye(value.getEmail());
         }
+
+        //function that turn the lead to a Tenant 
+        public Tenant convertToTenant()
+        {
+            Tenant tenant = new Tenant(companyName, contact, number, email, 
+            dateOpened, NumOfworkStation, status, source, Added_By, true);
+            updateStatus(LeadStatus Move_To_Tenant);
+            return tenant;
+        } 
 
 
     }
