@@ -133,15 +133,14 @@ namespace WOPA
         
 
         //function that turn the lead to a Tenant 
-        public Tenant convertToTenant()
+        public void convertToTenant(string email , string website, DateTime dateJoined, int numberOfEmployees)
         {
-            Tenant tenant = new Tenant(companyName, contact, number, email, 
-            dateOpened, NumOfworkStation, status, source, Added_By, true);
-
+            Tenant tenant = new Tenant(this.companyName, email, website, dateJoined, numberOfEmployees , true,true);
+            Program.Tenants.Add(tenant);
             updateLeadStatus(LeadStatus.MoveToTenant);
-            return tenant;
-        } 
-
+        }
+        
+       
 
     }
 }

@@ -19,6 +19,8 @@ namespace WOPA
             //רשימות
         public static System.Collections.Generic.List<Employee> Employees ;
         public static System.Collections.Generic.List<Lead> Leads ;
+        public static System.Collections.Generic.List<Tenant> Tenants ;
+        public static System.Collections.Generic.List<Lease> Leases ;
 
         [STAThread]
 
@@ -39,6 +41,53 @@ namespace WOPA
         {
             init_employees();//אתחול הרשימה של העובדים
             init_leads();//אתחול הרשימה של לקוחות פוטנצייאלים
+            init_tenants();// אתחול הרשימה של הדיירים
+            init_leases();//אתחול הרשימה של החוזים
+        }
+
+        // init leases
+        public static void init_leases()//מילוי הרשימה של החוזים מתוך בסיס הנתונים
+        {
+            SqlCommand c = new SqlCommand();
+            c.CommandText = "EXECUTE dbo.Get_all_Leases";
+            SQL_CON SC = new SQL_CON();
+            SqlDataReader rdr = SC.execute_query(c);
+            Leases = new List<Lease>();
+            while (rdr.Read())
+            {
+                Lease lease = new Lease((int)rdr.GetValue(0), rdr.GetValue(1).ToString(), DateTime.Parse((rdr.GetValue(2).ToString())),
+                    DateTime.Parse((rdr.GetValue(3).ToString())), (int)rdr.GetValue(4), rdr.GetValue(5).ToString(), seekEemploye(rdr.GetValue(6).ToString()),
+                    seekTenant(rdr.GetValue(7).ToString()), false);
+                Leases.Add(lease);
+            }
+        }
+
+        //שיטה שמחפשת דייר ברשימה לפי תעודת זהות
+        public static Tenant seekTenant(string companyName)
+        {
+            foreach (Tenant tenant in Tenants)
+            {
+                if (tenant.getCompanyName() == companyName)
+                    return tenant;
+            }
+            return null;
+        }
+
+
+        // init tenants
+        public static void init_tenants()//מילוי הרשימה של הדיירים מתוך בסיס הנתונים
+        {
+            SqlCommand c = new SqlCommand();
+            c.CommandText = "EXECUTE dbo.Get_all_Tenants";
+            SQL_CON SC = new SQL_CON();
+            SqlDataReader rdr = SC.execute_query(c);
+            Tenants = new List<Tenant>();
+            while (rdr.Read())
+            {
+                Tenant tenant = new Tenant(rdr.GetValue(0).ToString(), rdr.GetValue(1).ToString(), rdr.GetValue(2).ToString(),
+                    DateTime.Parse((rdr.GetValue(3).ToString())), (int)rdr.GetValue(4), true, false);
+                Tenants.Add(tenant);
+            }
         }
 
 
@@ -80,6 +129,7 @@ namespace WOPA
                    
             }
         }
+
 
 
         static void Main()
