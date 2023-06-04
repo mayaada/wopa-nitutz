@@ -43,6 +43,8 @@ namespace WOPA
         {
             return this.companyName;
         }
+
+        
         
         public string getContactEmail()
         {
@@ -63,6 +65,13 @@ namespace WOPA
         {
             return this.numberOfEmployees;
         }
+
+        public bool getIsActive()
+        {
+            return this.isActive;
+        }
+
+
         
         public void updateContactEmail(string contactEmail)
         {
@@ -93,6 +102,49 @@ namespace WOPA
             SQL_CON SC = new SQL_CON();
             SC.execute_non_query(c);
         }
+
+        public void updateTenant()
+        {
+            SqlCommand c = new SqlCommand();
+            c.CommandText =
+                "EXECUTE SP_UPDATE_TENANT @Company_Name, @Contact_Email, @Website, @Date_Joined, @Number_Of_Employees";
+            c.Parameters.AddWithValue("@COMPANY_NAME", this.companyName);
+            c.Parameters.AddWithValue("@CONTACT_EMAIL", this.contactEmail);
+            c.Parameters.AddWithValue("@WEBSITE", this.website);
+            c.Parameters.AddWithValue("@DATE_JOINED", this.dateJoined);
+            c.Parameters.AddWithValue("@NUMBER_OF_EMPLOYEES", this.numberOfEmployees);
+            SQL_CON SC = new SQL_CON();
+            SC.execute_non_query(c);
+        }
+
+        public void deleteTenant()
+        {
+            SqlCommand c = new SqlCommand();
+            c.CommandText = "EXECUTE SP_DELETE_TENANT @Company_Name";
+            c.Parameters.AddWithValue("@COMPANY_NAME", this.companyName);
+            SQL_CON SC = new SQL_CON();
+            SC.execute_non_query(c);
+        }
+
+        public void activateTenant()
+        {
+            SqlCommand c = new SqlCommand();
+            c.CommandText = "EXECUTE SP_ACTIVATE_TENANT @Company_Name";
+            c.Parameters.AddWithValue("@COMPANY_NAME", this.companyName);
+            SQL_CON SC = new SQL_CON();
+            SC.execute_non_query(c);
+        }
+
+        public void deactivateTenant()
+        {
+            SqlCommand c = new SqlCommand();
+            c.CommandText = "EXECUTE SP_DEACTIVATE_TENANT @Company_Name";
+            c.Parameters.AddWithValue("@COMPANY_NAME", this.companyName);
+            SQL_CON SC = new SQL_CON();
+            SC.execute_non_query(c);
+        }
+
+
 
 
     }
