@@ -75,5 +75,19 @@ namespace WOPA
             SQL_CON SC = new SQL_CON();
             SC.execute_non_query(c);
         }
+        
+        public void updateLeasedItem()
+        {
+            SqlCommand c = new SqlCommand();
+            c.CommandText = "EXECUTE dbo.Update_Leased_Item @number, @floor, @type, @electricCharging, @isAvailable";
+            c.Parameters.AddWithValue("@number", number);
+            c.Parameters.AddWithValue("@floor", floor);
+            c.Parameters.AddWithValue("@type", type);
+            c.Parameters.AddWithValue("@electricCharging", electricCharging);
+            c.Parameters.AddWithValue("@isAvailable", isAvailable);
+            SQL_CON SC = new SQL_CON();
+            SC.execute_non_query(c);
+        }
+    
     }
 }
