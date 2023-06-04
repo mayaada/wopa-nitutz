@@ -34,7 +34,7 @@ namespace WOPA
         
         public string getCompanyName()
         {
-            return this.CompanyName;
+            return this.companyName;
         }
 
     }

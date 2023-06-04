@@ -1,3 +1,10 @@
+using System.Xml.Serialization;
+using System.Collections.Generic;
+using System.Linq;
+using System.Windows.Forms; // winform 
+using System.Data;
+using System.Data.SqlClient;
+
 namespace WOPA;
 
 public class Employee
@@ -9,7 +16,7 @@ public class Employee
     private string password;
     private bool isActive;
 
-    public Employee(string email, string name, string number, EmployeeType employeeType, string password,
+    public Employee(string email, string number, string name, string password, EmployeeType employeeType,
         Boolean isActive, bool isNew)
     {
         this.email = email;

@@ -28,12 +28,13 @@ namespace WOPA
             if (isNew)
             {
                 createLead();
-                Program.Lead.Add(this);
+                Program.Leads.Add(this);
             }
         }
 
-        public Lead(string? v1, string? v2, string? v3, string? v4, DateTime dateTime, Func<string?> toString, LeadStatus leadStatus, LeadSource leadSource, Employee employee, bool v5)
+        private void createLead()
         {
+            throw new NotImplementedException();
         }
 
         public string GetCompanyName()
@@ -98,12 +99,12 @@ namespace WOPA
 
         public int GetWorkStation()
         {
-            return workStation;
+            return NumOfworkStation;
         }
 
         public void SetWorkStation(int value)
         {
-            workStation = value;
+            NumOfworkStation = value;
         }
 
         public LeadSource GetSource()
@@ -118,12 +119,12 @@ namespace WOPA
 
         public Employee GetAddedBy()
         {
-            return addedBy;
+            return Added_By;
         }
 
         public void SetAddedBy(Employee value)
         {
-            addedBy = seekEemploye(value);
+            Added_By = Program.seekEemploye(value.getEmail());
         }
 
 
