@@ -14,18 +14,18 @@ using System.Xml.Serialization;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms; // winform 
-using System.Data;
-using System.Data.SqlClient;
+using Microsoft.Data;
+using Microsoft.Data.SqlClient;
 
 namespace WOPA;
 public class Issue
 {
     // create properties
-    public string IssueName { get; set; }
-    public string IssueLocation { get; set; }
-    public string IssueType { get; set; }
-    public string IssuePriority { get; set; }
-    public string Photo { get; set; }
+    public string IssueName;
+    public string IssueLocation;
+    public string IssueType;
+    public string IssuePriority;
+    public string Photo;
 
     // create constructor
     public Issue(string issueName, string issueLocation, string issueType, string issuePriority, string photo)
@@ -42,69 +42,89 @@ public class Issue
     {
     }
 
-    // create method to add issue
-    public static void AddIssue(Issue issue)
+    // CRATE GET AND SET FOR ALL PROPERTIES
+    public string getIssueName()
     {
-        // create connection
-        SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["WOPA"].ConnectionString);
-
-        // create query
-        string query = "INSERT INTO ISSUES VALUES (@Issue, @Issue_Location, @Issue_Type, @Issue_Priority, @Photo)";
-
-        // create command
-        SqlCommand command = new SqlCommand(query, connection);
-
-        // add parameters
-        command.Parameters.AddWithValue("@Issue", issue.IssueName);
-        command.Parameters.AddWithValue("@Issue_Location", issue.IssueLocation);
-        command.Parameters.AddWithValue("@Issue_Type", issue.IssueType);
-        command.Parameters.AddWithValue("@Issue_Priority", issue.IssuePriority);
-        command.Parameters.AddWithValue("@Photo", issue.Photo);
-
-        // open connection
-        connection.Open();
-
-        // execute command
-        command.ExecuteNonQuery();
-
-        // close connection
-        connection.Close();
+        return IssueName;
     }
 
-    // create method to get all issues
-    public static List<Issue> GetAllIssues()
+    public void setIssueName(string issueName)
     {
-        // create connection
-        SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["WOPA"].ConnectionString);
-
-        // create query
-        string query = "SELECT * FROM ISSUES";
-
-        // create command
-        SqlCommand command = new SqlCommand(query, connection);
-
-        // create list to store issues
-        List<Issue> issues = new List<Issue>();
-
-        // open connection
-        connection.Open();
-
-        // execute command
-        SqlDataReader reader = command.ExecuteReader();
-
-        // read data
-        while (reader.Read())
-        {
-            // create issue object
-            Issue issue = new Issue();
-
-            // set properties
-            issue.IssueName = reader["Issue"].ToString();
-            issue.IssueLocation = reader["Issue_Location"].ToString();
-            issue.IssueType = reader["Issue_Type"].ToString();
-            issue.IssuePriority = reader["Issue_Priority"].ToString();
-            issue.Photo = reader["Photo"].ToString();
-        }
-    
+        IssueName = issueName;
     }
+
+    public string getIssueLocation()
+    {
+        return IssueLocation;
+    }
+
+    public void setIssueLocation(string issueLocation)
+    {
+        IssueLocation = issueLocation;
+    }
+
+    public string getIssueType()
+    {
+        return IssueType;
+    }
+
+    public void setIssueType(string issueType)
+    {
+        IssueType = issueType;
+    }
+
+    public string getIssuePriority()
+    {
+        return IssuePriority;
+    }
+
+    public void setIssuePriority(string issuePriority)
+    {
+        IssuePriority = issuePriority;
+    }
+
+    public string getPhoto()
+    {
+        return Photo;
+    }
+
+    public void setPhoto(string photo)
+    {
+        Photo = photo;
+    }
+
+    // create method to add issue to database LIKE IN EMPLOYEE
+    public void addIssue()
+    {
+        SqlCommand c = new SqlCommand();
+        c.CommandText = "EXECUTE dbo.Add_Issue @Issue,@Issue_Location,@Issue_Type,@Issue_Priority,@Photo";
+        c.Parameters.AddWithValue("@Issue", IssueName);
+        c.Parameters.AddWithValue("@Issue_Location", IssueLocation);
+        c.Parameters.AddWithValue("@Issue_Type", IssueType);
+        c.Parameters.AddWithValue("@Issue_Priority", IssuePriority);
+        c.Parameters.AddWithValue("@Photo", Photo);
+        SQL_CON SC = new SQL_CON();
+        SC.execute_non_query(c);
+    }
+
+    // create method to update issue in database LIKE IN EMPLOYEE
+
+    public void updateIssue(string oldIssueName, string oldIssueLocation)
+    {
+        SqlCommand c = new SqlCommand();
+        c.CommandText = "EXECUTE dbo.Update_Issue @Issue,@Issue_Location,@Issue_Type,@Issue_Priority,@Photo,@oldIssueName,@oldIssueLocation";
+        c.Parameters.AddWithValue("@Issue", IssueName);
+        c.Parameters.AddWithValue("@Issue_Location", IssueLocation);
+        c.Parameters.AddWithValue("@Issue_Type", IssueType);
+        c.Parameters.AddWithValue("@Issue_Priority", IssuePriority);
+        c.Parameters.AddWithValue("@Photo", Photo);
+        c.Parameters.AddWithValue("@oldIssueName", oldIssueName);
+        c.Parameters.AddWithValue("@oldIssueLocation", oldIssueLocation);
+        SQL_CON SC = new SQL_CON();
+        SC.execute_non_query(c);
+    }
+
+
+
+
 }

@@ -3,8 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms; // winform 
-using System.Data;
-using System.Data.SqlClient;
+using Microsoft.Data;
+using Microsoft.Data.SqlClient;
 
 namespace WOPA
 {
@@ -47,8 +47,8 @@ namespace WOPA
         public static void initLists()//מילוי הרשימות מתוך בסיס הנתונים
         {
             init_employees();//אתחול הרשימה של העובדים
-           // init_leads();//אתחול הרשימה של לקוחות פוטנצייאלים
-           // init_tenants();// אתחול הרשימה של הדיירים
+            init_leads();//אתחול הרשימה של לקוחות פוטנצייאלים
+           init_tenants();// אתחול הרשימה של הדיירים
            // init_leases();//אתחול הרשימה של החוזים
         }
 
@@ -109,7 +109,7 @@ namespace WOPA
 
             while (rdr.Read())
             {
-                EmployeeType employeeType = (EmployeeType)Enum.Parse(typeof(EmployeeType), rdr.GetValue(4).ToString());
+                EmployeeType employeeType = (EmployeeType)Enum.Parse(typeof(EmployeeType), rdr.GetValue(4).ToString().Replace(" ", string.Empty));
                 Employee employee = new Employee(rdr.GetValue(0).ToString(), rdr.GetValue(1).ToString(), 
                     rdr.GetValue(2).ToString(), rdr.GetValue(3).ToString(), employeeType , true , false);
                 Employees.Add(employee);
@@ -126,8 +126,8 @@ namespace WOPA
             while (rdr.Read())
             {
 
-                LeadStatus leadStatus = (LeadStatus)Enum.Parse(typeof(LeadStatus), rdr.GetValue(6).ToString());
-                LeadSource leadSource = (LeadSource)Enum.Parse(typeof(LeadSource), rdr.GetValue(7).ToString());
+                LeadStatus leadStatus = (LeadStatus)Enum.Parse(typeof(LeadStatus), rdr.GetValue(6).ToString().Replace(" ", string.Empty));
+                LeadSource leadSource = (LeadSource)Enum.Parse(typeof(LeadSource), rdr.GetValue(7).ToString().Replace(" ", string.Empty));
 
                 Lead lead = new Lead(rdr.GetValue(0).ToString(), rdr.GetValue(1).ToString(),rdr.GetValue(2).ToString(),
                 rdr.GetValue(3).ToString(), DateTime.Parse((rdr.GetValue(4).ToString())), (int)rdr.GetValue(5) , leadStatus
