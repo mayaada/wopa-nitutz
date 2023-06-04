@@ -31,61 +31,51 @@ namespace WOPA
                 Program.Leads.Add(this);
             }
         }
-       public void createLead()
-            c.Parameters.AddWithValue("@contact", contact);
-            c.Parameters.AddWithValue("@email", email);
+       public void createLead() 
+       
         {
             SqlCommand c = new SqlCommand();
             c.CommandText = "EXECUTE dbo.Create_Lead @companyName, @contact, @number, @email,"
                 + " @dateOpened, @workStation, @status, @source, @Added_By";
+            c.Parameters.AddWithValue("@contact", contact);
+            c.Parameters.AddWithValue("@email", email);
             c.Parameters.AddWithValue("@companyName", companyName);
             c.Parameters.AddWithValue("@number", number);
             c.Parameters.AddWithValue("@dateOpened", dateOpened);
             c.Parameters.AddWithValue("@workStation", NumOfworkStation);
-            c.Parameters.AddWithValue("@source", source);
+            c.Parameters.AddWithValue("@source", leadSource);
             SQL_CON SC = new SQL_CON();
-            c.Parameters.AddWithValue("@status", status);
+            c.Parameters.AddWithValue("@status", leadStatus);
             c.Parameters.AddWithValue("@Added_By", Added_By.getEmail());
             SC.execute_non_query(c);
-            c.CommandText = "EXECUTE dbo.Update_Lead @companyName, @contact, @number, @email,"
-        {
+        }
         public void updateLead()
 
-        }
+        {
             SqlCommand c = new SqlCommand();
-            c.Parameters.AddWithValue("@companyName", companyName);
+            c.CommandText = "EXECUTE dbo.Update_Lead @companyName, @contact, @number, @email,"
                 + " @dateOpened, @workStation, @status, @source, @Added_By";
+            c.Parameters.AddWithValue("@companyName", companyName);
             c.Parameters.AddWithValue("@email", email);
             c.Parameters.AddWithValue("@contact", contact);
             c.Parameters.AddWithValue("@number", number);
             c.Parameters.AddWithValue("@dateOpened", dateOpened);
             c.Parameters.AddWithValue("@workStation", NumOfworkStation);
-            c.Parameters.AddWithValue("@status", status);
-            c.Parameters.AddWithValue("@source", source);
+            c.Parameters.AddWithValue("@status", leadStatus);
+            c.Parameters.AddWithValue("@source", leadSource);
             c.Parameters.AddWithValue("@Added_By", Added_By.getEmail());
             SQL_CON SC = new SQL_CON();
-        }
             SC.execute_non_query(c);
 
-        public void deleteLead()
-            SqlCommand c = new SqlCommand();
-        {
-            c.Parameters.AddWithValue("@companyName", companyName);
-            c.CommandText = "EXECUTE dbo.Delete_Lead @companyName, @contact, @number, @dateOpened, @Added_By";
-            c.Parameters.AddWithValue("@contact", contact);
-            c.Parameters.AddWithValue("@dateOpened", dateOpened);
-            c.Parameters.AddWithValue("@Added_By", Added_By.getEmail());
-            c.Parameters.AddWithValue("@number", number);
-            SQL_CON SC = new SQL_CON();
         }
-            SC.execute_non_query(c);
 
-        public string GetCompanyName()
+           
+        public string getCompanyName()
         {
             return companyName;
         }
 
-        public string GetContact()
+        public string getContact()
         {
             return contact;
         }
@@ -95,46 +85,42 @@ namespace WOPA
             return this.number;
         }
 
-        public string GetEmail()
+        public string getEmail()
         {
             return email;
         }
 
-        public DateTime GetDateOpened()
+        public DateTime getDateOpened()
         {
             return dateOpened;
         }
 
-        public LeadStatus GetStatus()
+        public LeadStatus getStatus()
         {
             return this.leadStatus;
         }
 
-        public int GetWorkStationNumber()
+        public int getWorkStationNumber()
         {
             return this.NumOfworkStation;
         }
 
-        public void updateStatus(LeadStatus value)
-        {
-            return this.leadSource;
-        }
         
         public void updateContact(string contact)
         {
-            return NumOfworkStation;
+             this.contact = contact;
         }
         
         public void updateNumber(string number)
         {
-            NumOfworkStation = value;
+            this.number = number;
         }
         
         public void updateEmail(string email)
         {
             this.email = email;
         }
-        public void updateStatus(LeadStatus status)
+        public void updateLeadStatus(LeadStatus status)
         {
             this.leadStatus = status;
         }
@@ -142,16 +128,6 @@ namespace WOPA
         public void updateWorkStationNumber(int workStation)
         {
             this.NumOfworkStation = workStation;
-        }
-
-        public void convertToNewTenant(string contactEmail, string website, DateTime dateJoined, int numberOfEmployees, bool isActive)
-        {
-            return Added_By;
-        }
-
-        public void createLead()
-        {
-            Added_By = Program.seekEemploye(value.getEmail());
         }
         
         
@@ -161,7 +137,8 @@ namespace WOPA
         {
             Tenant tenant = new Tenant(companyName, contact, number, email, 
             dateOpened, NumOfworkStation, status, source, Added_By, true);
-            updateStatus(LeadStatus MoveToTenant);
+
+            updateLeadStatus(LeadStatus.MoveToTenant);
             return tenant;
         } 
 
