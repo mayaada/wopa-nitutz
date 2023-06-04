@@ -10,27 +10,25 @@ namespace WOPA
 {
     public class Program
     {
-
-
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         /// 
-            //רשימות
-        public static System.Collections.Generic.List<Employee> Employees ;
-       public static System.Collections.Generic.List<Lead> Leads ;
-       public static System.Collections.Generic.List<Tenant> Tenants ;
-        public static System.Collections.Generic.List<Lease> Leases ;
+        //רשימות
+        public static System.Collections.Generic.List<Employee> Employees;
+
+        public static System.Collections.Generic.List<Lead> Leads;
+        public static System.Collections.Generic.List<Tenant> Tenants;
+        public static System.Collections.Generic.List<Lease> Leases;
 
         // crate LeasedItems list
         public static System.Collections.Generic.List<LeasedItem> LeasedItems = new List<LeasedItem>();
 
         // create LeasedItemTypes list
         public static System.Collections.Generic.List<LeasedItemType> LeasedItemTypes = new List<LeasedItemType>();
-        
+
 
         [STAThread]
-
 
         //שיטה שמחפשת עובד ברשימה לפי תעודת זהות
         public static Employee seekEemploye(string email)
@@ -40,11 +38,12 @@ namespace WOPA
                 if (employee.getEmail() == email)
                     return employee;
             }
+
             return null;
         }
 
 
-        public static void initLists()//מילוי הרשימות מתוך בסיס הנתונים
+        public static void initLists() //מילוי הרשימות מתוך בסיס הנתונים
         {
             init_employees();//אתחול הרשימה של העובדים
             init_leads();//אתחול הרשימה של לקוחות פוטנצייאלים
@@ -53,7 +52,7 @@ namespace WOPA
         }
 
         // init leases
-        public static void init_leases()//מילוי הרשימה של החוזים מתוך בסיס הנתונים
+        public static void init_leases() //מילוי הרשימה של החוזים מתוך בסיס הנתונים
         {
             SqlCommand c = new SqlCommand();
             c.CommandText = "EXECUTE dbo.Get_all_Leases";
@@ -62,8 +61,10 @@ namespace WOPA
             Leases = new List<Lease>();
             while (rdr.Read())
             {
-                Lease lease = new Lease((int)rdr.GetValue(0), rdr.GetValue(1).ToString(), DateTime.Parse((rdr.GetValue(2).ToString())),
-                    DateTime.Parse((rdr.GetValue(3).ToString())), (int)rdr.GetValue(4), rdr.GetValue(5).ToString(), seekEemploye(rdr.GetValue(6).ToString()),
+                Lease lease = new Lease((int)rdr.GetValue(0), rdr.GetValue(1).ToString(),
+                    DateTime.Parse((rdr.GetValue(2).ToString())),
+                    DateTime.Parse((rdr.GetValue(3).ToString())), (int)rdr.GetValue(4), rdr.GetValue(5).ToString(),
+                    seekEemploye(rdr.GetValue(6).ToString()),
                     seekTenant(rdr.GetValue(7).ToString()), false);
                 Leases.Add(lease);
             }
@@ -77,12 +78,13 @@ namespace WOPA
                 if (tenant.getCompanyName() == companyName)
                     return tenant;
             }
+
             return null;
         }
 
 
         // init tenants
-        public static void init_tenants()//מילוי הרשימה של הדיירים מתוך בסיס הנתונים
+        public static void init_tenants() //מילוי הרשימה של הדיירים מתוך בסיס הנתונים
         {
             SqlCommand c = new SqlCommand();
             c.CommandText = "EXECUTE dbo.Get_all_Tenants";
@@ -91,14 +93,15 @@ namespace WOPA
             Tenants = new List<Tenant>();
             while (rdr.Read())
             {
-                Tenant tenant = new Tenant(rdr.GetValue(0).ToString(), rdr.GetValue(1).ToString(), rdr.GetValue(2).ToString(),
+                Tenant tenant = new Tenant(rdr.GetValue(0).ToString(), rdr.GetValue(1).ToString(),
+                    rdr.GetValue(2).ToString(),
                     DateTime.Parse((rdr.GetValue(3).ToString())), (int)rdr.GetValue(4), true, false);
                 Tenants.Add(tenant);
             }
         }
 
 
-        public static void init_employees()//מילוי מערך עובדים מתוך בסיס הנתונים
+        public static void init_employees() //מילוי מערך עובדים מתוך בסיס הנתונים
         {
             SqlCommand c = new SqlCommand();
             c.CommandText = "EXECUTE dbo.Get_all_Emplpoyees";
@@ -116,7 +119,7 @@ namespace WOPA
             }
         }
 
-        public static void init_leads()//מילוי מערך לקוחות פוטנציאלים מתוך בסיס הנתונים
+        public static void init_leads() //מילוי מערך לקוחות פוטנציאלים מתוך בסיס הנתונים
         {
             SqlCommand c = new SqlCommand();
             c.CommandText = "EXECUTE dbo.Get_all_Orders";
@@ -125,27 +128,25 @@ namespace WOPA
             Leads = new List<Lead>();
             while (rdr.Read())
             {
-
                 LeadStatus leadStatus = (LeadStatus)Enum.Parse(typeof(LeadStatus), rdr.GetValue(6).ToString().Replace(" ", string.Empty));
+
                 LeadSource leadSource = (LeadSource)Enum.Parse(typeof(LeadSource), rdr.GetValue(7).ToString().Replace(" ", string.Empty));
 
-                Lead lead = new Lead(rdr.GetValue(0).ToString(), rdr.GetValue(1).ToString(),rdr.GetValue(2).ToString(),
-                rdr.GetValue(3).ToString(), DateTime.Parse((rdr.GetValue(4).ToString())), (int)rdr.GetValue(5) , leadStatus
-                , leadSource, seekEemploye(rdr.GetValue(8).ToString()) , false) ;
-                Leads.Add (lead); 
-                   
+                Lead lead = new Lead(rdr.GetValue(0).ToString(), rdr.GetValue(1).ToString(), rdr.GetValue(2).ToString(),
+                    rdr.GetValue(3).ToString(), DateTime.Parse((rdr.GetValue(4).ToString())), (int)rdr.GetValue(5),
+                    leadStatus
+                    , leadSource, seekEemploye(rdr.GetValue(8).ToString()), false);
+                Leads.Add(lead);
             }
         }
-
 
 
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            initLists();//אתחול כל הרשימות
+            initLists(); //אתחול כל הרשימות
             Application.Run(new mainForm());
         }
     }
 }
-
