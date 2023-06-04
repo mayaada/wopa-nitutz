@@ -1,19 +1,5 @@
-/* 
-CREATE TABLE LEASES(
-Lease_ID		INT		            PRIMARY KEY 	NOT NULL,
-Signer_Name     varchar (60)        NOT NULL, 
-Start_Date      DATE                NOT NULL, 
-End_Date        DATE                NULL, 
-Termination_Notice INT              NOT NULL, 
-Terms_And_Conditions varchar (60)   NOT NULL, 
-Signed_By_Employee  VARCHAR (60)    NOT NULL,
-Signed_By_Tenant	VARCHAR (60)    NOT NULL,
-)
-*/
-
 namespace WOPA
 {
-
     public class Lease
     {
         private int leaseID;
@@ -24,6 +10,7 @@ namespace WOPA
         private string termsAndConditions;
         private Employee signedByEmployee;
         private Tenant signedByTenant;
+        private list<LeasedItem> itemsLeased;
         
         // constructor for new lease
         public Lease(int leaseID, string signerName, DateTime startDate, DateTime endDate, int terminationNotice,
@@ -37,6 +24,7 @@ namespace WOPA
             this.termsAndConditions = termsAndConditions;
             this.signedByEmployee = signedByEmployee;
             this.signedByTenant = signedByTenant;
+            this.leasedItems = new list<LeasedItem>();
             if (isNew)
             {
                 createLease();
@@ -80,7 +68,6 @@ namespace WOPA
             return this.signedByEmployee;
         }
         
-        
         public Tenant getSignedByTenant()
         {
             return this.signedByTenant;
@@ -108,12 +95,31 @@ namespace WOPA
             this.termsAndConditions = termsAndConditions;
         }
         
-        
-        
-                         public void createLease()
+        public void addLeasedItem(LeasedItem leasedItem)
+        {
+            leasedItems.Add(leasedItem);
+        }
+
+        public void createLease()
         {
             SqlCommand c = new SqlCommand();
             c.CommandText = "EXECUTE dbo.Create_Lease @leaseID, @signerName, @startDate, @endDate, @terminationNotice, @termsAndConditions, @signedByEmployee, @signedByTenant";
+            c.Parameters.AddWithValue("@leaseID", leaseID);
+            c.Parameters.AddWithValue("@signerName", signerName);
+            c.Parameters.AddWithValue("@startDate", startDate);
+            c.Parameters.AddWithValue("@endDate", endDate);
+            c.Parameters.AddWithValue("@terminationNotice", terminationNotice);
+            c.Parameters.AddWithValue("@termsAndConditions", termsAndConditions);
+            c.Parameters.AddWithValue("@signedByEmployee", signedByEmployee);
+            c.Parameters.AddWithValue("@signedByTenant", signedByTenant);
+            SQL_CON SC = new SQL_CON();
+            SC.execute_non_query(c);
+        }
+        
+        public void updateLease()
+        {
+            SqlCommand c = new SqlCommand();
+            c.CommandText = "EXECUTE dbo.Update_Lease @leaseID, @signerName, @startDate, @endDate, @terminationNotice, @termsAndConditions, @signedByEmployee, @signedByTenant";
             c.Parameters.AddWithValue("@leaseID", leaseID);
             c.Parameters.AddWithValue("@signerName", signerName);
             c.Parameters.AddWithValue("@startDate", startDate);

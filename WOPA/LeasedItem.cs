@@ -7,20 +7,22 @@ namespace WOPA
         private LeasedItemType type;
         private bool electricCharging;
         private bool isAvailable;
+        private Lease relatesTo;
 
-        public LeasedItem(int number, int floor, LeasedItemType type, bool electricCharging, bool isAvailable,
-            bool isNew)
+        public LeasedItem(int number, int floor, LeasedItemType type, bool electricCharging, bool isAvailable, Lease lease, bool isNew)
         {
             this.number = number;
             this.floor = floor;
             this.type = type;
             this.electricCharging = electricCharging;
             this.isAvailable = isAvailable;
+            this.relatesTo = lease;
             if (isNew)
             {
                 createLeasedItem();
                 Program.LeasedItems.Add(this);
             }
+            Lease.addLeasedItem(this);
         }
 
         public int getNumber()
