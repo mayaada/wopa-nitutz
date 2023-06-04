@@ -161,7 +161,7 @@ namespace WOPA
         {
             Tenant tenant = new Tenant(companyName, contact, number, email, 
             dateOpened, NumOfworkStation, status, source, Added_By, true);
-            updateStatus(LeadStatus Move_To_Tenant);
+            updateStatus(LeadStatus MoveToTenant);
             return tenant;
         } 
 
