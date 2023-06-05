@@ -32,8 +32,6 @@ public class Employee
             Program.Employees.Add(this);
         }
     }
-
-   
     public string getEmail()
     {
         return this.email;
