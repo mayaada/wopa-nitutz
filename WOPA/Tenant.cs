@@ -123,32 +123,6 @@ namespace WOPA
             SC.execute_non_query(c);
         }
 
-        public void deleteTenant()
-        {
-            SqlCommand c = new SqlCommand();
-            c.CommandText = "EXECUTE SP_DELETE_TENANT @Company_Name";
-            c.Parameters.AddWithValue("@COMPANY_NAME", this.companyName);
-            SQL_CON SC = new SQL_CON();
-            SC.execute_non_query(c);
-        }
-
-        public void activateTenant()
-        {
-            SqlCommand c = new SqlCommand();
-            c.CommandText = "EXECUTE SP_ACTIVATE_TENANT @Company_Name";
-            c.Parameters.AddWithValue("@COMPANY_NAME", this.companyName);
-            SQL_CON SC = new SQL_CON();
-            SC.execute_non_query(c);
-        }
-
-        public void deactivateTenant()
-        {
-            SqlCommand c = new SqlCommand();
-            c.CommandText = "EXECUTE SP_DEACTIVATE_TENANT @Company_Name";
-            c.Parameters.AddWithValue("@COMPANY_NAME", this.companyName);
-            SQL_CON SC = new SQL_CON();
-            SC.execute_non_query(c);
-        }
 
 
 

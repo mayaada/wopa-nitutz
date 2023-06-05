@@ -146,6 +146,8 @@ namespace WOPA
             initLists();//אתחול כל הרשימות
             Application.Run(new mainForm());
         }
+
+         
     }
 }
 
