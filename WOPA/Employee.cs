@@ -32,7 +32,11 @@ public class Employee
             Program.Employees.Add(this);
         }
     }
+    
+    public void setemail()
+    {
 
+    }
    
     public string getEmail()
     {
