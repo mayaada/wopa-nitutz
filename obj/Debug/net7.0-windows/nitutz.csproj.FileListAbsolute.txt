@@ -1,7 +1,0 @@
-C:\Users\tamar\wopa-nitutz\obj\Debug\net7.0-windows\nitutz.csproj.AssemblyReference.cache
-C:\Users\tamar\wopa-nitutz\obj\Debug\net7.0-windows\nitutz.Form1.resources
-C:\Users\tamar\wopa-nitutz\obj\Debug\net7.0-windows\nitutz.csproj.GenerateResource.cache
-C:\Users\tamar\wopa-nitutz\obj\Debug\net7.0-windows\nitutz.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\tamar\wopa-nitutz\obj\Debug\net7.0-windows\nitutz.AssemblyInfoInputs.cache
-C:\Users\tamar\wopa-nitutz\obj\Debug\net7.0-windows\nitutz.AssemblyInfo.cs
-C:\Users\tamar\wopa-nitutz\obj\Debug\net7.0-windows\nitutz.csproj.CoreCompileInputs.cache
