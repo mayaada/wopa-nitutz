@@ -29,56 +29,60 @@
         private void InitializeComponent()
         {
             button1 = new Button();
-            comboBox1 = new ComboBox();
             button2 = new Button();
+            label1 = new Label();
             SuspendLayout();
             // 
             // button1
             // 
-            button1.Location = new Point(146, 168);
+            button1.Location = new Point(144, 216);
             button1.Name = "button1";
-            button1.Size = new Size(256, 107);
+            button1.Size = new Size(156, 82);
             button1.TabIndex = 0;
-            button1.Text = "button1";
+            button1.Text = "דייר";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
-            // comboBox1
-            // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(510, 120);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(256, 33);
-            comboBox1.TabIndex = 1;
-            // 
             // button2
             // 
-            button2.Location = new Point(194, 316);
+            button2.Location = new Point(511, 216);
             button2.Name = "button2";
-            button2.Size = new Size(357, 94);
-            button2.TabIndex = 2;
-            button2.Text = "button2";
+            button2.Size = new Size(156, 82);
+            button2.TabIndex = 4;
+            button2.Text = "עובד";
             button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            button2.Click += button2_Click_1;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Britannic Bold", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(238, 88);
+            label1.Name = "label1";
+            label1.Size = new Size(340, 40);
+            label1.TabIndex = 5;
+            label1.Text = "WELCOME TO WOPA!";
+            label1.Click += label1_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(label1);
             Controls.Add(button2);
-            Controls.Add(comboBox1);
             Controls.Add(button1);
             Name = "Form1";
             Text = "Form1";
             Load += Form1_Load;
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private Button button1;
-        private ComboBox comboBox1;
         private Button button2;
+        private Label label1;
     }
 }
