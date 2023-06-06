@@ -15,6 +15,9 @@ namespace nitutz
         private DateTime dateJoined;
         private int numberOfEmployees;
         private bool isActive;
+        private List<Lease> leases;
+        private List<Ticket> tickets;
+        private List<Booking> bookings;
 
 
         public Tenant(string companyName, string contactEmail, string website, DateTime dateJoined,
@@ -26,6 +29,11 @@ namespace nitutz
             this.dateJoined = dateJoined;
             this.numberOfEmployees = numberOfEmployees;
             this.isActive = isActive;
+            this.leases = new List<Lease>(); // each tenant can have  a few leases
+            this.tickets = new List<Ticket>(); // each tenant can have a few tickets 
+            this.bookings = new List<Booking>(); // each tenant can have a few bookings
+            
+     
             if (isNew)
             {
                 createTenant();

@@ -12,59 +12,66 @@ namespace nitutz
     public class Event
     {
         //c create attributes like employee
-        private string EventName;
-        private DateTime StartDate;
-        private DateTime EndDate;
-        private int MaxInvitees;
+        private string eventName;
+        private DateTime startDate;
+        private DateTime endDate;
+        private int maxInvitees;
+        private List<Booking> bookings;
 
         //c create constructor like employee
         public Event(string eventName, DateTime startDate, DateTime endDate, int maxInvitees)
         {
-            this.EventName = eventName;
-            this.StartDate = startDate;
-            this.EndDate = endDate;
-            this. MaxInvitees = maxInvitees;
+            this.eventName = eventName;
+            this.startDate = startDate;
+            this.endDate = endDate;
+            this. maxInvitees = maxInvitees;
+            this.bookings = new List<Booking>(); // each event can have a few bookings
         }
 
         //c create getters and setters like employee
         public string getEventName()
         {
-            return EventName;
+            return eventName;
         }
 
         public void setEventName(string eventName)
         {
-            EventName = eventName;
+            this.eventName = eventName;
         }
 
         public DateTime getStartDate()
         {
-            return StartDate;
+            return this.startDate;
         }
 
         public void setStartDate(DateTime startDate)
         {
-            StartDate = startDate;
+            this.startDate = startDate;
         }
 
         public DateTime getEndDate()
         {
-            return EndDate;
+            return this.endDate;
         }
 
         public void setEndDate(DateTime endDate)
         {
-            EndDate = endDate;
+            this.endDate = endDate;
         }
 
         public int getMaxInvitees()
         {
-            return MaxInvitees;
+            return this.maxInvitees;
         }
 
         public void setMaxInvitees(int maxInvitees)
         {
-            MaxInvitees = maxInvitees;
+            this.maxInvitees = maxInvitees;
+        }
+
+        public List<Booking> getBookings()
+        {
+            return this.bookings;
         }
 
         //c create method to add event to database like employee
@@ -72,10 +79,10 @@ namespace nitutz
         {
             SqlCommand c = new SqlCommand();
             c.CommandText = "EXECUTE dbo.Add_Event @Event_Name, @Start_Date, @End_Date, @Max_Invitees";
-            c.Parameters.AddWithValue("@Event_Name", EventName);
-            c.Parameters.AddWithValue("@Start_Date", StartDate);
-            c.Parameters.AddWithValue("@End_Date", EndDate);
-            c.Parameters.AddWithValue("@Max_Invitees", MaxInvitees);
+            c.Parameters.AddWithValue("@Event_Name", eventName);
+            c.Parameters.AddWithValue("@Start_Date", startDate);
+            c.Parameters.AddWithValue("@End_Date", endDate);
+            c.Parameters.AddWithValue("@Max_Invitees", maxInvitees);
             SQL_CON SC = new SQL_CON();
             SC.execute_non_query(c);
         }
@@ -85,10 +92,10 @@ namespace nitutz
         {
             SqlCommand c = new SqlCommand();
             c.CommandText = "EXECUTE dbo.Update_Event @Event_Name, @Start_Date, @End_Date, @Max_Invitees";
-            c.Parameters.AddWithValue("@Event_Name", EventName);
-            c.Parameters.AddWithValue("@Start_Date", StartDate);
-            c.Parameters.AddWithValue("@End_Date", EndDate);
-            c.Parameters.AddWithValue("@Max_Invitees", MaxInvitees);
+            c.Parameters.AddWithValue("@Event_Name", eventName);
+            c.Parameters.AddWithValue("@Start_Date", startDate);
+            c.Parameters.AddWithValue("@End_Date", endDate);
+            c.Parameters.AddWithValue("@Max_Invitees", maxInvitees);
             SQL_CON SC = new SQL_CON();
             SC.execute_non_query(c);
         }

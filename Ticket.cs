@@ -15,100 +15,98 @@ namespace nitutz
     public class Ticket
     {
         // create properties
-        public int TicketID;
-        public DateTime TimeTime;
-        public DateTime DateOpened;
-        public TicketStatus TicketStatus;
-        public Employee OpenedByEmployee;
-        public Tenant OpenedByTenant;
-        public Issue RefferenceIssue;
+        public int ticketID;
+        public DateTime timeTime;
+        public DateTime dateOpened;
+        public TicketStatus ticketStatus;
+        public Employee openedByEmployee;
+        public Tenant openedByTenant;
+        public Issue refferenceIssue;
 
         // create constructor
         public Ticket(int ticketID, DateTime timeTime, DateTime dateOpened, TicketStatus ticketStatus, Employee openedByEmployee, Tenant openedByTenant, Issue refferenceIssue)
         {
-            this.TicketID = ticketID;
-            this.TimeTime = timeTime;
-            this.DateOpened = dateOpened;
-            this.TicketStatus = ticketStatus;
-            this.OpenedByEmployee = openedByEmployee;
-            this.OpenedByTenant = openedByTenant;
-            this.RefferenceIssue = refferenceIssue;
+            this.ticketID = ticketID;
+            this.timeTime = timeTime;
+            this.dateOpened = dateOpened;
+            this.ticketStatus = ticketStatus;
+            this.openedByEmployee = openedByEmployee;
+            this.openedByTenant = openedByTenant;
+            this.refferenceIssue = refferenceIssue;
         }
 
         // create default constructor
-        public Ticket()
-        {
-        }
+   
 
         // CRATE GET AND SET FOR ALL PROPERTIES
         public int getTicketID()
         {
-            return TicketID;
+            return this.ticketID;
         }
 
         public void setTicketID(int ticketID)
         {
-            TicketID = ticketID;
+            this.ticketID = ticketID;
         }
 
         public DateTime getTimeTime()
         {
-            return TimeTime;
+            return this.timeTime;
         }
 
         public void setTimeTime(DateTime timeTime)
         {
-            this.TimeTime = timeTime;
+            this.timeTime = timeTime;
         }
 
         public DateTime getDateOpened()
         {
-            return DateOpened;
+            return this.dateOpened;
         }
 
         public void setDateOpened(DateTime dateOpened)
         {
-            this.DateOpened = dateOpened;
+            this.dateOpened = dateOpened;
         }
 
         public TicketStatus getTicketStatus()
         {
-            return TicketStatus;
+            return this.ticketStatus;
         }
 
         public void setTicketStatus(TicketStatus ticketStatus)
         {
-            this.TicketStatus = ticketStatus;
+            this.ticketStatus = ticketStatus;
         }
 
         public Employee getOpenedByEmployee()
         {
-            return OpenedByEmployee;
+            return this.openedByEmployee;
         }
 
         public void setOpenedByEmployee(Employee openedByEmployee)
         {
-            this.OpenedByEmployee = openedByEmployee;
+            this.openedByEmployee = openedByEmployee;
         }
 
         public Tenant getOpenedByTenant()
         {
-            return OpenedByTenant;
+            return this.openedByTenant;
         }
 
         public void setOpenedByTenant(Tenant openedByTenant)
         {
-            this.OpenedByTenant = openedByTenant;
+            this.openedByTenant = openedByTenant;
         }
 
         public Issue getRefferenceIssue()
         {
-            return RefferenceIssue;
+            return this.refferenceIssue;
         }
 
         public void setRefferenceIssue(Issue refferenceIssue)
         {
-            RefferenceIssue = refferenceIssue;
+            this.refferenceIssue = refferenceIssue;
         }
 
         // create method to add ticket to database like employee
@@ -116,13 +114,13 @@ namespace nitutz
         {
             SqlCommand c = new SqlCommand();
             c.CommandText = "EXECUTE dbo.Add_Ticket @Ticket_ID, @Time_Time, @Date_Opened, @Ticket_Status, @Opened_By_Employee, @Opened_By_Tenant, @Refference_Issue";
-            c.Parameters.AddWithValue("@Ticket_ID", TicketID);
-            c.Parameters.AddWithValue("@Time_Time", TimeTime);
-            c.Parameters.AddWithValue("@Date_Opened", DateOpened);
-            c.Parameters.AddWithValue("@Ticket_Status", TicketStatus);
-            c.Parameters.AddWithValue("@Opened_By_Employee", OpenedByEmployee);
-            c.Parameters.AddWithValue("@Opened_By_Tenant", OpenedByTenant);
-            c.Parameters.AddWithValue("@Refference_Issue", RefferenceIssue);
+            c.Parameters.AddWithValue("@Ticket_ID", ticketID);
+            c.Parameters.AddWithValue("@Time_Time", timeTime);
+            c.Parameters.AddWithValue("@Date_Opened", dateOpened);
+            c.Parameters.AddWithValue("@Ticket_Status", ticketStatus);
+            c.Parameters.AddWithValue("@Opened_By_Employee", openedByEmployee);
+            c.Parameters.AddWithValue("@Opened_By_Tenant", openedByTenant);
+            c.Parameters.AddWithValue("@Refference_Issue", refferenceIssue);
             SQL_CON SC = new SQL_CON();
             SC.execute_non_query(c);
         }
@@ -132,13 +130,13 @@ namespace nitutz
         {
             SqlCommand c = new SqlCommand();
             c.CommandText = "EXECUTE dbo.Update_Ticket @Ticket_ID, @Time_Time, @Date_Opened, @Ticket_Status, @Opened_By_Employee, @Opened_By_Tenant, @Refference_Issue";
-            c.Parameters.AddWithValue("@Ticket_ID", TicketID);
-            c.Parameters.AddWithValue("@Time_Time", TimeTime);
-            c.Parameters.AddWithValue("@Date_Opened", DateOpened);
-            c.Parameters.AddWithValue("@Ticket_Status", TicketStatus);
-            c.Parameters.AddWithValue("@Opened_By_Employee", OpenedByEmployee);
-            c.Parameters.AddWithValue("@Opened_By_Tenant", OpenedByTenant);
-            c.Parameters.AddWithValue("@Refference_Issue", RefferenceIssue);
+            c.Parameters.AddWithValue("@Ticket_ID", ticketID);
+            c.Parameters.AddWithValue("@Time_Time", timeTime);
+            c.Parameters.AddWithValue("@Date_Opened", dateOpened);
+            c.Parameters.AddWithValue("@Ticket_Status", ticketStatus);
+            c.Parameters.AddWithValue("@Opened_By_Employee", openedByEmployee);
+            c.Parameters.AddWithValue("@Opened_By_Tenant", openedByTenant);
+            c.Parameters.AddWithValue("@Refference_Issue", refferenceIssue);
             SQL_CON SC = new SQL_CON();
             SC.execute_non_query(c);
         }

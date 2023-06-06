@@ -16,9 +16,9 @@ namespace nitutz
         private string email;
         private DateTime dateOpened;
         private LeadStatus leadStatus;
-        private int NumOfworkStation;
+        private int numOfworkStation;
         private LeadSource leadSource;
-        private Employee Added_By;
+        private Employee addedBy;
 
         public Lead(string companyName, string contact, string number, string email, DateTime dateOpened, int workStation,
          LeadStatus status, LeadSource source, Employee Added_By, Boolean isNew)
@@ -29,9 +29,9 @@ namespace nitutz
             this.email = email;
             this.dateOpened = dateOpened;
             this.leadStatus = status;
-            this.NumOfworkStation = workStation;
+            this.numOfworkStation = workStation;
             this.leadSource = source;
-            this.Added_By = Added_By;
+            this.addedBy = Added_By;
             if (isNew)
             {
                 createLead();
@@ -49,11 +49,11 @@ namespace nitutz
             c.Parameters.AddWithValue("@companyName", companyName);
             c.Parameters.AddWithValue("@number", number);
             c.Parameters.AddWithValue("@dateOpened", dateOpened);
-            c.Parameters.AddWithValue("@workStation", NumOfworkStation);
+            c.Parameters.AddWithValue("@workStation", numOfworkStation);
             c.Parameters.AddWithValue("@source", leadSource);
             SQL_CON SC = new SQL_CON();
             c.Parameters.AddWithValue("@status", leadStatus);
-            c.Parameters.AddWithValue("@Added_By", Added_By.getEmail());
+            c.Parameters.AddWithValue("@Added_By", addedBy.getEmail());
             SC.execute_non_query(c);
         }
         public void updateLead()
@@ -67,10 +67,10 @@ namespace nitutz
             c.Parameters.AddWithValue("@contact", contact);
             c.Parameters.AddWithValue("@number", number);
             c.Parameters.AddWithValue("@dateOpened", dateOpened);
-            c.Parameters.AddWithValue("@workStation", NumOfworkStation);
+            c.Parameters.AddWithValue("@workStation", numOfworkStation);
             c.Parameters.AddWithValue("@status", leadStatus);
             c.Parameters.AddWithValue("@source", leadSource);
-            c.Parameters.AddWithValue("@Added_By", Added_By.getEmail());
+            c.Parameters.AddWithValue("@Added_By", addedBy.getEmail());
             SQL_CON SC = new SQL_CON();
             SC.execute_non_query(c);
 
@@ -79,12 +79,12 @@ namespace nitutz
 
         public string getCompanyName()
         {
-            return companyName;
+            return this.companyName;
         }
 
         public string getContact()
         {
-            return contact;
+            return this.contact;
         }
 
         public string getNumber()
@@ -109,7 +109,7 @@ namespace nitutz
 
         public int getWorkStationNumber()
         {
-            return this.NumOfworkStation;
+            return this.numOfworkStation;
         }
 
 
@@ -134,7 +134,7 @@ namespace nitutz
 
         public void updateWorkStationNumber(int workStation)
         {
-            this.NumOfworkStation = workStation;
+            this.numOfworkStation = workStation;
         }
 
 

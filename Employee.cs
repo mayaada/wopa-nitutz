@@ -91,6 +91,27 @@ public class Employee
     public void inactivate()
     {
         this.isActive = false;
+
+    }
+
+    public List<Ticket> getTicketsOpened()
+    {
+        return this.ticketsOpened;
+    }
+
+    public List<Booking> getBookings()
+    {
+        return this.bookings;
+    }
+
+    public List<Lead> getLeads()
+    {
+        return this.leads;
+    }
+
+    public List<Lease> getLeases()
+    {
+        return this.leases;
     }
 
     public void createEmployee()

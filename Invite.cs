@@ -9,35 +9,35 @@ namespace nitutz
 {
     internal class Invite
     {
-        private Tenant Tenant;
-        private Event EventName;
+        private Tenant tenant;
+        private Event eventName;
 
 
         public Invite(Tenant tenant, Event eventName)
         {
-            this.Tenant = tenant;
-            this.EventName = eventName;
+            this.tenant = tenant;
+            this.eventName = eventName;
         }
 
         public Tenant getTenant()
         {
-            return Tenant;
+            return this.tenant;
 
         }
 
         public void setTenant(Tenant tenant)
         {
-            Tenant = tenant;
+            this.tenant = tenant;
         }
 
         public Event getEventName()
         {
-            return EventName;
+            return this.eventName;
         }
 
         public void setEventName(Event eventName)
         {
-            EventName = eventName;
+            this.eventName = eventName;
 
 
 
@@ -47,8 +47,8 @@ namespace nitutz
         {
             SqlCommand c = new SqlCommand();
             c.CommandText = "EXECUTE dbo.Add_Invite @Tenant_Name, @Event_Name";
-            c.Parameters.AddWithValue("@Tenant_Name", Tenant);
-            c.Parameters.AddWithValue("@Event_Name", EventName);
+            c.Parameters.AddWithValue("@Tenant_Name", tenant);
+            c.Parameters.AddWithValue("@Event_Name", eventName);
             SQL_CON SC = new SQL_CON();
             SC.execute_non_query(c);
         }
@@ -57,8 +57,8 @@ namespace nitutz
         {
             SqlCommand c = new SqlCommand();
             c.CommandText = "EXECUTE dbo.Delete_Invite @Tenant_Name, @Event_Name";
-            c.Parameters.AddWithValue("@Tenant_Name", Tenant);
-            c.Parameters.AddWithValue("@Event_Name", EventName);
+            c.Parameters.AddWithValue("@Tenant_Name", tenant);
+            c.Parameters.AddWithValue("@Event_Name", eventName);
             SQL_CON SC = new SQL_CON();
             SC.execute_non_query(c);
         }
@@ -67,8 +67,8 @@ namespace nitutz
         {
             SqlCommand c = new SqlCommand();
             c.CommandText = "EXECUTE dbo.Update_Invite @Tenant_Name, @Event_Name";
-            c.Parameters.AddWithValue("@Tenant_Name", Tenant);
-            c.Parameters.AddWithValue("@Event_Name", EventName);
+            c.Parameters.AddWithValue("@Tenant_Name", tenant);
+            c.Parameters.AddWithValue("@Event_Name", eventName);
             SQL_CON SC = new SQL_CON();
             SC.execute_non_query(c);
         }

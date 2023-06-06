@@ -9,109 +9,112 @@ namespace nitutz
 {
     public class Issue
     {
-        public string IssueName;
-        public string IssueLocation;
-        public IssueType IssueType;
-        public Priority IssuePriority;
-        public string Photo;
+        private string issueName;
+        private string issueLocation;
+        private IssueType issueType;
+        private Priority issuePriority;
+        private string photo;
+        private List<Ticket> ticketsOpened; //different tickets open for this specific issue
 
         public Issue(string issueName, string issueLocation, IssueType issueType, Priority issuePriority, string photo)
         {
-            this.IssueName = issueName;
-            this.IssueLocation = issueLocation;
-            this.IssueType = issueType;
-            this.IssuePriority = issuePriority;
-            this.Photo = photo;
+            this.issueName = issueName;
+            this.issueLocation = issueLocation;
+            this.issueType = issueType;
+            this.issuePriority = issuePriority;
+            this.photo = photo;
+            this.ticketsOpened = new List<Ticket>();
         }
 
-        public Issue()
+        public IssueType getIssueName()
         {
+            return this.issueType;
         }
 
-        public string GetIssueName()
+        public void setIssueName(string issueName)
         {
-            return IssueName;
+            this.issueName = issueName;
         }
 
-        public void SetIssueName(string issueName)
+        public string getIssueLocation()
         {
-            IssueName = issueName;
+            return this.issueLocation;
         }
 
-        public string GetIssueLocation()
+        public void setIssueLocation(string issueLocation)
         {
-            return IssueLocation;
+            this.issueLocation = issueLocation;
         }
 
-        public void SetIssueLocation(string issueLocation)
+        public IssueType getIssueType()
         {
-            IssueLocation = issueLocation;
+            return this.issueType;
         }
 
-        public IssueType GetIssueType()
+        public void setIssueType(IssueType issueType)
         {
-            return IssueType;
+            this.issueType = issueType;
         }
 
-        public void SetIssueType(IssueType issueType)
+        public Priority getIssuePriority()
         {
-            IssueType = issueType;
+            return this.issuePriority;
         }
 
-        public Priority GetIssuePriority()
+        public void setIssuePriority(Priority issuePriority)
         {
-            return IssuePriority;
+            this.issuePriority = issuePriority;
         }
 
-        public void SetIssuePriority(Priority issuePriority)
+        public string getPhoto()
         {
-            IssuePriority = issuePriority;
+            return this.photo;
         }
 
-        public string GetPhoto()
+        public void setPhoto(string photo)
         {
-            return Photo;
+            this.photo = photo;
         }
 
-        public void SetPhoto(string photo)
+        public List<Ticket> getTicketsOpened()
         {
-            Photo = photo;
+            return this.ticketsOpened;
         }
 
-        public void AddIssue()
+        public void addIssue()
         {
             SqlCommand c = new SqlCommand();
             c.CommandText = "EXECUTE dbo.Add_Issue @Issue, @Issue_Location, @Issue_Type, @Issue_Priority, @Photo";
-            c.Parameters.AddWithValue("@Issue", IssueName);
-            c.Parameters.AddWithValue("@Issue_Location", IssueLocation);
-            c.Parameters.AddWithValue("@Issue_Type", IssueType);
-            c.Parameters.AddWithValue("@Issue_Priority", IssuePriority);
-            c.Parameters.AddWithValue("@Photo", Photo);
+            c.Parameters.AddWithValue("@Issue", issueName);
+            c.Parameters.AddWithValue("@Issue_Location", issueLocation);
+            c.Parameters.AddWithValue("@Issue_Type", issueType);
+            c.Parameters.AddWithValue("@Issue_Priority", issuePriority);
+            c.Parameters.AddWithValue("@Photo", photo);
             SQL_CON SC = new SQL_CON();
             SC.execute_non_query(c);
         }
 
-        public void UpdateIssue(string oldIssueName, string oldIssueLocation)
+        public void updateIssue(string oldIssueName, string oldIssueLocation)
         {
             SqlCommand c = new SqlCommand();
             c.CommandText = "EXECUTE dbo.Update_Issue @Issue, @Issue_Location, @Issue_Type, @Issue_Priority, @Photo, @oldIssueName, @oldIssueLocation";
-            c.Parameters.AddWithValue("@Issue", IssueName);
-            c.Parameters.AddWithValue("@Issue_Location", IssueLocation);
-            c.Parameters.AddWithValue("@Issue_Type", IssueType);
-            c.Parameters.AddWithValue("@Issue_Priority", IssuePriority);
-            c.Parameters.AddWithValue("@Photo", Photo);
+            c.Parameters.AddWithValue("@Issue", issueName);
+            c.Parameters.AddWithValue("@Issue_Location", issueLocation);
+            c.Parameters.AddWithValue("@Issue_Type", issueType);
+            c.Parameters.AddWithValue("@Issue_Priority", issuePriority);
+            c.Parameters.AddWithValue("@Photo", photo);
             c.Parameters.AddWithValue("@oldIssueName", oldIssueName);
             c.Parameters.AddWithValue("@oldIssueLocation", oldIssueLocation);
             SQL_CON SC = new SQL_CON();
             SC.execute_non_query(c);
         }
 
-        public void DeleteIssue()
+        public void deleteIssue()
         {
             SqlCommand c = new SqlCommand();
             c.CommandText = "EXECUTE dbo.Delete_Issue @Issue, @Issue_Location";
-            c.Parameters.AddWithValue("@Issue", IssueName);
-            c.Parameters.AddWithValue("@Issue_Location", IssueLocation);
+            c.Parameters.AddWithValue("@Issue", issueName);
+            c.Parameters.AddWithValue("@Issue_Location", issueLocation);
             SQL_CON SC = new SQL_CON();
             SC.execute_non_query(c);
         }
