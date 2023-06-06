@@ -122,7 +122,7 @@ namespace nitutz
         public static void init_leads() //����� ���� ������ ���������� ���� ���� �������
         {
             SqlCommand c = new SqlCommand();
-            c.CommandText = "EXECUTE dbo.Get_all_Orders";
+            c.CommandText = "EXECUTE dbo.Get_all_leads";
             SQL_CON SC = new SQL_CON();
             SqlDataReader rdr = SC.execute_query(c);
             Leads = new List<Lead>();
