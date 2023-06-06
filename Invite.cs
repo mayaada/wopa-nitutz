@@ -1,14 +1,13 @@
-using System.Xml.Serialization;
+﻿using System.Xml.Serialization;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms; // winform
 using Microsoft.Data;
 using Microsoft.Data.SqlClient;
 using nitutz;
-//c create class Event like employee
 namespace nitutz
 {
-    public class Invite
+    internal class Invite
     {
         private Tenant Tenant;
         private Event EventName;
@@ -73,10 +72,6 @@ namespace nitutz
             SQL_CON SC = new SQL_CON();
             SC.execute_non_query(c);
         }
-
-
-        
-        
 
     }
 }
