@@ -11,67 +11,74 @@ namespace nitutz
 {
     public class MeetingLocation
     {
-        public string RoomName;
-        public MeetingLocationType MeetingLocationType;
-        public int Capacity;
-        public int Floor;
+        private string roomName;
+        private MeetingLocationType meetingLocationType;
+        private int capacity;
+        private int floor;
+        private List<Booking> bookings;
 
         public MeetingLocation(string roomName, MeetingLocationType meetingLocationType, int capacity, int floor)
         {
-            RoomName = roomName;
-            MeetingLocationType = meetingLocationType;
-            Capacity = capacity;
-            Floor = floor;
+            this.roomName = roomName;
+            this.meetingLocationType = meetingLocationType;
+            this.capacity = capacity;
+            this.floor = floor;
+            this.bookings = new List<Booking>();
         }
 
         public string getRoomName()
         {
-            return this.RoomName;
+            return this.roomName;
         }
 
         public MeetingLocationType getMeetingLocationType()
         {
-            return this.MeetingLocationType;
+            return this.meetingLocationType;
         }
 
         public int getCapacity()
         {
-            return this.Capacity;
+            return this.capacity;
         }
 
         public int getFloor()
         {
-            return this.Floor;
+            return this.floor;
+        }
+        
+        public List<Booking> getBookings()
+        {
+            return this.bookings;
         }
 
         public void setRoomName(string roomName)
         {
-            this.RoomName = roomName;
+            this.roomName = roomName;
         }
 
         public void setMeetingLocationType(MeetingLocationType meetingLocationType)
         {
-            this.MeetingLocationType = meetingLocationType;
+            this.meetingLocationType = meetingLocationType;
         }
 
         public void setCapacity(int capacity)
         {
-            this.Capacity = capacity;
+            this.capacity = capacity;
         }
 
         public void setFloor(int floor)
         {
-            this.Floor = floor;
+            this.floor = floor;
         }
 
         public void createMeetingLocation()
         {
             SqlCommand c = new SqlCommand();
             c.CommandText = "EXECUTE dbo.Create_Meeting_Location @Room_Name, @Meeting_Location_Type, @Capacity, @Floor";
-            c.Parameters.AddWithValue("@Room_Name", this.RoomName);
-            c.Parameters.AddWithValue("@Meeting_Location_Type", this.MeetingLocationType);
-            c.Parameters.AddWithValue("@Capacity", this.Capacity);
-            c.Parameters.AddWithValue("@Floor", this.Floor);
+            c.Parameters.AddWithValue("@Room_Name", this.roomName);
+            c.Parameters.AddWithValue("@Meeting_Location_Type", this.meetingLocationType);
+            c.Parameters.AddWithValue("@Capacity", this.capacity);
+            c.Parameters.AddWithValue("@Floor", this.floor);
             SQL_CON SC = new SQL_CON();
             SC.execute_non_query(c);
         }
@@ -80,10 +87,10 @@ namespace nitutz
         {
             SqlCommand c = new SqlCommand();
             c.CommandText = "EXECUTE dbo.Add_Meeting_Location @Room_Name, @Meeting_Location_Type, @Capacity, @Floor";
-            c.Parameters.AddWithValue("@Room_Name", this.RoomName);
-            c.Parameters.AddWithValue("@Meeting_Location_Type", this.MeetingLocationType);
-            c.Parameters.AddWithValue("@Capacity", this.Capacity);
-            c.Parameters.AddWithValue("@Floor", this.Floor);
+            c.Parameters.AddWithValue("@Room_Name", this.roomName);
+            c.Parameters.AddWithValue("@Meeting_Location_Type", this.meetingLocationType);
+            c.Parameters.AddWithValue("@Capacity", this.capacity);
+            c.Parameters.AddWithValue("@Floor", this.floor);
             SQL_CON SC = new SQL_CON();
             SC.execute_non_query(c);
         }

@@ -18,6 +18,8 @@ namespace nitutz
         private string termsAndConditions;
         private Employee signedByEmployee;
         private Tenant signedByTenant;
+        private List<LeasedItem> itemsLeased; // list of items leased by tenant on this lease
+        
 
         // constructor for new lease
         public Lease(int leaseID, string signerName, DateTime startDate, DateTime endDate, int terminationNotice,
@@ -36,6 +38,7 @@ namespace nitutz
                 createLease();
                 Program.Leases.Add(this);
             }
+            this.itemsLeased = new List<LeasedItem>();
         }
 
         //create getters for all attributes
@@ -79,6 +82,11 @@ namespace nitutz
             return this.signedByTenant;
         }
 
+        public List<LeasedItem> getItemsLeased()
+        {
+            return this.itemsLeased;
+        }
+        
         // create update for all attributes
 
         public void updateStartDate(DateTime startDate)

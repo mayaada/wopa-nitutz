@@ -17,14 +17,14 @@ namespace nitutz
         private bool isAvailable;
         private Lease relatesTo;
 
-        public LeasedItem(int number, int floor, LeasedItemType type, bool electricCharging, bool isAvailable, Lease lease, bool isNew)
+        public LeasedItem(int number, int floor, LeasedItemType type, bool electricCharging, bool isAvailable, Lease relatesTo, bool isNew)
         {
             this.number = number;
             this.floor = floor;
             this.type = type;
             this.electricCharging = electricCharging;
             this.isAvailable = isAvailable;
-            this.relatesTo = lease;
+            this.relatesTo = relatesTo;
             if (isNew)
             {
                 createLeasedItem();
@@ -57,6 +57,11 @@ namespace nitutz
         {
             return this.isAvailable;
         }
+        
+        public Lease getRelatesToLease()
+        {
+            return this.relatesTo;
+        }
 
         public void updateType(LeasedItemType type)
         {
@@ -72,7 +77,7 @@ namespace nitutz
         {
             this.isAvailable = isAvailable;
         }
-
+        
         public void createLeasedItem()
         {
             SqlCommand c = new SqlCommand();

@@ -13,6 +13,7 @@ namespace nitutz
     {
 
         private AmenityType amenityType;
+        
 
         public Amenity(AmenityType amenityType)
         {
