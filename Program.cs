@@ -14,7 +14,7 @@ namespace nitutz
         /// The main entry point for the application.
         /// </summary>
         /// 
-        //шщйоеъ
+        //пїЅпїЅпїЅпїЅпїЅпїЅ
         public static System.Collections.Generic.List<Employee> Employees;
 
         public static System.Collections.Generic.List<Lead> Leads;
@@ -22,7 +22,7 @@ namespace nitutz
         public static System.Collections.Generic.List<Lease> Leases;
 
         // crate LeasedItems list
-        public static System.Collections.Generic.List<LeasedItem> LeasedItems = new List<LeasedItem>();
+        public static System.Collections.Generic.List<LeasedItem> LeasedItems;
 
         // create LeasedItemTypes list
         public static System.Collections.Generic.List<LeasedItemType> LeasedItemTypes = new List<LeasedItemType>();
@@ -30,7 +30,7 @@ namespace nitutz
 
         [STAThread]
 
-        //щйид щозфщъ тебг бшщйод мфй ътегъ ждеъ
+        //пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
         public static Employee seekEemploye(string email)
         {
             foreach (Employee employee in Employees)
@@ -43,16 +43,16 @@ namespace nitutz
         }
 
 
-        public static void initLists() //оймей дшщйоеъ оъек бсйс дръерйн
+        public static void initLists() //пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         {
-            init_employees();//аъзем дшщйод щм дтебгйн
-            init_leads();//аъзем дшщйод щм мчезеъ феирцййамйн
-            init_tenants();// аъзем дшщйод щм дгййшйн
-                           // init_leases();//аъзем дшщйод щм дзежйн
+            init_employees();//пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+            init_leads();//пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+            init_tenants();// пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+                           // init_leases();//пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         }
 
         // init leases
-        public static void init_leases() //оймей дшщйод щм дзежйн оъек бсйс дръерйн
+        public static void init_leases() //пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         {
             SqlCommand c = new SqlCommand();
             c.CommandText = "EXECUTE dbo.Get_all_Leases";
@@ -70,7 +70,7 @@ namespace nitutz
             }
         }
 
-        //щйид щозфщъ гййш бшщйод мфй ътегъ ждеъ
+        //пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
         public static Tenant seekTenant(string companyName)
         {
             foreach (Tenant tenant in Tenants)
@@ -84,7 +84,7 @@ namespace nitutz
 
 
         // init tenants
-        public static void init_tenants() //оймей дшщйод щм дгййшйн оъек бсйс дръерйн
+        public static void init_tenants() //пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         {
             SqlCommand c = new SqlCommand();
             c.CommandText = "EXECUTE dbo.Get_all_Tenants";
@@ -101,7 +101,7 @@ namespace nitutz
         }
 
 
-        public static void init_employees() //оймей отшк тебгйн оъек бсйс дръерйн
+        public static void init_employees() //пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         {
             SqlCommand c = new SqlCommand();
             c.CommandText = "EXECUTE dbo.Get_all_Emplpoyees";
@@ -119,7 +119,7 @@ namespace nitutz
             }
         }
 
-        public static void init_leads() //оймей отшк мчезеъ феирцйамйн оъек бсйс дръерйн
+        public static void init_leads() //пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         {
             SqlCommand c = new SqlCommand();
             c.CommandText = "EXECUTE dbo.Get_all_Orders";
@@ -145,8 +145,8 @@ namespace nitutz
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            initLists(); //аъзем лм дшщйоеъ
-            Application.Run(new mainForm());
+            initLists(); //пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+            Application.Run(new Form1());
         }
 
 

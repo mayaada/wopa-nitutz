@@ -10,18 +10,19 @@ namespace nitutz
      public class Booking
     {
         // create properties
-        public int bookingID;
-        public DateTime bookingDate;
-        public DateTime startTime;
-        public DateTime endTime;
-        public BookingStatus bookingStatus;
-        public Employee createdByEmployee;
-        public Tenant createdByTenant;
-        public Event eventRelatedTo;
-        public MeetingLocation bookingLocation;
+        public int BookingID;
+        public DateTime BookingDate;
+        public DateTime StartTime;
+        public DateTime EndTime;
+        public BookingStatus BookingStatus;
+        public Employee CreatedByEmployee;
+        public Tenant CreatedByTenant;
+        public Event EventRelatedTo;
+        public MeetingLocation BookingLocation;
 
         // create constructor
-        public Booking(int bookingID, string bookingDate, string startTime, string endTime, string bookingStatus, string createdByEmployee, string createdByTenant, string eventRelatedTo, string bookingLocation)
+        public Booking(int bookingID, DateTime bookingDate, DateTime startTime, DateTime endTime, BookingStatus bookingStatus,
+         Employee createdByEmployee, Tenant createdByTenant, Event eventRelatedTo, MeetingLocation bookingLocation)
         {
             BookingID = bookingID;
             BookingDate = bookingDate;
@@ -45,42 +46,42 @@ namespace nitutz
             return BookingID;
         }
 
-        public string getBookingDate()
+        public DateTime getBookingDate()
         {
             return BookingDate;
         }
 
-        public string getStartTime()
+        public DateTime getStartTime()
         {
             return StartTime;
         }
 
-        public string getEndTime()
+        public DateTime getEndTime()
         {
             return EndTime;
         }
 
-        public string getBookingStatus()
+        public BookingStatus getBookingStatus()
         {
             return BookingStatus;
         }
 
-        public string getCreatedByEmployee()
+        public Employee getCreatedByEmployee()
         {
             return CreatedByEmployee;
         }
 
-        public string getCreatedByTenant()
+        public Tenant getCreatedByTenant()
         {
             return CreatedByTenant;
         }
 
-        public string getEventRelatedTo()
+        public Event getEventRelatedTo()
         {
             return EventRelatedTo;
         }
 
-        public string getBookingLocation()
+        public MeetingLocation getBookingLocation()
         {
             return BookingLocation;
         }
@@ -90,38 +91,49 @@ namespace nitutz
             BookingID = bookingID;
         }
 
-        public void setBookingDate(string bookingDate)
+        public void setBookingDate(DateTime bookingDate)
         {
             BookingDate = bookingDate;
         }
 
-        public void setStartTime(string startTime)
+        public void setStartTime(DateTime startTime)
         {
             StartTime = startTime;
         }
 
-        public void setEndTime(string endTime)
+        public void setEndTime(DateTime endTime)
         {
             EndTime = endTime;
         }
 
-        public void setBookingStatus(string bookingStatus)
+        public void setBookingStatus(BookingStatus bookingStatus)
         {
             BookingStatus = bookingStatus;
         }
 
-        public void setCreatedByEmployee(string createdByEmployee)
+        public void setCreatedByEmployee(Employee createdByEmployee)
         {
             CreatedByEmployee = createdByEmployee;
         }
 
-        public void setCreatedByTenant(string createdByTenant)
+        public void setCreatedByTenant(Tenant createdByTenant)
         {
             CreatedByTenant = createdByTenant;
         }
 
+        public void setEventRelatedTo(Event eventRelatedTo)
+        {
+            EventRelatedTo = eventRelatedTo;
+        }
+
+        public void setBookingLocation(MeetingLocation bookingLocation)
+        {
+            BookingLocation = bookingLocation;
+        }
+
+
         // create update method like employee
-        public void update()
+        public void updateBooking()
         {
             SqlCommand c = new SqlCommand();
             c.CommandText = "EXECUTE dbo.Update_Booking @Booking_ID, @Booking_Date, @Start_Time, @End_Time, @Booking_Status, @Created_By_Employee, @Created_By_Tenant, @Event_Related_To, @Booking_Location";
@@ -139,7 +151,7 @@ namespace nitutz
         }
 
         // create add method like employee
-        public void add()
+        public void addBooking()
         {
             SqlCommand c = new SqlCommand();
             c.CommandText = "EXECUTE dbo.Add_Booking @Booking_Date, @Start_Time, @End_Time, @Booking_Status, @Created_By_Employee, @Created_By_Tenant, @Event_Related_To, @Booking_Location";
@@ -151,6 +163,15 @@ namespace nitutz
             c.Parameters.AddWithValue("@Created_By_Tenant", CreatedByTenant);
             c.Parameters.AddWithValue("@Event_Related_To", EventRelatedTo);
             c.Parameters.AddWithValue("@Booking_Location", BookingLocation);
+            SQL_CON SC = new SQL_CON();
+            SC.execute_non_query(c);
+        }
+
+        public void deleteBooking()
+        {
+            SqlCommand c = new SqlCommand();
+            c.CommandText = "EXECUTE dbo.Delete_Booking @Booking_ID";
+            c.Parameters.AddWithValue("@Booking_ID", BookingID);
             SQL_CON SC = new SQL_CON();
             SC.execute_non_query(c);
         }

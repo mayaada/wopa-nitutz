@@ -16,23 +16,23 @@ namespace nitutz
     {
         // create properties
         public int TicketID;
-        public string TimeTime;
-        public string DateOpened;
+        public DateTime TimeTime;
+        public DateTime DateOpened;
         public TicketStatus TicketStatus;
-        public string OpenedByEmployee;
-        public string OpenedByTenant;
-        public string RefferenceIssue;
+        public Employee OpenedByEmployee;
+        public Tenant OpenedByTenant;
+        public Issue RefferenceIssue;
 
         // create constructor
-        public Ticket(int ticketID, string timeTime, string dateOpened, string ticketStatus, string openedByEmployee, string openedByTenant, string refferenceIssue)
+        public Ticket(int ticketID, DateTime timeTime, DateTime dateOpened, TicketStatus ticketStatus, Employee openedByEmployee, Tenant openedByTenant, Issue refferenceIssue)
         {
-            TicketID = ticketID;
-            TimeTime = timeTime;
-            DateOpened = dateOpened;
-            TicketStatus = ticketStatus;
-            OpenedByEmployee = openedByEmployee;
-            OpenedByTenant = openedByTenant;
-            RefferenceIssue = refferenceIssue;
+            this.TicketID = ticketID;
+            this.TimeTime = timeTime;
+            this.DateOpened = dateOpened;
+            this.TicketStatus = ticketStatus;
+            this.OpenedByEmployee = openedByEmployee;
+            this.OpenedByTenant = openedByTenant;
+            this.RefferenceIssue = refferenceIssue;
         }
 
         // create default constructor
@@ -51,62 +51,62 @@ namespace nitutz
             TicketID = ticketID;
         }
 
-        public string getTimeTime()
+        public DateTime getTimeTime()
         {
             return TimeTime;
         }
 
-        public void setTimeTime(string timeTime)
+        public void setTimeTime(DateTime timeTime)
         {
-            TimeTime = timeTime;
+            this.TimeTime = timeTime;
         }
 
-        public string getDateOpened()
+        public DateTime getDateOpened()
         {
             return DateOpened;
         }
 
-        public void setDateOpened(string dateOpened)
+        public void setDateOpened(DateTime dateOpened)
         {
-            DateOpened = dateOpened;
+            this.DateOpened = dateOpened;
         }
 
-        public string getTicketStatus()
+        public TicketStatus getTicketStatus()
         {
             return TicketStatus;
         }
 
-        public void setTicketStatus(string ticketStatus)
+        public void setTicketStatus(TicketStatus ticketStatus)
         {
-            TicketStatus = ticketStatus;
+            this.TicketStatus = ticketStatus;
         }
 
-        public string getOpenedByEmployee()
+        public Employee getOpenedByEmployee()
         {
             return OpenedByEmployee;
         }
 
-        public void setOpenedByEmployee(string openedByEmployee)
+        public void setOpenedByEmployee(Employee openedByEmployee)
         {
-            OpenedByEmployee = openedByEmployee;
+            this.OpenedByEmployee = openedByEmployee;
         }
 
-        public string getOpenedByTenant()
+        public Tenant getOpenedByTenant()
         {
             return OpenedByTenant;
         }
 
-        public void setOpenedByTenant(string openedByTenant)
+        public void setOpenedByTenant(Tenant openedByTenant)
         {
-            OpenedByTenant = openedByTenant;
+            this.OpenedByTenant = openedByTenant;
         }
 
-        public string getRefferenceIssue()
+        public Issue getRefferenceIssue()
         {
             return RefferenceIssue;
         }
 
-        public void setRefferenceIssue(string refferenceIssue)
+        public void setRefferenceIssue(Issue refferenceIssue)
         {
             RefferenceIssue = refferenceIssue;
         }

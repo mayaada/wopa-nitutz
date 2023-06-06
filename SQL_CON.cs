@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Data.SqlClient; //חשוב!
 using System.Windows.Forms; //עבור ההודעות!
-using System.Data;
+using Microsoft.Data;
 using System.IO;
 
 namespace nitutz

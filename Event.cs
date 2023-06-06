@@ -14,16 +14,16 @@ namespace nitutz
         //c create attributes like employee
         private string EventName;
         private DateTime StartDate;
-        private string EndDate;
+        private DateTime EndDate;
         private int MaxInvitees;
 
         //c create constructor like employee
-        public Event(string eventName, string startDate, string endDate, int maxInvitees)
+        public Event(string eventName, DateTime startDate, DateTime endDate, int maxInvitees)
         {
-            EventName = eventName;
-            StartDate = startDate;
-            EndDate = endDate;
-            MaxInvitees = maxInvitees;
+            this.EventName = eventName;
+            this.StartDate = startDate;
+            this.EndDate = endDate;
+            this. MaxInvitees = maxInvitees;
         }
 
         //c create getters and setters like employee
@@ -37,22 +37,22 @@ namespace nitutz
             EventName = eventName;
         }
 
-        public string getStartDate()
+        public DateTime getStartDate()
         {
             return StartDate;
         }
 
-        public void setStartDate(string startDate)
+        public void setStartDate(DateTime startDate)
         {
             StartDate = startDate;
         }
 
-        public string getEndDate()
+        public DateTime getEndDate()
         {
             return EndDate;
         }
 
-        public void setEndDate(string endDate)
+        public void setEndDate(DateTime endDate)
         {
             EndDate = endDate;
         }
@@ -68,7 +68,7 @@ namespace nitutz
         }
 
         //c create method to add event to database like employee
-        public void addEventToDB()
+        public void addEvent()
         {
             SqlCommand c = new SqlCommand();
             c.CommandText = "EXECUTE dbo.Add_Event @Event_Name, @Start_Date, @End_Date, @Max_Invitees";
@@ -81,7 +81,7 @@ namespace nitutz
         }
 
         //c create method to update event to database like employee
-        public void updateEventToDB()
+        public void updateEvent()
         {
             SqlCommand c = new SqlCommand();
             c.CommandText = "EXECUTE dbo.Update_Event @Event_Name, @Start_Date, @End_Date, @Max_Invitees";

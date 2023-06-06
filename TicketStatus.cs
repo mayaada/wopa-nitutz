@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace WOPA
+namespace nitutz
 {
     public enum TicketStatus
     {

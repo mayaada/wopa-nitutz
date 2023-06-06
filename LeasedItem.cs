@@ -6,7 +6,7 @@ using Microsoft.Data;
 using Microsoft.Data.SqlClient;
 using nitutz;
 
-namespace WOPA
+namespace nitutz
 {
     public class LeasedItem
     {
