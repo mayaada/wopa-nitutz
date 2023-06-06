@@ -1,7 +1,7 @@
 ﻿
 namespace nitutz
 {
-    internal enum Priority
+    public enum Priority
     {
         Low , 
         Normal , 
