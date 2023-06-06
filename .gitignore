@@ -1,0 +1,7 @@
+obj
+.idea
+*.csproj
+*.DotSettings.user
+.DS_Store
+*.swp
+.vs
