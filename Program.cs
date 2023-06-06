@@ -46,8 +46,8 @@ namespace nitutz
         public static void initLists() //����� ������� ���� ���� �������
         {
             init_employees();//����� ������ �� �������
-            init_leads();//����� ������ �� ������ �����������
-            init_tenants();// ����� ������ �� �������
+           // init_leads();//����� ������ �� ������ �����������
+           // init_tenants();// ����� ������ �� �������
                            // init_leases();//����� ������ �� ������
         }
 
