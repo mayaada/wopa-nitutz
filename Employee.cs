@@ -15,6 +15,11 @@ public class Employee
     private EmployeeType employeeType;
     private string password;
     private bool isActive;
+    private List<Ticket> ticketsOpened; //tickets opened by this employee
+    private List<Booking> bookings; // bookings made by this employee
+    private List<Lead> leads; // leads added by this employee
+    private List<Lease> leases; // leases added by this employee
+    
     public System.Collections.Generic.List<Tenant> workStationRequests; // 
 
     public Employee(string email, string number, string name, string password, EmployeeType employeeType,
@@ -31,10 +36,21 @@ public class Employee
             createEmployee();
             Program.Employees.Add(this);
         }
+        this.ticketsOpened = new List<Ticket>();
+        this.bookings = new List<Booking>();
+        this.leads = new List<Lead>();
+        this.leases = new List<Lease>();
     }
+    
     public string getEmail()
     {
         return this.email;
+    }
+    
+    public void addTicket(Ticket ticket)
+    {
+        Ticket newTicket = new Ticket();
+        this.ticketsOpened.Add(t);
     }
 
     public string getName()
