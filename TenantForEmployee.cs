@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace nitutz
 {
@@ -39,23 +40,29 @@ namespace nitutz
 
         private void button1_Click(object sender, EventArgs e)
         {
-        
-                string selectedTenant = textBox1.Text; // Get the value entered in textBox1
+            string input = textBox1.Text; // Get the user input from textBox2
 
-                // Check if the entered value exists in the Tenants list
-                Tenant tenant = Program.Tenants.FirstOrDefault(t => t.getCompanyName() == selectedTenant);
-                if (tenant != null)
-                {
-                    TenantDetailsForEmployee tenantDetailsForm = new TenantDetailsForEmployee(); // Create an instance of TenantDetailsForEmployee form
-                    tenantDetailsForm.Show(); // Show the TenantDetailsForEmployee form
-                    this.Hide(); // Hide the current form (TenantForEmployee)
-                }
-                else
-                {
-                    MessageBox.Show("Invalid tenant selected.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+            // Check if the input exists in the List<Employee>
+            bool exists = Program.Tenants.Any(tenant => tenant.getCompanyName() == input);
+
+            if (exists)
+            {
+                // Input exists in the list, perform the desired action
+
+                // Create an instance of HomePageEmployee form
+                TenantDetailsForEmployee TenantDetailsForEmployeeForm = new TenantDetailsForEmployee();
+                TenantDetailsForEmployeeForm.Show(); // Show the HomePageEmployee form
+                this.Hide(); // Hide the current form (Form2)
             }
-
+            else
+            {
+                // Input does not exist in the list, display an error message
+                MessageBox.Show("Invalid input. Please enter a valid email.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
+
     }
+}
+
 
