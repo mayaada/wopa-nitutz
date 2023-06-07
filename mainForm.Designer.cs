@@ -1,6 +1,6 @@
 ﻿namespace nitutz
 {
-    partial class TenantsForEmployee
+    partial class MainForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -75,9 +75,9 @@
             Controls.Add(label1);
             Controls.Add(button2);
             Controls.Add(button1);
-            Name = "TenantsForEmployee";
-            Text = "Form1";
-            Load += Form1_Load;
+            Name = "MainForm";
+            Text = "MainForm";
+            Load += mainForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }

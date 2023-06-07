@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace nitutz
 {
-    public partial class Form2 : Form
+    public partial class EmpolyeeSignIn : Form
     {
-        public Form2()
+        public EmpolyeeSignIn()
         {
             InitializeComponent();
         }
@@ -66,7 +66,7 @@ namespace nitutz
             }
         }
 
-        private void Form2_Load(object sender, EventArgs e)
+        private void EmployeeSignIn_Load(object sender, EventArgs e)
         {
 
         }

@@ -1,13 +1,13 @@
 namespace nitutz
 {
-    public partial class TenantsForEmployee : Form
+    public partial class MainForm : Form
     {
-        public TenantsForEmployee()
+        public MainForm()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void mainForm_Load(object sender, EventArgs e)
         {
 
         }
@@ -24,7 +24,7 @@ namespace nitutz
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            Form2 form2 = new Form2();
+            EmpolyeeSignIn form2 = new EmpolyeeSignIn();
             form2.Show();
             this.Hide();
         }

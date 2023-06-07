@@ -146,7 +146,7 @@ namespace nitutz
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             initLists(); //����� �� �������
-            Application.Run(new Form1());
+            Application.Run(new MainForm());
         }
 
 

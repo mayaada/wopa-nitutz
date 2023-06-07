@@ -1,6 +1,6 @@
 ﻿namespace nitutz
 {
-    partial class Form2
+    partial class EmpolyeeSignIn
     {
         /// <summary>
         /// Required designer variable.
@@ -101,9 +101,9 @@
             Controls.Add(textBox2);
             Controls.Add(textBox3);
             Controls.Add(textBox1);
-            Name = "Form2";
-            Text = "Form2";
-            Load += Form2_Load;
+            Name = "EmployeeSignIn";
+            Text = "EmployeeSignIn";
+            Load += EmployeeSignIn_Load;
             ResumeLayout(false);
             PerformLayout();
         }
