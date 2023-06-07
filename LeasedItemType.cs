@@ -15,20 +15,14 @@ public class LeasedItemType
     private double price;
     private int creditAmount;
     private double deposit;
-    private List<LeasedItem> items; // list of items of this leased item type
 
-    public LeasedItemType(string type, double price, int creditAmount, double deposit, bool isNew)
+    public LeasedItemType(string type, double price, int creditAmount, double deposit)
     {
         this.type = type;
         this.price = price;
         this.creditAmount = creditAmount;
         this.deposit = deposit;
-        if (isNew)
-        {
-            createLeasedItemType();
-            Program.LeasedItemTypes.Add(this);
-        }
-        this.items = new List<LeasedItem>();
+       
     }
 
     public string getType()
