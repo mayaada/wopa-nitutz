@@ -12,20 +12,20 @@ namespace nitutz
     public class Amenity
     {
 
-        private AmenityType amenityType;
+        private String amenityType;
         
 
-        public Amenity(AmenityType amenityType)
+        public Amenity(String amenityType)
         {
             this.amenityType = amenityType;
         }
 
-        public AmenityType getAmenityType()
+        public String getAmenityType()
         {
             return amenityType;
         }
 
-        public void setAmenityType(AmenityType amenityType)
+        public void setAmenityType(String amenityType)
         {
             this.amenityType = amenityType;
         }
