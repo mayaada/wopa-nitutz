@@ -19,9 +19,11 @@ namespace nitutz
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            TenantSignIn Form1 = new TenantSignIn();
+            Form1.Show();
+           this.Hide();
         }
-
+        
         private void button2_Click_1(object sender, EventArgs e)
         {
             EmpolyeeSignIn form2 = new EmpolyeeSignIn();

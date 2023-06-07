@@ -18,17 +18,22 @@ namespace nitutz
         }
 
         private void button1_Click(object sender, EventArgs e)
-        
-            {
-                TenantForEmployee tenantForm = new TenantForEmployee(); // Create an instance of the TenantForEmployee form
-                tenantForm.Show(); // Show the TenantForEmployee form
-                this.Hide(); // Hide the current form (HomePageEmployee)
-            }
-        
+
+        {
+            TenantDetailsForEmployee tenantForm = new TenantDetailsForEmployee(); // Create an instance of the TenantForEmployee form
+            tenantForm.Show(); // Show the TenantForEmployee form
+            this.Hide(); // Hide the current form (HomePageEmployee)
+        }
+
 
         private void button5_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+           
         }
     }
 }

@@ -45,10 +45,18 @@ namespace nitutz
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string input = textBox2.Text; // Get the user input from textBox2
+            string inputEmail = textBox2.Text.Trim(); // Get the user input from textBox2 and trim any leading/trailing whitespace
+            string inputPassword = textBox3.Text.Trim(); // Get the user input from textBox3 and trim any leading/trailing whitespace
+
+            if (string.IsNullOrWhiteSpace(inputEmail) || string.IsNullOrWhiteSpace(inputPassword))
+            {
+                // One or both of the textboxes are empty or contain only whitespace
+                MessageBox.Show("Please enter both email and password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return; // Exit the event handler
+            }
 
             // Check if the input exists in the List<Employee>
-            bool exists = Program.Employees.Any(employee => employee.getEmail() == input);
+            bool exists = Program.Employees.Any(employee => employee.getEmail() == inputEmail);
 
             if (exists)
             {
@@ -62,11 +70,17 @@ namespace nitutz
             else
             {
                 // Input does not exist in the list, display an error message
-                MessageBox.Show("Invalid input. Please enter a valid email.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Invalid email. Please enter a valid email.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
+
         private void EmployeeSignIn_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
         {
 
         }
