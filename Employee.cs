@@ -49,8 +49,7 @@ public class Employee
     
     public void addTicket(Ticket ticket)
     {
-        Ticket newTicket = new Ticket();
-        this.ticketsOpened.Add(t);
+        this.ticketsOpened.Add(ticket);
     }
 
     public string getName()
