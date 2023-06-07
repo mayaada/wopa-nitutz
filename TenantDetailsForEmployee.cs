@@ -10,24 +10,14 @@ using System.Windows.Forms;
 
 namespace nitutz
 {
-    public partial class TenantSignIn : Form
+    public partial class TenantDetailsForEmployee : Form
     {
-        public TenantSignIn()
+        public TenantDetailsForEmployee()
         {
             InitializeComponent();
         }
 
-        private void button5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Form3_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs e)
         {
 
         }

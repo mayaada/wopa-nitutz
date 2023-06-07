@@ -38,12 +38,12 @@
             // 
             // textBox1
             // 
-            textBox1.Font = new Font("Bahnschrift Condensed", 20F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox1.Location = new Point(295, 78);
+            textBox1.Font = new Font("Britannic Bold", 20F, FontStyle.Regular, GraphicsUnit.Point);
+            textBox1.Location = new Point(209, 102);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(238, 56);
+            textBox1.Size = new Size(459, 52);
             textBox1.TabIndex = 0;
-            textBox1.Text = "התחבר למערכת";
+            textBox1.Text = "Login To your WOPA user";
             textBox1.TextChanged += textBox1_TextChanged;
             // 
             // textBox3
@@ -66,27 +66,27 @@
             label1.AutoSize = true;
             label1.Location = new Point(576, 223);
             label1.Name = "label1";
-            label1.Size = new Size(108, 25);
+            label1.Size = new Size(91, 25);
             label1.TabIndex = 4;
-            label1.Text = "שם משתמש";
+            label1.Text = "Username";
             label1.Click += label1_Click_1;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(576, 280);
+            label2.Location = new Point(576, 274);
             label2.Name = "label2";
-            label2.Size = new Size(64, 25);
+            label2.Size = new Size(87, 25);
             label2.TabIndex = 5;
-            label2.Text = "סיסמא";
+            label2.Text = "Password";
             // 
             // button1
             // 
-            button1.Location = new Point(353, 362);
+            button1.Location = new Point(354, 350);
             button1.Name = "button1";
-            button1.Size = new Size(112, 34);
+            button1.Size = new Size(111, 65);
             button1.TabIndex = 6;
-            button1.Text = "המשך";
+            button1.Text = "Continue";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
@@ -103,6 +103,7 @@
             Controls.Add(textBox1);
             Name = "Form2";
             Text = "Form2";
+            Load += Form2_Load;
             ResumeLayout(false);
             PerformLayout();
         }

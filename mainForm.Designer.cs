@@ -1,6 +1,6 @@
 ﻿namespace nitutz
 {
-    partial class Form1
+    partial class TenantsForEmployee
     {
         /// <summary>
         ///  Required designer variable.
@@ -35,22 +35,24 @@
             // 
             // button1
             // 
+            button1.BackColor = SystemColors.GradientActiveCaption;
             button1.Location = new Point(144, 216);
             button1.Name = "button1";
             button1.Size = new Size(156, 82);
             button1.TabIndex = 0;
-            button1.Text = "דייר";
-            button1.UseVisualStyleBackColor = true;
+            button1.Text = "Tenant";
+            button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
             // button2
             // 
+            button2.BackColor = SystemColors.GradientActiveCaption;
             button2.Location = new Point(511, 216);
             button2.Name = "button2";
             button2.Size = new Size(156, 82);
             button2.TabIndex = 4;
-            button2.Text = "עובד";
-            button2.UseVisualStyleBackColor = true;
+            button2.Text = "Employee";
+            button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click_1;
             // 
             // label1
@@ -64,15 +66,16 @@
             label1.Text = "WELCOME TO WOPA!";
             label1.Click += label1_Click;
             // 
-            // Form1
+            // TenantsForEmployee
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ControlLightLight;
             ClientSize = new Size(800, 450);
             Controls.Add(label1);
             Controls.Add(button2);
             Controls.Add(button1);
-            Name = "Form1";
+            Name = "TenantsForEmployee";
             Text = "Form1";
             Load += Form1_Load;
             ResumeLayout(false);

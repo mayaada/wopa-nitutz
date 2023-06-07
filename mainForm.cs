@@ -1,8 +1,8 @@
 namespace nitutz
 {
-    public partial class Form1 : Form
+    public partial class TenantsForEmployee : Form
     {
-        public Form1()
+        public TenantsForEmployee()
         {
             InitializeComponent();
         }

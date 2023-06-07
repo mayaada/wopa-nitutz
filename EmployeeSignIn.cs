@@ -43,28 +43,32 @@ namespace nitutz
 
         }
 
-        private void button1_Click(object sender, EventArgs e)//אילוץ שם משתמש מרשימת עובדים
+        private void button1_Click(object sender, EventArgs e)
         {
-                 string input = textBox2.Text; // Get the user input from textBox2
+            string input = textBox2.Text; // Get the user input from textBox2
 
-                // Check if the input exists in the List<Employee>
-                bool exists = Program.Employees.Any(employee => employee.getEmail() == input);
+            // Check if the input exists in the List<Employee>
+            bool exists = Program.Employees.Any(employee => employee.getEmail() == input);
 
-                if (exists)
-                {
-                    // Input exists in the list, perform the desired action
-                }
-                else
-                {
-                    // Input does not exist in the list, display an error message
-                    MessageBox.Show("Invalid input. Please enter a valid email.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+            if (exists)
+            {
+                // Input exists in the list, perform the desired action
+
+                // Create an instance of HomePageEmployee form
+                HomePageEmployee homePageEmployeeForm = new HomePageEmployee();
+                homePageEmployeeForm.Show(); // Show the HomePageEmployee form
+                this.Hide(); // Hide the current form (Form2)
             }
-
-
-
+            else
+            {
+                // Input does not exist in the list, display an error message
+                MessageBox.Show("Invalid input. Please enter a valid email.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-    }
-    
+        private void Form2_Load(object sender, EventArgs e)
+        {
 
+        }
+    }
+}
