@@ -75,7 +75,7 @@ namespace nitutz
             Leads = new List<Lead>();
             while (rdr.Read())
             {
-                LeadStatus leadStatus = (LeadStatus)Enum.Parse(typeof(LeadStatus), rdr.GetValue(6).ToString().Replace(" ..", string.Empty));
+                LeadStatus leadStatus = (LeadStatus)Enum.Parse(typeof(LeadStatus), rdr.GetValue(6).ToString().Replace(" ", string.Empty));
 
                 LeadSource leadSource = (LeadSource)Enum.Parse(typeof(LeadSource), rdr.GetValue(7).ToString().Replace(" ", string.Empty));
 
@@ -394,6 +394,7 @@ namespace nitutz
             Application.SetCompatibleTextRenderingDefault(false);
             initLists(); //����� �� �������
             Application.Run(new MainForm());
+            
         }
 
 
