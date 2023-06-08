@@ -35,10 +35,46 @@ namespace nitutz
             BookingLocation = bookingLocation;
         }
 
-        // create default constructor
-        public Booking()
+        // create method that generates randomly booking id ane returns int
+        public int generateBookingID()
         {
+            Random rnd = new Random();
+            int bookingID = rnd.Next(1, 1000000);
+            return bookingID;
         }
+
+        // constroctor for employye
+
+        public Booking( DateTime bookingDate, DateTime startTime, DateTime endTime,
+        Employee employeeEmail, MeetingLocation bookingLocation)
+        {
+            BookingID = generateBookingID();
+            BookingDate = bookingDate;
+            StartTime = startTime;
+            EndTime = endTime;
+            BookingStatus = BookingStatus.Pending;
+            CreatedByEmployee = employeeEmail;
+            CreatedByTenant = null;
+            EventRelatedTo = null;
+            BookingLocation = bookingLocation;
+        }
+
+        // constroctor for Tenant
+        public Booking( DateTime bookingDate, DateTime startTime, DateTime endTime, 
+         Tenant tenantCompantName, MeetingLocation bookingLocation)
+        {
+            BookingID = generateBookingID();
+            BookingDate = bookingDate;
+            StartTime = startTime;
+            EndTime = endTime;
+            BookingStatus = BookingStatus.Pending;
+            CreatedByEmployee = null;
+            CreatedByTenant = tenantCompantName;
+            EventRelatedTo = null;
+            BookingLocation = bookingLocation;
+        }
+
+
 
         // CRATE GET AND SET FOR ALL PROPERTIES
         public int getBookingID()

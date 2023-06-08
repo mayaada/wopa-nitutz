@@ -144,7 +144,7 @@ namespace nitutz
         {
             Tenant tenant = new Tenant(this.companyName, email, website, dateJoined, numberOfEmployees, true, true);
             Program.Tenants.Add(tenant);
-            updateLeadStatus(LeadStatus.MoveToTenant);
+            updateLeadStatus(LeadStatus.MovetoTenant);
         }
 
 

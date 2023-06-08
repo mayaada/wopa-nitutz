@@ -7,7 +7,7 @@ using Microsoft.Data.SqlClient;
 using nitutz;
 namespace nitutz
 {
-    internal class Invite
+    public class Invite
     {
         private Tenant tenant;
         private Event eventName;

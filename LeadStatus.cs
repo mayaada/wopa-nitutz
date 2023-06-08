@@ -4,10 +4,13 @@ namespace nitutz
 {
     public enum LeadStatus
     {
+
+        [Description("Lost")]
         Lost,
+        [Description("Open")]
         Open,
-        [Description("Move To Tenant")]
-        MoveToTenant
+        [Description("Move to Tenant")]
+        MovetoTenant
 
     }
 }

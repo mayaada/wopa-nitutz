@@ -26,9 +26,9 @@ namespace nitutz
             this.ticketsOpened = new List<Ticket>();
         }
 
-        public IssueType getIssueName()
+        public string getIssueName()
         {
-            return this.issueType;
+            return this.issueName;
         }
 
         public void setIssueName(string issueName)

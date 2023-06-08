@@ -8,9 +8,14 @@ namespace nitutz
 
         [Description("Space Center")]
         SpaceCenter,
+        [Description("Spacing")]
         Spacing,
-        Recommendation,
+        [Description("Recomendation")]
+        Recomendation,
+        
+        [Description("Website")]
         Website,
+        [Description("Other")]
         Other
 
     }

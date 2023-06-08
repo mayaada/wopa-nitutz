@@ -10,16 +10,19 @@ namespace nitutz
 {
     public class Include
     {
-        private Amenity amenity;
+        private String amenity;
         private MeetingLocation meetingLocation;
+        
 
-        public Include(Amenity amenity, MeetingLocation meetingLocation)
+        public Include(String amenity, MeetingLocation meetingLocation)
         {
             this.amenity = amenity;
             this.meetingLocation = meetingLocation;
         }
 
-        public Amenity getAmenity()
+
+
+        public String getAmenity()
         {
             return this.amenity;
         }
@@ -29,7 +32,7 @@ namespace nitutz
             return this.meetingLocation;
         }
 
-        public void setAmenity(Amenity amenity)
+        public void setAmenity(String amenity)
         {
             this.amenity = amenity;
         }
@@ -42,22 +45,26 @@ namespace nitutz
         public void createInclude()
         {
             SqlCommand c = new SqlCommand();
-            c.CommandText = "EXECUTE dbo.Create_Include @amenityType, @roomName";
-            c.Parameters.AddWithValue("@amenityType", this.amenity.getAmenityType());
-            c.Parameters.AddWithValue("@roomName", this.meetingLocation.getRoomName());
+            c.CommandText = "EXECUTE dbo.Create_Include @amenity, @meetingLocation";
+            c.Parameters.AddWithValue("@amenity", this.amenity);
+            c.Parameters.AddWithValue("@meetingLocation", this.meetingLocation.getRoomName());
             SQL_CON SC = new SQL_CON();
             SC.execute_non_query(c);
         }
 
-        public void addInclude()
+        // create update include to db like employee
+
+        public void updateInclude()
         {
             SqlCommand c = new SqlCommand();
-            c.CommandText = "EXECUTE dbo.Add_Include @amenityType, @roomName";
-            c.Parameters.AddWithValue("@amenityType", this.amenity.getAmenityType());
-            c.Parameters.AddWithValue("@roomName", this.meetingLocation.getRoomName());
+            c.CommandText = "EXECUTE dbo.Update_Include @amenity, @meetingLocation";
+            c.Parameters.AddWithValue("@amenity", this.amenity);
+            c.Parameters.AddWithValue("@meetingLocation", this.meetingLocation.getRoomName());
             SQL_CON SC = new SQL_CON();
             SC.execute_non_query(c);
         }
+
+       
 
 
 

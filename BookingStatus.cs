@@ -4,9 +4,13 @@ namespace nitutz
 {
     public enum BookingStatus
     {
+        [Description("Pending")]
         Pending,
+        [Description("Approved")]
         Approved,
-        Declined,
+        [Description("Declined")]
+        Declined,   
+        [Description("Deleted")]
         Deleted
     }
 }
