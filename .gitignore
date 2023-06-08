@@ -5,3 +5,6 @@ obj
 .DS_Store
 *.swp
 .vs
+bin
+Debug
+*.user

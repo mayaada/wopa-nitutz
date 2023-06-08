@@ -29,9 +29,9 @@ namespace nitutz
 
         private void button2_Click(object sender, EventArgs e)
         {
-            OpenNewMaintenanceRequest OpenNewMaintenanceRequest = new OpenNewMaintenanceRequest();
-            OpenNewMaintenanceRequest.Show();
-            this.Hide();
+           // OpenNewMaintenanceRequest openNewMaintenanceRequest = new OpenNewMaintenanceRequest();
+           // openNewMaintenanceRequest.Show();
+            //this.Hide();
         }
     }
 }
