@@ -20,7 +20,6 @@ namespace nitutz
         public Event EventRelatedTo;
         public MeetingLocation BookingLocation;
 
-        // create constructor
         public Booking(int bookingID, DateTime bookingDate, DateTime startTime, DateTime endTime, BookingStatus bookingStatus,
          Employee createdByEmployee, Tenant createdByTenant, Event eventRelatedTo, MeetingLocation bookingLocation)
         {
@@ -34,15 +33,6 @@ namespace nitutz
             EventRelatedTo = eventRelatedTo;
             BookingLocation = bookingLocation;
         }
-
-        // create method that generates randomly booking id ane returns int
-        public int generateBookingID()
-        {
-            Random rnd = new Random();
-            int bookingID = rnd.Next(1, 1000000);
-            return bookingID;
-        }
-
         // constroctor for employye
 
         public Booking( DateTime bookingDate, DateTime startTime, DateTime endTime,
@@ -74,6 +64,14 @@ namespace nitutz
             BookingLocation = bookingLocation;
         }
 
+
+        // create method that generates randomly booking id ane returns int
+        public int generateBookingID()
+        {
+            Random rnd = new Random();
+            int bookingID = rnd.Next(1, 1000000);
+            return bookingID;
+        }
 
 
         // CRATE GET AND SET FOR ALL PROPERTIES
