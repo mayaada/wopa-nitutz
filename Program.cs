@@ -394,7 +394,7 @@ namespace nitutz
             Application.SetCompatibleTextRenderingDefault(false);
             initLists(); //����� �� �������
             Application.Run(new MainForm());
-            
+
         }
 
 
