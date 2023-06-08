@@ -70,12 +70,29 @@ namespace nitutz
             return this.numberOfEmployees;
         }
 
+        public String getNumOfEmployees()
+        {
+            String Num = this.numberOfEmployees.ToString();
+            return Num; 
+        }
+
         public bool getIsActive()
         {
             return this.isActive;
         }
 
+        public String getIsActivity()
+        {
+            String Activity = isActive.ToString();
+            Console.WriteLine(Activity);
+            return Activity;
+        }
 
+
+        public void updateCompanyName(string Name)
+        {
+            this.companyName = Name;
+        }
 
         public void updateContactEmail(string contactEmail)
         {
@@ -91,18 +108,23 @@ namespace nitutz
         {
             this.numberOfEmployees = numberOfEmployees;
         }
+        public void UpdateActivateTenant (bool Activity)
+        {
+            this.isActive = Activity;
+        }
 
 
         public void createTenant()
         {
             SqlCommand c = new SqlCommand();
             c.CommandText =
-                "EXECUTE SP_CREATE_TENANT @Company_Name, @Contact_Email, @Website, @Date_Joined, @Number_Of_Employees";
-            c.Parameters.AddWithValue("@COMPANY_NAME", this.companyName);
-            c.Parameters.AddWithValue("@CONTACT_EMAIL", this.contactEmail);
-            c.Parameters.AddWithValue("@WEBSITE", this.website);
-            c.Parameters.AddWithValue("@DATE_JOINED", this.dateJoined);
-            c.Parameters.AddWithValue("@NUMBER_OF_EMPLOYEES", this.numberOfEmployees);
+                "EXECUTE SP_Create_Tenant @Company_Name, @Contact_Email, @Website, @Date_Joined, @Number_Of_Employees , @Is_Active ";
+            c.Parameters.AddWithValue("@Company_Name", this.companyName.ToString());
+            c.Parameters.AddWithValue("@Contact_Email", this.contactEmail.ToString());
+            c.Parameters.AddWithValue("@Website", this.website.ToString());
+            c.Parameters.AddWithValue("@Date_Joined", this.dateJoined);
+            c.Parameters.AddWithValue("@Number_Of_Employees", (int)this.numberOfEmployees);
+            c.Parameters.AddWithValue("@Is_Active", this.isActive);
             SQL_CON SC = new SQL_CON();
             SC.execute_non_query(c);
         }
@@ -111,17 +133,32 @@ namespace nitutz
         {
             SqlCommand c = new SqlCommand();
             c.CommandText =
-                "EXECUTE SP_UPDATE_TENANT @Company_Name, @Contact_Email, @Website, @Date_Joined, @Number_Of_Employees";
+                "EXECUTE SP_Update_Tenant @Company_Name, @Contact_Email, @Website, @Number_Of_Employees , @Is_Active";
             c.Parameters.AddWithValue("@COMPANY_NAME", this.companyName);
             c.Parameters.AddWithValue("@CONTACT_EMAIL", this.contactEmail);
             c.Parameters.AddWithValue("@WEBSITE", this.website);
-            c.Parameters.AddWithValue("@DATE_JOINED", this.dateJoined);
             c.Parameters.AddWithValue("@NUMBER_OF_EMPLOYEES", this.numberOfEmployees);
+            c.Parameters.AddWithValue("@Is_Active", this.isActive);
+
             SQL_CON SC = new SQL_CON();
             SC.execute_non_query(c);
         }
-
-
+        public void deleteTenant()
+        {
+            SqlCommand c = new SqlCommand();
+            c.CommandText =
+                "EXECUTE SP_Delete_Tenant @Company_Name, @Is_Active";
+            c.Parameters.AddWithValue("@Is_Active", this.isActive);
+            SQL_CON SC = new SQL_CON();
+            SC.execute_non_query(c);
+        }
+        // create methos that return the lease of the tenant from program.leases
+        public Lease getLease()
+        {
+            String Email = this.contactEmail;
+            Lease L = Program.Leases.Find(x => x.getSignedByTenant().getContactEmail() == Email);
+            return L;
+        }
 
 
 
