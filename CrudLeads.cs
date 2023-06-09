@@ -16,5 +16,31 @@ namespace nitutz
         {
             InitializeComponent();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            UpdateLead updateLead = new UpdateLead();
+            updateLead.Show();
+        }
+
+        private void CrudLeads_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            CreatLead CreatLeadForm = new CreatLead();
+            CreatLeadForm.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            DeleteLead DeleteLead = new DeleteLead();
+            DeleteLead.Show();
+        }
     }
 }
