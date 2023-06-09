@@ -20,9 +20,9 @@ namespace nitutz
         private void button1_Click(object sender, EventArgs e)
 
         {
-            TenantDetailsForEmployee tenantForm = new TenantDetailsForEmployee(); // Create an instance of the TenantForEmployee form
-            tenantForm.Show(); // Show the TenantForEmployee form
-            this.Hide(); // Hide the current form (HomePageEmployee)
+            TenantDetailsForEmployee TenantDetailsForEmployee = new TenantDetailsForEmployee();
+            TenantDetailsForEmployee.Show();
+            this.Hide();
         }
 
 
@@ -33,7 +33,30 @@ namespace nitutz
 
         private void button6_Click(object sender, EventArgs e)
         {
-           
+
+        }
+
+
+        private void HomePageEmployee_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            CrudTenants CrudTenants = new CrudTenants();
+            CrudTenants.Show();
+            this.Hide();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

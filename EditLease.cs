@@ -12,12 +12,23 @@ namespace nitutz
 {
     public partial class EditLease : Form
     {
-        public EditLease()
+        private Tenant tenant;
+        private Lease lease;
+        public EditLease(Tenant tenant)
         {
+            this.tenant = tenant;
             InitializeComponent();
         }
 
         private void EditLease_Load(object sender, EventArgs e)
+        {
+            this.lease = tenant.getLease(); // Assuming there's a method GetLease in the Tenant class
+
+            // Display the lease details in textBox1
+            textBox1.Text = $"Lease ID: {lease.getLeaseID()}\r\n";
+        }
+
+        private void label8_Click(object sender, EventArgs e)
         {
 
         }

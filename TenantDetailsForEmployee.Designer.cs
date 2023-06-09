@@ -125,7 +125,7 @@
             // Lease
             // 
             Lease.AutoSize = true;
-            Lease.Location = new Point(114, 348);
+            Lease.Location = new Point(234, 402);
             Lease.Name = "Lease";
             Lease.Size = new Size(59, 25);
             Lease.TabIndex = 10;
@@ -133,7 +133,7 @@
             // 
             // viewLeaseButton
             // 
-            viewLeaseButton.Location = new Point(382, 349);
+            viewLeaseButton.Location = new Point(379, 390);
             viewLeaseButton.Name = "viewLeaseButton";
             viewLeaseButton.Size = new Size(172, 48);
             viewLeaseButton.TabIndex = 11;

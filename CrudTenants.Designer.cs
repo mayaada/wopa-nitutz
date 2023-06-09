@@ -56,7 +56,7 @@
             // ManageTenantsLable
             // 
             ManageTenantsLable.AutoSize = true;
-            ManageTenantsLable.Location = new Point(325, 109);
+            ManageTenantsLable.Location = new Point(337, 105);
             ManageTenantsLable.Name = "ManageTenantsLable";
             ManageTenantsLable.Size = new Size(140, 25);
             ManageTenantsLable.TabIndex = 4;

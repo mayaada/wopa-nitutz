@@ -65,7 +65,7 @@ namespace nitutz
                 // Create an instance of HomePageEmployee form
                 HomePageEmployee homePageEmployeeForm = new HomePageEmployee();
                 homePageEmployeeForm.Show(); // Show the HomePageEmployee form
-                this.Hide(); // Hide the current form (Form2)
+                this.Hide(); // 
             }
             else
             {

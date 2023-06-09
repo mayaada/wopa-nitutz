@@ -53,6 +53,7 @@
             button1.TabIndex = 1;
             button1.Text = "Eevents";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // button2
             // 
@@ -94,6 +95,7 @@
             Controls.Add(label1);
             Name = "TenantHomePage";
             Text = "Form1";
+            Load += TenantHomePage_Load;
             ResumeLayout(false);
             PerformLayout();
         }

@@ -101,11 +101,11 @@
 
         private void viewLeaseButton_Click(object sender, EventArgs e)
         {
-           
+
             this.Hide();
 
             // Show the EditLease form
-            EditLease editLeaseForm = new EditLease();
+            EditLease editLeaseForm = new EditLease(tenantExists);
             editLeaseForm.Show();
         }
 

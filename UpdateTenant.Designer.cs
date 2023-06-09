@@ -181,6 +181,7 @@
             Controls.Add(UpdateTenantLabel);
             Name = "UpdateTenant";
             Text = "UpdateTenant";
+            Load += UpdateTenant_Load;
             ResumeLayout(false);
             PerformLayout();
         }
