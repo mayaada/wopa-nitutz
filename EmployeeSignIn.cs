@@ -11,9 +11,11 @@ using System.Windows.Forms;
 
 namespace nitutz
 {
-    public partial class EmpolyeeSignIn : Form
+    public partial class employeeSignIn : Form
     {
-        public EmpolyeeSignIn()
+        private Employee currentUser;
+
+        public employeeSignIn()
         {
             InitializeComponent();
         }
@@ -38,11 +40,6 @@ namespace nitutz
 
         }
 
-        private void textBox2_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             string inputEmail = textBox2.Text.Trim(); // Get the user input from textBox2 and trim any leading/trailing whitespace
@@ -63,7 +60,8 @@ namespace nitutz
                 // Input exists in the list, perform the desired action
 
                 // Create an instance of HomePageEmployee form
-                HomePageEmployee homePageEmployeeForm = new HomePageEmployee();
+                currentUser = Program.seekEemploye(inputEmail);
+                HomePageEmployee homePageEmployeeForm = new HomePageEmployee(currentUser);
                 homePageEmployeeForm.Show(); // Show the HomePageEmployee form
                 this.Hide(); // Hide the current form (Form2)
             }
@@ -81,6 +79,11 @@ namespace nitutz
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
         {
 
         }

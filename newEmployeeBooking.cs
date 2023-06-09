@@ -11,10 +11,14 @@ using System.Windows.Forms;
 namespace nitutz
 {
     public partial class newEmployeeBooking : Form
+
     {
-        public newEmployeeBooking()
+        private Employee currentUser;
+
+        public newEmployeeBooking(Employee currentUser)
         {
             InitializeComponent();
+            this.currentUser = currentUser;
         }
 
         private Booking newBooking;
@@ -32,21 +36,22 @@ namespace nitutz
 
         private void BookMeetingRoomButton_Click(object sender, EventArgs e)
         {
-            DateTime selectedDate = datePicker.Value;
+            //DateTime selectedDate = datePicker.Value;
             DateTime selectedStartTime = startTimePicker.Value;
             DateTime selectedEndTime = endTimePicker1.Value;
-            Employee employeeEmail = Program.seekEemploye(UserEmailTextBok.Text);
-            MeetingLocation meetingLocation = Program.seekMeetingLocation(meetingLocationTextBox.Text);
+            MeetingLocation meetingLocation = Program.seekMeetingLocation(locationDropDownBox.Text);
 
 
-            newBooking = new Booking(selectedDate, selectedStartTime, selectedEndTime, employeeEmail, meetingLocation);
+            // newBooking = new Booking(selectedDate, selectedStartTime, selectedEndTime, employeeEmail, meetingLocation);
 
 
         }
 
-        private void BookEventButton_Click(object sender, EventArgs e)
+        private void createEvent_Button(object sender, EventArgs e)
         {
-
+            FormCreateEvent eventForm = new FormCreateEvent();
+            this.Hide();
+            eventForm.Show();
         }
 
         private void datePicker_ValueChanged(object sender, EventArgs e)
@@ -65,6 +70,11 @@ namespace nitutz
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void locationDropDownBox_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

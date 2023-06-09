@@ -30,55 +30,51 @@
         {
             button1 = new Button();
             button2 = new Button();
-            button3 = new Button();
             button4 = new Button();
             button5 = new Button();
             button6 = new Button();
             label1 = new Label();
+            button3 = new Button();
             SuspendLayout();
             // 
             // button1
             // 
-            button1.Location = new Point(183, 131);
+            button1.Location = new Point(311, 215);
+            button1.Margin = new Padding(5);
             button1.Name = "button1";
-            button1.Size = new Size(112, 34);
+            button1.Size = new Size(190, 56);
             button1.TabIndex = 0;
-            button1.Text = "Tanents";
+            button1.Text = "Tenants";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
             // button2
             // 
-            button2.Location = new Point(528, 189);
+            button2.Location = new Point(898, 310);
+            button2.Margin = new Padding(5);
             button2.Name = "button2";
-            button2.Size = new Size(112, 34);
+            button2.Size = new Size(215, 56);
             button2.TabIndex = 1;
             button2.Text = "Leases";
             button2.UseVisualStyleBackColor = true;
             // 
-            // button3
-            // 
-            button3.Location = new Point(528, 131);
-            button3.Name = "button3";
-            button3.Size = new Size(112, 34);
-            button3.TabIndex = 2;
-            button3.Text = "Events";
-            button3.UseVisualStyleBackColor = true;
-            // 
             // button4
             // 
-            button4.Location = new Point(183, 261);
+            button4.Location = new Point(311, 428);
+            button4.Margin = new Padding(5);
             button4.Name = "button4";
-            button4.Size = new Size(112, 34);
+            button4.Size = new Size(190, 110);
             button4.TabIndex = 3;
-            button4.Text = "Bookings";
+            button4.Text = "Bookings And Events";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // button5
             // 
-            button5.Location = new Point(183, 189);
+            button5.Location = new Point(311, 310);
+            button5.Margin = new Padding(5);
             button5.Name = "button5";
-            button5.Size = new Size(112, 34);
+            button5.Size = new Size(190, 56);
             button5.TabIndex = 4;
             button5.Text = "Leads";
             button5.UseVisualStyleBackColor = true;
@@ -86,9 +82,10 @@
             // 
             // button6
             // 
-            button6.Location = new Point(528, 261);
+            button6.Location = new Point(898, 428);
+            button6.Margin = new Padding(5);
             button6.Name = "button6";
-            button6.Size = new Size(211, 34);
+            button6.Size = new Size(215, 110);
             button6.TabIndex = 5;
             button6.Text = "Maintenance Tickets";
             button6.UseVisualStyleBackColor = true;
@@ -98,17 +95,29 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Britannic Bold", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(313, 47);
+            label1.Location = new Point(532, 77);
+            label1.Margin = new Padding(5, 0, 5, 0);
             label1.Name = "label1";
-            label1.Size = new Size(196, 40);
+            label1.Size = new Size(328, 67);
             label1.TabIndex = 6;
             label1.Text = "Home Page";
             // 
+            // button3
+            // 
+            button3.Location = new Point(898, 215);
+            button3.Margin = new Padding(5);
+            button3.Name = "button3";
+            button3.Size = new Size(215, 56);
+            button3.TabIndex = 2;
+            button3.Text = "Events";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
             // HomePageEmployee
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(17F, 41F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1360, 738);
             Controls.Add(label1);
             Controls.Add(button6);
             Controls.Add(button5);
@@ -116,8 +125,10 @@
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
+            Margin = new Padding(5);
             Name = "HomePageEmployee";
-            Text = "Form1";
+            Text = "d";
+            Load += HomePageEmployee_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -126,10 +137,10 @@
 
         private Button button1;
         private Button button2;
-        private Button button3;
         private Button button4;
         private Button button5;
         private Button button6;
         private Label label1;
+        private Button button3;
     }
 }

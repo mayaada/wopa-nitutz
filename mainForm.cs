@@ -26,7 +26,7 @@ namespace nitutz
         
         private void button2_Click_1(object sender, EventArgs e)
         {
-            EmpolyeeSignIn form2 = new EmpolyeeSignIn();
+            employeeSignIn form2 = new employeeSignIn();
             form2.Show();
             this.Hide();
         }

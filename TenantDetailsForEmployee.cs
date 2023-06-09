@@ -3,10 +3,12 @@
     public partial class TenantDetailsForEmployee : Form
     {
         private Tenant tenantExists;
+        private Employee currentUser;
 
-        public TenantDetailsForEmployee()
+        public TenantDetailsForEmployee(Employee currentUser)
         {
             InitializeComponent();
+            this.currentUser = currentUser;
         }
 
         private void Form1_Load(object sender, EventArgs e)
