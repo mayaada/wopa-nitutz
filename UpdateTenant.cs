@@ -17,7 +17,7 @@ namespace nitutz
         {
             InitializeComponent();
             UpdateButton.Hide();
-            
+
         }
 
         private void UpdateTenantLabel_Click(object sender, EventArgs e)
@@ -92,6 +92,11 @@ namespace nitutz
         }
 
         private void IsActiveTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void UpdateTenant_Load(object sender, EventArgs e)
         {
 
         }

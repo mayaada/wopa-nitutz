@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -23,9 +23,9 @@ namespace nitutz
         private void button1_Click(object sender, EventArgs e)
 
         {
-            TenantDetailsForEmployee tenantForm = new TenantDetailsForEmployee(currentUser); // Create an instance of the TenantForEmployee form
-            tenantForm.Show(); // Show the TenantForEmployee form
-            this.Hide(); // Hide the current form (HomePageEmployee)
+            TenantDetailsForEmployee TenantDetailsForEmployee = new TenantDetailsForEmployee();
+            TenantDetailsForEmployee.Show();
+            this.Hide();
         }
 
 
@@ -39,14 +39,20 @@ namespace nitutz
 
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            newEmployeeBooking bookingForm = new newEmployeeBooking(currentUser);
-            this.Hide();
-            bookingForm.Show();
-        }
 
         private void HomePageEmployee_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            CrudTenants CrudTenants = new CrudTenants();
+            CrudTenants.Show();
+            this.Hide();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
         {
 
         }

@@ -63,7 +63,7 @@ namespace nitutz
                 currentUser = Program.seekEemploye(inputEmail);
                 HomePageEmployee homePageEmployeeForm = new HomePageEmployee(currentUser);
                 homePageEmployeeForm.Show(); // Show the HomePageEmployee form
-                this.Hide(); // Hide the current form (Form2)
+                this.Hide(); // 
             }
             else
             {

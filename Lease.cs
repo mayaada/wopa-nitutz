@@ -62,6 +62,7 @@ namespace nitutz
             return this.endDate;
         }
 
+
         public int getTerminationNotice()
         {
             return this.terminationNotice;
@@ -86,7 +87,17 @@ namespace nitutz
         {
             return this.itemsLeased;
         }
-        
+
+        public void AddLeasedItem(LeasedItem leasedItem)
+        {
+            itemsLeased.Add(leasedItem);
+        }
+
+        public void DeleteLeasedItem(LeasedItem leasedItem)
+        {
+            itemsLeased.Remove(leasedItem);
+        }
+
         // create update for all attributes
 
         public void updateStartDate(DateTime startDate)
