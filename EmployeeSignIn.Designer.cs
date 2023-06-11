@@ -44,7 +44,14 @@
             textBox3.Size = new Size(363, 47);
             textBox3.TabIndex = 2;
             textBox3.TextChanged += textBox3_TextChanged;
-           
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(541, 320);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(363, 47);
+            textBox2.TabIndex = 8;
+            textBox2.TextChanged += textBox2_TextChanged;
             // 
             // label1
             // 
