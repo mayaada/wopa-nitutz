@@ -34,6 +34,7 @@ namespace nitutz
             button6 = new Button();
             label1 = new Label();
             button1 = new Button();
+            button2 = new Button();
             SuspendLayout();
             // 
             // ExistingEvents_Buttons
@@ -60,7 +61,7 @@ namespace nitutz
             // 
             button5.Location = new Point(300, 399);
             button5.Name = "button5";
-            button5.Size = new Size(190, 56);
+            button5.Size = new Size(112, 34);
             button5.TabIndex = 4;
             button5.Text = "Leads";
             button5.UseVisualStyleBackColor = true;
@@ -71,7 +72,7 @@ namespace nitutz
             button6.Location = new Point(822, 399);
             button6.Margin = new Padding(5);
             button6.Name = "button6";
-            button6.Size = new Size(215, 110);
+            button6.Size = new Size(126, 67);
             button6.TabIndex = 5;
             button6.Text = "Maintenance Tickets";
             button6.UseVisualStyleBackColor = true;
@@ -81,10 +82,9 @@ namespace nitutz
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Britannic Bold", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(532, 77);
-            label1.Margin = new Padding(5, 0, 5, 0);
+            label1.Location = new Point(261, 44);
             label1.Name = "label1";
-            label1.Size = new Size(328, 67);
+            label1.Size = new Size(196, 40);
             label1.TabIndex = 6;
             label1.Text = "Home Page";
             // 
@@ -98,9 +98,19 @@ namespace nitutz
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click_1;
             // 
+            // button2
+            // 
+            button2.Location = new Point(479, 220);
+            button2.Name = "button2";
+            button2.Size = new Size(112, 34);
+            button2.TabIndex = 8;
+            button2.Text = "Leases";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
             // HomePageEmployee
             // 
-            AutoScaleDimensions = new SizeF(17F, 41F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1319, 820);
             Controls.Add(button1);
@@ -123,5 +133,6 @@ namespace nitutz
         private Button button6;
         private Label label1;
         private Button button1;
+        private Button button2;
     }
 }

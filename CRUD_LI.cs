@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -30,10 +30,15 @@ namespace nitutz
             CrudLeasedItems f = new CrudLeasedItems();
             f.Show();
             this.Hide();
+
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
+
+            //MyMaintenancerequests MyMaintenancerequestsForm = new MyMaintenancerequests();
+            //MyMaintenancerequestsForm.Show(); // Show the MyMaintenancerequests form
+            //this.Hide();
 
         }
     }

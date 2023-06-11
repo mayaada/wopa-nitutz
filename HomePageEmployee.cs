@@ -17,13 +17,27 @@ namespace nitutz
         public HomePageEmployee(Employee currentUser)
         {
             InitializeComponent();
-            this.currentUser = currentUser;
+            //this.currentUser = currentUser;
+        }
+
+        public HomePageEmployee()
+        {
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+
+        {
+            //  TenantDetailsForEmployee TenantDetailsForEmployee = new TenantDetailsForEmployee();
+            // TenantDetailsForEmployee.Show();
+            // this.Hide();
         }
 
 
         private void button5_Click(object sender, EventArgs e)
         {
-
+            //  CrudLeads CrudLeads = new CrudLeads();
+            //  CrudLeads.Show();
+            this.Hide();
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -54,6 +68,13 @@ namespace nitutz
             newEmployeeBooking bookingForm = new newEmployeeBooking(currentUser);
             this.Hide();
             bookingForm.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ViewTenantForEmployee ViewTenantForEmployee = new ViewTenantForEmployee();
+            ViewTenantForEmployee.Show();
+            this.Hide();
         }
     }
 }
