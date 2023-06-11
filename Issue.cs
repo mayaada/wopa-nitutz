@@ -16,7 +16,8 @@ namespace nitutz
         private string photo;
         private List<Ticket> ticketsOpened; //different tickets open for this specific issue
 
-        public Issue(string issueName, string issueLocation, IssueType issueType, Priority issuePriority, string photo)
+        public Issue(string issueName, string issueLocation,
+         IssueType issueType, Priority issuePriority, string photo , bool isNew)
         {
             this.issueName = issueName;
             this.issueLocation = issueLocation;
@@ -24,6 +25,11 @@ namespace nitutz
             this.issuePriority = issuePriority;
             this.photo = photo;
             this.ticketsOpened = new List<Ticket>();
+            if (isNew)
+            {
+                Program.Issues.Add(this);
+                addIssue();
+            }
         }
 
         public string getIssueName()

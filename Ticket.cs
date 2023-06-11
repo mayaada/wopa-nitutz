@@ -16,7 +16,7 @@ namespace nitutz
     {
         // create properties
         public int ticketID;
-        public DateTime timeTime;
+        public TimeSpan timeTime;
         public DateTime dateOpened;
         public TicketStatus ticketStatus;
         public Employee openedByEmployee;
@@ -24,7 +24,8 @@ namespace nitutz
         public Issue refferenceIssue;
 
         // create constructor
-        public Ticket(int ticketID, DateTime timeTime, DateTime dateOpened, TicketStatus ticketStatus, Employee openedByEmployee, Tenant openedByTenant, Issue refferenceIssue)
+        public Ticket(int ticketID, TimeSpan timeTime, DateTime dateOpened, TicketStatus ticketStatus,
+         Employee openedByEmployee, Tenant openedByTenant, Issue refferenceIssue , bool isNew)
         {
             this.ticketID = ticketID;
             this.timeTime = timeTime;
@@ -33,7 +34,31 @@ namespace nitutz
             this.openedByEmployee = openedByEmployee;
             this.openedByTenant = openedByTenant;
             this.refferenceIssue = refferenceIssue;
+
+            if (isNew)
+            {
+                Program.Tickets.Add(this);
+                addTicketToDB();
+            }
         }
+
+        public Ticket(int ticketID, TimeSpan timeTime, DateTime dateOpened
+         , Tenant openedByTenant, Issue refferenceIssue , bool isNew)
+        {
+            this.ticketID = ticketID;
+            this.timeTime = timeTime;
+            this.dateOpened = dateOpened;
+            this.ticketStatus = TicketStatus.Pending;
+            this.openedByTenant = openedByTenant;
+            this.refferenceIssue = refferenceIssue;
+
+            if (isNew)
+            {
+                Program.Tickets.Add(this);
+                addTicketToDB();
+            }
+        }
+
 
         // create default constructor
    
@@ -49,12 +74,12 @@ namespace nitutz
             this.ticketID = ticketID;
         }
 
-        public DateTime getTimeTime()
+        public TimeSpan  getTimeTime()
         {
             return this.timeTime;
         }
 
-        public void setTimeTime(DateTime timeTime)
+        public void setTimeTime(TimeSpan timeTime)
         {
             this.timeTime = timeTime;
         }

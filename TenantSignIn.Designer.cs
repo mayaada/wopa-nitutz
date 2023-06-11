@@ -32,8 +32,8 @@
             label2 = new Label();
             textBox2 = new TextBox();
             textBox3 = new TextBox();
-            button1 = new Button();
             label3 = new Label();
+            ContinueButton = new Button();
             SuspendLayout();
             // 
             // label1
@@ -70,16 +70,6 @@
             textBox3.TabIndex = 4;
             textBox3.TextChanged += textBox3_TextChanged;
             // 
-            // button1
-            // 
-            button1.Location = new Point(334, 283);
-            button1.Name = "button1";
-            button1.Size = new Size(112, 34);
-            button1.TabIndex = 5;
-            button1.Text = "Continue";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
-            // 
             // label3
             // 
             label3.AutoSize = true;
@@ -90,18 +80,28 @@
             label3.Text = "Login To your WOPA user!";
             label3.Click += label3_Click;
             // 
-            // Form1
+            // ContinueButton
+            // 
+            ContinueButton.Location = new Point(334, 329);
+            ContinueButton.Name = "ContinueButton";
+            ContinueButton.Size = new Size(114, 34);
+            ContinueButton.TabIndex = 7;
+            ContinueButton.Text = "Continue";
+            ContinueButton.UseVisualStyleBackColor = true;
+            ContinueButton.Click += ContinueButton_Click;
+            // 
+            // TenantSignIn
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(ContinueButton);
             Controls.Add(label3);
-            Controls.Add(button1);
             Controls.Add(textBox3);
             Controls.Add(textBox2);
             Controls.Add(label2);
             Controls.Add(label1);
-            Name = "Form1";
+            Name = "TenantSignIn";
             Text = "Form1";
             Load += Form1_Load;
             ResumeLayout(false);
@@ -113,7 +113,7 @@
         private Label label2;
         private TextBox textBox2;
         private TextBox textBox3;
-        private Button button1;
         private Label label3;
+        private Button ContinueButton;
     }
 }
