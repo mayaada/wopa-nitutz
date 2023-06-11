@@ -120,6 +120,24 @@ namespace nitutz
             this.termsAndConditions = termsAndConditions;
         }
 
+        public void initItemsLeased ()
+
+        {
+            List<LeasedItem> LI = Program.GetLeasedItemDataList();
+
+            foreach (LeasedItem LeasedItem in LI)
+            {
+                Lease L = (LeasedItem.getRelatesToLease());
+
+                if (L.getLeaseID() == this.leaseID)
+
+                {
+                    itemsLeased.Add(LeasedItem);
+                }
+               
+            }
+        }
+
 
 
         public void createLease()

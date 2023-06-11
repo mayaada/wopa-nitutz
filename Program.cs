@@ -39,6 +39,7 @@ namespace nitutz
             init_leases();//����� ������ �� ������
             init_LeasedItemTypes();
             init_LeasedItems();//����� ������ �� ������ ��������
+            init_leasesLeasedItems();
             init_Amenities();
             init_Issues();
             init_Tickets();
@@ -134,6 +135,11 @@ namespace nitutz
                 );
                 LeasedItemTypes.Add(LeasedItemType);
             }
+        }
+
+        public static void init_leasesLeasedItems()
+        {
+            Leases.ForEach(lease => { lease.initItemsLeased(); });
         }
 
         public static void init_LeasedItems()
@@ -424,9 +430,8 @@ namespace nitutz
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             initLists(); //����� �� �������
-          // Application.Run(new CrudLeads());
-            Application.Run(new CRUD_LI());
-           // Application.Run(new CrudTenants());
+          //  Application.Run(new CRUD_LI());
+             Application.Run(new ViewTenantForEmployee());
 
 
 
@@ -436,7 +441,7 @@ namespace nitutz
 
         }
 
-       
+
 
 
 

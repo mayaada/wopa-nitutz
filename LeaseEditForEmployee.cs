@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace nitutz
@@ -16,13 +17,35 @@ namespace nitutz
         public Tenant tenantExists;
         private LeasedItem leasedItem;
         private Lease currentLease;
+        private List<LeasedItem> itemsLeased;
         public LeaseEditForEmployee(Tenant tenantExists)
         {
             InitializeComponent();
             this.tenantExists = tenantExists;
+            this.currentLease = tenantExists.getCurrentLease();
+            this.itemsLeased = currentLease.getItemsLeased();
+
+            InitializeListView();
+            PopulateListView();
         }
 
-        private void label2_Click(object sender, EventArgs e)
+
+        private void InitializeListView()
+        {
+
+            // Set the ListView to "Details" view mode
+            listView1.View = View.Details;
+            listView1.LabelEdit = true;
+
+            // Set up the listView1 control
+            
+            listView1.Columns.Add("Item Number" , 60);
+            listView1.Columns.Add("Item Floor" , 60);
+            listView1.Columns.Add("Type", 60);
+
+        }
+
+            private void label2_Click(object sender, EventArgs e)
         {
 
 
@@ -51,11 +74,11 @@ namespace nitutz
 
         private void LeaseEditForEmployee_Load(object sender, EventArgs e)
         {
-            currentLease = tenantExists.getCurrentLease();
-
             if (currentLease != null)
             {
                 int leaseId = currentLease.getLeaseID();
+
+
                 LeaseIdtextBox1.Text = leaseId.ToString();
             }
             else
@@ -85,8 +108,27 @@ namespace nitutz
                 LeaseIdtextBox1.Text = "No Current Lease Found";
                 StartDatetextBox1.Text = "No Current Lease Found";
             }
-
         }
+
+        private void PopulateListView()
+        {
+            itemsLeased = currentLease.getItemsLeased();
+
+            listView1.Items.Clear();
+
+
+            foreach (LeasedItem itemLeased in itemsLeased)
+            {
+                ListViewItem item = new ListViewItem(itemLeased.getNumber().ToString());
+                item.SubItems.Add(itemLeased.getNumber().ToString());
+                item.SubItems.Add(itemLeased.getFloor().ToString());
+                item.SubItems.Add(itemLeased.getType().getType());
+                listView1.Items.Add(item);
+
+            }
+            
+        }
+
 
         private void Savebutton1_Click(object sender, EventArgs e)
         {
@@ -128,6 +170,11 @@ namespace nitutz
             CrudLeads CrudLeads = new CrudLeads();
             CrudLeads.Show();
             this.Hide();
+
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }

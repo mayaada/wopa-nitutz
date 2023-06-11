@@ -41,7 +41,7 @@
             label6 = new Label();
             textBox1 = new TextBox();
             textBox2 = new TextBox();
-            listBox1 = new ListBox();
+            listView1 = new ListView();
             SuspendLayout();
             // 
             // Savebutton1
@@ -160,22 +160,21 @@
             textBox2.TabIndex = 22;
             textBox2.TextChanged += textBox2_TextChanged_1;
             // 
-            // listBox1
+            // listView1
             // 
-            listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 25;
-            listBox1.Location = new Point(542, 97);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(180, 129);
-            listBox1.TabIndex = 23;
-            listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
+            listView1.Location = new Point(557, 128);
+            listView1.Name = "listView1";
+            listView1.Size = new Size(182, 146);
+            listView1.TabIndex = 23;
+            listView1.UseCompatibleStateImageBehavior = false;
+            listView1.SelectedIndexChanged += listView1_SelectedIndexChanged;
             // 
             // LeaseEditForEmployee
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(listBox1);
+            ClientSize = new Size(835, 450);
+            Controls.Add(listView1);
             Controls.Add(textBox2);
             Controls.Add(textBox1);
             Controls.Add(label6);
@@ -215,5 +214,6 @@
         private TextBox termsTextBox;
         private TextBox textBox2;
         private ListBox listBox1;
+        private ListView listView1;
     }
 }
