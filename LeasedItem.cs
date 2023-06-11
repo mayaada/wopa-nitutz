@@ -135,9 +135,25 @@ namespace nitutz
             SqlCommand c = new SqlCommand();
             c.CommandText = "EXECUTE dbo.Update_Leased_Item @number, @electricCharging, @isAvailable, @LeaseID";
             c.Parameters.AddWithValue("@number", number);
-            c.Parameters.AddWithValue("@electricCharging", electricCharging);
-            c.Parameters.AddWithValue("@isAvailable", isAvailable);
-            c.Parameters.AddWithValue("@LeaseID", relatesTo.getLeaseID());
+            if(electricCharging != null)
+            {
+                c.Parameters.AddWithValue("@electricCharging", electricCharging);
+            } else
+            {   
+                c.Parameters.AddWithValue("@electricCharging", null);
+            }
+            if(isAvailable)
+            {
+                c.Parameters.AddWithValue("@isAvailable", isAvailable);
+
+            }
+            if(relatesTo != null)
+            {
+                c.Parameters.AddWithValue("@LeaseID", relatesTo.getLeaseID());
+            } else
+            {
+                c.Parameters.AddWithValue("@LeaseID", null);
+            }
             SQL_CON SC = new SQL_CON();
             SC.execute_non_query(c);
         }
