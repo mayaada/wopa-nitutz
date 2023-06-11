@@ -32,6 +32,11 @@ namespace nitutz
             CreatedByTenant = createdByTenant;
             EventRelatedTo = eventRelatedTo;
             BookingLocation = bookingLocation;
+            if (isNew)
+            {
+                addBooking();
+                Program.Bookings.Add(this);
+            }
         }
 
         // constroctor for employee
@@ -67,6 +72,12 @@ namespace nitutz
             CreatedByTenant = tenantCompantName;
             EventRelatedTo = null;
             BookingLocation = bookingLocation;
+
+            if (isNew)
+            {
+                addBooking();
+                Program.Bookings.Add(this);
+            }
         }
 
 
@@ -198,10 +209,25 @@ namespace nitutz
             c.Parameters.AddWithValue("@Start_Time", StartTime);
             c.Parameters.AddWithValue("@End_Time", EndTime);
             c.Parameters.AddWithValue("@Booking_Status", BookingStatus);
-            c.Parameters.AddWithValue("@Created_By_Employee", CreatedByEmployee);
-            c.Parameters.AddWithValue("@Created_By_Tenant", CreatedByTenant);
-            c.Parameters.AddWithValue("@Event_Related_To", EventRelatedTo);
-            c.Parameters.AddWithValue("@Booking_Location", BookingLocation);
+
+            if (CreatedByEmployee != null)
+            {
+                c.Parameters.AddWithValue("@Created_By_Employee", CreatedByEmployee.ToString());
+            }
+            else { c.Parameters.AddWithValue("@Created_By_Employee", null); }
+
+            if (CreatedByTenant != null)
+            {
+                c.Parameters.AddWithValue("@Created_By_Tenant", CreatedByTenant.ToString());
+            } else { c.Parameters.AddWithValue("@Created_By_Tenant", null); }
+
+            if (EventRelatedTo != null)
+            {
+                c.Parameters.AddWithValue("@Event_Related_To", EventRelatedTo.ToString());
+            }
+            else { c.Parameters.AddWithValue("@Event_Related_To", null); }
+
+            c.Parameters.AddWithValue("@Booking_Location", BookingLocation.ToString());
             SQL_CON SC = new SQL_CON();
             SC.execute_non_query(c);
         }
