@@ -65,7 +65,7 @@ namespace nitutz
 
         private void button3_Click(object sender, EventArgs e)
         {
-            newEmployeeBooking bookingForm = new newEmployeeBooking(currentUser);
+            NewBookingForEmployee bookingForm = new NewBookingForEmployee(currentUser);
             this.Hide();
             bookingForm.Show();
         }

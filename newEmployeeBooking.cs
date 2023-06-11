@@ -11,14 +11,14 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace nitutz
 {
-    public partial class newEmployeeBooking : Form
+    public partial class NewBookingForEmployee : Form
 
     {
         private Employee currentUser;
         private List<MeetingLocation> meetingLocations;
 
 
-        public newEmployeeBooking(Employee currentUser)
+        public NewBookingForEmployee(Employee currentUser)
         {
             InitializeComponent();
             this.currentUser = currentUser;

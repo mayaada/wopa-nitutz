@@ -1,6 +1,6 @@
 ﻿namespace nitutz
 {
-    partial class newEmployeeBooking
+    partial class NewBookingForEmployee
     {
         /// <summary>
         /// Required designer variable.
@@ -153,7 +153,7 @@
             locationDropDownBox.TabIndex = 9;
             locationDropDownBox.SelectedIndexChanged += locationDropDownBox_SelectedIndexChanged;
             // 
-            // newEmployeeBooking
+            // NewBookingForEmployee
             // 
             AutoScaleDimensions = new SizeF(17F, 41F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -170,8 +170,8 @@
             Controls.Add(dateLable);
             Controls.Add(createBookingLable);
             Margin = new Padding(5);
-            Name = "newEmployeeBooking";
-            Text = "newEmployeeBooking";
+            Name = "NewBookingForEmployee";
+            Text = "NewBookingForEmployee";
             Load += newEmployeeBooking_Load;
             ResumeLayout(false);
             PerformLayout();
