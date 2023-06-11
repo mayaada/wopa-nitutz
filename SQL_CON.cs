@@ -41,7 +41,7 @@ namespace nitutz
             }
             catch (Exception ex)
             {
-                MessageBox.Show("שגיאה בביצוע השאילתה", "המשך", MessageBoxButtons.OK);
+                MessageBox.Show("שגיאה בביצוע השאילתה" + ex.Message, "המשך", MessageBoxButtons.OK);
             }
             finally
             {
