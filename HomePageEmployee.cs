@@ -20,14 +20,6 @@ namespace nitutz
             this.currentUser = currentUser;
         }
 
-        private void button1_Click(object sender, EventArgs e)
-
-        {
-            TenantDetailsForEmployee TenantDetailsForEmployee = new TenantDetailsForEmployee();
-            TenantDetailsForEmployee.Show();
-            this.Hide();
-        }
-
 
         private void button5_Click(object sender, EventArgs e)
         {
@@ -52,14 +44,16 @@ namespace nitutz
             this.Hide();
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void bookigsAndEvents_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            newEmployeeBooking bookingForm = new newEmployeeBooking(currentUser);
+            this.Hide();
+            bookingForm.Show();
         }
     }
 }

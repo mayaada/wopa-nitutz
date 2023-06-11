@@ -28,37 +28,37 @@ namespace nitutz
         /// </summary>
         private void InitializeComponent()
         {
-            button3 = new Button();
-            button4 = new Button();
+            ExistingEvents_Buttons = new Button();
+            BookingAndEvents_Button = new Button();
             button5 = new Button();
             button6 = new Button();
             label1 = new Label();
             button1 = new Button();
             SuspendLayout();
             // 
-            // button3
+            // ExistingEvents_Buttons
             // 
-            button3.Location = new Point(528, 189);
-            button3.Name = "button3";
-            button3.Size = new Size(112, 34);
-            button3.TabIndex = 2;
-            button3.Text = "Events";
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
+            ExistingEvents_Buttons.Location = new Point(822, 265);
+            ExistingEvents_Buttons.Name = "ExistingEvents_Buttons";
+            ExistingEvents_Buttons.Size = new Size(215, 94);
+            ExistingEvents_Buttons.TabIndex = 2;
+            ExistingEvents_Buttons.Text = "Existing Events";
+            ExistingEvents_Buttons.UseVisualStyleBackColor = true;
+            ExistingEvents_Buttons.Click += button3_Click;
             // 
-            // button4
+            // bookigsAndEvents_Click
             // 
-            button4.Location = new Point(84, 277);
-            button4.Name = "button4";
-            button4.Size = new Size(190, 110);
-            button4.TabIndex = 3;
-            button4.Text = "Bookings And Events";
-            button4.UseVisualStyleBackColor = true;
-            button4.Click += button4_Click;
+            BookingAndEvents_Button.Location = new Point(300, 514);
+            BookingAndEvents_Button.Name = "bookigsAndEvents_Click";
+            BookingAndEvents_Button.Size = new Size(190, 110);
+            BookingAndEvents_Button.TabIndex = 3;
+            BookingAndEvents_Button.Text = "Bookings And Events";
+            BookingAndEvents_Button.UseVisualStyleBackColor = true;
+            BookingAndEvents_Button.Click += bookigsAndEvents_Click;
             // 
             // button5
             // 
-            button5.Location = new Point(84, 189);
+            button5.Location = new Point(300, 399);
             button5.Name = "button5";
             button5.Size = new Size(190, 56);
             button5.TabIndex = 4;
@@ -68,7 +68,7 @@ namespace nitutz
             // 
             // button6
             // 
-            button6.Location = new Point(898, 428);
+            button6.Location = new Point(822, 399);
             button6.Margin = new Padding(5);
             button6.Name = "button6";
             button6.Size = new Size(215, 110);
@@ -90,9 +90,9 @@ namespace nitutz
             // 
             // button1
             // 
-            button1.Location = new Point(84, 114);
+            button1.Location = new Point(300, 265);
             button1.Name = "button1";
-            button1.Size = new Size(112, 34);
+            button1.Size = new Size(190, 63);
             button1.TabIndex = 7;
             button1.Text = "Tenants";
             button1.UseVisualStyleBackColor = true;
@@ -102,13 +102,13 @@ namespace nitutz
             // 
             AutoScaleDimensions = new SizeF(17F, 41F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1319, 820);
             Controls.Add(button1);
             Controls.Add(label1);
             Controls.Add(button6);
             Controls.Add(button5);
-            Controls.Add(button4);
-            Controls.Add(button3);
+            Controls.Add(BookingAndEvents_Button);
+            Controls.Add(ExistingEvents_Buttons);
             Name = "HomePageEmployee";
             Text = "Form1";
             Load += HomePageEmployee_Load;
@@ -117,8 +117,8 @@ namespace nitutz
         }
 
         #endregion
-        private Button button3;
-        private Button button4;
+        private Button ExistingEvents_Buttons;
+        private Button BookingAndEvents_Button;
         private Button button5;
         private Button button6;
         private Label label1;

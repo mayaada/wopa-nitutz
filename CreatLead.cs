@@ -26,8 +26,8 @@ namespace nitutz
         {
             DateTime currentDate = DateTime.Now;
 
-            Lead L = new Lead(CompanyNameTextBox.Text, ContacttextBox1.Text, PhontextBox1.Text, EmailtextBox1.Text, currentDate, 
-                (int)NumOfWorkstationumericUpDown1.Value, 'Open', ,  true(//   ושדות עד הסוףlead source open לבדוק איך מכניס אוטומטי
+           // Lead L = new Lead(CompanyNameTextBox.Text, ContacttextBox1.Text, PhontextBox1.Text, EmailtextBox1.Text, currentDate, 
+              //  (int)NumOfWorkstationumericUpDown1.Value, 'Open',true)//   ושדות עד הסוףlead source open לבדוק איך מכניס אוטומטי
             {
 
             };

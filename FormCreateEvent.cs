@@ -14,10 +14,12 @@ namespace nitutz
     public partial class FormCreateEvent : Form
     {
         private Event newEvent;
+        private Employee currentUser;
 
-        public FormCreateEvent()
+        public FormCreateEvent(Employee currentUser)
         {
             InitializeComponent();
+            this.currentUser = currentUser;
         }
 
         private void FormCreateEvent_Load(object sender, EventArgs e)

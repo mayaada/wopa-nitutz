@@ -122,9 +122,9 @@
             CreateEvent_Button.Name = "CreateEvent_Button";
             CreateEvent_Button.Size = new Size(252, 97);
             CreateEvent_Button.TabIndex = 7;
-            CreateEvent_Button.Text = "Create Event";
+            CreateEvent_Button.Text = "Book and Create Event";
             CreateEvent_Button.UseVisualStyleBackColor = true;
-            CreateEvent_Button.Click += createEvent_Button;
+            CreateEvent_Button.Click += bookAndCreateEvent_Button;
             // 
             // endTimePicker1
             // 

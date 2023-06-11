@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace nitutz
 {
@@ -14,11 +15,19 @@ namespace nitutz
 
     {
         private Employee currentUser;
+        private List<MeetingLocation> meetingLocations;
+
 
         public newEmployeeBooking(Employee currentUser)
         {
             InitializeComponent();
             this.currentUser = currentUser;
+            this.meetingLocations = Program.MeetingLocations.ToList();
+            locationDropDownBox.Items.Clear();
+            foreach (var meetingLocation in meetingLocations)
+            {
+                locationDropDownBox.Items.Add(meetingLocation.getRoomName());
+            }
         }
 
         private Booking newBooking;
@@ -47,9 +56,35 @@ namespace nitutz
 
         }
 
-        private void createEvent_Button(object sender, EventArgs e)
+        private void bookAndCreateEvent_Button(object sender, EventArgs e)
         {
-            FormCreateEvent eventForm = new FormCreateEvent();
+            
+            // save booking fields
+            DateTime bookingDate = date_Button.Value;
+            DateTime startTime = startTimePicker.Value;
+            DateTime endTime = endTimePicker1.Value;
+            MeetingLocation meetingLocation = Program.seekMeetingLocation(locationDropDownBox.Text);
+
+            //check availability in calendar
+            bool isAvailable = GoogleCalendar.checkMeetingLocationCalendarAvailability(bookingDate, startTime, endTime, meetingLocation);
+
+            //save availability from calendar
+            BookingStatus bookingStatus;
+            if (isAvailable)
+            {
+                bookingStatus = BookingStatus.Approved;
+            }
+            else
+            {
+                bookingStatus = BookingStatus.Declined;
+
+            }
+
+            // create booking with updated fields
+            Booking newBooking = new Booking(bookingDate, startTime, endTime, currentUser, meetingLocation, BookingStatus.Declined); Booking newBooking = new Booking(bookingDate, startTime, endTime, currentUser, meetingLocation, BookingStatus.Approved);
+
+            // new event form window
+            FormCreateEvent eventForm = new FormCreateEvent(currentUser);
             this.Hide();
             eventForm.Show();
         }
@@ -76,7 +111,6 @@ namespace nitutz
 
         private void locationDropDownBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-
         }
     }
 }

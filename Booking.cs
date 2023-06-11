@@ -20,29 +20,15 @@ namespace nitutz
         public Event EventRelatedTo;
         public MeetingLocation BookingLocation;
 
-        public Booking(int bookingID, DateTime bookingDate, DateTime startTime, DateTime endTime, BookingStatus bookingStatus,
-         Employee createdByEmployee, Tenant createdByTenant, Event eventRelatedTo, MeetingLocation bookingLocation)
-        {
-            BookingID = bookingID;
-            BookingDate = bookingDate;
-            StartTime = startTime;
-            EndTime = endTime;
-            BookingStatus = bookingStatus;
-            CreatedByEmployee = createdByEmployee;
-            CreatedByTenant = createdByTenant;
-            EventRelatedTo = eventRelatedTo;
-            BookingLocation = bookingLocation;
-        }
-        // constroctor for employye
 
-        public Booking( DateTime bookingDate, DateTime startTime, DateTime endTime,
-        Employee employeeEmail, MeetingLocation bookingLocation)
+        // constroctor for employee
+        public Booking( DateTime bookingDate, DateTime startTime, DateTime endTime, Employee employeeEmail, MeetingLocation bookingLocation, BookingStatus bookingStatus = BookingStatus.Pending)
         {
             BookingID = generateBookingID();
             BookingDate = bookingDate;
             StartTime = startTime;
             EndTime = endTime;
-            BookingStatus = BookingStatus.Pending;
+            BookingStatus = bookingStatus;
             CreatedByEmployee = employeeEmail;
             CreatedByTenant = null;
             EventRelatedTo = null;
