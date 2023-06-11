@@ -20,9 +20,23 @@ namespace nitutz
         public Event EventRelatedTo;
         public MeetingLocation BookingLocation;
 
+        // constructor for program
+        public Booking(int bookingID, DateTime bookingDate, DateTime startTime, DateTime endTime, BookingStatus bookingStatus, Employee createdByEmployee, Tenant createdByTenant, Event eventRelatedTo, MeetingLocation bookingLocation, bool isNew)
+        {
+            BookingID = bookingID;
+            BookingDate = bookingDate;
+            StartTime = startTime;
+            EndTime = endTime;
+            BookingStatus = bookingStatus;
+            CreatedByEmployee = createdByEmployee;
+            CreatedByTenant = createdByTenant;
+            EventRelatedTo = eventRelatedTo;
+            BookingLocation = bookingLocation;
+        }
 
-        // constroctor for employee
-        public Booking( DateTime bookingDate, DateTime startTime, DateTime endTime, Employee employeeEmail, MeetingLocation bookingLocation, BookingStatus bookingStatus = BookingStatus.Pending)
+
+        // constructor for employee
+        public Booking( DateTime bookingDate, DateTime startTime, DateTime endTime, Employee employeeEmail, MeetingLocation bookingLocation, Boolean isNew, BookingStatus bookingStatus = BookingStatus.Pending)
         {
             BookingID = generateBookingID();
             BookingDate = bookingDate;
@@ -35,9 +49,9 @@ namespace nitutz
             BookingLocation = bookingLocation;
         }
 
-        // constroctor for Tenant
+        // constructor for Tenant
         public Booking( DateTime bookingDate, DateTime startTime, DateTime endTime, 
-         Tenant tenantCompantName, MeetingLocation bookingLocation)
+         Tenant tenantCompantName, MeetingLocation bookingLocation, Boolean isNew, BookingStatus bookingStatus = BookingStatus.Pending)
         {
             BookingID = generateBookingID();
             BookingDate = bookingDate;
