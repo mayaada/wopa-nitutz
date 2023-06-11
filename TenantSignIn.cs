@@ -12,11 +12,14 @@ namespace nitutz
 {
     public partial class TenantSignIn : Form
     {
+        private Tenant currentUser;
+
         public TenantSignIn()
         {
             InitializeComponent();
+            this.currentUser = Program.seekTenant(textBox2.ToString());
         }
-
+        
         private void button1_Click(object sender, EventArgs e)
         {
             string inputCompanyName = textBox2.Text.Trim(); // Get the user input from textBox2 and trim any leading/trailing whitespace
