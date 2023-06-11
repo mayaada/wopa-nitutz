@@ -37,14 +37,16 @@
             // ManageTenantsLable
             // 
             ManageTenantsLable.AutoSize = true;
-            ManageTenantsLable.Location = new Point(336, 82);
+            ManageTenantsLable.Font = new Font("Arial Rounded MT Bold", 16F, FontStyle.Regular, GraphicsUnit.Point);
+            ManageTenantsLable.Location = new Point(273, 86);
             ManageTenantsLable.Name = "ManageTenantsLable";
-            ManageTenantsLable.Size = new Size(126, 25);
+            ManageTenantsLable.Size = new Size(242, 37);
             ManageTenantsLable.TabIndex = 5;
             ManageTenantsLable.Text = "Manage Leads";
             // 
             // button1
             // 
+            button1.Font = new Font("Arial Rounded MT Bold", 10F, FontStyle.Regular, GraphicsUnit.Point);
             button1.Location = new Point(150, 181);
             button1.Name = "button1";
             button1.Size = new Size(130, 81);
@@ -55,9 +57,10 @@
             // 
             // button2
             // 
-            button2.Location = new Point(543, 181);
+            button2.Font = new Font("Arial Rounded MT Bold", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            button2.Location = new Point(522, 181);
             button2.Name = "button2";
-            button2.Size = new Size(130, 81);
+            button2.Size = new Size(151, 81);
             button2.TabIndex = 7;
             button2.Text = "Update Lead";
             button2.UseVisualStyleBackColor = true;
@@ -65,9 +68,10 @@
             // 
             // button3
             // 
-            button3.Location = new Point(345, 181);
+            button3.Font = new Font("Arial Rounded MT Bold", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            button3.Location = new Point(328, 181);
             button3.Name = "button3";
-            button3.Size = new Size(126, 81);
+            button3.Size = new Size(146, 81);
             button3.TabIndex = 8;
             button3.Text = "Delete Lead";
             button3.UseVisualStyleBackColor = true;

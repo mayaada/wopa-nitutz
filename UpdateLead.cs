@@ -16,10 +16,14 @@ namespace nitutz
         public UpdateLead()
         {
             InitializeComponent();
+            Updatebutton.Hide();
+            LeadStatuscomboBox1.DataSource = Enum.GetValues(typeof(LeadStatus));
         }
 
         private void UpdateLead_Load(object sender, EventArgs e)
         {
+
+
 
         }
 
@@ -35,16 +39,17 @@ namespace nitutz
                 //הצגת הכפתורים
                 Updatebutton.Show();
                 //איתור המופע המתאים והצגת הפרטים
-                lead = Program.seeklead(CompanyTextBox.Text);
+                lead = Program.seekLead(CompanyTextBox.Text);
                 contactTextBox.Text = lead.getContact();
                 PhoneTextBox.Text = lead.getNumber();
                 EmailTextBox.Text = lead.getEmail();
-                WorkStationBox5.Text = lead.getWorkStationNumber();
-                //CreatedNewTextBox.Text = lead.getCreatedNew();
-                LeadStatuscomboBox1.DataSource = Enum.GetValues(typeof(LeadStatus)); // Populate ComboBox with enum values
-                // Set the selected value of the ComboBox based on the lead's status
+                WorkStationBox5.Text = lead.getWorkStationNumber().ToString();
                 LeadStatuscomboBox1.SelectedItem = lead.getStatus();
+                Console.WriteLine(lead.getStatus());
+
+
             }
+
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -54,19 +59,17 @@ namespace nitutz
 
         private void button2_Click(object sender, EventArgs e)
         {
+
             lead.updateContact(contactTextBox.Text);
             lead.updateNumber(PhoneTextBox.Text);
             lead.updateEmail(EmailTextBox.Text);
-            lead.updateWorkStationNumber(WorkStationBox5.Text);
-            lead.updateLeadStatus(LeadStatuscomboBox1.Text);
+            int num = int.Parse(WorkStationBox5.Text);
+            Console.WriteLine(num);
+            lead.updateWorkStationNumber(num);
+            lead.updateLeadStatus((LeadStatus)LeadStatuscomboBox1.SelectedItem);
+            lead.updateLead();
+            MessageBox.Show("Lead updated successfully");
 
-           // int num = int.Parse(NumOfEmptextBox1.Text);
-           // Console.WriteLine(num);
-           // tenant.updateNumberOfEmployees(num);
-            //bool Activity = bool.Parse(IsActiveTextBox.Text);
-            //Console.WriteLine(Activity);
-            //tenant.UpdateActivateTenant(Activity);
-           // tenant.updateTenant();
         }
 
         private void contactTextBox_TextChanged(object sender, EventArgs e)
@@ -96,6 +99,14 @@ namespace nitutz
 
         private void LeadStatuscomboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void BACKbutton1_Click(object sender, EventArgs e)
+        {
+            CrudLeads CrudLeads = new CrudLeads();
+            CrudLeads.Show();
+            this.Hide();
 
         }
     }

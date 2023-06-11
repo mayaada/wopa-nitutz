@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +15,9 @@ namespace nitutz
         public CreatLead()
         {
             InitializeComponent();
+            StatuscomboBox1.DataSource = Enum.GetValues(typeof(LeadStatus));
+            SourcecomboBox1.DataSource = Enum.GetValues(typeof(LeadSource));
+
         }
 
         private void CreatLead_Load(object sender, EventArgs e)
@@ -26,11 +29,11 @@ namespace nitutz
         {
             DateTime currentDate = DateTime.Now;
 
-           // Lead L = new Lead(CompanyNameTextBox.Text, ContacttextBox1.Text, PhontextBox1.Text, EmailtextBox1.Text, currentDate, 
-              //  (int)NumOfWorkstationumericUpDown1.Value, 'Open',true)//   ושדות עד הסוףlead source open לבדוק איך מכניס אוטומטי
-            {
+            Lead L = new Lead(CompanyNameTextBox.Text, ContacttextBox1.Text, PhontextBox1.Text,
+            EmailtextBox1.Text, currentDate, (int)NumOfWorkstationumericUpDown1.Value,
+             (LeadStatus)StatuscomboBox1.SelectedItem, (LeadSource)SourcecomboBox1.SelectedItem,
+             Program.seekEemploye("coral@wopa.space"), true);
 
-            };
         }
 
 
@@ -57,6 +60,26 @@ namespace nitutz
 
         private void EmailtextBox1_TextChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void StatuscomboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private void SourcecomboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private void Backbutton2_Click(object sender, EventArgs e)
+        {
+            CrudLeads CrudLeads = new CrudLeads();
+            CrudLeads.Show();
+            this.Hide();
 
         }
     }

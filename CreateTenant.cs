@@ -55,7 +55,7 @@ namespace nitutz
         private void AddTenantButton_Click(object sender, EventArgs e)
         {
             DateTime currentDate = DateTime.Now;
-            
+
             Tenant T = new Tenant(CompanyNameTB.Text, EmailTB.Text, WebsiteTB.Text, currentDate,
                 (int)numericUpDown1.Value, true, true);
         }
@@ -63,6 +63,13 @@ namespace nitutz
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void Backbutton_Click(object sender, EventArgs e)
+        {
+            CrudTenants mf = new CrudTenants();
+            mf.Show();
+            this.Close();
         }
     }
 }

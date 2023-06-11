@@ -96,9 +96,26 @@ namespace nitutz
 
         }
 
+
+        private void Backbutton_Click(object sender, EventArgs e)
+        {
+            CrudTenants mf = new CrudTenants();
+            mf.Show();
+            this.Close();
+
+        }
+
+
         private void UpdateTenant_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void Backbutton_Click_1(object sender, EventArgs e)
+        {
+            CrudTenants CrudTenants = new CrudTenants();
+            CrudTenants.Show();
+            this.Hide();
         }
     }
 }

@@ -77,16 +77,55 @@ namespace nitutz
         {
             this.isAvailable = isAvailable;
         }
+
+        public void updateLease (int leaseID)
+        {
+            this.relatesTo = Program.seekLease(leaseID);
+        }
+
+        
+
+
+        public int getLeaseNumber() {
+            int num = this.relatesTo.getLeaseID();
+            return num;
+
+        }
+
+        public string getLeasedItemTypeName()
+        {
+            string name = this.type.getType();
+            return name;
+        }
+
+        public double getPrice()
+        {
+            double price = this.type.getPrice();
+            return price;
+        }
+
+        public int getCreditAmount()
+        {
+            int credit = this.type.getCreditAmount();
+            return credit;
+        }
+
+        public double getDeposit()
+        {
+            double deposit = this.type.getDeposit();
+            return deposit;
+        }
         
         public void createLeasedItem()
         {
             SqlCommand c = new SqlCommand();
-            c.CommandText = "EXECUTE dbo.Create_Leased_Item @number, @floor, @type, @electricCharging, @isAvailable";
+            c.CommandText = "EXECUTE dbo.Create_Leased_Item @number, @floor, @type, @electricCharging, @isAvailable, @LeaseID";
             c.Parameters.AddWithValue("@number", number);
             c.Parameters.AddWithValue("@floor", floor);
-            c.Parameters.AddWithValue("@type", type);
+            c.Parameters.AddWithValue("@type", type.getType());
             c.Parameters.AddWithValue("@electricCharging", electricCharging);
             c.Parameters.AddWithValue("@isAvailable", isAvailable);
+            c.Parameters.AddWithValue("@LeaseID", relatesTo.getLeaseID());
             SQL_CON SC = new SQL_CON();
             SC.execute_non_query(c);
         }
@@ -94,12 +133,11 @@ namespace nitutz
         public void updateLeasedItem()
         {
             SqlCommand c = new SqlCommand();
-            c.CommandText = "EXECUTE dbo.Update_Leased_Item @number, @floor, @type, @electricCharging, @isAvailable";
+            c.CommandText = "EXECUTE dbo.Update_Leased_Item @number, @electricCharging, @isAvailable, @LeaseID";
             c.Parameters.AddWithValue("@number", number);
-            c.Parameters.AddWithValue("@floor", floor);
-            c.Parameters.AddWithValue("@type", type);
             c.Parameters.AddWithValue("@electricCharging", electricCharging);
             c.Parameters.AddWithValue("@isAvailable", isAvailable);
+            c.Parameters.AddWithValue("@LeaseID", relatesTo.getLeaseID());
             SQL_CON SC = new SQL_CON();
             SC.execute_non_query(c);
         }

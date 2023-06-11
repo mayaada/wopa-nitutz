@@ -38,15 +38,18 @@
             WebsiteTB = new TextBox();
             AddTenantButton = new Button();
             numericUpDown1 = new NumericUpDown();
+            Backbutton = new Button();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             SuspendLayout();
             // 
             // AddNewTenantLabel
             // 
             AddNewTenantLabel.AutoSize = true;
-            AddNewTenantLabel.Location = new Point(310, 39);
+            AddNewTenantLabel.BackColor = SystemColors.ButtonFace;
+            AddNewTenantLabel.Font = new Font("Arial Rounded MT Bold", 16F, FontStyle.Regular, GraphicsUnit.Point);
+            AddNewTenantLabel.Location = new Point(235, 55);
             AddNewTenantLabel.Name = "AddNewTenantLabel";
-            AddNewTenantLabel.Size = new Size(142, 25);
+            AddNewTenantLabel.Size = new Size(272, 37);
             AddNewTenantLabel.TabIndex = 0;
             AddNewTenantLabel.Text = "Add New Tenant";
             AddNewTenantLabel.Click += AddNewTenantLabel_Click;
@@ -54,9 +57,10 @@
             // CompanyNameLabel
             // 
             CompanyNameLabel.AutoSize = true;
+            CompanyNameLabel.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
             CompanyNameLabel.Location = new Point(59, 150);
             CompanyNameLabel.Name = "CompanyNameLabel";
-            CompanyNameLabel.Size = new Size(141, 25);
+            CompanyNameLabel.Size = new Size(150, 21);
             CompanyNameLabel.TabIndex = 1;
             CompanyNameLabel.Text = "Company Name";
             CompanyNameLabel.Click += CompanyNameLabel_Click;
@@ -64,27 +68,30 @@
             // EmailLabel
             // 
             EmailLabel.AutoSize = true;
-            EmailLabel.Location = new Point(59, 187);
+            EmailLabel.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            EmailLabel.Location = new Point(59, 193);
             EmailLabel.Name = "EmailLabel";
-            EmailLabel.Size = new Size(54, 25);
+            EmailLabel.Size = new Size(59, 21);
             EmailLabel.TabIndex = 2;
             EmailLabel.Text = "Email";
             // 
             // WebsiteLabel
             // 
             WebsiteLabel.AutoSize = true;
-            WebsiteLabel.Location = new Point(59, 224);
+            WebsiteLabel.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            WebsiteLabel.Location = new Point(59, 230);
             WebsiteLabel.Name = "WebsiteLabel";
-            WebsiteLabel.Size = new Size(75, 25);
+            WebsiteLabel.Size = new Size(81, 21);
             WebsiteLabel.TabIndex = 3;
             WebsiteLabel.Text = "Website";
             // 
             // NumEmpLabel
             // 
             NumEmpLabel.AutoSize = true;
-            NumEmpLabel.Location = new Point(59, 261);
+            NumEmpLabel.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            NumEmpLabel.Location = new Point(57, 274);
             NumEmpLabel.Name = "NumEmpLabel";
-            NumEmpLabel.Size = new Size(193, 25);
+            NumEmpLabel.Size = new Size(208, 21);
             NumEmpLabel.TabIndex = 4;
             NumEmpLabel.Text = "Number Of Employees";
             NumEmpLabel.Click += NumEmpLabel_Click;
@@ -115,9 +122,10 @@
             // 
             // AddTenantButton
             // 
-            AddTenantButton.Location = new Point(130, 325);
+            AddTenantButton.Font = new Font("Arial Rounded MT Bold", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            AddTenantButton.Location = new Point(289, 320);
             AddTenantButton.Name = "AddTenantButton";
-            AddTenantButton.Size = new Size(163, 40);
+            AddTenantButton.Size = new Size(144, 46);
             AddTenantButton.TabIndex = 9;
             AddTenantButton.Text = "Add Tenat";
             AddTenantButton.UseVisualStyleBackColor = true;
@@ -131,11 +139,24 @@
             numericUpDown1.TabIndex = 10;
             numericUpDown1.ValueChanged += numericUpDown1_ValueChanged;
             // 
+            // Backbutton
+            // 
+            Backbutton.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            Backbutton.Location = new Point(22, 18);
+            Backbutton.Name = "Backbutton";
+            Backbutton.Size = new Size(72, 32);
+            Backbutton.TabIndex = 11;
+            Backbutton.Text = "Back";
+            Backbutton.UseVisualStyleBackColor = true;
+            Backbutton.Click += Backbutton_Click;
+            // 
             // CreateTenant
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.Menu;
             ClientSize = new Size(800, 450);
+            Controls.Add(Backbutton);
             Controls.Add(numericUpDown1);
             Controls.Add(AddTenantButton);
             Controls.Add(WebsiteTB);
@@ -166,5 +187,6 @@
         private TextBox WebsiteTB;
         private Button AddTenantButton;
         private NumericUpDown numericUpDown1;
+        private Button Backbutton;
     }
 }

@@ -12,7 +12,6 @@ namespace nitutz
         Spacing,
         [Description("Recomendation")]
         Recomendation,
-        
         [Description("Website")]
         Website,
         [Description("Other")]

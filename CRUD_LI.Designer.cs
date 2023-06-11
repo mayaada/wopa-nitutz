@@ -1,6 +1,6 @@
 ﻿namespace nitutz
 {
-    partial class MyMaintenancerequests
+    partial class CRUD_LI
     {
         /// <summary>
         /// Required designer variable.
@@ -36,34 +36,37 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Britannic Bold", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(218, 44);
+            label1.Font = new Font("Arial Rounded MT Bold", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(164, 78);
             label1.Name = "label1";
-            label1.Size = new Size(426, 40);
+            label1.Size = new Size(386, 42);
             label1.TabIndex = 0;
-            label1.Text = "My Maintenance Requests";
+            label1.Text = "Service Management";
             label1.Click += label1_Click;
             // 
             // button1
             // 
-            button1.Location = new Point(169, 193);
+            button1.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            button1.Location = new Point(76, 229);
             button1.Name = "button1";
-            button1.Size = new Size(190, 69);
+            button1.Size = new Size(241, 83);
             button1.TabIndex = 1;
-            button1.Text = "My requests";
+            button1.Text = "Add New Service";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // button2
             // 
-            button2.Location = new Point(441, 193);
+            button2.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            button2.Location = new Point(393, 229);
             button2.Name = "button2";
-            button2.Size = new Size(212, 69);
+            button2.Size = new Size(252, 83);
             button2.TabIndex = 2;
-            button2.Text = "Open New Requests";
+            button2.Text = "View And Update Service";
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
-            // MyMaintenancerequests
+            // CRUD_LI
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -71,9 +74,8 @@
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(label1);
-            Name = "MyMaintenancerequests";
-            Text = "MyMaintenancerequests";
-            Load += MyMaintenancerequests_Load;
+            Name = "CRUD_LI";
+            Text = "CRUD_LI";
             ResumeLayout(false);
             PerformLayout();
         }

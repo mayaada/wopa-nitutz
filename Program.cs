@@ -5,12 +5,13 @@ using System.Linq;
 using System.Windows.Forms; // winform 
 using Microsoft.Data;
 using Microsoft.Data.SqlClient;
+using System.Runtime.CompilerServices;
 
 namespace nitutz
 {
     public class Program
     {
-        
+
         public static System.Collections.Generic.List<Employee> Employees;
         public static System.Collections.Generic.List<Lead> Leads;
         public static System.Collections.Generic.List<Tenant> Tenants;
@@ -18,35 +19,35 @@ namespace nitutz
         public static System.Collections.Generic.List<LeasedItemType> LeasedItemTypes;
         public static System.Collections.Generic.List<LeasedItem> LeasedItems;
         public static System.Collections.Generic.List<Amenity> Amenities;
-         public static System.Collections.Generic.List<Issue> Issues;
-         public static System.Collections.Generic.List<Ticket> Tickets;
-         public static System.Collections.Generic.List<Event> Events;
-         public static System.Collections.Generic.List<MeetingLocation> MeetingLocations;
-         public static System.Collections.Generic.List<Booking> Bookings;
-         public static System.Collections.Generic.List<Include> Includes;
-         public static System.Collections.Generic.List<Invite> Invites;
-       
+        public static System.Collections.Generic.List<Issue> Issues;
+        public static System.Collections.Generic.List<Ticket> Tickets;
+        public static System.Collections.Generic.List<Event> Events;
+        public static System.Collections.Generic.List<MeetingLocation> MeetingLocations;
+        public static System.Collections.Generic.List<Booking> Bookings;
+        public static System.Collections.Generic.List<Include> Includes;
+        public static System.Collections.Generic.List<Invite> Invites;
+
 
 
         [STAThread]
 
         public static void initLists() //����� ������� ���� ���� �������
         {
-        init_employees();//����� ������ �� �������
-        init_leads();//����� ������ �� ������ �����������
-        init_tenants();// ����� ������ �� �������
-        init_leases();//����� ������ �� ������
-        init_LeasedItemTypes();
-        init_LeasedItems();//����� ������ �� ������ ��������
-        init_Amenities();
-        init_Issues();
-        init_Tickets();
-        init_Events();
-        init_MeetingLocations();
-        init_Bookings();
-        init_Includes();
-        init_Invites();
-        
+            init_employees();//����� ������ �� �������
+            init_leads();//����� ������ �� ������ �����������
+            init_tenants();// ����� ������ �� �������
+            init_leases();//����� ������ �� ������
+            init_LeasedItemTypes();
+            init_LeasedItems();//����� ������ �� ������ ��������
+            init_Amenities();
+            init_Issues();
+            init_Tickets();
+            init_Events();
+            init_MeetingLocations();
+            init_Bookings();
+            init_Includes();
+            init_Invites();
+
         }
 
         public static void init_employees() //����� ���� ������ ���� ���� �������
@@ -120,16 +121,16 @@ namespace nitutz
         }
 
         public static void init_LeasedItemTypes() {
-             SqlCommand c = new SqlCommand();
+            SqlCommand c = new SqlCommand();
             c.CommandText = "EXECUTE dbo.Get_all_LeasedItemTypes";
             SQL_CON SC = new SQL_CON();
             SqlDataReader rdr = SC.execute_query(c);
             LeasedItemTypes = new List<LeasedItemType>();
             while (rdr.Read())
             {
-                LeasedItemType LeasedItemType = new LeasedItemType (
+                LeasedItemType LeasedItemType = new LeasedItemType(
                     rdr.GetValue(0).ToString(), Convert.ToDouble(rdr.GetValue(1)),
-                    (int)rdr.GetValue(2),Convert.ToDouble(rdr.GetValue(3))
+                    (int)rdr.GetValue(2), Convert.ToDouble(rdr.GetValue(3))
                 );
                 LeasedItemTypes.Add(LeasedItemType);
             }
@@ -181,7 +182,7 @@ namespace nitutz
                 IssueType IssueType = (IssueType)Enum.Parse(typeof(IssueType), rdr.GetValue(2).ToString().Replace(" ", string.Empty));
                 Priority issuePriority = (Priority)Enum.Parse(typeof(Priority), rdr.GetValue(3).ToString().Replace(" ", string.Empty));
                 Issue Issue = new Issue(
-                rdr.GetValue(0).ToString(), rdr.GetValue(1).ToString(), IssueType , issuePriority ,  rdr.GetValue(4).ToString()
+                rdr.GetValue(0).ToString(), rdr.GetValue(1).ToString(), IssueType, issuePriority, rdr.GetValue(4).ToString()
                 );
                 Issues.Add(Issue);
             }
@@ -198,7 +199,7 @@ namespace nitutz
             {
                 TicketStatus TicketStatus = (TicketStatus)Enum.Parse(typeof(TicketStatus), rdr.GetValue(3).ToString().Replace(" ", string.Empty));
                 Ticket Ticket = new Ticket(
-                (int)rdr.GetValue(0), DateTime.Parse(rdr.GetValue(1).ToString()), DateTime.Parse(rdr.GetValue(2).ToString()), 
+                (int)rdr.GetValue(0), DateTime.Parse(rdr.GetValue(1).ToString()), DateTime.Parse(rdr.GetValue(2).ToString()),
                 TicketStatus, seekEemploye(rdr.GetValue(4).ToString()), seekTenant(rdr.GetValue(5).ToString()), seekIssue(rdr.GetValue(6).ToString())
                 );
                 Tickets.Add(Ticket);
@@ -215,7 +216,7 @@ namespace nitutz
             while (rdr.Read())
             {
                 Event Event = new Event(
-                rdr.GetValue(0).ToString(), DateTime.Parse(rdr.GetValue(1).ToString()), DateTime.Parse(rdr.GetValue(2).ToString()), 
+                rdr.GetValue(0).ToString(), DateTime.Parse(rdr.GetValue(1).ToString()), DateTime.Parse(rdr.GetValue(2).ToString()),
                 (int)rdr.GetValue(3)
                 );
                 Events.Add(Event);
@@ -267,10 +268,10 @@ namespace nitutz
             Includes = new List<Include>();
             while (rdr.Read())
             {
-                 MeetingLocation meetingLocationType = seekMeetingLocation(rdr.GetValue(1).ToString());
+                MeetingLocation meetingLocationType = seekMeetingLocation(rdr.GetValue(1).ToString());
 
                 Include Include = new Include(
-                    rdr.GetValue(0).ToString() , meetingLocationType
+                    rdr.GetValue(0).ToString(), meetingLocationType
                 );
 
                 Includes.Add(Include);
@@ -332,7 +333,8 @@ namespace nitutz
 
             return null;
         }
-        
+
+
         public static Lease seekLease(int number)
         {
             foreach (Lease lease in Leases)
@@ -388,16 +390,55 @@ namespace nitutz
             return null;
         }
 
-        static void Main()
+        public static Lead seekLead(string CompantName)
+        {
+            foreach (Lead Lead in Leads)
+            {
+                if (Lead.getCompanyName() == CompantName)
+                    return Lead;
+            }
+
+            return null;
+        }
+
+        public static LeasedItem seekLeasedItem(int number)
+        {
+            foreach (LeasedItem LeasedItem in LeasedItems)
+            {
+                if (LeasedItem.getNumber() == number)
+                    return LeasedItem;
+            }
+
+            return null;
+        }
+
+        public static List<LeasedItem> GetLeasedItemDataList()
+        {
+            return LeasedItems; 
+        }
+
+        
+
+    static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             initLists(); //����� �� �������
-            Application.Run(new MainForm());
+         //  Application.Run(new CrudLeads());
+            //Application.Run(new CRUD_LI());
+            Application.Run(new CrudTenants());
+
+
+
+
+
+
 
         }
+
+       
 
 
 
     }
-}
+} 

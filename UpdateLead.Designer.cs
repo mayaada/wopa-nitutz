@@ -43,25 +43,26 @@
             PhoneTextBox = new TextBox();
             LeadStatuscomboBox1 = new ComboBox();
             Updatebutton = new Button();
-            label6 = new Label();
-            CreatedNewTextBox = new TextBox();
+            BACKbutton1 = new Button();
             SuspendLayout();
             // 
             // UpdateTenantLabel
             // 
             UpdateTenantLabel.AutoSize = true;
-            UpdateTenantLabel.Location = new Point(351, 22);
+            UpdateTenantLabel.Font = new Font("Arial Rounded MT Bold", 16F, FontStyle.Regular, GraphicsUnit.Point);
+            UpdateTenantLabel.Location = new Point(274, 18);
             UpdateTenantLabel.Name = "UpdateTenantLabel";
-            UpdateTenantLabel.Size = new Size(112, 25);
+            UpdateTenantLabel.Size = new Size(215, 37);
             UpdateTenantLabel.TabIndex = 1;
             UpdateTenantLabel.Text = "Update Lead";
             // 
             // CompanyNamelabel
             // 
             CompanyNamelabel.AutoSize = true;
-            CompanyNamelabel.Location = new Point(146, 72);
+            CompanyNamelabel.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            CompanyNamelabel.Location = new Point(145, 79);
             CompanyNamelabel.Name = "CompanyNamelabel";
-            CompanyNamelabel.Size = new Size(145, 25);
+            CompanyNamelabel.Size = new Size(156, 21);
             CompanyNamelabel.TabIndex = 2;
             CompanyNamelabel.Text = "Company Name:";
             // 
@@ -75,9 +76,10 @@
             // 
             // SearchCompanyButton
             // 
-            SearchCompanyButton.Location = new Point(528, 52);
+            SearchCompanyButton.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            SearchCompanyButton.Location = new Point(214, 364);
             SearchCompanyButton.Name = "SearchCompanyButton";
-            SearchCompanyButton.Size = new Size(112, 64);
+            SearchCompanyButton.Size = new Size(136, 52);
             SearchCompanyButton.TabIndex = 4;
             SearchCompanyButton.Text = "Search";
             SearchCompanyButton.UseVisualStyleBackColor = true;
@@ -86,18 +88,20 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(214, 117);
+            label1.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(146, 123);
             label1.Name = "label1";
-            label1.Size = new Size(77, 25);
+            label1.Size = new Size(85, 21);
             label1.TabIndex = 5;
             label1.Text = "Contact:";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(155, 160);
+            label2.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Location = new Point(146, 166);
             label2.Name = "label2";
-            label2.Size = new Size(136, 25);
+            label2.Size = new Size(148, 21);
             label2.TabIndex = 6;
             label2.Text = "Phone Number:";
             label2.Click += label2_Click;
@@ -105,27 +109,30 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(164, 202);
+            label3.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Location = new Point(146, 210);
             label3.Name = "label3";
-            label3.Size = new Size(124, 25);
+            label3.Size = new Size(139, 21);
             label3.TabIndex = 7;
             label3.Text = "Contact Email:";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(171, 249);
+            label4.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.Location = new Point(146, 256);
             label4.Name = "label4";
-            label4.Size = new Size(117, 25);
+            label4.Size = new Size(127, 21);
             label4.TabIndex = 8;
             label4.Text = "Work station:";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(182, 330);
+            label5.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label5.Location = new Point(146, 299);
             label5.Name = "label5";
-            label5.Size = new Size(106, 25);
+            label5.Size = new Size(121, 21);
             label5.TabIndex = 9;
             label5.Text = "Lead Status:";
             // 
@@ -139,7 +146,7 @@
             // 
             // EmailTextBox
             // 
-            EmailTextBox.Location = new Point(307, 210);
+            EmailTextBox.Location = new Point(304, 204);
             EmailTextBox.Name = "EmailTextBox";
             EmailTextBox.Size = new Size(187, 31);
             EmailTextBox.TabIndex = 11;
@@ -147,7 +154,7 @@
             // 
             // WorkStationBox5
             // 
-            WorkStationBox5.Location = new Point(307, 249);
+            WorkStationBox5.Location = new Point(304, 250);
             WorkStationBox5.Name = "WorkStationBox5";
             WorkStationBox5.Size = new Size(187, 31);
             WorkStationBox5.TabIndex = 13;
@@ -164,7 +171,7 @@
             // LeadStatuscomboBox1
             // 
             LeadStatuscomboBox1.FormattingEnabled = true;
-            LeadStatuscomboBox1.Location = new Point(307, 330);
+            LeadStatuscomboBox1.Location = new Point(307, 296);
             LeadStatuscomboBox1.Name = "LeadStatuscomboBox1";
             LeadStatuscomboBox1.Size = new Size(182, 33);
             LeadStatuscomboBox1.TabIndex = 15;
@@ -172,38 +179,32 @@
             // 
             // Updatebutton
             // 
-            Updatebutton.Location = new Point(348, 376);
+            Updatebutton.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            Updatebutton.Location = new Point(402, 364);
             Updatebutton.Name = "Updatebutton";
-            Updatebutton.Size = new Size(115, 62);
+            Updatebutton.Size = new Size(124, 52);
             Updatebutton.TabIndex = 16;
             Updatebutton.Text = "Update";
             Updatebutton.UseVisualStyleBackColor = true;
             Updatebutton.Click += button2_Click;
             // 
-            // label6
+            // BACKbutton1
             // 
-            label6.AutoSize = true;
-            label6.Location = new Point(171, 295);
-            label6.Name = "label6";
-            label6.Size = new Size(117, 25);
-            label6.TabIndex = 17;
-            label6.Text = "Created New:";
-            // 
-            // CreatedNewTextBox
-            // 
-            CreatedNewTextBox.Location = new Point(304, 289);
-            CreatedNewTextBox.Name = "CreatedNewTextBox";
-            CreatedNewTextBox.Size = new Size(187, 31);
-            CreatedNewTextBox.TabIndex = 18;
-            CreatedNewTextBox.TextChanged += CreatedNewTextBox_TextChanged;
+            BACKbutton1.Font = new Font("Arial Rounded MT Bold", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            BACKbutton1.Location = new Point(12, 14);
+            BACKbutton1.Name = "BACKbutton1";
+            BACKbutton1.Size = new Size(68, 34);
+            BACKbutton1.TabIndex = 17;
+            BACKbutton1.Text = "BACK";
+            BACKbutton1.UseVisualStyleBackColor = true;
+            BACKbutton1.Click += BACKbutton1_Click;
             // 
             // UpdateLead
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(CreatedNewTextBox);
-            Controls.Add(label6);
+            Controls.Add(BACKbutton1);
             Controls.Add(Updatebutton);
             Controls.Add(LeadStatuscomboBox1);
             Controls.Add(PhoneTextBox);
@@ -243,7 +244,6 @@
         private TextBox PhoneTextBox;
         private ComboBox LeadStatuscomboBox1;
         private Button Updatebutton;
-        private Label label6;
-        private TextBox CreatedNewTextBox;
+        private Button BACKbutton1;
     }
 }

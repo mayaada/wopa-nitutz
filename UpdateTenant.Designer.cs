@@ -41,14 +41,16 @@
             UpdateButton = new Button();
             IsActivelabel1 = new Label();
             IsActiveTextBox = new TextBox();
+            Backbutton = new Button();
             SuspendLayout();
             // 
             // UpdateTenantLabel
             // 
             UpdateTenantLabel.AutoSize = true;
-            UpdateTenantLabel.Location = new Point(311, 78);
+            UpdateTenantLabel.Font = new Font("Arial Rounded MT Bold", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            UpdateTenantLabel.Location = new Point(267, 49);
             UpdateTenantLabel.Name = "UpdateTenantLabel";
-            UpdateTenantLabel.Size = new Size(126, 25);
+            UpdateTenantLabel.Size = new Size(277, 42);
             UpdateTenantLabel.TabIndex = 0;
             UpdateTenantLabel.Text = "Update Tenant";
             UpdateTenantLabel.Click += UpdateTenantLabel_Click;
@@ -56,9 +58,10 @@
             // CompanyNamelabel
             // 
             CompanyNamelabel.AutoSize = true;
-            CompanyNamelabel.Location = new Point(133, 133);
+            CompanyNamelabel.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            CompanyNamelabel.Location = new Point(133, 140);
             CompanyNamelabel.Name = "CompanyNamelabel";
-            CompanyNamelabel.Size = new Size(141, 25);
+            CompanyNamelabel.Size = new Size(150, 21);
             CompanyNamelabel.TabIndex = 1;
             CompanyNamelabel.Text = "Company Name";
             CompanyNamelabel.Click += CompanyNamelabel_Click;
@@ -73,7 +76,8 @@
             // 
             // SearchCNbutton
             // 
-            SearchCNbutton.Location = new Point(617, 130);
+            SearchCNbutton.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            SearchCNbutton.Location = new Point(244, 384);
             SearchCNbutton.Name = "SearchCNbutton";
             SearchCNbutton.Size = new Size(134, 45);
             SearchCNbutton.TabIndex = 3;
@@ -84,18 +88,20 @@
             // EmailLabel
             // 
             EmailLabel.AutoSize = true;
+            EmailLabel.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
             EmailLabel.Location = new Point(133, 189);
             EmailLabel.Name = "EmailLabel";
-            EmailLabel.Size = new Size(54, 25);
+            EmailLabel.Size = new Size(59, 21);
             EmailLabel.TabIndex = 4;
             EmailLabel.Text = "Email";
             // 
             // WebsiteLabel
             // 
             WebsiteLabel.AutoSize = true;
+            WebsiteLabel.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
             WebsiteLabel.Location = new Point(133, 235);
             WebsiteLabel.Name = "WebsiteLabel";
-            WebsiteLabel.Size = new Size(75, 25);
+            WebsiteLabel.Size = new Size(81, 21);
             WebsiteLabel.TabIndex = 5;
             WebsiteLabel.Text = "Website";
             WebsiteLabel.Click += WebsiteLabel_Click;
@@ -103,9 +109,10 @@
             // NumOfEmpLabel
             // 
             NumOfEmpLabel.AutoSize = true;
+            NumOfEmpLabel.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
             NumOfEmpLabel.Location = new Point(133, 281);
             NumOfEmpLabel.Name = "NumOfEmpLabel";
-            NumOfEmpLabel.Size = new Size(193, 25);
+            NumOfEmpLabel.Size = new Size(208, 21);
             NumOfEmpLabel.TabIndex = 6;
             NumOfEmpLabel.Text = "Number Of Employees";
             // 
@@ -135,7 +142,8 @@
             // 
             // UpdateButton
             // 
-            UpdateButton.Location = new Point(622, 355);
+            UpdateButton.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            UpdateButton.Location = new Point(415, 384);
             UpdateButton.Name = "UpdateButton";
             UpdateButton.Size = new Size(129, 46);
             UpdateButton.TabIndex = 10;
@@ -146,9 +154,10 @@
             // IsActivelabel1
             // 
             IsActivelabel1.AutoSize = true;
+            IsActivelabel1.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
             IsActivelabel1.Location = new Point(133, 336);
             IsActivelabel1.Name = "IsActivelabel1";
-            IsActivelabel1.Size = new Size(78, 25);
+            IsActivelabel1.Size = new Size(87, 21);
             IsActivelabel1.TabIndex = 11;
             IsActivelabel1.Text = "Is Active";
             IsActivelabel1.Click += IsActivelabel1_Click;
@@ -161,11 +170,23 @@
             IsActiveTextBox.TabIndex = 12;
             IsActiveTextBox.TextChanged += IsActiveTextBox_TextChanged;
             // 
+            // Backbutton
+            // 
+            Backbutton.Font = new Font("Arial Rounded MT Bold", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            Backbutton.Location = new Point(12, 21);
+            Backbutton.Name = "Backbutton";
+            Backbutton.Size = new Size(63, 31);
+            Backbutton.TabIndex = 13;
+            Backbutton.Text = "Back";
+            Backbutton.UseVisualStyleBackColor = true;
+            Backbutton.Click += Backbutton_Click_1;
+            // 
             // UpdateTenant
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(Backbutton);
             Controls.Add(IsActiveTextBox);
             Controls.Add(IsActivelabel1);
             Controls.Add(UpdateButton);
@@ -201,5 +222,6 @@
         private Button UpdateButton;
         private Label IsActivelabel1;
         private TextBox IsActiveTextBox;
+        private Button Backbutton;
     }
 }
