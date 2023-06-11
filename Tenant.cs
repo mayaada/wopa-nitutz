@@ -88,6 +88,18 @@ namespace nitutz
             return Activity;
         }
 
+        public Lease getCurrentLease()
+        {
+            // Get the contact email of the current tenant
+            string tenantEmail = this.contactEmail;
+
+            // Find the lease associated with the current tenant's email
+            Lease currentLease = Program.Leases.FirstOrDefault(lease => lease.getSignedByTenant().getContactEmail() == tenantEmail);
+
+            return currentLease;
+        }
+
+
 
         public void updateCompanyName(string Name)
         {

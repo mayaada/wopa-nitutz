@@ -51,7 +51,7 @@ namespace nitutz
 
         private void LeaseEditForEmployee_Load(object sender, EventArgs e)
         {
-            Lease currentLease = tenantExists.GetCurrentLease();
+            currentLease = tenantExists.getCurrentLease();
 
             if (currentLease != null)
             {
