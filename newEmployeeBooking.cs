@@ -45,14 +45,31 @@ namespace nitutz
 
         private void BookMeetingRoomButton_Click(object sender, EventArgs e)
         {
-            //DateTime selectedDate = datePicker.Value;
-            DateTime selectedStartTime = startTimePicker.Value;
-            DateTime selectedEndTime = endTimePicker1.Value;
+            // save booking fields
+            DateTime bookingDate = date_Button.Value;
+            DateTime startTime = startTimePicker.Value;
+            DateTime endTime = endTimePicker1.Value;
             MeetingLocation meetingLocation = Program.seekMeetingLocation(locationDropDownBox.Text);
 
+            //check availability in calendar
+            bool isAvailable = GoogleCalendar.checkMeetingLocationCalendarAvailability(bookingDate, startTime, endTime, meetingLocation);
 
-            // newBooking = new Booking(selectedDate, selectedStartTime, selectedEndTime, employeeEmail, meetingLocation);
+            //save availability from calendar
+            BookingStatus bookingStatus;
+            if (isAvailable)
+            {
+                bookingStatus = BookingStatus.Approved;
+            }
+            else
+            {
+                bookingStatus = BookingStatus.Declined;
 
+            }
+
+            // create booking with updated fields
+            Booking newBooking = new Booking(bookingDate, startTime, endTime, currentUser, meetingLocation, true, bookingStatus);
+
+            // go back to homepage?
 
         }
 
@@ -81,7 +98,7 @@ namespace nitutz
             }
 
             // create booking with updated fields
-            Booking newBooking = new Booking(bookingDate, startTime, endTime, currentUser, meetingLocation, BookingStatus.Declined); Booking newBooking = new Booking(bookingDate, startTime, endTime, currentUser, meetingLocation, BookingStatus.Approved);
+            Booking newBooking = new Booking(bookingDate, startTime, endTime, currentUser, meetingLocation, true, bookingStatus);
 
             // new event form window
             FormCreateEvent eventForm = new FormCreateEvent(currentUser);
