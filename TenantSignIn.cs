@@ -37,9 +37,7 @@ namespace nitutz
                 // Input exists in the list, perform the desired action
 
                 // Create an instance of HomePageEmployee form
-                TenantHomePage TanentHomePageForm = new TenantHomePage();
-                TanentHomePageForm.Show(); // Show the HomePageEmployee form
-                this.Hide(); // Hide the current form (Form2)
+               
             }
             else
             {
