@@ -1,4 +1,4 @@
-﻿using Microsoft.Data.SqlClient;
+using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,9 +34,8 @@ namespace nitutz
             BookingLocation = bookingLocation;
         }
 
-
-        // constructor for employee
-        public Booking( DateTime bookingDate, DateTime startTime, DateTime endTime, Employee employeeEmail, MeetingLocation bookingLocation, Boolean isNew, BookingStatus bookingStatus = BookingStatus.Pending)
+        // constroctor for employee
+        public Booking( DateTime bookingDate, DateTime startTime, DateTime endTime, Employee employeeEmail, MeetingLocation bookingLocation,bool isNew, BookingStatus bookingStatus = BookingStatus.Pending)
         {
             BookingID = generateBookingID();
             BookingDate = bookingDate;
@@ -47,6 +46,12 @@ namespace nitutz
             CreatedByTenant = null;
             EventRelatedTo = null;
             BookingLocation = bookingLocation;
+
+            if (isNew)
+            {
+                addBooking();
+                Program.Bookings.Add(this);
+            }
         }
 
         // constructor for Tenant
