@@ -424,9 +424,9 @@ namespace nitutz
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             initLists(); //����� �� �������
-         //  Application.Run(new CrudLeads());
-            //Application.Run(new CRUD_LI());
-            Application.Run(new CrudTenants());
+          // Application.Run(new CrudLeads());
+            Application.Run(new CRUD_LI());
+           // Application.Run(new CrudTenants());
 
 
 
