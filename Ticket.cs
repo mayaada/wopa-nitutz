@@ -7,6 +7,7 @@ using System.Windows.Forms; // winform
 using Microsoft.Data;
 using Microsoft.Data.SqlClient;
 using nitutz;
+using System.Globalization;
 
 // create class Ticket
 
@@ -16,7 +17,7 @@ namespace nitutz
     {
         // create properties
         public int ticketID;
-        public DateTime timeTime;
+        public DateTime time;
         public DateTime dateOpened;
         public TicketStatus ticketStatus;
         public Employee openedByEmployee;
@@ -27,7 +28,7 @@ namespace nitutz
         public Ticket(int ticketID, DateTime timeTime, DateTime dateOpened, TicketStatus ticketStatus, Employee openedByEmployee, Tenant openedByTenant, Issue refferenceIssue)
         {
             this.ticketID = ticketID;
-            this.timeTime = timeTime;
+            this.time = timeTime;
             this.dateOpened = dateOpened;
             this.ticketStatus = ticketStatus;
             this.openedByEmployee = openedByEmployee;
@@ -49,14 +50,10 @@ namespace nitutz
             this.ticketID = ticketID;
         }
 
-        public DateTime getTimeTime()
-        {
-            return this.timeTime;
-        }
 
-        public void setTimeTime(DateTime timeTime)
+        public DateTime getTime()
         {
-            this.timeTime = timeTime;
+            return this.time;
         }
 
         public DateTime getDateOpened()
@@ -109,13 +106,28 @@ namespace nitutz
             this.refferenceIssue = refferenceIssue;
         }
 
+        // Return a string representation of the ticket
+        public override string ToString()
+        {   
+            if(openedByEmployee != null)
+            {
+                return $"Ticket ID: {ticketID} ,Date Opened: {dateOpened.Date}, Opened By: {openedByEmployee.getName()}, Issue: {refferenceIssue.getIssueName()} ";
+
+            } else if(openedByTenant != null) {
+
+                return $"Ticket ID: {ticketID} ,Date Opened: {dateOpened.ToString("dd/M/yyyy", CultureInfo.InvariantCulture)}, Opened By: {openedByTenant.getCompanyName()}, Issue: {refferenceIssue.getIssueName()}";
+
+            }
+            return "No Ticket Found";
+        }   
+
         // create method to add ticket to database like employee
         public void addTicketToDB()
         {
             SqlCommand c = new SqlCommand();
             c.CommandText = "EXECUTE dbo.Add_Ticket @Ticket_ID, @Time_Time, @Date_Opened, @Ticket_Status, @Opened_By_Employee, @Opened_By_Tenant, @Refference_Issue";
             c.Parameters.AddWithValue("@Ticket_ID", ticketID);
-            c.Parameters.AddWithValue("@Time_Time", timeTime);
+            c.Parameters.AddWithValue("@Time_Time", time);
             c.Parameters.AddWithValue("@Date_Opened", dateOpened);
             c.Parameters.AddWithValue("@Ticket_Status", ticketStatus);
             c.Parameters.AddWithValue("@Opened_By_Employee", openedByEmployee);
@@ -131,7 +143,7 @@ namespace nitutz
             SqlCommand c = new SqlCommand();
             c.CommandText = "EXECUTE dbo.Update_Ticket @Ticket_ID, @Time_Time, @Date_Opened, @Ticket_Status, @Opened_By_Employee, @Opened_By_Tenant, @Refference_Issue";
             c.Parameters.AddWithValue("@Ticket_ID", ticketID);
-            c.Parameters.AddWithValue("@Time_Time", timeTime);
+            c.Parameters.AddWithValue("@Time_Time", time);
             c.Parameters.AddWithValue("@Date_Opened", dateOpened);
             c.Parameters.AddWithValue("@Ticket_Status", ticketStatus);
             c.Parameters.AddWithValue("@Opened_By_Employee", openedByEmployee);
