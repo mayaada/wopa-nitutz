@@ -27,7 +27,7 @@ namespace nitutz
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-
+            currentUser = Program.seekEmployee(textBox2.Text);
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -60,7 +60,7 @@ namespace nitutz
                 // Input exists in the list, perform the desired action
 
                 // Create an instance of HomePageEmployee form
-                currentUser = Program.seekEemploye(inputEmail);
+                currentUser = Program.seekEmployee(inputEmail);
                 HomePageEmployee homePageEmployeeForm = new HomePageEmployee(currentUser);
                 homePageEmployeeForm.Show(); // Show the HomePageEmployee form
                 this.Hide(); // 
