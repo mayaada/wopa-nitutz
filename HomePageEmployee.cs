@@ -17,7 +17,7 @@ namespace nitutz
         public HomePageEmployee(Employee currentUser)
         {
             InitializeComponent();
-            //this.currentUser = currentUser;
+            this.currentUser = currentUser;
         }
 
         public HomePageEmployee()
@@ -40,7 +40,7 @@ namespace nitutz
             this.Hide();
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void maintenanceTickets_Button_Click(object sender, EventArgs e)
         {
 
         }
@@ -60,14 +60,10 @@ namespace nitutz
 
         private void bookigsAndEvents_Click(object sender, EventArgs e)
         {
-            
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
             NewBookingForEmployee bookingForm = new NewBookingForEmployee(currentUser);
             this.Hide();
             bookingForm.Show();
+
         }
 
         private void button2_Click(object sender, EventArgs e)
