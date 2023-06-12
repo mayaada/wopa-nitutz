@@ -41,18 +41,20 @@
             // 
             // EventNameTextBox
             // 
-            EventNameTextBox.Location = new Point(175, 152);
+            EventNameTextBox.Location = new Point(298, 249);
+            EventNameTextBox.Margin = new Padding(5, 5, 5, 5);
             EventNameTextBox.Name = "EventNameTextBox";
-            EventNameTextBox.Size = new Size(150, 31);
+            EventNameTextBox.Size = new Size(252, 47);
             EventNameTextBox.TabIndex = 1;
             EventNameTextBox.TextChanged += Event_TextChanged_1;
             // 
             // EventNameLabel
             // 
             EventNameLabel.AutoSize = true;
-            EventNameLabel.Location = new Point(52, 152);
+            EventNameLabel.Location = new Point(88, 249);
+            EventNameLabel.Margin = new Padding(5, 0, 5, 0);
             EventNameLabel.Name = "EventNameLabel";
-            EventNameLabel.Size = new Size(107, 25);
+            EventNameLabel.Size = new Size(177, 41);
             EventNameLabel.TabIndex = 2;
             EventNameLabel.Text = "Event Name";
             EventNameLabel.Click += label1_Click;
@@ -60,9 +62,10 @@
             // MaxInviteesLabel
             // 
             MaxInviteesLabel.AutoSize = true;
-            MaxInviteesLabel.Location = new Point(52, 218);
+            MaxInviteesLabel.Location = new Point(88, 358);
+            MaxInviteesLabel.Margin = new Padding(5, 0, 5, 0);
             MaxInviteesLabel.Name = "MaxInviteesLabel";
-            MaxInviteesLabel.Size = new Size(110, 25);
+            MaxInviteesLabel.Size = new Size(183, 41);
             MaxInviteesLabel.TabIndex = 6;
             MaxInviteesLabel.Text = "Max Invitees";
             MaxInviteesLabel.Click += label3_Click;
@@ -71,15 +74,17 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Britannic Bold", 24F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(253, 28);
+            label5.Location = new Point(430, 46);
+            label5.Margin = new Padding(5, 0, 5, 0);
             label5.Name = "label5";
-            label5.Size = new Size(288, 53);
+            label5.Size = new Size(481, 89);
             label5.TabIndex = 7;
             label5.Text = "Create Event";
             // 
             // EventDatesCalendar
             // 
-            EventDatesCalendar.Location = new Point(440, 152);
+            EventDatesCalendar.Location = new Point(748, 249);
+            EventDatesCalendar.Margin = new Padding(15, 15, 15, 15);
             EventDatesCalendar.Name = "EventDatesCalendar";
             EventDatesCalendar.SelectionRange = new SelectionRange(new DateTime(2029, 12, 26, 0, 0, 0, 0), new DateTime(2030, 1, 1, 0, 0, 0, 0));
             EventDatesCalendar.ShowToday = false;
@@ -89,27 +94,30 @@
             // 
             // ChooseNumber
             // 
-            ChooseNumber.Location = new Point(175, 218);
+            ChooseNumber.Location = new Point(298, 358);
+            ChooseNumber.Margin = new Padding(5, 5, 5, 5);
             ChooseNumber.Name = "ChooseNumber";
-            ChooseNumber.Size = new Size(150, 31);
+            ChooseNumber.Size = new Size(255, 47);
             ChooseNumber.TabIndex = 11;
             ChooseNumber.ValueChanged += numericUpDown1_ValueChanged;
             // 
             // EventDatesLabel
             // 
             EventDatesLabel.AutoSize = true;
-            EventDatesLabel.Location = new Point(541, 118);
+            EventDatesLabel.Location = new Point(920, 194);
+            EventDatesLabel.Margin = new Padding(5, 0, 5, 0);
             EventDatesLabel.Name = "EventDatesLabel";
-            EventDatesLabel.Size = new Size(105, 25);
+            EventDatesLabel.Size = new Size(173, 41);
             EventDatesLabel.TabIndex = 12;
             EventDatesLabel.Text = "Event Dates";
             EventDatesLabel.Click += label2_Click_1;
             // 
             // saveAndCreateBookingButton
             // 
-            saveAndCreateBookingButton.Location = new Point(52, 347);
+            saveAndCreateBookingButton.Location = new Point(88, 569);
+            saveAndCreateBookingButton.Margin = new Padding(5, 5, 5, 5);
             saveAndCreateBookingButton.Name = "saveAndCreateBookingButton";
-            saveAndCreateBookingButton.Size = new Size(134, 60);
+            saveAndCreateBookingButton.Size = new Size(228, 98);
             saveAndCreateBookingButton.TabIndex = 13;
             saveAndCreateBookingButton.Text = "create";
             saveAndCreateBookingButton.UseVisualStyleBackColor = true;
@@ -117,9 +125,9 @@
             // 
             // FormCreateEvent
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(17F, 41F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1360, 738);
             Controls.Add(saveAndCreateBookingButton);
             Controls.Add(EventDatesLabel);
             Controls.Add(ChooseNumber);
@@ -128,6 +136,7 @@
             Controls.Add(MaxInviteesLabel);
             Controls.Add(EventNameLabel);
             Controls.Add(EventNameTextBox);
+            Margin = new Padding(5, 5, 5, 5);
             Name = "FormCreateEvent";
             Text = "FormCreateEvent";
             Load += FormCreateEvent_Load;
