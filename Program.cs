@@ -42,6 +42,7 @@ namespace nitutz
             init_Amenities();
             init_Issues();
             init_Tickets();
+            init_TicketsPerIssue();
             init_Events();
             init_MeetingLocations();
             init_Bookings();
@@ -82,8 +83,7 @@ namespace nitutz
 
                 Lead lead = new Lead(rdr.GetValue(0).ToString(), rdr.GetValue(1).ToString(), rdr.GetValue(2).ToString(),
                     rdr.GetValue(3).ToString(), DateTime.Parse((rdr.GetValue(4).ToString())), (int)rdr.GetValue(5),
-                    leadStatus
-                    , leadSource, seekEemploye(rdr.GetValue(8).ToString()), false);
+                    leadStatus, leadSource, seekEmployee(rdr.GetValue(8).ToString()), false);
                 Leads.Add(lead);
             }
         }
@@ -114,7 +114,7 @@ namespace nitutz
                 Lease lease = new Lease((int)rdr.GetValue(0), rdr.GetValue(1).ToString(),
                     DateTime.Parse((rdr.GetValue(2).ToString())),
                     DateTime.Parse((rdr.GetValue(3).ToString())), (int)rdr.GetValue(4), rdr.GetValue(5).ToString(),
-                    seekEemploye(rdr.GetValue(6).ToString()),
+                    seekEmployee(rdr.GetValue(6).ToString()),
                     seekTenant(rdr.GetValue(7).ToString()), false);
                 Leases.Add(lease);
             }
@@ -200,10 +200,16 @@ namespace nitutz
                 TicketStatus TicketStatus = (TicketStatus)Enum.Parse(typeof(TicketStatus), rdr.GetValue(3).ToString().Replace(" ", string.Empty));
                 Ticket Ticket = new Ticket(
                 (int)rdr.GetValue(0), DateTime.Parse(rdr.GetValue(1).ToString()), DateTime.Parse(rdr.GetValue(2).ToString()),
-                TicketStatus, seekEemploye(rdr.GetValue(4).ToString()), seekTenant(rdr.GetValue(5).ToString()), seekIssue(rdr.GetValue(6).ToString())
+                TicketStatus, seekEmployee(rdr.GetValue(4).ToString()), seekTenant(rdr.GetValue(5).ToString()), seekIssue(rdr.GetValue(6).ToString())
                 );
                 Tickets.Add(Ticket);
             }
+        }
+
+
+        private static void init_TicketsPerIssue()
+        {
+            
         }
 
         public static void init_Events()
@@ -253,7 +259,7 @@ namespace nitutz
                 BookingStatus BookingStatus = (BookingStatus)Enum.Parse(typeof(BookingStatus), rdr.GetValue(4).ToString().Replace(" ", string.Empty));
                 Booking Booking = new Booking(
                 (int)rdr.GetValue(0), DateTime.Parse(rdr.GetValue(1).ToString()), DateTime.Parse(rdr.GetValue(2).ToString()), DateTime.Parse(rdr.GetValue(3).ToString()),
-                BookingStatus, seekEemploye(rdr.GetValue(5).ToString()), seekTenant(rdr.GetValue(6).ToString()), seekEvent(rdr.GetValue(7).ToString()), seekMeetingLocation(rdr.GetValue(8).ToString()), false
+                BookingStatus, seekEmployee(rdr.GetValue(5).ToString()), seekTenant(rdr.GetValue(6).ToString()), seekEvent(rdr.GetValue(7).ToString()), seekMeetingLocation(rdr.GetValue(8).ToString()), false
                 );
                 Bookings.Add(Booking);
             }
@@ -312,7 +318,7 @@ namespace nitutz
             return null;
         }
         //���� ������ ���� ������ ��� ����� ����
-        public static Employee seekEemploye(string email)
+        public static Employee seekEmployee(string email)
         {
             foreach (Employee employee in Employees)
             {
@@ -346,16 +352,51 @@ namespace nitutz
             return null;
         }
 
-        public static Issue seekIssue(string issueID)
+        public static Issue seekIssue(string issueName)
         {
             foreach (Issue issue in Issues)
             {
-                if (issue.getIssueName() == issueID)
+                if (issue.getIssueName() == issueName)
                     return issue;
             }
 
             return null;
         }
+        public static IssueType seekIssueType(string issueTypeName)
+        {
+            foreach (IssueType issueType in Enum.GetValues(typeof(IssueType)))
+            {
+                if (issueType.ToString() == issueTypeName)
+                    return issueType;
+            }
+
+            return default(IssueType);
+        }
+
+        public static Priority seekPriority(string priorityName)
+        {
+            foreach (Priority priority in Enum.GetValues(typeof(Priority)))
+            {
+                if (priority.ToString() == priorityName)
+                    return priority;
+            }
+
+            return default(Priority);
+        }
+
+        public static TicketStatus seekTicketStatus(string ticketStatusName)
+        {
+            foreach (TicketStatus ticketStatus in Enum.GetValues(typeof(TicketStatus)))
+            {
+                if (ticketStatus.ToString() == ticketStatusName)
+                    return ticketStatus;
+            }
+
+            return default(TicketStatus);
+        }
+
+
+
 
         public static Event seekEvent(string eventName)
         {
