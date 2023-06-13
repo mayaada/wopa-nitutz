@@ -12,14 +12,12 @@ namespace nitutz
 {
     public partial class TenantSignIn : Form
     {
-         public Tenant currentUser;
-        //public static Tenant currentUser { get; private set; }
+        public Tenant currentUser;
         public static string Tenant;
 
         public TenantSignIn()
         {
             InitializeComponent();
-           // Tenant = textBox2.Text;
         }
 
         public static string GetTenant()
@@ -63,6 +61,13 @@ namespace nitutz
             {
                 // One or both of the textboxes are empty or contain only whitespace
                 MessageBox.Show("Please enter both Username and password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return; // Exit the event handler
+            }
+
+            if (Program.seekTenant(inputCompanyName) == null)
+            {
+                // The company name does not exist in the database
+                MessageBox.Show("Company name does not exist.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return; // Exit the event handler
             }
             currentUser = Program.seekTenant(textBox2.Text);
