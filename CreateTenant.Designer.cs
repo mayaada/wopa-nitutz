@@ -98,28 +98,31 @@
             // 
             // CompanyNameTB
             // 
+            CompanyNameTB.Font = new Font("Segoe UI Symbol", 9F, FontStyle.Regular, GraphicsUnit.Point);
             CompanyNameTB.Location = new Point(268, 104);
             CompanyNameTB.Margin = new Padding(3, 2, 3, 2);
             CompanyNameTB.Name = "CompanyNameTB";
-            CompanyNameTB.Size = new Size(220, 27);
+            CompanyNameTB.Size = new Size(220, 31);
             CompanyNameTB.TabIndex = 5;
             CompanyNameTB.TextChanged += CompanyNameTB_TextChanged;
             // 
             // EmailTB
             // 
+            EmailTB.Font = new Font("Segoe UI Symbol", 9F, FontStyle.Regular, GraphicsUnit.Point);
             EmailTB.Location = new Point(268, 154);
             EmailTB.Margin = new Padding(3, 2, 3, 2);
             EmailTB.Name = "EmailTB";
-            EmailTB.Size = new Size(220, 27);
+            EmailTB.Size = new Size(220, 31);
             EmailTB.TabIndex = 6;
             EmailTB.TextChanged += EmailTB_TextChanged;
             // 
             // WebsiteTB
             // 
+            WebsiteTB.Font = new Font("Segoe UI Symbol", 9F, FontStyle.Regular, GraphicsUnit.Point);
             WebsiteTB.Location = new Point(268, 207);
             WebsiteTB.Margin = new Padding(3, 2, 3, 2);
             WebsiteTB.Name = "WebsiteTB";
-            WebsiteTB.Size = new Size(220, 27);
+            WebsiteTB.Size = new Size(220, 31);
             WebsiteTB.TabIndex = 7;
             WebsiteTB.TextChanged += WebsiteTB_TextChanged;
             // 
@@ -139,10 +142,11 @@
             // 
             // numericUpDown1
             // 
+            numericUpDown1.Font = new Font("Segoe UI Symbol", 9F, FontStyle.Regular, GraphicsUnit.Point);
             numericUpDown1.Location = new Point(268, 260);
             numericUpDown1.Margin = new Padding(3, 2, 3, 2);
             numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(222, 27);
+            numericUpDown1.Size = new Size(222, 31);
             numericUpDown1.TabIndex = 10;
             numericUpDown1.ValueChanged += numericUpDown1_ValueChanged;
             // 

@@ -21,9 +21,9 @@ namespace nitutz
         {
             TenantSignIn Form1 = new TenantSignIn();
             Form1.Show();
-           this.Hide();
+            this.Hide();
         }
-        
+
         private void button2_Click_1(object sender, EventArgs e)
         {
             employeeSignIn form2 = new employeeSignIn();
