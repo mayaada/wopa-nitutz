@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -54,10 +55,30 @@ namespace nitutz
 
         private void AddTenantButton_Click(object sender, EventArgs e)
         {
-            DateTime currentDate = DateTime.Now;
 
-            Tenant T = new Tenant(CompanyNameTB.Text, EmailTB.Text, WebsiteTB.Text, currentDate,
+
+            if (CompanyNameTB.Text == "" || EmailTB.Text == "" || WebsiteTB.Text == "")
+            {
+                MessageBox.Show("Please fill all the fields", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            if (!EmailTB.Text.Contains("@") && !EmailTB.Text.Contains(".com"))
+            {
+                MessageBox.Show("Please fill in the email field correctly", "Faild", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            if (!WebsiteTB.Text.Contains("www.") && !WebsiteTB.Text.Contains(".com"))
+            {
+                MessageBox.Show("Please fill in the 'website' field correctly", "Faild", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                // Create a new tenant object
+                DateTime currentDate = DateTime.Now;
+                Tenant T = new Tenant(CompanyNameTB.Text, EmailTB.Text, WebsiteTB.Text, currentDate,
                 (int)numericUpDown1.Value, true, true);
+                MessageBox.Show("Tenant was successfully added", "Succsess", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+
         }
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)

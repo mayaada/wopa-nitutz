@@ -45,11 +45,11 @@
             // AddNewTenantLabel
             // 
             AddNewTenantLabel.AutoSize = true;
-            AddNewTenantLabel.BackColor = SystemColors.ButtonFace;
-            AddNewTenantLabel.Font = new Font("Arial Rounded MT Bold", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            AddNewTenantLabel.Location = new Point(235, 55);
+            AddNewTenantLabel.BackColor = SystemColors.InactiveCaption;
+            AddNewTenantLabel.Font = new Font("Britannic Bold", 24F, FontStyle.Regular, GraphicsUnit.Point);
+            AddNewTenantLabel.Location = new Point(231, 26);
             AddNewTenantLabel.Name = "AddNewTenantLabel";
-            AddNewTenantLabel.Size = new Size(272, 37);
+            AddNewTenantLabel.Size = new Size(357, 53);
             AddNewTenantLabel.TabIndex = 0;
             AddNewTenantLabel.Text = "Add New Tenant";
             AddNewTenantLabel.Click += AddNewTenantLabel_Click;
@@ -57,10 +57,10 @@
             // CompanyNameLabel
             // 
             CompanyNameLabel.AutoSize = true;
-            CompanyNameLabel.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            CompanyNameLabel.Location = new Point(59, 150);
+            CompanyNameLabel.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            CompanyNameLabel.Location = new Point(59, 110);
             CompanyNameLabel.Name = "CompanyNameLabel";
-            CompanyNameLabel.Size = new Size(150, 21);
+            CompanyNameLabel.Size = new Size(141, 25);
             CompanyNameLabel.TabIndex = 1;
             CompanyNameLabel.Text = "Company Name";
             CompanyNameLabel.Click += CompanyNameLabel_Click;
@@ -68,94 +68,104 @@
             // EmailLabel
             // 
             EmailLabel.AutoSize = true;
-            EmailLabel.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            EmailLabel.Location = new Point(59, 193);
+            EmailLabel.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            EmailLabel.Location = new Point(59, 160);
             EmailLabel.Name = "EmailLabel";
-            EmailLabel.Size = new Size(59, 21);
+            EmailLabel.Size = new Size(54, 25);
             EmailLabel.TabIndex = 2;
             EmailLabel.Text = "Email";
             // 
             // WebsiteLabel
             // 
             WebsiteLabel.AutoSize = true;
-            WebsiteLabel.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            WebsiteLabel.Location = new Point(59, 230);
+            WebsiteLabel.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            WebsiteLabel.Location = new Point(59, 213);
             WebsiteLabel.Name = "WebsiteLabel";
-            WebsiteLabel.Size = new Size(81, 21);
+            WebsiteLabel.Size = new Size(75, 25);
             WebsiteLabel.TabIndex = 3;
             WebsiteLabel.Text = "Website";
             // 
             // NumEmpLabel
             // 
             NumEmpLabel.AutoSize = true;
-            NumEmpLabel.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            NumEmpLabel.Location = new Point(57, 274);
+            NumEmpLabel.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            NumEmpLabel.Location = new Point(59, 266);
             NumEmpLabel.Name = "NumEmpLabel";
-            NumEmpLabel.Size = new Size(208, 21);
+            NumEmpLabel.Size = new Size(193, 25);
             NumEmpLabel.TabIndex = 4;
             NumEmpLabel.Text = "Number Of Employees";
             NumEmpLabel.Click += NumEmpLabel_Click;
             // 
             // CompanyNameTB
             // 
-            CompanyNameTB.Location = new Point(268, 150);
+            CompanyNameTB.Location = new Point(268, 104);
+            CompanyNameTB.Margin = new Padding(3, 2, 3, 2);
             CompanyNameTB.Name = "CompanyNameTB";
-            CompanyNameTB.Size = new Size(184, 31);
+            CompanyNameTB.Size = new Size(220, 27);
             CompanyNameTB.TabIndex = 5;
             CompanyNameTB.TextChanged += CompanyNameTB_TextChanged;
             // 
             // EmailTB
             // 
-            EmailTB.Location = new Point(268, 187);
+            EmailTB.Location = new Point(268, 154);
+            EmailTB.Margin = new Padding(3, 2, 3, 2);
             EmailTB.Name = "EmailTB";
-            EmailTB.Size = new Size(184, 31);
+            EmailTB.Size = new Size(220, 27);
             EmailTB.TabIndex = 6;
             EmailTB.TextChanged += EmailTB_TextChanged;
             // 
             // WebsiteTB
             // 
-            WebsiteTB.Location = new Point(268, 224);
+            WebsiteTB.Location = new Point(268, 207);
+            WebsiteTB.Margin = new Padding(3, 2, 3, 2);
             WebsiteTB.Name = "WebsiteTB";
-            WebsiteTB.Size = new Size(184, 31);
+            WebsiteTB.Size = new Size(220, 27);
             WebsiteTB.TabIndex = 7;
             WebsiteTB.TextChanged += WebsiteTB_TextChanged;
             // 
             // AddTenantButton
             // 
-            AddTenantButton.Font = new Font("Arial Rounded MT Bold", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            AddTenantButton.Location = new Point(289, 320);
+            AddTenantButton.BackColor = SystemColors.ControlDarkDark;
+            AddTenantButton.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            AddTenantButton.ForeColor = SystemColors.Window;
+            AddTenantButton.Location = new Point(293, 311);
+            AddTenantButton.Margin = new Padding(3, 2, 3, 2);
             AddTenantButton.Name = "AddTenantButton";
-            AddTenantButton.Size = new Size(144, 46);
+            AddTenantButton.Size = new Size(180, 73);
             AddTenantButton.TabIndex = 9;
             AddTenantButton.Text = "Add Tenat";
-            AddTenantButton.UseVisualStyleBackColor = true;
+            AddTenantButton.UseVisualStyleBackColor = false;
             AddTenantButton.Click += AddTenantButton_Click;
             // 
             // numericUpDown1
             // 
-            numericUpDown1.Location = new Point(271, 269);
+            numericUpDown1.Location = new Point(268, 260);
+            numericUpDown1.Margin = new Padding(3, 2, 3, 2);
             numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(186, 31);
+            numericUpDown1.Size = new Size(222, 27);
             numericUpDown1.TabIndex = 10;
             numericUpDown1.ValueChanged += numericUpDown1_ValueChanged;
             // 
             // Backbutton
             // 
+            Backbutton.BackColor = SystemColors.ControlDarkDark;
             Backbutton.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            Backbutton.Location = new Point(22, 18);
+            Backbutton.ForeColor = SystemColors.Window;
+            Backbutton.Location = new Point(22, 14);
+            Backbutton.Margin = new Padding(3, 2, 3, 2);
             Backbutton.Name = "Backbutton";
-            Backbutton.Size = new Size(72, 32);
+            Backbutton.Size = new Size(84, 41);
             Backbutton.TabIndex = 11;
             Backbutton.Text = "Back";
-            Backbutton.UseVisualStyleBackColor = true;
+            Backbutton.UseVisualStyleBackColor = false;
             Backbutton.Click += Backbutton_Click;
             // 
             // CreateTenant
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(10F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.Menu;
-            ClientSize = new Size(800, 450);
+            BackColor = SystemColors.InactiveCaption;
+            ClientSize = new Size(809, 395);
             Controls.Add(Backbutton);
             Controls.Add(numericUpDown1);
             Controls.Add(AddTenantButton);
@@ -167,6 +177,9 @@
             Controls.Add(EmailLabel);
             Controls.Add(CompanyNameLabel);
             Controls.Add(AddNewTenantLabel);
+            Font = new Font("Britannic Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            ForeColor = SystemColors.InactiveCaptionText;
+            Margin = new Padding(3, 2, 3, 2);
             Name = "CreateTenant";
             Text = "CreateTenant";
             Load += CreateTenant_Load;
