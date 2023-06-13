@@ -140,7 +140,7 @@ namespace nitutz
                 c.Parameters.AddWithValue("@electricCharging", electricCharging);
             } else
             {   
-                c.Parameters.AddWithValue("@electricCharging", null);
+                c.Parameters.AddWithValue("@electricCharging", DBNull.Value);
             }
             if(isAvailable)
             {
@@ -152,7 +152,7 @@ namespace nitutz
                 c.Parameters.AddWithValue("@LeaseID", relatesTo.getLeaseID());
             } else
             {
-                c.Parameters.AddWithValue("@LeaseID", null);
+                c.Parameters.AddWithValue("@LeaseID", DBNull.Value);
             }
             SQL_CON SC = new SQL_CON();
             SC.execute_non_query(c);
