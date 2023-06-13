@@ -7,6 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System;
+using System.Net.Mail;
+using System.Net;
+
 
 namespace nitutz
 {
@@ -83,6 +87,9 @@ namespace nitutz
 
         private void BackButton_Click(object sender, EventArgs e)
         {
+            HomePageTenant homePageTenant = new HomePageTenant(currentUser);
+            homePageTenant.Show();
+            this.Hide();
 
         }
 
@@ -103,12 +110,48 @@ namespace nitutz
 
                 Issue issue = new Issue(issueName, issueLocation, issueType, issuePriority, photo, false);
                 Ticket ticket = new Ticket(ticketID, currentTime, currentDate, currentUser, issue, true);
-                EmailSender emailSender = new EmailSender();
-                emailSender.SendEmail("info@wopa.space",currentUser.getContactEmail(),"Confirmation email", "Your Ticket has been successfully updateded, we will process your request soon.");
-                
-                
+                SendMail("Your Ticket has been successfully updateded, we will process your request soon.");
+
 
             }
+
+        }
+
+        private void SendMail(string email)
+        {
+
+            string from = "ta4126463@gmail.com";
+            string to = "ta4126463@gmail.com";
+            string fromPassword = "iwaoyfhfccyrnmsy";
+
+
+            MailMessage mail = new MailMessage();
+            mail.From = new MailAddress(from);
+            mail.To.Add(new MailAddress(to));
+            mail.Subject = "Confirmation email";
+            mail.Body = "<html><body>" + email + "</body></html>";
+            mail.IsBodyHtml = true;
+
+            var SmtpServer = new SmtpClient("smtp.gmail.com")
+            {
+                Port = 587,
+                Credentials = new System.Net.NetworkCredential(from, fromPassword),
+                EnableSsl = true,
+            };
+
+
+            try
+            {
+                SmtpServer.Send(mail);
+                MessageBox.Show("Your email has been sent.");
+            }
+            catch (SmtpException ex)
+            {
+                MessageBox.Show("An error occurred while sending the email: " + ex.Message);
+            }
+
+
+
 
         }
     }
