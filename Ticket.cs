@@ -1,4 +1,4 @@
-﻿
+
 // create class Ticket like employee
 using System.Xml.Serialization;
 using System.Collections.Generic;
@@ -17,15 +17,16 @@ namespace nitutz
     {
         // create properties
         public int ticketID;
-        public DateTime time;
+        public TimeSpan timeTime;
         public DateTime dateOpened;
         public TicketStatus ticketStatus;
         public Employee openedByEmployee;
         public Tenant openedByTenant;
-        public Issue refferenceIssue;
-
+        public Issue issue;
+        
         // create constructor
-        public Ticket(int ticketID, DateTime timeTime, DateTime dateOpened, TicketStatus ticketStatus, Employee openedByEmployee, Tenant openedByTenant, Issue refferenceIssue)
+        public Ticket(int ticketID, TimeSpan timeTime, DateTime dateOpened, TicketStatus ticketStatus,
+         Employee openedByEmployee, Tenant openedByTenant, Issue issue , bool isNew)
         {
             this.ticketID = ticketID;
             this.time = timeTime;
@@ -33,8 +34,33 @@ namespace nitutz
             this.ticketStatus = ticketStatus;
             this.openedByEmployee = openedByEmployee;
             this.openedByTenant = openedByTenant;
-            this.refferenceIssue = refferenceIssue;
+            this.issue = issue;
+
+
+            if (isNew)
+            {
+                Program.Tickets.Add(this);
+                addTicketToDB();
+            }
         }
+
+        public Ticket(int ticketID, TimeSpan timeTime, DateTime dateOpened
+         , Tenant openedByTenant, Issue issue , bool isNew)
+        {
+            this.ticketID = ticketID;
+            this.timeTime = timeTime;
+            this.dateOpened = dateOpened;
+            this.ticketStatus = TicketStatus.Pending;
+            this.openedByTenant = openedByTenant;
+            this.issue = issue;
+
+            if (isNew)
+            {
+                Program.Tickets.Add(this);
+                addTicketToDB();
+            }
+        }
+
 
         // create default constructor
    
@@ -50,8 +76,12 @@ namespace nitutz
             this.ticketID = ticketID;
         }
 
+        public TimeSpan  getTimeTime()
+        {
+            return this.timeTime;
+        }
 
-        public DateTime getTime()
+        public void setTimeTime(TimeSpan timeTime)
         {
             return this.time;
         }
@@ -98,12 +128,12 @@ namespace nitutz
 
         public Issue getRefferenceIssue()
         {
-            return this.refferenceIssue;
+            return this.issue;
         }
 
         public void setRefferenceIssue(Issue refferenceIssue)
         {
-            this.refferenceIssue = refferenceIssue;
+            this.issue = refferenceIssue;
         }
 
         // Return a string representation of the ticket
@@ -125,14 +155,30 @@ namespace nitutz
         public void addTicketToDB()
         {
             SqlCommand c = new SqlCommand();
-            c.CommandText = "EXECUTE dbo.Add_Ticket @Ticket_ID, @Time_Time, @Date_Opened, @Ticket_Status, @Opened_By_Employee, @Opened_By_Tenant, @Refference_Issue";
+            c.CommandText = "EXECUTE dbo.Add_Ticket @Ticket_ID, @Time_Time, @Date_Opened, @Ticket_Status, @Opened_By_Employee, @Opened_By_Tenant, @Refference_Issue, @Refference_Location";
             c.Parameters.AddWithValue("@Ticket_ID", ticketID);
             c.Parameters.AddWithValue("@Time_Time", time);
             c.Parameters.AddWithValue("@Date_Opened", dateOpened);
-            c.Parameters.AddWithValue("@Ticket_Status", ticketStatus);
-            c.Parameters.AddWithValue("@Opened_By_Employee", openedByEmployee);
-            c.Parameters.AddWithValue("@Opened_By_Tenant", openedByTenant);
-            c.Parameters.AddWithValue("@Refference_Issue", refferenceIssue);
+            c.Parameters.AddWithValue("@Ticket_Status", ticketStatus.ToString());
+            if (openedByEmployee != null)
+            {
+                c.Parameters.AddWithValue("@Opened_By_Employee", openedByEmployee.getEmail().ToString());
+            }
+            else 
+            {
+                c.Parameters.AddWithValue("@Opened_By_Employee", DBNull.Value);
+            }
+            if (openedByTenant != null)
+            {
+                c.Parameters.AddWithValue("@Opened_By_Tenant", openedByTenant.getCompanyName());
+            }
+            else
+            {
+                c.Parameters.AddWithValue("@Opened_By_Tenant", DBNull.Value);
+            }
+            c.Parameters.AddWithValue("@Refference_Issue", issue.getIssueName());
+            c.Parameters.AddWithValue("@Refference_Location", issue.getIssueLocation() );
+
             SQL_CON SC = new SQL_CON();
             SC.execute_non_query(c);
         }

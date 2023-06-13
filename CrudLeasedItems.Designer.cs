@@ -51,13 +51,15 @@
             // 
             // UpdateButton
             // 
-            UpdateButton.Font = new Font("Arial Rounded MT Bold", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            UpdateButton.BackColor = SystemColors.ControlDarkDark;
+            UpdateButton.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            UpdateButton.ForeColor = SystemColors.ButtonHighlight;
             UpdateButton.Location = new Point(626, 362);
             UpdateButton.Name = "UpdateButton";
             UpdateButton.Size = new Size(137, 56);
             UpdateButton.TabIndex = 1;
             UpdateButton.Text = "Update";
-            UpdateButton.UseVisualStyleBackColor = true;
+            UpdateButton.UseVisualStyleBackColor = false;
             UpdateButton.Click += UpdateButton_Click;
             // 
             // ECtextBox1
@@ -78,6 +80,7 @@
             // 
             // leasetextBox1
             // 
+            leasetextBox1.BackColor = SystemColors.Window;
             leasetextBox1.Location = new Point(378, 387);
             leasetextBox1.Name = "leasetextBox1";
             leasetextBox1.Size = new Size(144, 31);
@@ -87,48 +90,51 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             label1.Location = new Point(26, 347);
             label1.Name = "label1";
-            label1.Size = new Size(165, 21);
+            label1.Size = new Size(143, 25);
             label1.TabIndex = 6;
             label1.Text = "Electric Charging";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             label2.Location = new Point(220, 347);
             label2.Name = "label2";
-            label2.Size = new Size(107, 21);
+            label2.Size = new Size(97, 25);
             label2.TabIndex = 7;
             label2.Text = "Availability";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             label3.Location = new Point(417, 347);
             label3.Name = "label3";
-            label3.Size = new Size(64, 21);
+            label3.Size = new Size(55, 25);
             label3.TabIndex = 8;
             label3.Text = "Lease";
             // 
             // BACKbutton
             // 
-            BACKbutton.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            BACKbutton.BackColor = SystemColors.ControlDarkDark;
+            BACKbutton.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            BACKbutton.ForeColor = SystemColors.ButtonHighlight;
             BACKbutton.Location = new Point(26, 12);
             BACKbutton.Name = "BACKbutton";
             BACKbutton.Size = new Size(70, 41);
             BACKbutton.TabIndex = 9;
             BACKbutton.Text = "BACK";
-            BACKbutton.UseVisualStyleBackColor = true;
+            BACKbutton.UseVisualStyleBackColor = false;
             BACKbutton.Click += BACKbutton_Click;
             // 
             // CrudLeasedItems
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.InactiveCaption;
             ClientSize = new Size(800, 450);
             Controls.Add(BACKbutton);
             Controls.Add(label3);

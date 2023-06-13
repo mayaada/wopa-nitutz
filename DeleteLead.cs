@@ -33,9 +33,21 @@ namespace nitutz
 
         private void Deletebutton1_Click(object sender, EventArgs e)
         {
-            Lead l = Program.seekLead(CompanyNametextBox1.Text);
+            string inputCompanyName = CompanyNametextBox1.Text.Trim(); // Get the user input from 
 
-            l.deleteLead();
+            bool readyToDelete = true;
+
+            if (inputCompanyName == "" || Program.seekLead(CompanyNametextBox1.Text) == null)
+            {
+                readyToDelete = false;
+                MessageBox.Show("Please enter vail company.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return; // Exit the event handler
+            }
+            if (readyToDelete == true)
+            {
+                Lead lead = Program.seekLead(CompanyNametextBox1.Text);
+                lead.deleteLead();
+            }
 
         }
 

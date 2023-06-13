@@ -36,40 +36,45 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Arial Rounded MT Bold", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(164, 78);
+            label1.Font = new Font("Britannic Bold", 24F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(183, 60);
             label1.Name = "label1";
-            label1.Size = new Size(386, 42);
+            label1.Size = new Size(456, 53);
             label1.TabIndex = 0;
             label1.Text = "Service Management";
             label1.Click += label1_Click;
             // 
             // button1
             // 
-            button1.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button1.Location = new Point(76, 229);
+            button1.BackColor = SystemColors.ControlDarkDark;
+            button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            button1.ForeColor = SystemColors.Window;
+            button1.Location = new Point(120, 229);
             button1.Name = "button1";
-            button1.Size = new Size(241, 83);
+            button1.Size = new Size(244, 83);
             button1.TabIndex = 1;
             button1.Text = "Add New Service";
-            button1.UseVisualStyleBackColor = true;
+            button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
             // button2
             // 
-            button2.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button2.Location = new Point(393, 229);
+            button2.BackColor = SystemColors.ControlDarkDark;
+            button2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            button2.ForeColor = SystemColors.Window;
+            button2.Location = new Point(452, 229);
             button2.Name = "button2";
             button2.Size = new Size(252, 83);
             button2.TabIndex = 2;
             button2.Text = "View And Update Service";
-            button2.UseVisualStyleBackColor = true;
+            button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
             // 
             // CRUD_LI
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.InactiveCaption;
             ClientSize = new Size(800, 450);
             Controls.Add(button2);
             Controls.Add(button1);

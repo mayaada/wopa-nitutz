@@ -9,7 +9,7 @@ namespace nitutz
 {
     public class Tenant
     {
-        private string companyName;
+       private string companyName;
         private string contactEmail;
         private string website;
         private DateTime dateJoined;

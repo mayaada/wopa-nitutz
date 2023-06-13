@@ -16,7 +16,8 @@ namespace nitutz
         private string photo;
         private List<Ticket> ticketsOpened; //different tickets open for this specific issue
 
-        public Issue(string issueName, string issueLocation, IssueType issueType, Priority issuePriority, string photo)
+        public Issue(string issueName, string issueLocation,
+         IssueType issueType, Priority issuePriority, string photo , bool isNew)
         {
             this.issueName = issueName;
             this.issueLocation = issueLocation;
@@ -24,6 +25,11 @@ namespace nitutz
             this.issuePriority = issuePriority;
             this.photo = photo;
             this.ticketsOpened = new List<Ticket>();
+            if (isNew)
+            {
+                Program.Issues.Add(this);
+                addIssue();
+            }
         }
 
         public string getIssueName()
@@ -86,9 +92,9 @@ namespace nitutz
             SqlCommand c = new SqlCommand();
             c.CommandText = "EXECUTE dbo.Add_Issue @Issue, @Issue_Location, @Issue_Type, @Issue_Priority, @Photo";
             c.Parameters.AddWithValue("@Issue", issueName);
-            c.Parameters.AddWithValue("@Issue_Location", issueLocation);
-            c.Parameters.AddWithValue("@Issue_Type", issueType);
-            c.Parameters.AddWithValue("@Issue_Priority", issuePriority);
+            c.Parameters.AddWithValue("@Issue_Location", issueLocation.ToString());
+            c.Parameters.AddWithValue("@Issue_Type", issueType.ToString());
+            c.Parameters.AddWithValue("@Issue_Priority", (issuePriority.ToString()));
             c.Parameters.AddWithValue("@Photo", photo);
             SQL_CON SC = new SQL_CON();
             SC.execute_non_query(c);

@@ -51,60 +51,60 @@
             // AddNewTenantLabel
             // 
             AddNewTenantLabel.AutoSize = true;
-            AddNewTenantLabel.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            AddNewTenantLabel.Location = new Point(322, 38);
+            AddNewTenantLabel.Font = new Font("Britannic Bold", 24F, FontStyle.Regular, GraphicsUnit.Point);
+            AddNewTenantLabel.Location = new Point(247, 9);
             AddNewTenantLabel.Name = "AddNewTenantLabel";
-            AddNewTenantLabel.Size = new Size(180, 28);
+            AddNewTenantLabel.Size = new Size(313, 53);
             AddNewTenantLabel.TabIndex = 1;
             AddNewTenantLabel.Text = "Add New Lead";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             label1.Location = new Point(28, 89);
             label1.Name = "label1";
-            label1.Size = new Size(156, 21);
+            label1.Size = new Size(145, 25);
             label1.TabIndex = 2;
             label1.Text = "Company Name:";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             label2.Location = new Point(28, 148);
             label2.Name = "label2";
-            label2.Size = new Size(85, 21);
+            label2.Size = new Size(77, 25);
             label2.TabIndex = 3;
             label2.Text = "Contact:";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             label3.Location = new Point(28, 196);
             label3.Name = "label3";
-            label3.Size = new Size(148, 21);
+            label3.Size = new Size(136, 25);
             label3.TabIndex = 4;
             label3.Text = "Phone Number:";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             label4.Location = new Point(28, 247);
             label4.Name = "label4";
-            label4.Size = new Size(65, 21);
+            label4.Size = new Size(58, 25);
             label4.TabIndex = 5;
             label4.Text = "Email:";
             // 
             // NumEmpLabel
             // 
             NumEmpLabel.AutoSize = true;
-            NumEmpLabel.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            NumEmpLabel.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             NumEmpLabel.Location = new Point(15, 299);
             NumEmpLabel.Name = "NumEmpLabel";
-            NumEmpLabel.Size = new Size(230, 21);
+            NumEmpLabel.Size = new Size(213, 25);
             NumEmpLabel.TabIndex = 6;
             NumEmpLabel.Text = "Number Of Work Station:";
             // 
@@ -118,13 +118,15 @@
             // 
             // button1
             // 
-            button1.Font = new Font("Arial Rounded MT Bold", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            button1.BackColor = SystemColors.ControlDarkDark;
+            button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            button1.ForeColor = SystemColors.Window;
             button1.Location = new Point(574, 271);
             button1.Name = "button1";
             button1.Size = new Size(146, 54);
             button1.TabIndex = 12;
             button1.Text = "Creat Lead";
-            button1.UseVisualStyleBackColor = true;
+            button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
             // CompanyNameTextBox
@@ -162,10 +164,10 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label5.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             label5.Location = new Point(445, 139);
             label5.Name = "label5";
-            label5.Size = new Size(123, 21);
+            label5.Size = new Size(108, 25);
             label5.TabIndex = 17;
             label5.Text = "Lead Source";
             // 
@@ -181,10 +183,10 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label6.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             label6.Location = new Point(445, 89);
             label6.Name = "label6";
-            label6.Size = new Size(115, 21);
+            label6.Size = new Size(102, 25);
             label6.TabIndex = 19;
             label6.Text = "Lead Status";
             // 
@@ -199,19 +201,22 @@
             // 
             // Backbutton2
             // 
-            Backbutton2.Font = new Font("Arial Rounded MT Bold", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            Backbutton2.BackColor = SystemColors.ControlDarkDark;
+            Backbutton2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            Backbutton2.ForeColor = Color.White;
             Backbutton2.Location = new Point(15, 15);
             Backbutton2.Name = "Backbutton2";
-            Backbutton2.Size = new Size(70, 37);
+            Backbutton2.Size = new Size(71, 37);
             Backbutton2.TabIndex = 21;
             Backbutton2.Text = "BACK";
-            Backbutton2.UseVisualStyleBackColor = true;
+            Backbutton2.UseVisualStyleBackColor = false;
             Backbutton2.Click += Backbutton2_Click;
             // 
             // CreatLead
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.InactiveCaption;
             ClientSize = new Size(800, 450);
             Controls.Add(Backbutton2);
             Controls.Add(StatuscomboBox1);

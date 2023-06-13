@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -37,7 +38,20 @@ namespace nitutz
 
         private void SearchCNbutton_Click(object sender, EventArgs e)
         {
-            if (CompanyNametextBox != null)
+            bool ReadyToSearch = true;
+
+            if (CompanyNametextBox == null)
+            {
+                ReadyToSearch = false;
+                MessageBox.Show("Please enter a company name");
+            }
+            if (Program.seekTenant(CompanyNametextBox.Text) == null)
+            {
+                ReadyToSearch = false;
+                MessageBox.Show("Tenant not found");
+            }
+
+            if (ReadyToSearch == true)
             {
                 //הצגת הכפתורים
                 UpdateButton.Show();
@@ -68,16 +82,38 @@ namespace nitutz
 
         private void UpdateButton_Click(object sender, EventArgs e)
         {
-            tenant.updateCompanyName(CompanyNametextBox.Text);
-            tenant.updateContactEmail(EmailtextBox1.Text);
-            tenant.updateWebsite(WebsitetextBox.Text);
-            int num = int.Parse(NumOfEmptextBox1.Text);
-            Console.WriteLine(num);
-            tenant.updateNumberOfEmployees(num);
-            bool Activity = bool.Parse(IsActiveTextBox.Text);
-            Console.WriteLine(Activity);
-            tenant.UpdateActivateTenant(Activity);
-            tenant.updateTenant();
+            bool ReadyToUpdate = true;
+
+            if (CompanyNametextBox.Text == "" || EmailtextBox1.Text == "" || WebsitetextBox.Text == "")
+            {
+                ReadyToUpdate = false;
+                MessageBox.Show("Please fill all the fields", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            if (!EmailtextBox1.Text.Contains("@") && !EmailtextBox1.Text.Contains(".com"))
+            {
+                ReadyToUpdate = false;
+                MessageBox.Show("Please fill in the email field correctly", "Faild", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            if (!WebsitetextBox.Text.Contains("www.") && !WebsitetextBox.Text.Contains(".com"))
+            {
+                ReadyToUpdate = false;
+                MessageBox.Show("Please fill in the 'website' field correctly", "Faild", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            if (ReadyToUpdate == true)
+            {
+                tenant.updateCompanyName(CompanyNametextBox.Text);
+                tenant.updateContactEmail(EmailtextBox1.Text);
+                tenant.updateWebsite(WebsitetextBox.Text);
+                int num = int.Parse(NumOfEmptextBox1.Text);
+                Console.WriteLine(num);
+                tenant.updateNumberOfEmployees(num);
+                bool Activity = bool.Parse(IsActiveTextBox.Text);
+                Console.WriteLine(Activity);
+                tenant.UpdateActivateTenant(Activity);
+                tenant.updateTenant();
+                MessageBox.Show("Tenant updated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
 

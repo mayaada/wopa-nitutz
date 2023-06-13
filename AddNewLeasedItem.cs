@@ -49,9 +49,33 @@ namespace nitutz
 
         private void Addbutton1_Click(object sender, EventArgs e)
         {
+            bool ReadyToAdd = true;
 
-            int number = Program.GetLeasedItemDataList().Count + 1;
-            LeasedItem L = new LeasedItem(number, (int)numericUpDown1.Value, GetType(TypetextBox1.Text), bool.Parse(ECtextBox1.Text), bool.Parse(AvailtextBox1.Text), Program.seekLease(int.Parse(LeasetextBox1.Text)), true);
+            if (Program.seekLeasedItemType(TypetextBox1.Text) == null)
+            {
+                ReadyToAdd = false;
+                MessageBox.Show("Leased Item Type does not exist");
+            }
+            if (Program.seekLease(int.Parse(LeasetextBox1.Text)) == null)
+            {
+                ReadyToAdd = false;
+                MessageBox.Show("Lease does not exist");
+            }
+            if (ECtextBox1.Text == null)
+            {
+                ReadyToAdd = false;
+                MessageBox.Show("Please enter a value for EC");
+            }
+            if (AvailtextBox1.Text == null)
+            {
+                ReadyToAdd = false;
+                MessageBox.Show("Please enter a value for Avail");
+            }
+            if (ReadyToAdd = true)
+            {
+                int number = Program.GetLeasedItemDataList().Count + 1;
+                LeasedItem L = new LeasedItem(number, (int)numericUpDown1.Value, GetType(TypetextBox1.Text), bool.Parse(ECtextBox1.Text), bool.Parse(AvailtextBox1.Text), Program.seekLease(int.Parse(LeasetextBox1.Text)), true);
+            }
         }
 
         private LeasedItemType GetType(string type)

@@ -32,25 +32,27 @@
             label2 = new Label();
             textBox2 = new TextBox();
             textBox3 = new TextBox();
-            button1 = new Button();
             label3 = new Label();
+            ContinueButton = new Button();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI Variable Display", 9F, FontStyle.Regular, GraphicsUnit.Point);
             label1.Location = new Point(245, 146);
             label1.Name = "label1";
-            label1.Size = new Size(95, 25);
+            label1.Size = new Size(93, 24);
             label1.TabIndex = 1;
             label1.Text = "Username:";
             // 
             // label2
             // 
             label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI Variable Display", 9F, FontStyle.Regular, GraphicsUnit.Point);
             label2.Location = new Point(245, 199);
             label2.Name = "label2";
-            label2.Size = new Size(91, 25);
+            label2.Size = new Size(90, 24);
             label2.TabIndex = 2;
             label2.Text = "Password:";
             // 
@@ -70,38 +72,43 @@
             textBox3.TabIndex = 4;
             textBox3.TextChanged += textBox3_TextChanged;
             // 
-            // button1
-            // 
-            button1.Location = new Point(334, 283);
-            button1.Name = "button1";
-            button1.Size = new Size(112, 34);
-            button1.TabIndex = 5;
-            button1.Text = "Continue";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
-            // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(282, 73);
+            label3.Font = new Font("Britannic Bold", 14F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Location = new Point(245, 68);
             label3.Name = "label3";
-            label3.Size = new Size(220, 25);
+            label3.Size = new Size(337, 31);
             label3.TabIndex = 6;
             label3.Text = "Login To your WOPA user!";
             label3.Click += label3_Click;
             // 
-            // Form1
+            // ContinueButton
+            // 
+            ContinueButton.BackColor = SystemColors.ControlDarkDark;
+            ContinueButton.Font = new Font("Segoe UI Variable Display", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            ContinueButton.ForeColor = SystemColors.ButtonHighlight;
+            ContinueButton.Location = new Point(334, 329);
+            ContinueButton.Name = "ContinueButton";
+            ContinueButton.Size = new Size(114, 34);
+            ContinueButton.TabIndex = 7;
+            ContinueButton.Text = "Continue";
+            ContinueButton.UseVisualStyleBackColor = false;
+            ContinueButton.Click += ContinueButton_Click;
+            // 
+            // TenantSignIn
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.InactiveCaption;
             ClientSize = new Size(800, 450);
+            Controls.Add(ContinueButton);
             Controls.Add(label3);
-            Controls.Add(button1);
             Controls.Add(textBox3);
             Controls.Add(textBox2);
             Controls.Add(label2);
             Controls.Add(label1);
-            Name = "Form1";
+            Name = "TenantSignIn";
             Text = "Form1";
             Load += Form1_Load;
             ResumeLayout(false);
@@ -113,7 +120,7 @@
         private Label label2;
         private TextBox textBox2;
         private TextBox textBox3;
-        private Button button1;
         private Label label3;
+        private Button ContinueButton;
     }
 }

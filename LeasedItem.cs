@@ -158,5 +158,9 @@ namespace nitutz
             SC.execute_non_query(c);
         }
 
+        internal void updatateRelatesTo(int leaseID)
+        {
+            this.relatesTo = Program.seekLease(leaseID);
+        }
     }
 }
