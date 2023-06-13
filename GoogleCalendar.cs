@@ -11,7 +11,7 @@ namespace nitutz
 
         public GoogleCalendar() { }
 
-        public static Boolean checkMeetingLocationCalendarAvailability(DateTime date, DateTime startTime, DateTime endDate, MeetingLocation meetingLocation)
+        public static Boolean checkMeetingLocationCalendarAvailability(DateTime date, TimeSpan startTime, TimeSpan endTime, MeetingLocation meetingLocation)
         {
             //TODO: Connect to google calendar API 
             // check if booking slot for the current Meeting location is free
