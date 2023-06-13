@@ -25,7 +25,7 @@ namespace nitutz
         private void Searchbutton1_Click(object sender, EventArgs e)
         {
             string input = CompanytextBox1.Text; // Get the user input from textBox2
-
+            tenantExists = Program.seekTenant(input);
             if (string.IsNullOrWhiteSpace(input))
             {
                 // One or both of the textboxes are empty or contain only whitespace
@@ -38,7 +38,6 @@ namespace nitutz
 
             if (exists)
             {
-                tenantExists = Program.seekTenant(input);
                 textBox1.Text = tenantExists.getCompanyName();
                 textBox2.Text = tenantExists.getContactEmail();
                 textBox3.Text = tenantExists.getNumberOfEmployees().ToString();
@@ -85,6 +84,11 @@ namespace nitutz
         }
 
         private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
         {
 
         }
