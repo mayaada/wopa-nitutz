@@ -47,10 +47,10 @@
             // UpdateTenantLabel
             // 
             UpdateTenantLabel.AutoSize = true;
-            UpdateTenantLabel.Font = new Font("Arial Rounded MT Bold", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            UpdateTenantLabel.Font = new Font("Britannic Bold", 18F, FontStyle.Regular, GraphicsUnit.Point);
             UpdateTenantLabel.Location = new Point(267, 49);
             UpdateTenantLabel.Name = "UpdateTenantLabel";
-            UpdateTenantLabel.Size = new Size(277, 42);
+            UpdateTenantLabel.Size = new Size(246, 40);
             UpdateTenantLabel.TabIndex = 0;
             UpdateTenantLabel.Text = "Update Tenant";
             UpdateTenantLabel.Click += UpdateTenantLabel_Click;
@@ -58,10 +58,10 @@
             // CompanyNamelabel
             // 
             CompanyNamelabel.AutoSize = true;
-            CompanyNamelabel.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            CompanyNamelabel.Font = new Font("Segoe UI Variable Display", 9F, FontStyle.Regular, GraphicsUnit.Point);
             CompanyNamelabel.Location = new Point(133, 140);
             CompanyNamelabel.Name = "CompanyNamelabel";
-            CompanyNamelabel.Size = new Size(150, 21);
+            CompanyNamelabel.Size = new Size(138, 24);
             CompanyNamelabel.TabIndex = 1;
             CompanyNamelabel.Text = "Company Name";
             CompanyNamelabel.Click += CompanyNamelabel_Click;
@@ -76,32 +76,34 @@
             // 
             // SearchCNbutton
             // 
-            SearchCNbutton.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            SearchCNbutton.BackColor = SystemColors.ControlDarkDark;
+            SearchCNbutton.Font = new Font("Segoe UI Variable Display", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            SearchCNbutton.ForeColor = SystemColors.InactiveBorder;
             SearchCNbutton.Location = new Point(244, 384);
             SearchCNbutton.Name = "SearchCNbutton";
             SearchCNbutton.Size = new Size(134, 45);
             SearchCNbutton.TabIndex = 3;
             SearchCNbutton.Text = "Search";
-            SearchCNbutton.UseVisualStyleBackColor = true;
+            SearchCNbutton.UseVisualStyleBackColor = false;
             SearchCNbutton.Click += SearchCNbutton_Click;
             // 
             // EmailLabel
             // 
             EmailLabel.AutoSize = true;
-            EmailLabel.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            EmailLabel.Font = new Font("Segoe UI Variable Display", 9F, FontStyle.Regular, GraphicsUnit.Point);
             EmailLabel.Location = new Point(133, 189);
             EmailLabel.Name = "EmailLabel";
-            EmailLabel.Size = new Size(59, 21);
+            EmailLabel.Size = new Size(51, 24);
             EmailLabel.TabIndex = 4;
             EmailLabel.Text = "Email";
             // 
             // WebsiteLabel
             // 
             WebsiteLabel.AutoSize = true;
-            WebsiteLabel.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            WebsiteLabel.Font = new Font("Segoe UI Variable Display", 9F, FontStyle.Regular, GraphicsUnit.Point);
             WebsiteLabel.Location = new Point(133, 235);
             WebsiteLabel.Name = "WebsiteLabel";
-            WebsiteLabel.Size = new Size(81, 21);
+            WebsiteLabel.Size = new Size(72, 24);
             WebsiteLabel.TabIndex = 5;
             WebsiteLabel.Text = "Website";
             WebsiteLabel.Click += WebsiteLabel_Click;
@@ -109,10 +111,10 @@
             // NumOfEmpLabel
             // 
             NumOfEmpLabel.AutoSize = true;
-            NumOfEmpLabel.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            NumOfEmpLabel.Font = new Font("Segoe UI Variable Display", 9F, FontStyle.Regular, GraphicsUnit.Point);
             NumOfEmpLabel.Location = new Point(133, 281);
             NumOfEmpLabel.Name = "NumOfEmpLabel";
-            NumOfEmpLabel.Size = new Size(208, 21);
+            NumOfEmpLabel.Size = new Size(187, 24);
             NumOfEmpLabel.TabIndex = 6;
             NumOfEmpLabel.Text = "Number Of Employees";
             // 
@@ -142,22 +144,24 @@
             // 
             // UpdateButton
             // 
-            UpdateButton.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            UpdateButton.BackColor = SystemColors.ControlDarkDark;
+            UpdateButton.Font = new Font("Segoe UI Variable Display", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            UpdateButton.ForeColor = SystemColors.ButtonHighlight;
             UpdateButton.Location = new Point(415, 384);
             UpdateButton.Name = "UpdateButton";
             UpdateButton.Size = new Size(129, 46);
             UpdateButton.TabIndex = 10;
             UpdateButton.Text = "Update";
-            UpdateButton.UseVisualStyleBackColor = true;
+            UpdateButton.UseVisualStyleBackColor = false;
             UpdateButton.Click += UpdateButton_Click;
             // 
             // IsActivelabel1
             // 
             IsActivelabel1.AutoSize = true;
-            IsActivelabel1.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            IsActivelabel1.Font = new Font("Segoe UI Variable Display", 9F, FontStyle.Regular, GraphicsUnit.Point);
             IsActivelabel1.Location = new Point(133, 336);
             IsActivelabel1.Name = "IsActivelabel1";
-            IsActivelabel1.Size = new Size(87, 21);
+            IsActivelabel1.Size = new Size(75, 24);
             IsActivelabel1.TabIndex = 11;
             IsActivelabel1.Text = "Is Active";
             IsActivelabel1.Click += IsActivelabel1_Click;
@@ -172,19 +176,22 @@
             // 
             // Backbutton
             // 
-            Backbutton.Font = new Font("Arial Rounded MT Bold", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            Backbutton.BackColor = SystemColors.ControlDarkDark;
+            Backbutton.Font = new Font("Segoe UI Variable Display", 8F, FontStyle.Bold, GraphicsUnit.Point);
+            Backbutton.ForeColor = SystemColors.ButtonHighlight;
             Backbutton.Location = new Point(12, 21);
             Backbutton.Name = "Backbutton";
-            Backbutton.Size = new Size(63, 31);
+            Backbutton.Size = new Size(77, 44);
             Backbutton.TabIndex = 13;
             Backbutton.Text = "Back";
-            Backbutton.UseVisualStyleBackColor = true;
+            Backbutton.UseVisualStyleBackColor = false;
             Backbutton.Click += Backbutton_Click_1;
             // 
             // UpdateTenant
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.InactiveCaption;
             ClientSize = new Size(800, 450);
             Controls.Add(Backbutton);
             Controls.Add(IsActiveTextBox);
