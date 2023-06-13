@@ -31,7 +31,14 @@ namespace nitutz
         private void NewTicketButton_Click(object sender, EventArgs e)
         {
             TenantIssuesAndTickets TenantIssuesAndTickets = new TenantIssuesAndTickets(currentUser);
-            TenantIssuesAndTickets.Show();  
+            TenantIssuesAndTickets.Show();
+            this.Hide();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            TenantSignIn TenantSignIn = new TenantSignIn();
+            TenantSignIn.Show();
             this.Hide();
         }
     }
