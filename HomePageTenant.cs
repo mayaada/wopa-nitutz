@@ -46,5 +46,10 @@ namespace nitutz
         {
 
         }
+
+        private void OpenNewTicket_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

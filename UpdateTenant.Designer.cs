@@ -77,11 +77,11 @@
             // SearchCNbutton
             // 
             SearchCNbutton.BackColor = SystemColors.ControlDarkDark;
-            SearchCNbutton.Font = new Font("Segoe UI Variable Display", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            SearchCNbutton.Font = new Font("Segoe UI Variable Display", 9F, FontStyle.Bold, GraphicsUnit.Point);
             SearchCNbutton.ForeColor = SystemColors.InactiveBorder;
-            SearchCNbutton.Location = new Point(244, 384);
+            SearchCNbutton.Location = new Point(574, 137);
             SearchCNbutton.Name = "SearchCNbutton";
-            SearchCNbutton.Size = new Size(134, 45);
+            SearchCNbutton.Size = new Size(134, 31);
             SearchCNbutton.TabIndex = 3;
             SearchCNbutton.Text = "Search";
             SearchCNbutton.UseVisualStyleBackColor = false;
@@ -145,7 +145,7 @@
             // UpdateButton
             // 
             UpdateButton.BackColor = SystemColors.ControlDarkDark;
-            UpdateButton.Font = new Font("Segoe UI Variable Display", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            UpdateButton.Font = new Font("Segoe UI Variable Display", 9F, FontStyle.Bold, GraphicsUnit.Point);
             UpdateButton.ForeColor = SystemColors.ButtonHighlight;
             UpdateButton.Location = new Point(415, 384);
             UpdateButton.Name = "UpdateButton";
@@ -179,7 +179,7 @@
             Backbutton.BackColor = SystemColors.ControlDarkDark;
             Backbutton.Font = new Font("Segoe UI Variable Display", 8F, FontStyle.Bold, GraphicsUnit.Point);
             Backbutton.ForeColor = SystemColors.ButtonHighlight;
-            Backbutton.Location = new Point(12, 21);
+            Backbutton.Location = new Point(12, 12);
             Backbutton.Name = "Backbutton";
             Backbutton.Size = new Size(77, 44);
             Backbutton.TabIndex = 13;

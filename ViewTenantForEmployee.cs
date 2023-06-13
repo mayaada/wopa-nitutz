@@ -85,7 +85,9 @@ namespace nitutz
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            HomePageEmployee HomePageEmployee = new HomePageEmployee();
+            HomePageEmployee.Show();
+            this.Hide();
         }
 
         private void label2_Click(object sender, EventArgs e)
