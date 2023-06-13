@@ -13,10 +13,12 @@ namespace nitutz
     public partial class HomePageTenant : Form
     {
         private Tenant currentUser;
+        //private string currentTenant;
         public HomePageTenant(Tenant currentUser)
         {
-            InitializeComponent();
             this.currentUser = currentUser;
+            InitializeComponent();
+
 
 
         }

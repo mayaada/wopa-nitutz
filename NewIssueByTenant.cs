@@ -13,11 +13,12 @@ namespace nitutz
     public partial class NewIssueByTenant : Form
     {
 
-        private Tenant currentTenant;
+        private Tenant currentUser;
+       // private string currentTenantName;
         public NewIssueByTenant(Tenant tenant)
         {
             InitializeComponent();
-            this.currentTenant = tenant;
+            this.currentUser = tenant;
             PrioritycomboBox1.DataSource = Enum.GetValues(typeof(Priority));
             TypecomboBox1.DataSource = Enum.GetValues(typeof(IssueType));
 
@@ -56,12 +57,12 @@ namespace nitutz
             Priority issuePriority = (Priority)PrioritycomboBox1.SelectedItem;
             String issue = IssuetextBox1.Text;
             String location = LocationtextBox1.Text;
-
-
+            int ticketID = new Random().Next(100000, 999999);
 
             Issue I = new Issue(issue,location, issueType , issuePriority ,"Null", true);
-            Ticket T = new Ticket(currentTime, currentDate, "Pending" ,currentTenant, issue ,location,true );
-
+            Ticket T = new Ticket(ticketID,currentTime, currentDate,currentUser, I , true);
+            EmailSender emailSender = new EmailSender();
+             emailSender.SendEmail("info@wopa.space",currentUser.getContactEmail(),"Confirmation email", "Your Ticket has been successfully updateded, we will process your request soon.");
 
 
 

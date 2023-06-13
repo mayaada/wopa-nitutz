@@ -12,15 +12,22 @@ namespace nitutz
 {
     public partial class TenantSignIn : Form
     {
-        private Tenant currentUser;
+         public Tenant currentUser;
+        //public static Tenant currentUser { get; private set; }
+        public static string Tenant;
 
         public TenantSignIn()
         {
             InitializeComponent();
-            this.currentUser = Program.seekTenant(textBox2.ToString());
+           // Tenant = textBox2.Text;
         }
 
-       
+        public static string GetTenant()
+        {
+            return Tenant;
+        }
+
+
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
@@ -58,8 +65,8 @@ namespace nitutz
                 MessageBox.Show("Please enter both Username and password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return; // Exit the event handler
             }
-
-            HomePageTenant HomePageTenant = new HomePageTenant(currentUser);
+            currentUser = Program.seekTenant(textBox2.Text);
+            HomePageTenant HomePageTenant = new HomePageTenant(this.currentUser);
             HomePageTenant.Show();
             this.Hide();
 

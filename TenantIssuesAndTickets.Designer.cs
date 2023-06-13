@@ -29,35 +29,58 @@
         private void InitializeComponent()
         {
             NewLeaseButton = new Button();
-            ExiststingIssue = new Button();
+            listView1 = new ListView();
+            BackButton = new Button();
+            CreateTicketBueeon = new Button();
             SuspendLayout();
             // 
             // NewLeaseButton
             // 
-            NewLeaseButton.Location = new Point(148, 139);
+            NewLeaseButton.Location = new Point(640, 389);
             NewLeaseButton.Name = "NewLeaseButton";
-            NewLeaseButton.Size = new Size(224, 95);
+            NewLeaseButton.Size = new Size(148, 58);
             NewLeaseButton.TabIndex = 4;
             NewLeaseButton.Text = "New Issue";
             NewLeaseButton.UseVisualStyleBackColor = true;
             NewLeaseButton.Click += NewLeaseButton_Click;
             // 
-            // ExiststingIssue
+            // listView1
             // 
-            ExiststingIssue.Location = new Point(417, 139);
-            ExiststingIssue.Name = "ExiststingIssue";
-            ExiststingIssue.Size = new Size(223, 95);
-            ExiststingIssue.TabIndex = 5;
-            ExiststingIssue.Text = "Existsting Issue";
-            ExiststingIssue.UseVisualStyleBackColor = true;
-            ExiststingIssue.Click += ExiststingIssue_Click;
+            listView1.Location = new Point(12, 56);
+            listView1.Name = "listView1";
+            listView1.Size = new Size(776, 318);
+            listView1.TabIndex = 5;
+            listView1.UseCompatibleStateImageBehavior = false;
+            listView1.SelectedIndexChanged += listView1_SelectedIndexChanged;
+            // 
+            // BackButton
+            // 
+            BackButton.Location = new Point(12, 12);
+            BackButton.Name = "BackButton";
+            BackButton.Size = new Size(127, 35);
+            BackButton.TabIndex = 6;
+            BackButton.Text = "BACK";
+            BackButton.UseVisualStyleBackColor = true;
+            BackButton.Click += BackButton_Click;
+            // 
+            // CreateTicketBueeon
+            // 
+            CreateTicketBueeon.Location = new Point(461, 389);
+            CreateTicketBueeon.Name = "CreateTicketBueeon";
+            CreateTicketBueeon.Size = new Size(163, 58);
+            CreateTicketBueeon.TabIndex = 7;
+            CreateTicketBueeon.Text = "Create Ticket";
+            CreateTicketBueeon.UseVisualStyleBackColor = true;
+            CreateTicketBueeon.Click += CreateTicketBueeon_Click;
             // 
             // TenantIssuesAndTickets
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(ExiststingIssue);
+            Controls.Add(CreateTicketBueeon);
+            Controls.Add(BackButton);
+            Controls.Add(listView1);
             Controls.Add(NewLeaseButton);
             Name = "TenantIssuesAndTickets";
             Text = "TenantIssuesAndTickets";
@@ -67,6 +90,8 @@
 
         #endregion
         private Button NewLeaseButton;
-        private Button ExiststingIssue;
+        private ListView listView1;
+        private Button BackButton;
+        private Button CreateTicketBueeon;
     }
 }
