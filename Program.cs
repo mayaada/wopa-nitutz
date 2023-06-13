@@ -120,7 +120,8 @@ namespace nitutz
             }
         }
 
-        public static void init_LeasedItemTypes() {
+        public static void init_LeasedItemTypes()
+        {
             SqlCommand c = new SqlCommand();
             c.CommandText = "EXECUTE dbo.Get_all_LeasedItemTypes";
             SQL_CON SC = new SQL_CON();
@@ -182,7 +183,7 @@ namespace nitutz
                 IssueType IssueType = (IssueType)Enum.Parse(typeof(IssueType), rdr.GetValue(2).ToString().Replace(" ", string.Empty));
                 Priority issuePriority = (Priority)Enum.Parse(typeof(Priority), rdr.GetValue(3).ToString().Replace(" ", string.Empty));
                 Issue Issue = new Issue(
-                rdr.GetValue(0).ToString(), rdr.GetValue(1).ToString(), IssueType, issuePriority, rdr.GetValue(4).ToString() , false
+                rdr.GetValue(0).ToString(), rdr.GetValue(1).ToString(), IssueType, issuePriority, rdr.GetValue(4).ToString(), false
                 );
                 Issues.Add(Issue);
             }
@@ -200,7 +201,7 @@ namespace nitutz
                 TicketStatus TicketStatus = (TicketStatus)Enum.Parse(typeof(TicketStatus), rdr.GetValue(3).ToString().Replace(" ", string.Empty));
                 Ticket Ticket = new Ticket(
                 (int)rdr.GetValue(0), TimeSpan.Parse(rdr.GetValue(1).ToString()), DateTime.Parse(rdr.GetValue(2).ToString()),
-                TicketStatus, seekEemploye(rdr.GetValue(4).ToString()), seekTenant(rdr.GetValue(5).ToString()), seekIssue(rdr.GetValue(6).ToString(),rdr.GetValue(7).ToString()), false
+                TicketStatus, seekEemploye(rdr.GetValue(4).ToString()), seekTenant(rdr.GetValue(5).ToString()), seekIssue(rdr.GetValue(6).ToString(), rdr.GetValue(7).ToString()), false
                 );
                 Tickets.Add(Ticket);
             }
@@ -346,7 +347,7 @@ namespace nitutz
             return null;
         }
 
-        public static Issue seekIssue(string issueID , string issueLocation)
+        public static Issue seekIssue(string issueID, string issueLocation)
         {
             foreach (Issue issue in Issues)
             {
@@ -414,9 +415,9 @@ namespace nitutz
 
         public static List<LeasedItem> GetLeasedItemDataList()
         {
-            return LeasedItems; 
+            return LeasedItems;
 
-    
+
         }
 
         public static List<Issue> GetIssueDataList()
@@ -424,20 +425,18 @@ namespace nitutz
             return Issues;
         }
 
-        
 
-    static void Main()
+
+        static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             initLists(); //����� �� �������
-           Application.Run(new TenantSignIn());
-          
+            Application.Run(new TenantSignIn());
+
 
         }
 
-       
-
 
     }
-} 
+}
