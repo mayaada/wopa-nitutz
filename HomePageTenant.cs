@@ -41,5 +41,10 @@ namespace nitutz
             TenantSignIn.Show();
             this.Hide();
         }
+
+        private void newBookingButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
