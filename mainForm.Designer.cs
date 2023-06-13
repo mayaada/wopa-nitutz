@@ -35,7 +35,9 @@
             // 
             // button1
             // 
-            button1.BackColor = SystemColors.GradientActiveCaption;
+            button1.BackColor = SystemColors.ControlDarkDark;
+            button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            button1.ForeColor = SystemColors.Window;
             button1.Location = new Point(144, 216);
             button1.Name = "button1";
             button1.Size = new Size(156, 82);
@@ -46,7 +48,9 @@
             // 
             // button2
             // 
-            button2.BackColor = SystemColors.GradientActiveCaption;
+            button2.BackColor = SystemColors.ControlDarkDark;
+            button2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            button2.ForeColor = SystemColors.Window;
             button2.Location = new Point(511, 216);
             button2.Name = "button2";
             button2.Size = new Size(156, 82);
@@ -66,11 +70,11 @@
             label1.Text = "WELCOME TO WOPA!";
             label1.Click += label1_Click;
             // 
-            // TenantsForEmployee
+            // MainForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ControlLightLight;
+            BackColor = SystemColors.InactiveCaption;
             ClientSize = new Size(800, 450);
             Controls.Add(label1);
             Controls.Add(button2);
