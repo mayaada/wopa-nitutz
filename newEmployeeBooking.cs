@@ -16,12 +16,20 @@ namespace nitutz
     {
         private Employee currentUser;
         private List<MeetingLocation> meetingLocations;
+        private List<TimeSpan> bookingHours;
+        private Booking booking;
 
 
         public NewBookingForEmployee(Employee currentUser)
         {
             InitializeComponent();
             this.currentUser = currentUser;
+            initMeetingLocationsList();
+            initBookingHoursList();
+        }
+
+        private void initMeetingLocationsList()
+        {
             this.meetingLocations = Program.MeetingLocations.ToList();
             locationDropDownBox.Items.Clear();
             foreach (var meetingLocation in meetingLocations)
@@ -30,8 +38,30 @@ namespace nitutz
             }
         }
 
-        private Booking newBooking;
 
+
+        private void initBookingHoursList()
+        {
+            bookingHours = new List<TimeSpan>();
+
+            TimeSpan currentTime = TimeSpan.Zero;
+
+            while (currentTime < TimeSpan.FromDays(1))
+            {
+                bookingHours.Add(currentTime);
+                currentTime = currentTime.Add(TimeSpan.FromMinutes(15));
+            }
+
+            startTimeComboBox.Items.Clear();
+            endTimeComboBox.Items.Clear();
+
+            foreach (TimeSpan time in bookingHours)
+            {
+                startTimeComboBox.Items.Add(time.ToString());
+                endTimeComboBox.Items.Add(time.ToString());
+            }
+
+        }
 
         private void newEmployeeBooking_Load(object sender, EventArgs e)
         {
@@ -47,12 +77,13 @@ namespace nitutz
         {
             // save booking fields
             DateTime bookingDate = date_Button.Value;
-            DateTime startTime = startTimePicker.Value;
-            DateTime endTime = endTimePicker1.Value;
+            TimeSpan selectedStartTime = TimeSpan.Parse(startTimeComboBox.Text);
+            TimeSpan selectedEndTime = TimeSpan.Parse(endTimeComboBox.Text);
+
             MeetingLocation meetingLocation = Program.seekMeetingLocation(locationDropDownBox.Text);
 
             //check availability in calendar
-            bool isAvailable = GoogleCalendar.checkMeetingLocationCalendarAvailability(bookingDate, startTime, endTime, meetingLocation);
+            bool isAvailable = GoogleCalendar.checkMeetingLocationCalendarAvailability(bookingDate, selectedStartTime, selectedEndTime, meetingLocation);
 
             //save availability from calendar
             BookingStatus bookingStatus;
@@ -66,24 +97,46 @@ namespace nitutz
 
             }
 
-            // create booking with updated fields
-            Booking newBooking = new Booking(bookingDate, startTime, endTime, currentUser, meetingLocation, true, bookingStatus);
+            //check constraints
 
-            // go back to homepage?
+            bool readyToAdd = true;
 
+            if (bookingDate < DateTime.Now.Date)
+            {
+                MessageBox.Show("Please select a valid date", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                readyToAdd = false;
+            }
+
+            if (selectedEndTime < selectedStartTime)
+            {
+                MessageBox.Show("End Time cannot precede Start Time", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                readyToAdd = false;
+            }
+
+            if (readyToAdd)
+            {
+
+
+                // create booking with updated fields
+                Booking newBooking = new Booking(bookingDate, selectedStartTime, selectedEndTime, currentUser, meetingLocation, true, bookingStatus);
+
+                HomePageEmployee eventForm = new HomePageEmployee(currentUser);
+                //this.Hide();
+                //eventForm.Show();
+            }
         }
 
         private void bookAndCreateEvent_Button(object sender, EventArgs e)
         {
-            
             // save booking fields
             DateTime bookingDate = date_Button.Value;
-            DateTime startTime = startTimePicker.Value;
-            DateTime endTime = endTimePicker1.Value;
+            TimeSpan selectedStartTime = TimeSpan.Parse(startTimeComboBox.Text);
+            TimeSpan selectedEndTime = TimeSpan.Parse(endTimeComboBox.Text);
+
             MeetingLocation meetingLocation = Program.seekMeetingLocation(locationDropDownBox.Text);
 
             //check availability in calendar
-            bool isAvailable = GoogleCalendar.checkMeetingLocationCalendarAvailability(bookingDate, startTime, endTime, meetingLocation);
+            bool isAvailable = GoogleCalendar.checkMeetingLocationCalendarAvailability(bookingDate, selectedStartTime, selectedEndTime, meetingLocation);
 
             //save availability from calendar
             BookingStatus bookingStatus;
@@ -97,37 +150,44 @@ namespace nitutz
 
             }
 
-            // create booking with updated fields
-            Booking newBooking = new Booking(bookingDate, startTime, endTime, currentUser, meetingLocation, true, bookingStatus);
+            //check constraints
 
-            // new event form window
-            FormCreateEvent eventForm = new FormCreateEvent(currentUser);
-            this.Hide();
-            eventForm.Show();
-        }
+            bool readyToAdd = true;
 
-        private void datePicker_ValueChanged(object sender, EventArgs e)
-        {
+            if (bookingDate < DateTime.Now.Date)
+            {
+                MessageBox.Show("Please select a valid date", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                readyToAdd = false;
+            }
 
-        }
+            if (selectedEndTime < selectedStartTime)
+            {
+                MessageBox.Show("End Time cannot precede Start Time", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                readyToAdd = false;
+            }
 
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
+            if (readyToAdd)
+            {
 
-        }
 
-        private void startTimePicker_ValueChanged(object sender, EventArgs e)
-        {
+                // create booking with updated fields
+                Booking newBooking = new Booking(bookingDate, selectedStartTime, selectedEndTime, currentUser, meetingLocation, true, bookingStatus);
 
-        }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
+                FormCreateEvent FormCreateEvent = new FormCreateEvent(currentUser, bookingDate, bookingDate);
+                FormCreateEvent.Show();
+                this.Hide();
+            }
 
         }
 
         private void locationDropDownBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+        }
+
+        private void date_Button_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

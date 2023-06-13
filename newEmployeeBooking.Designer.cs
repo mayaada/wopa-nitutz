@@ -31,14 +31,14 @@
             createBookingLable = new Label();
             dateLable = new Label();
             startTimeLable = new Label();
-            startTimePicker = new DateTimePicker();
             endTimePicker = new Label();
             LocationLable = new Label();
             BookMeetingRoomButton = new Button();
             CreateEvent_Button = new Button();
-            endTimePicker1 = new DateTimePicker();
             date_Button = new DateTimePicker();
             locationDropDownBox = new ComboBox();
+            endTimeComboBox = new ComboBox();
+            startTimeComboBox = new ComboBox();
             SuspendLayout();
             // 
             // createBookingLable
@@ -71,18 +71,6 @@
             startTimeLable.Size = new Size(158, 41);
             startTimeLable.TabIndex = 3;
             startTimeLable.Text = "Start Time:";
-            // 
-            // startTimePicker
-            // 
-            startTimePicker.Format = DateTimePickerFormat.Time;
-            startTimePicker.Location = new Point(619, 276);
-            startTimePicker.Margin = new Padding(5);
-            startTimePicker.MaxDate = new DateTime(2030, 1, 1, 0, 0, 0, 0);
-            startTimePicker.MinDate = new DateTime(2023, 6, 1, 0, 0, 0, 0);
-            startTimePicker.Name = "startTimePicker";
-            startTimePicker.Size = new Size(252, 47);
-            startTimePicker.TabIndex = 2;
-            startTimePicker.ValueChanged += startTimePicker_ValueChanged;
             // 
             // endTimePicker
             // 
@@ -126,38 +114,46 @@
             CreateEvent_Button.UseVisualStyleBackColor = true;
             CreateEvent_Button.Click += bookAndCreateEvent_Button;
             // 
-            // endTimePicker1
-            // 
-            endTimePicker1.Format = DateTimePickerFormat.Time;
-            endTimePicker1.Location = new Point(619, 370);
-            endTimePicker1.Margin = new Padding(5);
-            endTimePicker1.MaxDate = new DateTime(2030, 1, 1, 0, 0, 0, 0);
-            endTimePicker1.MinDate = new DateTime(2023, 6, 1, 0, 0, 0, 0);
-            endTimePicker1.Name = "endTimePicker1";
-            endTimePicker1.Size = new Size(252, 47);
-            endTimePicker1.TabIndex = 2;
-            // 
             // date_Button
             // 
             date_Button.Location = new Point(617, 171);
             date_Button.Name = "date_Button";
             date_Button.Size = new Size(406, 47);
             date_Button.TabIndex = 8;
+            date_Button.ValueChanged += date_Button_ValueChanged;
             // 
             // locationDropDownBox
             // 
             locationDropDownBox.FormattingEnabled = true;
-            locationDropDownBox.Location = new Point(619, 461);
+            locationDropDownBox.Location = new Point(619, 459);
             locationDropDownBox.Name = "locationDropDownBox";
             locationDropDownBox.Size = new Size(302, 49);
             locationDropDownBox.TabIndex = 9;
             locationDropDownBox.SelectedIndexChanged += locationDropDownBox_SelectedIndexChanged;
+            // 
+            // endTimeComboBox
+            // 
+            endTimeComboBox.FormattingEnabled = true;
+            endTimeComboBox.Location = new Point(617, 366);
+            endTimeComboBox.Name = "endTimeComboBox";
+            endTimeComboBox.Size = new Size(302, 49);
+            endTimeComboBox.TabIndex = 10;
+            // 
+            // startTimeComboBox
+            // 
+            startTimeComboBox.FormattingEnabled = true;
+            startTimeComboBox.Location = new Point(617, 272);
+            startTimeComboBox.Name = "startTimeComboBox";
+            startTimeComboBox.Size = new Size(302, 49);
+            startTimeComboBox.TabIndex = 11;
             // 
             // NewBookingForEmployee
             // 
             AutoScaleDimensions = new SizeF(17F, 41F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1360, 738);
+            Controls.Add(startTimeComboBox);
+            Controls.Add(endTimeComboBox);
             Controls.Add(locationDropDownBox);
             Controls.Add(date_Button);
             Controls.Add(CreateEvent_Button);
@@ -165,8 +161,6 @@
             Controls.Add(LocationLable);
             Controls.Add(endTimePicker);
             Controls.Add(startTimeLable);
-            Controls.Add(endTimePicker1);
-            Controls.Add(startTimePicker);
             Controls.Add(dateLable);
             Controls.Add(createBookingLable);
             Margin = new Padding(5);
@@ -182,13 +176,13 @@
         private Label createBookingLable;
         private Label dateLable;
         private Label startTimeLable;
-        private DateTimePicker startTimePicker;
         private Label endTimePicker;
         private Label LocationLable;
         private Button BookMeetingRoomButton;
         private Button CreateEvent_Button;
-        private DateTimePicker endTimePicker1;
         private DateTimePicker date_Button;
         private ComboBox locationDropDownBox;
+        private ComboBox endTimeComboBox;
+        private ComboBox startTimeComboBox;
     }
 }
