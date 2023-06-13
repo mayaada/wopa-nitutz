@@ -166,8 +166,8 @@ namespace nitutz
             c.Parameters.AddWithValue("@endDate", endDate);
             c.Parameters.AddWithValue("@terminationNotice", terminationNotice);
             c.Parameters.AddWithValue("@termsAndConditions", termsAndConditions);
-            c.Parameters.AddWithValue("@signedByEmployee", signedByEmployee);
-            c.Parameters.AddWithValue("@signedByTenant", signedByTenant);
+            c.Parameters.AddWithValue("@signedByEmployee", signedByEmployee.getEmail());
+            c.Parameters.AddWithValue("@signedByTenant", signedByTenant.getCompanyName());
             SQL_CON SC = new SQL_CON();
             SC.execute_non_query(c);
         }
