@@ -44,45 +44,50 @@
             // IssueLabel
             // 
             IssueLabel.AutoSize = true;
+            IssueLabel.Font = new Font("Segoe UI Variable Display", 9F, FontStyle.Regular, GraphicsUnit.Point);
             IssueLabel.Location = new Point(145, 93);
             IssueLabel.Name = "IssueLabel";
-            IssueLabel.Size = new Size(52, 25);
+            IssueLabel.Size = new Size(50, 24);
             IssueLabel.TabIndex = 0;
             IssueLabel.Text = "Issue";
             // 
             // LocationLabel
             // 
             LocationLabel.AutoSize = true;
+            LocationLabel.Font = new Font("Segoe UI Variable Display", 9F, FontStyle.Regular, GraphicsUnit.Point);
             LocationLabel.Location = new Point(145, 140);
             LocationLabel.Name = "LocationLabel";
-            LocationLabel.Size = new Size(79, 25);
+            LocationLabel.Size = new Size(78, 24);
             LocationLabel.TabIndex = 1;
             LocationLabel.Text = "Location";
             // 
             // TypeLabel
             // 
             TypeLabel.AutoSize = true;
+            TypeLabel.Font = new Font("Segoe UI Variable Display", 9F, FontStyle.Regular, GraphicsUnit.Point);
             TypeLabel.Location = new Point(143, 194);
             TypeLabel.Name = "TypeLabel";
-            TypeLabel.Size = new Size(49, 25);
+            TypeLabel.Size = new Size(47, 24);
             TypeLabel.TabIndex = 2;
             TypeLabel.Text = "Type";
             // 
             // PriorityLabel
             // 
             PriorityLabel.AutoSize = true;
+            PriorityLabel.Font = new Font("Segoe UI Variable Display", 9F, FontStyle.Regular, GraphicsUnit.Point);
             PriorityLabel.Location = new Point(145, 245);
             PriorityLabel.Name = "PriorityLabel";
-            PriorityLabel.Size = new Size(68, 25);
+            PriorityLabel.Size = new Size(68, 24);
             PriorityLabel.TabIndex = 3;
             PriorityLabel.Text = "Priority";
             // 
             // DescroptionLabel
             // 
             DescroptionLabel.AutoSize = true;
+            DescroptionLabel.Font = new Font("Segoe UI Variable Display", 9F, FontStyle.Regular, GraphicsUnit.Point);
             DescroptionLabel.Location = new Point(145, 297);
             DescroptionLabel.Name = "DescroptionLabel";
-            DescroptionLabel.Size = new Size(102, 25);
+            DescroptionLabel.Size = new Size(101, 24);
             DescroptionLabel.TabIndex = 4;
             DescroptionLabel.Text = "Description";
             // 
@@ -130,18 +135,22 @@
             // 
             // CreateNewButton
             // 
+            CreateNewButton.BackColor = SystemColors.ControlDarkDark;
+            CreateNewButton.Font = new Font("Segoe UI Variable Display", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            CreateNewButton.ForeColor = SystemColors.ButtonHighlight;
             CreateNewButton.Location = new Point(283, 367);
             CreateNewButton.Name = "CreateNewButton";
             CreateNewButton.Size = new Size(248, 39);
             CreateNewButton.TabIndex = 10;
             CreateNewButton.Text = "Create New Ticket";
-            CreateNewButton.UseVisualStyleBackColor = true;
+            CreateNewButton.UseVisualStyleBackColor = false;
             CreateNewButton.Click += CreateNewButton_Click;
             // 
             // NewIssueByTenant
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.InactiveCaption;
             ClientSize = new Size(800, 450);
             Controls.Add(CreateNewButton);
             Controls.Add(DescriptiontextBox1);
