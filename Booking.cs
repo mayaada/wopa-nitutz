@@ -12,8 +12,8 @@ namespace nitutz
         // create properties
         public int BookingID;
         public DateTime BookingDate;
-        public DateTime StartTime;
-        public DateTime EndTime;
+        public TimeSpan StartTime;
+        public TimeSpan EndTime;
         public BookingStatus BookingStatus;
         public Employee CreatedByEmployee;
         public Tenant CreatedByTenant;
@@ -21,7 +21,7 @@ namespace nitutz
         public MeetingLocation BookingLocation;
 
         // constructor for program
-        public Booking(int bookingID, DateTime bookingDate, DateTime startTime, DateTime endTime, BookingStatus bookingStatus, Employee createdByEmployee, Tenant createdByTenant, Event eventRelatedTo, MeetingLocation bookingLocation, bool isNew)
+        public Booking(int bookingID, DateTime bookingDate, TimeSpan startTime, TimeSpan endTime, BookingStatus bookingStatus, Employee createdByEmployee, Tenant createdByTenant, Event eventRelatedTo, MeetingLocation bookingLocation, bool isNew)
         {
             BookingID = bookingID;
             BookingDate = bookingDate;
@@ -40,7 +40,7 @@ namespace nitutz
         }
 
         // constroctor for employee
-        public Booking( DateTime bookingDate, DateTime startTime, DateTime endTime, Employee employeeEmail, MeetingLocation bookingLocation,bool isNew, BookingStatus bookingStatus = BookingStatus.Pending)
+        public Booking( DateTime bookingDate, TimeSpan startTime, TimeSpan endTime, Employee employeeEmail, MeetingLocation bookingLocation,bool isNew, BookingStatus bookingStatus = BookingStatus.Pending)
         {
             BookingID = generateBookingID();
             BookingDate = bookingDate;
@@ -60,7 +60,7 @@ namespace nitutz
         }
 
         // constructor for Tenant
-        public Booking( DateTime bookingDate, DateTime startTime, DateTime endTime, 
+        public Booking( DateTime bookingDate, TimeSpan startTime, TimeSpan endTime, 
          Tenant tenantCompantName, MeetingLocation bookingLocation, Boolean isNew, BookingStatus bookingStatus = BookingStatus.Pending)
         {
             BookingID = generateBookingID();
@@ -101,12 +101,12 @@ namespace nitutz
             return BookingDate;
         }
 
-        public DateTime getStartTime()
+        public TimeSpan getStartTime()
         {
             return StartTime;
         }
 
-        public DateTime getEndTime()
+        public TimeSpan getEndTime()
         {
             return EndTime;
         }
@@ -146,12 +146,12 @@ namespace nitutz
             BookingDate = bookingDate;
         }
 
-        public void setStartTime(DateTime startTime)
+        public void setStartTime(TimeSpan startTime)
         {
             StartTime = startTime;
         }
 
-        public void setEndTime(DateTime endTime)
+        public void setEndTime(TimeSpan endTime)
         {
             EndTime = endTime;
         }
@@ -204,30 +204,31 @@ namespace nitutz
         public void addBooking()
         {
             SqlCommand c = new SqlCommand();
-            c.CommandText = "EXECUTE dbo.Add_Booking @Booking_Date, @Start_Time, @End_Time, @Booking_Status, @Created_By_Employee, @Created_By_Tenant, @Event_Related_To, @Booking_Location";
+            c.CommandText = "EXECUTE dbo.Add_Booking @Booking_ID, @Booking_Date, @Start_Time, @End_Time, @Booking_Status, @Created_By_Employee, @Created_By_Tenant, @Event_Related_To, @Booking_Location";
+            c.Parameters.AddWithValue("@Booking_ID", BookingID);
             c.Parameters.AddWithValue("@Booking_Date", BookingDate);
             c.Parameters.AddWithValue("@Start_Time", StartTime);
             c.Parameters.AddWithValue("@End_Time", EndTime);
-            c.Parameters.AddWithValue("@Booking_Status", BookingStatus);
+            c.Parameters.AddWithValue("@Booking_Status", BookingStatus.ToString());
 
             if (CreatedByEmployee != null)
             {
-                c.Parameters.AddWithValue("@Created_By_Employee", CreatedByEmployee.ToString());
+                c.Parameters.AddWithValue("@Created_By_Employee", CreatedByEmployee.getEmail());
             }
-            else { c.Parameters.AddWithValue("@Created_By_Employee", null); }
+            else { c.Parameters.AddWithValue("@Created_By_Employee", DBNull.Value); }
 
             if (CreatedByTenant != null)
             {
-                c.Parameters.AddWithValue("@Created_By_Tenant", CreatedByTenant.ToString());
-            } else { c.Parameters.AddWithValue("@Created_By_Tenant", null); }
+                c.Parameters.AddWithValue("@Created_By_Tenant", CreatedByTenant.getCompanyName());
+            } else { c.Parameters.AddWithValue("@Created_By_Tenant", DBNull.Value); }
 
             if (EventRelatedTo != null)
             {
-                c.Parameters.AddWithValue("@Event_Related_To", EventRelatedTo.ToString());
+                c.Parameters.AddWithValue("@Event_Related_To", EventRelatedTo.getEventName());
             }
-            else { c.Parameters.AddWithValue("@Event_Related_To", null); }
+            else { c.Parameters.AddWithValue("@Event_Related_To", DBNull.Value);}
 
-            c.Parameters.AddWithValue("@Booking_Location", BookingLocation.ToString());
+            c.Parameters.AddWithValue("@Booking_Location", BookingLocation.getRoomName());
             SQL_CON SC = new SQL_CON();
             SC.execute_non_query(c);
         }
