@@ -17,12 +17,12 @@ namespace nitutz
     {
         // create properties
         public int ticketID;
-        public TimeSpan timeTime;
+        public TimeSpan time;
         public DateTime dateOpened;
         public TicketStatus ticketStatus;
         public Employee openedByEmployee;
         public Tenant openedByTenant;
-        public Issue issue;
+        public Issue refferencesIssue;
         
         // create constructor
         public Ticket(int ticketID, TimeSpan timeTime, DateTime dateOpened, TicketStatus ticketStatus,
@@ -34,7 +34,7 @@ namespace nitutz
             this.ticketStatus = ticketStatus;
             this.openedByEmployee = openedByEmployee;
             this.openedByTenant = openedByTenant;
-            this.issue = issue;
+            this.refferencesIssue = issue;
 
 
             if (isNew)
@@ -48,11 +48,11 @@ namespace nitutz
          , Tenant openedByTenant, Issue issue , bool isNew)
         {
             this.ticketID = ticketID;
-            this.timeTime = timeTime;
+            this.time = timeTime;
             this.dateOpened = dateOpened;
             this.ticketStatus = TicketStatus.Pending;
             this.openedByTenant = openedByTenant;
-            this.issue = issue;
+            this.refferencesIssue = issue;
 
             if (isNew)
             {
@@ -76,14 +76,14 @@ namespace nitutz
             this.ticketID = ticketID;
         }
 
-        public TimeSpan  getTimeTime()
-        {
-            return this.timeTime;
-        }
-
-        public void setTimeTime(TimeSpan timeTime)
+        public TimeSpan  getTime()
         {
             return this.time;
+        }
+
+        public void setTimeTime(TimeSpan time)
+        {
+            this.time = time;
         }
 
         public DateTime getDateOpened()
@@ -128,12 +128,12 @@ namespace nitutz
 
         public Issue getRefferenceIssue()
         {
-            return this.issue;
+            return this.refferencesIssue;
         }
 
         public void setRefferenceIssue(Issue refferenceIssue)
         {
-            this.issue = refferenceIssue;
+            this.refferencesIssue = refferenceIssue;
         }
 
         // Return a string representation of the ticket
@@ -141,11 +141,11 @@ namespace nitutz
         {   
             if(openedByEmployee != null)
             {
-                return $"Ticket ID: {ticketID} ,Date Opened: {dateOpened.Date}, Opened By: {openedByEmployee.getName()}, Issue: {refferenceIssue.getIssueName()} ";
+                return $"Ticket ID: {ticketID} ,Date Opened: {dateOpened.Date}, Opened By: {openedByEmployee.getName()}, Issue: {refferencesIssue.getIssueName()} ";
 
             } else if(openedByTenant != null) {
 
-                return $"Ticket ID: {ticketID} ,Date Opened: {dateOpened.ToString("dd/M/yyyy", CultureInfo.InvariantCulture)}, Opened By: {openedByTenant.getCompanyName()}, Issue: {refferenceIssue.getIssueName()}";
+                return $"Ticket ID: {ticketID} ,Date Opened: {dateOpened.ToString("dd/M/yyyy", CultureInfo.InvariantCulture)}, Opened By: {openedByTenant.getCompanyName()}, Issue: {refferencesIssue.getIssueName()}";
 
             }
             return "No Ticket Found";
@@ -155,9 +155,9 @@ namespace nitutz
         public void addTicketToDB()
         {
             SqlCommand c = new SqlCommand();
-            c.CommandText = "EXECUTE dbo.Add_Ticket @Ticket_ID, @Time_Time, @Date_Opened, @Ticket_Status, @Opened_By_Employee, @Opened_By_Tenant, @Refference_Issue, @Refference_Location";
+            c.CommandText = "EXECUTE dbo.Add_Ticket @Ticket_ID, @Time, @Date_Opened, @Ticket_Status, @Opened_By_Employee, @Opened_By_Tenant, @Refference_Issue, @Refference_Location";
             c.Parameters.AddWithValue("@Ticket_ID", ticketID);
-            c.Parameters.AddWithValue("@Time_Time", time);
+            c.Parameters.AddWithValue("@Time", time);
             c.Parameters.AddWithValue("@Date_Opened", dateOpened);
             c.Parameters.AddWithValue("@Ticket_Status", ticketStatus.ToString());
             if (openedByEmployee != null)
@@ -176,8 +176,8 @@ namespace nitutz
             {
                 c.Parameters.AddWithValue("@Opened_By_Tenant", DBNull.Value);
             }
-            c.Parameters.AddWithValue("@Refference_Issue", issue.getIssueName());
-            c.Parameters.AddWithValue("@Refference_Location", issue.getIssueLocation() );
+            c.Parameters.AddWithValue("@Refference_Issue", refferencesIssue.getIssueName());
+            c.Parameters.AddWithValue("@Refference_Location", refferencesIssue.getIssueLocation() );
 
             SQL_CON SC = new SQL_CON();
             SC.execute_non_query(c);
@@ -207,9 +207,9 @@ namespace nitutz
                 c.Parameters.AddWithValue("@Opened_By_Tenant", DBNull.Value);
 
             }
-            c.Parameters.AddWithValue("@Refference_Issue", refferenceIssue.getIssueName());
+            c.Parameters.AddWithValue("@Refference_Issue", refferencesIssue.getIssueName());
 
-            c.Parameters.AddWithValue("@Refference_Location", refferenceIssue.getIssueLocation());
+            c.Parameters.AddWithValue("@Refference_Location", refferencesIssue.getIssueLocation());
             SQL_CON SC = new SQL_CON();
             SC.execute_non_query(c);
         }

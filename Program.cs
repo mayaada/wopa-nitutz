@@ -207,7 +207,7 @@ namespace nitutz
                 TicketStatus TicketStatus = (TicketStatus)Enum.Parse(typeof(TicketStatus), rdr.GetValue(3).ToString().Replace(" ", string.Empty));
                 Ticket Ticket = new Ticket(
                 (int)rdr.GetValue(0), TimeSpan.Parse(rdr.GetValue(1).ToString()), DateTime.Parse(rdr.GetValue(2).ToString()),
-                TicketStatus, seekEemploye(rdr.GetValue(4).ToString()), seekTenant(rdr.GetValue(5).ToString()), seekIssue(rdr.GetValue(6).ToString(), rdr.GetValue(7).ToString()), false
+                TicketStatus, seekEmployee(rdr.GetValue(4).ToString()), seekTenant(rdr.GetValue(5).ToString()), seekIssue(rdr.GetValue(6).ToString(), rdr.GetValue(7).ToString()), false
                 );
                 Tickets.Add(Ticket);
             }
@@ -479,8 +479,7 @@ namespace nitutz
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             initLists(); //����� �� �������
-          //  Application.Run(new CRUD_LI());
-             Application.Run(new ViewTenantForEmployee());
+             Application.Run(new MainForm());
 
 
         }

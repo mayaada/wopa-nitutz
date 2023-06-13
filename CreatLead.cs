@@ -63,7 +63,7 @@ namespace nitutz
                 Lead L = new Lead(CompanyNameTextBox.Text, ContacttextBox1.Text, PhontextBox1.Text,
                 EmailtextBox1.Text, currentDate, (int)NumOfWorkstationumericUpDown1.Value,
                  (LeadStatus)StatuscomboBox1.SelectedItem, (LeadSource)SourcecomboBox1.SelectedItem,
-                 Program.seekEemploye("coral@wopa.space"), true);
+                 Program.seekEmployee("coral@wopa.space"), true);
             }
 
 

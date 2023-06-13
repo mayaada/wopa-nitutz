@@ -14,7 +14,7 @@ namespace nitutz
         private IssueType issueType;
         private Priority issuePriority;
         private string photo;
-        private List<Ticket> ticketsOpened; //different tickets open for this specific issue
+        private List<Ticket> ticketsOpened; //different tickets open for this specific refferencesIssue
 
         public Issue(string issueName, string issueLocation,
          IssueType issueType, Priority issuePriority, string photo , bool isNew)
