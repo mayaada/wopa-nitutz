@@ -35,33 +35,37 @@
             // 
             // UpdateTenantButton
             // 
-            UpdateTenantButton.Font = new Font("Arial Rounded MT Bold", 14F, FontStyle.Regular, GraphicsUnit.Point);
+            UpdateTenantButton.BackColor = SystemColors.ControlDarkDark;
+            UpdateTenantButton.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            UpdateTenantButton.ForeColor = SystemColors.ControlLightLight;
             UpdateTenantButton.Location = new Point(425, 247);
             UpdateTenantButton.Name = "UpdateTenantButton";
             UpdateTenantButton.Size = new Size(230, 79);
             UpdateTenantButton.TabIndex = 1;
             UpdateTenantButton.Text = "Update Tenant";
-            UpdateTenantButton.UseVisualStyleBackColor = true;
+            UpdateTenantButton.UseVisualStyleBackColor = false;
             UpdateTenantButton.Click += UpdateTenantButton_Click;
             // 
             // AddTenantButton
             // 
-            AddTenantButton.Font = new Font("Arial Rounded MT Bold", 14F, FontStyle.Regular, GraphicsUnit.Point);
+            AddTenantButton.BackColor = SystemColors.ControlDarkDark;
+            AddTenantButton.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            AddTenantButton.ForeColor = SystemColors.ControlLightLight;
             AddTenantButton.Location = new Point(144, 247);
             AddTenantButton.Name = "AddTenantButton";
             AddTenantButton.Size = new Size(211, 79);
             AddTenantButton.TabIndex = 3;
             AddTenantButton.Text = "Add Tenant";
-            AddTenantButton.UseVisualStyleBackColor = true;
+            AddTenantButton.UseVisualStyleBackColor = false;
             AddTenantButton.Click += AddTenantButton_Click;
             // 
             // ManageTenantsLable
             // 
             ManageTenantsLable.AutoSize = true;
-            ManageTenantsLable.Font = new Font("Arial Rounded MT Bold", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            ManageTenantsLable.Font = new Font("Britannic Bold", 20F, FontStyle.Regular, GraphicsUnit.Point);
             ManageTenantsLable.Location = new Point(255, 102);
             ManageTenantsLable.Name = "ManageTenantsLable";
-            ManageTenantsLable.Size = new Size(307, 42);
+            ManageTenantsLable.Size = new Size(306, 44);
             ManageTenantsLable.TabIndex = 4;
             ManageTenantsLable.Text = "Manage Tenants";
             ManageTenantsLable.Click += ManageTenantsLable_Click;
@@ -70,6 +74,7 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.InactiveCaption;
             ClientSize = new Size(800, 450);
             Controls.Add(ManageTenantsLable);
             Controls.Add(AddTenantButton);

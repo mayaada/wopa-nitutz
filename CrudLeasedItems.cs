@@ -77,7 +77,24 @@ namespace nitutz
         private void UpdateButton_Click(object sender, EventArgs e)
         {
 
-            if (listView1.SelectedItems.Count > 0)
+            bool ReadyToUpdate = true;
+
+            if (listView1.SelectedItems.Count == 0)
+            {
+                ReadyToUpdate = false;
+                MessageBox.Show("Please select a leased item to update");
+            }
+
+            if (ECtextBox1.Text == null || AvailtextBox1.Text == null || leasetextBox1.Text == null)
+            {
+
+                ECtextBox1.Text = Program.seekLeasedItem(int.Parse(listView1.SelectedItems[0].SubItems[0].Text)).getElectricCharging() ? "Yes" : "No";
+                AvailtextBox1.Text = Program.seekLeasedItem(int.Parse(listView1.SelectedItems[0].SubItems[0].Text)).getIsAvailable() ? "Yes" : "No";
+                leasetextBox1.Text = Program.seekLeasedItem(int.Parse(listView1.SelectedItems[0].SubItems[0].Text)).getLeaseNumber().ToString();
+            }
+
+
+            if (ReadyToUpdate == true && listView1.SelectedItems.Count > 0)
             {
                 ListViewItem selectedItem = listView1.SelectedItems[0];
 
