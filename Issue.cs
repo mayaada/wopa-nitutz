@@ -1,4 +1,4 @@
-﻿using System.Xml.Serialization;
+using System.Xml.Serialization;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
@@ -94,17 +94,15 @@ namespace nitutz
             SC.execute_non_query(c);
         }
 
-        public void updateIssue(string oldIssueName, string oldIssueLocation)
+        public void updateIssue()
         {
             SqlCommand c = new SqlCommand();
-            c.CommandText = "EXECUTE dbo.Update_Issue @Issue, @Issue_Location, @Issue_Type, @Issue_Priority, @Photo, @oldIssueName, @oldIssueLocation";
+            c.CommandText = "EXECUTE dbo.Update_Issue @Issue, @Issue_Location, @Issue_Type, @Issue_Priority, @Photo";
             c.Parameters.AddWithValue("@Issue", issueName);
             c.Parameters.AddWithValue("@Issue_Location", issueLocation);
-            c.Parameters.AddWithValue("@Issue_Type", issueType);
-            c.Parameters.AddWithValue("@Issue_Priority", issuePriority);
-            c.Parameters.AddWithValue("@Photo", photo);
-            c.Parameters.AddWithValue("@oldIssueName", oldIssueName);
-            c.Parameters.AddWithValue("@oldIssueLocation", oldIssueLocation);
+            c.Parameters.AddWithValue("@Issue_Type", issueType.ToString());
+            c.Parameters.AddWithValue("@Issue_Priority", issuePriority.ToString());
+            c.Parameters.AddWithValue("@Photo", DBNull.Value);
             SQL_CON SC = new SQL_CON();
             SC.execute_non_query(c);
         }
