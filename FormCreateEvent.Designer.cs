@@ -28,30 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            EventNameTextBox = new TextBox();
             EventNameLabel = new Label();
             MaxInviteesLabel = new Label();
             label5 = new Label();
-            EventDatesCalendar = new MonthCalendar();
             ChooseNumber = new NumericUpDown();
-            EventDatesLabel = new Label();
             saveAndCreateBookingButton = new Button();
+            backButton = new Button();
+            EventName = new TextBox();
             ((System.ComponentModel.ISupportInitialize)ChooseNumber).BeginInit();
             SuspendLayout();
-            // 
-            // EventNameTextBox
-            // 
-            EventNameTextBox.Location = new Point(298, 249);
-            EventNameTextBox.Margin = new Padding(5, 5, 5, 5);
-            EventNameTextBox.Name = "EventNameTextBox";
-            EventNameTextBox.Size = new Size(252, 47);
-            EventNameTextBox.TabIndex = 1;
-            EventNameTextBox.TextChanged += Event_TextChanged_1;
             // 
             // EventNameLabel
             // 
             EventNameLabel.AutoSize = true;
-            EventNameLabel.Location = new Point(88, 249);
+            EventNameLabel.Location = new Point(312, 249);
             EventNameLabel.Margin = new Padding(5, 0, 5, 0);
             EventNameLabel.Name = "EventNameLabel";
             EventNameLabel.Size = new Size(177, 41);
@@ -62,7 +52,7 @@
             // MaxInviteesLabel
             // 
             MaxInviteesLabel.AutoSize = true;
-            MaxInviteesLabel.Location = new Point(88, 358);
+            MaxInviteesLabel.Location = new Point(312, 352);
             MaxInviteesLabel.Margin = new Padding(5, 0, 5, 0);
             MaxInviteesLabel.Name = "MaxInviteesLabel";
             MaxInviteesLabel.Size = new Size(183, 41);
@@ -74,69 +64,65 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Britannic Bold", 24F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(430, 46);
+            label5.Location = new Point(389, 71);
             label5.Margin = new Padding(5, 0, 5, 0);
             label5.Name = "label5";
             label5.Size = new Size(481, 89);
             label5.TabIndex = 7;
             label5.Text = "Create Event";
-            // 
-            // EventDatesCalendar
-            // 
-            EventDatesCalendar.Location = new Point(748, 249);
-            EventDatesCalendar.Margin = new Padding(15, 15, 15, 15);
-            EventDatesCalendar.Name = "EventDatesCalendar";
-            EventDatesCalendar.SelectionRange = new SelectionRange(new DateTime(2029, 12, 26, 0, 0, 0, 0), new DateTime(2030, 1, 1, 0, 0, 0, 0));
-            EventDatesCalendar.ShowToday = false;
-            EventDatesCalendar.TabIndex = 10;
-            EventDatesCalendar.TrailingForeColor = SystemColors.Highlight;
-            EventDatesCalendar.DateChanged += monthCalendar1_DateChanged_1;
+            label5.Click += label5_Click;
             // 
             // ChooseNumber
             // 
-            ChooseNumber.Location = new Point(298, 358);
-            ChooseNumber.Margin = new Padding(5, 5, 5, 5);
+            ChooseNumber.Location = new Point(554, 352);
+            ChooseNumber.Margin = new Padding(5);
             ChooseNumber.Name = "ChooseNumber";
             ChooseNumber.Size = new Size(255, 47);
             ChooseNumber.TabIndex = 11;
             ChooseNumber.ValueChanged += numericUpDown1_ValueChanged;
             // 
-            // EventDatesLabel
-            // 
-            EventDatesLabel.AutoSize = true;
-            EventDatesLabel.Location = new Point(920, 194);
-            EventDatesLabel.Margin = new Padding(5, 0, 5, 0);
-            EventDatesLabel.Name = "EventDatesLabel";
-            EventDatesLabel.Size = new Size(173, 41);
-            EventDatesLabel.TabIndex = 12;
-            EventDatesLabel.Text = "Event Dates";
-            EventDatesLabel.Click += label2_Click_1;
-            // 
             // saveAndCreateBookingButton
             // 
-            saveAndCreateBookingButton.Location = new Point(88, 569);
-            saveAndCreateBookingButton.Margin = new Padding(5, 5, 5, 5);
+            saveAndCreateBookingButton.Location = new Point(698, 535);
+            saveAndCreateBookingButton.Margin = new Padding(5);
             saveAndCreateBookingButton.Name = "saveAndCreateBookingButton";
             saveAndCreateBookingButton.Size = new Size(228, 98);
             saveAndCreateBookingButton.TabIndex = 13;
-            saveAndCreateBookingButton.Text = "create";
+            saveAndCreateBookingButton.Text = "Create";
             saveAndCreateBookingButton.UseVisualStyleBackColor = true;
             saveAndCreateBookingButton.Click += SaveEventAndCreateBooking_Button;
+            // 
+            // backButton
+            // 
+            backButton.Location = new Point(399, 535);
+            backButton.Name = "backButton";
+            backButton.Size = new Size(230, 98);
+            backButton.TabIndex = 14;
+            backButton.Text = "Back";
+            backButton.UseVisualStyleBackColor = true;
+            backButton.Click += backButton_Click;
+            // 
+            // EventName
+            // 
+            EventName.Location = new Point(553, 243);
+            EventName.Name = "EventName";
+            EventName.Size = new Size(256, 47);
+            EventName.TabIndex = 15;
+            EventName.TextChanged += EventName_TextChanged;
             // 
             // FormCreateEvent
             // 
             AutoScaleDimensions = new SizeF(17F, 41F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1360, 738);
+            Controls.Add(EventName);
+            Controls.Add(backButton);
             Controls.Add(saveAndCreateBookingButton);
-            Controls.Add(EventDatesLabel);
             Controls.Add(ChooseNumber);
-            Controls.Add(EventDatesCalendar);
             Controls.Add(label5);
             Controls.Add(MaxInviteesLabel);
             Controls.Add(EventNameLabel);
-            Controls.Add(EventNameTextBox);
-            Margin = new Padding(5, 5, 5, 5);
+            Margin = new Padding(5);
             Name = "FormCreateEvent";
             Text = "FormCreateEvent";
             Load += FormCreateEvent_Load;
@@ -151,14 +137,12 @@
         }
 
         #endregion
-
-        private TextBox EventNameTextBox;
         private Label EventNameLabel;
         private Label MaxInviteesLabel;
         private Label label5;
-        private MonthCalendar EventDatesCalendar;
         private NumericUpDown ChooseNumber;
-        private Label EventDatesLabel;
         private Button saveAndCreateBookingButton;
+        private Button backButton;
+        private TextBox EventName;
     }
 }

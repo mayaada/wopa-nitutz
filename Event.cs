@@ -19,13 +19,18 @@ namespace nitutz
         private List<Booking> bookings;
 
         //c create constructor like employee
-        public Event(string eventName, DateTime startDate, DateTime endDate, int maxInvitees)
+        public Event(string eventName, DateTime startDate, DateTime endDate, int maxInvitees, bool isNew)
         {
             this.eventName = eventName;
             this.startDate = startDate;
             this.endDate = endDate;
             this. maxInvitees = maxInvitees;
             this.bookings = new List<Booking>(); // each event can have a few bookings
+            if (isNew)
+            {
+                Program.Events.Add(this);
+                addEvent();
+            }
         }
 
         //c create getters and setters like employee
