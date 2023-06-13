@@ -15,7 +15,8 @@ namespace nitutz
     {
         private Issue currentIssue;
         private Ticket currentTicket;
-   
+        private Employee currentUser;
+
         public TicketEditForm(Issue curentIssue, Ticket currentTicket)
         {
             InitializeComponent();
@@ -34,8 +35,8 @@ namespace nitutz
             locationTextBox.Text = currentIssue.getIssueLocation();
             typeComboBox.Text = currentIssue.getIssueType().ToString();
             priorityComboBox.Text = currentIssue.getIssuePriority().ToString();
-            dateOpenedTextBox.Text = currentTicket.getDateOpened().ToString();
-            timeOpenedTextBox.Text = currentTicket.getTime().ToString();
+            dateOpenedTextBox.Text = currentTicket.getDateOpened().ToString("dd-MM-yyyy");
+            timeOpenedTextBox.Text = currentTicket.getTime().ToString("HH:mm");
             openedByTextBox.Text = checkOpenedByClass();
             statusComboBox.Text = currentTicket.getTicketStatus().ToString();
         }
@@ -95,23 +96,37 @@ namespace nitutz
 
         private void typeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+
         }
-            private void updateButton_Click(object sender, EventArgs e)
-            {
-                String oldIssueName = currentIssue.getIssueName();
-                String oldIssueLocation = currentIssue.getIssueLocation();
 
-                IssueType selectedIssueType = Program.seekIssueType(typeComboBox.SelectedIndex.ToString());
-                currentIssue.setIssueType(selectedIssueType);
-               
-                Priority selectedPriority = Program.seekPriority(priorityComboBox.SelectedItem.ToString());
-                currentIssue.setIssuePriority(selectedPriority);
+        private void updateButton_Click_1(object sender, EventArgs e)
+        {
+            IssueType selectedIssueType = Program.seekIssueType(typeComboBox.SelectedItem.ToString());
+            currentIssue.setIssueType(selectedIssueType);
 
-                TicketStatus selectedTicketStatus = Program.seekTicketStatus(statusComboBox.SelectedItem.ToString());
-                currentTicket.setTicketStatus(selectedTicketStatus);
+            Priority selectedPriority = Program.seekPriority(priorityComboBox.SelectedItem.ToString());
+            currentIssue.setIssuePriority(selectedPriority);
 
-            currentIssue.updateIssue(oldIssueName, oldIssueLocation);
+            TicketStatus selectedTicketStatus = Program.seekTicketStatus(statusComboBox.SelectedItem.ToString());
+            currentTicket.setTicketStatus(selectedTicketStatus);
+
+
+            // update in DB
+            currentIssue.updateIssue();
             currentTicket.updateTicketInDB();
-            }
+
         }
-    } 
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            MaintenanceTicketManagementForm form = new MaintenanceTicketManagementForm(currentUser);
+            form.Show();
+            this.Hide();
+        }
+
+        private void statusComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+    }
+}

@@ -52,18 +52,21 @@
             // ticketsAndIssueDetails_Lable
             // 
             ticketsAndIssueDetails_Lable.AutoSize = true;
-            ticketsAndIssueDetails_Lable.Location = new Point(349, 56);
+            ticketsAndIssueDetails_Lable.Font = new Font("Britannic Bold", 14.1F, FontStyle.Regular, GraphicsUnit.Point);
+            ticketsAndIssueDetails_Lable.ForeColor = SystemColors.ActiveCaptionText;
+            ticketsAndIssueDetails_Lable.Location = new Point(261, 50);
             ticketsAndIssueDetails_Lable.Name = "ticketsAndIssueDetails_Lable";
-            ticketsAndIssueDetails_Lable.Size = new Size(330, 41);
+            ticketsAndIssueDetails_Lable.Size = new Size(515, 52);
             ticketsAndIssueDetails_Lable.TabIndex = 1;
             ticketsAndIssueDetails_Lable.Text = "Ticket And Issue Details";
             // 
             // issue_Lable
             // 
             issue_Lable.AutoSize = true;
+            issue_Lable.Font = new Font("Segoe UI Variable Display", 9F, FontStyle.Regular, GraphicsUnit.Point);
             issue_Lable.Location = new Point(106, 153);
             issue_Lable.Name = "issue_Lable";
-            issue_Lable.Size = new Size(92, 41);
+            issue_Lable.Size = new Size(92, 40);
             issue_Lable.TabIndex = 2;
             issue_Lable.Text = "Issue:";
             issue_Lable.Click += issue_Lable_Click;
@@ -71,9 +74,10 @@
             // location_Lable
             // 
             location_Lable.AutoSize = true;
+            location_Lable.Font = new Font("Segoe UI Variable Display", 9F, FontStyle.Regular, GraphicsUnit.Point);
             location_Lable.Location = new Point(106, 250);
             location_Lable.Name = "location_Lable";
-            location_Lable.Size = new Size(138, 41);
+            location_Lable.Size = new Size(138, 40);
             location_Lable.TabIndex = 3;
             location_Lable.Text = "Location:";
             location_Lable.Click += location_Lable_Click;
@@ -81,9 +85,10 @@
             // type_Lable
             // 
             type_Lable.AutoSize = true;
+            type_Lable.Font = new Font("Segoe UI Variable Display", 9F, FontStyle.Regular, GraphicsUnit.Point);
             type_Lable.Location = new Point(106, 347);
             type_Lable.Name = "type_Lable";
-            type_Lable.Size = new Size(88, 41);
+            type_Lable.Size = new Size(85, 40);
             type_Lable.TabIndex = 4;
             type_Lable.Text = "Type:";
             type_Lable.Click += type_Lable_Click;
@@ -91,9 +96,10 @@
             // priority_Lable
             // 
             priority_Lable.AutoSize = true;
+            priority_Lable.Font = new Font("Segoe UI Variable Display", 9F, FontStyle.Regular, GraphicsUnit.Point);
             priority_Lable.Location = new Point(106, 444);
             priority_Lable.Name = "priority_Lable";
-            priority_Lable.Size = new Size(119, 41);
+            priority_Lable.Size = new Size(120, 40);
             priority_Lable.TabIndex = 5;
             priority_Lable.Text = "Priority:";
             priority_Lable.Click += priority_Lable_Click;
@@ -101,9 +107,10 @@
             // dateOpened_Lable
             // 
             dateOpened_Lable.AutoSize = true;
+            dateOpened_Lable.Font = new Font("Segoe UI Variable Display", 9F, FontStyle.Regular, GraphicsUnit.Point);
             dateOpened_Lable.Location = new Point(106, 541);
             dateOpened_Lable.Name = "dateOpened_Lable";
-            dateOpened_Lable.Size = new Size(203, 41);
+            dateOpened_Lable.Size = new Size(200, 40);
             dateOpened_Lable.TabIndex = 6;
             dateOpened_Lable.Text = "Date Opened:";
             dateOpened_Lable.Click += dateOpened_Lable_Click;
@@ -181,21 +188,29 @@
             // 
             // updateButton
             // 
+            updateButton.BackColor = SystemColors.ControlDarkDark;
+            updateButton.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            updateButton.ForeColor = SystemColors.Window;
             updateButton.Location = new Point(793, 918);
             updateButton.Name = "updateButton";
             updateButton.Size = new Size(218, 63);
             updateButton.TabIndex = 18;
             updateButton.Text = "Update";
-            updateButton.UseVisualStyleBackColor = true;
+            updateButton.UseVisualStyleBackColor = false;
+            updateButton.Click += updateButton_Click_1;
             // 
             // backButton
             // 
+            backButton.BackColor = SystemColors.ControlDarkDark;
+            backButton.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            backButton.ForeColor = SystemColors.Window;
             backButton.Location = new Point(536, 918);
             backButton.Name = "backButton";
             backButton.Size = new Size(218, 63);
             backButton.TabIndex = 19;
             backButton.Text = "Back";
-            backButton.UseVisualStyleBackColor = true;
+            backButton.UseVisualStyleBackColor = false;
+            backButton.Click += backButton_Click;
             // 
             // typeComboBox
             // 
@@ -221,12 +236,14 @@
             statusComboBox.Name = "statusComboBox";
             statusComboBox.Size = new Size(471, 49);
             statusComboBox.TabIndex = 22;
+            statusComboBox.SelectedIndexChanged += statusComboBox_SelectedIndexChanged;
             // 
             // TicketEditForm
             // 
             AutoScaleDimensions = new SizeF(17F, 41F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1048, 1013);
+            BackColor = SystemColors.InactiveCaption;
+            ClientSize = new Size(1048, 1014);
             Controls.Add(statusComboBox);
             Controls.Add(priorityComboBox);
             Controls.Add(typeComboBox);
