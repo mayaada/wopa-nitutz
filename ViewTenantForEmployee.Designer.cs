@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            TextBox textBox1;
             Searchbutton1 = new Button();
             label1 = new Label();
             CompanytextBox1 = new TextBox();
@@ -35,21 +36,24 @@
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
-            textBox1 = new TextBox();
             textBox2 = new TextBox();
             textBox3 = new TextBox();
             ViewLeasebutton1 = new Button();
             button1 = new Button();
+            textBox1 = new TextBox();
             SuspendLayout();
             // 
             // Searchbutton1
             // 
-            Searchbutton1.Location = new Point(580, 77);
+            Searchbutton1.BackColor = SystemColors.ControlDarkDark;
+            Searchbutton1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            Searchbutton1.ForeColor = SystemColors.Window;
+            Searchbutton1.Location = new Point(559, 72);
             Searchbutton1.Name = "Searchbutton1";
             Searchbutton1.Size = new Size(112, 34);
             Searchbutton1.TabIndex = 0;
             Searchbutton1.Text = "Search";
-            Searchbutton1.UseVisualStyleBackColor = true;
+            Searchbutton1.UseVisualStyleBackColor = false;
             Searchbutton1.Click += Searchbutton1_Click;
             // 
             // label1
@@ -63,20 +67,22 @@
             // 
             // CompanytextBox1
             // 
-            CompanytextBox1.Location = new Point(345, 74);
+            CompanytextBox1.Location = new Point(321, 74);
             CompanytextBox1.Name = "CompanytextBox1";
-            CompanytextBox1.Size = new Size(150, 31);
+            CompanytextBox1.Size = new Size(174, 31);
             CompanytextBox1.TabIndex = 2;
             CompanytextBox1.TextChanged += CompanytextBox1_TextChanged;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(359, 132);
+            label2.Font = new Font("Britannic Bold", 14F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Location = new Point(345, 137);
             label2.Name = "label2";
-            label2.Size = new Size(121, 25);
+            label2.Size = new Size(192, 31);
             label2.TabIndex = 3;
             label2.Text = "Tenant Details";
+            label2.Click += label2_Click;
             // 
             // label3
             // 
@@ -131,28 +137,35 @@
             // 
             // ViewLeasebutton1
             // 
+            ViewLeasebutton1.BackColor = SystemColors.ControlDarkDark;
+            ViewLeasebutton1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            ViewLeasebutton1.ForeColor = SystemColors.Window;
             ViewLeasebutton1.Location = new Point(359, 368);
             ViewLeasebutton1.Name = "ViewLeasebutton1";
             ViewLeasebutton1.Size = new Size(139, 55);
             ViewLeasebutton1.TabIndex = 10;
             ViewLeasebutton1.Text = "View Lease";
-            ViewLeasebutton1.UseVisualStyleBackColor = true;
+            ViewLeasebutton1.UseVisualStyleBackColor = false;
             ViewLeasebutton1.Click += ViewLeasebutton1_Click;
             // 
             // button1
             // 
-            button1.Location = new Point(12, 1);
+            button1.BackColor = SystemColors.ControlDarkDark;
+            button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            button1.ForeColor = SystemColors.Window;
+            button1.Location = new Point(12, 12);
             button1.Name = "button1";
-            button1.Size = new Size(122, 45);
+            button1.Size = new Size(95, 44);
             button1.TabIndex = 11;
             button1.Text = "Back";
-            button1.UseVisualStyleBackColor = true;
+            button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
             // ViewTenantForEmployee
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.InactiveCaption;
             ClientSize = new Size(800, 450);
             Controls.Add(button1);
             Controls.Add(ViewLeasebutton1);

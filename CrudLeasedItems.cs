@@ -108,7 +108,6 @@ namespace nitutz
                 leasedItem.updateLease(getLease(selectedItem));
                 leasedItem.updateLeasedItem();
 
-
             }
 
 

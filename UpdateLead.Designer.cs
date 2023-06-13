@@ -49,20 +49,20 @@
             // UpdateTenantLabel
             // 
             UpdateTenantLabel.AutoSize = true;
-            UpdateTenantLabel.Font = new Font("Arial Rounded MT Bold", 16F, FontStyle.Regular, GraphicsUnit.Point);
+            UpdateTenantLabel.Font = new Font("Britannic Bold", 18F, FontStyle.Regular, GraphicsUnit.Point);
             UpdateTenantLabel.Location = new Point(274, 18);
             UpdateTenantLabel.Name = "UpdateTenantLabel";
-            UpdateTenantLabel.Size = new Size(215, 37);
+            UpdateTenantLabel.Size = new Size(212, 40);
             UpdateTenantLabel.TabIndex = 1;
             UpdateTenantLabel.Text = "Update Lead";
             // 
             // CompanyNamelabel
             // 
             CompanyNamelabel.AutoSize = true;
-            CompanyNamelabel.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            CompanyNamelabel.Font = new Font("Segoe UI Variable Display", 9F, FontStyle.Regular, GraphicsUnit.Point);
             CompanyNamelabel.Location = new Point(145, 79);
             CompanyNamelabel.Name = "CompanyNamelabel";
-            CompanyNamelabel.Size = new Size(156, 21);
+            CompanyNamelabel.Size = new Size(142, 24);
             CompanyNamelabel.TabIndex = 2;
             CompanyNamelabel.Text = "Company Name:";
             // 
@@ -76,32 +76,34 @@
             // 
             // SearchCompanyButton
             // 
-            SearchCompanyButton.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            SearchCompanyButton.BackColor = SystemColors.ControlDarkDark;
+            SearchCompanyButton.Font = new Font("Segoe UI Symbol", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            SearchCompanyButton.ForeColor = SystemColors.Window;
             SearchCompanyButton.Location = new Point(214, 364);
             SearchCompanyButton.Name = "SearchCompanyButton";
             SearchCompanyButton.Size = new Size(136, 52);
             SearchCompanyButton.TabIndex = 4;
             SearchCompanyButton.Text = "Search";
-            SearchCompanyButton.UseVisualStyleBackColor = true;
+            SearchCompanyButton.UseVisualStyleBackColor = false;
             SearchCompanyButton.Click += button1_Click;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Font = new Font("Segoe UI Variable Display", 9F, FontStyle.Regular, GraphicsUnit.Point);
             label1.Location = new Point(146, 123);
             label1.Name = "label1";
-            label1.Size = new Size(85, 21);
+            label1.Size = new Size(78, 24);
             label1.TabIndex = 5;
             label1.Text = "Contact:";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Font = new Font("Segoe UI Variable Display", 9F, FontStyle.Regular, GraphicsUnit.Point);
             label2.Location = new Point(146, 166);
             label2.Name = "label2";
-            label2.Size = new Size(148, 21);
+            label2.Size = new Size(133, 24);
             label2.TabIndex = 6;
             label2.Text = "Phone Number:";
             label2.Click += label2_Click;
@@ -109,30 +111,30 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Font = new Font("Segoe UI Symbol", 9F, FontStyle.Regular, GraphicsUnit.Point);
             label3.Location = new Point(146, 210);
             label3.Name = "label3";
-            label3.Size = new Size(139, 21);
+            label3.Size = new Size(124, 25);
             label3.TabIndex = 7;
             label3.Text = "Contact Email:";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.Font = new Font("Segoe UI Symbol", 9F, FontStyle.Regular, GraphicsUnit.Point);
             label4.Location = new Point(146, 256);
             label4.Name = "label4";
-            label4.Size = new Size(127, 21);
+            label4.Size = new Size(118, 25);
             label4.TabIndex = 8;
             label4.Text = "Work station:";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label5.Font = new Font("Segoe UI Symbol", 9F, FontStyle.Regular, GraphicsUnit.Point);
             label5.Location = new Point(146, 299);
             label5.Name = "label5";
-            label5.Size = new Size(121, 21);
+            label5.Size = new Size(107, 25);
             label5.TabIndex = 9;
             label5.Text = "Lead Status:";
             // 
@@ -179,30 +181,35 @@
             // 
             // Updatebutton
             // 
-            Updatebutton.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            Updatebutton.BackColor = SystemColors.ControlDarkDark;
+            Updatebutton.Font = new Font("Segoe UI Symbol", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            Updatebutton.ForeColor = SystemColors.Window;
             Updatebutton.Location = new Point(402, 364);
             Updatebutton.Name = "Updatebutton";
             Updatebutton.Size = new Size(124, 52);
             Updatebutton.TabIndex = 16;
             Updatebutton.Text = "Update";
-            Updatebutton.UseVisualStyleBackColor = true;
+            Updatebutton.UseVisualStyleBackColor = false;
             Updatebutton.Click += button2_Click;
             // 
             // BACKbutton1
             // 
-            BACKbutton1.Font = new Font("Arial Rounded MT Bold", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            BACKbutton1.BackColor = SystemColors.ControlDarkDark;
+            BACKbutton1.Font = new Font("Segoe UI Symbol", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            BACKbutton1.ForeColor = SystemColors.Window;
             BACKbutton1.Location = new Point(12, 14);
             BACKbutton1.Name = "BACKbutton1";
             BACKbutton1.Size = new Size(68, 34);
             BACKbutton1.TabIndex = 17;
             BACKbutton1.Text = "BACK";
-            BACKbutton1.UseVisualStyleBackColor = true;
+            BACKbutton1.UseVisualStyleBackColor = false;
             BACKbutton1.Click += BACKbutton1_Click;
             // 
             // UpdateLead
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.InactiveCaption;
             ClientSize = new Size(800, 450);
             Controls.Add(BACKbutton1);
             Controls.Add(Updatebutton);
