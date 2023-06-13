@@ -28,79 +28,95 @@ namespace nitutz
         /// </summary>
         private void InitializeComponent()
         {
-            ExistingEvents_Buttons = new Button();
+            existingEvents_Button = new Button();
             BookingAndEvents_Button = new Button();
             button5 = new Button();
             maintenanceTickets_Button = new Button();
             label1 = new Label();
             button1 = new Button();
             button2 = new Button();
+            newTicket_Button = new Button();
             SuspendLayout();
             // 
-            // ExistingEvents_Buttons
+            // existingEvents_Button
             // 
-            ExistingEvents_Buttons.Location = new Point(929, 292);
-            ExistingEvents_Buttons.Margin = new Padding(5);
-            ExistingEvents_Buttons.Name = "ExistingEvents_Buttons";
-            ExistingEvents_Buttons.Size = new Size(327, 103);
-            ExistingEvents_Buttons.TabIndex = 2;
-            ExistingEvents_Buttons.Text = "Existing Events";
-            ExistingEvents_Buttons.UseVisualStyleBackColor = true;
-            ExistingEvents_Buttons.Click += bookigsAndEvents_Click;
+            existingEvents_Button.BackColor = SystemColors.ControlDarkDark;
+            existingEvents_Button.Font = new Font("Segoe UI Variable Text Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            existingEvents_Button.ForeColor = SystemColors.Window;
+            existingEvents_Button.Location = new Point(370, 474);
+            existingEvents_Button.Margin = new Padding(5);
+            existingEvents_Button.Name = "existingEvents_Button";
+            existingEvents_Button.Size = new Size(327, 100);
+            existingEvents_Button.TabIndex = 2;
+            existingEvents_Button.Text = "Existing Events";
+            existingEvents_Button.UseVisualStyleBackColor = false;
+            existingEvents_Button.Click += existingEventsButton_Click;
             // 
             // BookingAndEvents_Button
             // 
-            BookingAndEvents_Button.Location = new Point(241, 693);
+            BookingAndEvents_Button.BackColor = SystemColors.ControlDarkDark;
+            BookingAndEvents_Button.Font = new Font("Segoe UI Variable Display Semib", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            BookingAndEvents_Button.ForeColor = SystemColors.Window;
+            BookingAndEvents_Button.Location = new Point(374, 676);
             BookingAndEvents_Button.Margin = new Padding(5);
             BookingAndEvents_Button.Name = "BookingAndEvents_Button";
-            BookingAndEvents_Button.Size = new Size(323, 110);
+            BookingAndEvents_Button.Size = new Size(323, 107);
             BookingAndEvents_Button.TabIndex = 3;
             BookingAndEvents_Button.Text = "Bookings And Events";
-            BookingAndEvents_Button.UseVisualStyleBackColor = true;
-            BookingAndEvents_Button.Click += bookigsAndEvents_Click;
+            BookingAndEvents_Button.UseVisualStyleBackColor = false;
+            BookingAndEvents_Button.Click += existingEventsButton_Click;
             // 
             // button5
             // 
-            button5.Location = new Point(241, 494);
+            button5.BackColor = SystemColors.ControlDarkDark;
+            button5.Font = new Font("Segoe UI Variable Display Semib", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            button5.ForeColor = SystemColors.Window;
+            button5.Location = new Point(858, 272);
             button5.Margin = new Padding(5);
             button5.Name = "button5";
-            button5.Size = new Size(323, 110);
+            button5.Size = new Size(323, 107);
             button5.TabIndex = 4;
             button5.Text = "Leads";
-            button5.UseVisualStyleBackColor = true;
+            button5.UseVisualStyleBackColor = false;
             button5.Click += button5_Click;
             // 
             // maintenanceTickets_Button
             // 
-            maintenanceTickets_Button.Location = new Point(929, 494);
+            maintenanceTickets_Button.BackColor = SystemColors.ControlDarkDark;
+            maintenanceTickets_Button.Font = new Font("Segoe UI Variable Text Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            maintenanceTickets_Button.ForeColor = SystemColors.Window;
+            maintenanceTickets_Button.Location = new Point(856, 474);
             maintenanceTickets_Button.Margin = new Padding(8);
             maintenanceTickets_Button.Name = "maintenanceTickets_Button";
-            maintenanceTickets_Button.Size = new Size(327, 110);
+            maintenanceTickets_Button.Size = new Size(327, 107);
             maintenanceTickets_Button.TabIndex = 5;
             maintenanceTickets_Button.Text = "Maintenance Tickets";
-            maintenanceTickets_Button.UseVisualStyleBackColor = true;
+            maintenanceTickets_Button.UseVisualStyleBackColor = false;
             maintenanceTickets_Button.Click += maintenanceTickets_Button_Click;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Britannic Bold", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(557, 111);
+            label1.Font = new Font("Britannic Bold", 24F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(539, 77);
             label1.Margin = new Padding(5, 0, 5, 0);
             label1.Name = "label1";
-            label1.Size = new Size(328, 67);
+            label1.Size = new Size(437, 89);
             label1.TabIndex = 6;
             label1.Text = "Home Page";
             // 
             // button1
             // 
-            button1.Location = new Point(241, 279);
+            button1.BackColor = SystemColors.ControlDarkDark;
+            button1.Font = new Font("Segoe UI Variable Display Semib", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            button1.ForeColor = SystemColors.Window;
+            button1.Location = new Point(374, 272);
             button1.Margin = new Padding(5);
             button1.Name = "button1";
-            button1.Size = new Size(323, 103);
+            button1.Size = new Size(323, 100);
             button1.TabIndex = 7;
             button1.Text = "Tenants";
-            button1.UseVisualStyleBackColor = true;
+            button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click_1;
             // 
             // button2
@@ -113,17 +129,34 @@ namespace nitutz
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
+            // newTicket_Button
+            // 
+            newTicket_Button.BackColor = SystemColors.ControlDarkDark;
+            newTicket_Button.Font = new Font("Segoe UI Variable Display Semib", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            newTicket_Button.ForeColor = SystemColors.Window;
+            newTicket_Button.Location = new Point(856, 676);
+            newTicket_Button.Margin = new Padding(8);
+            newTicket_Button.Name = "newTicket_Button";
+            newTicket_Button.Size = new Size(327, 107);
+            newTicket_Button.TabIndex = 8;
+            newTicket_Button.Text = "New Ticket";
+            newTicket_Button.UseVisualStyleBackColor = false;
+            newTicket_Button.Click += newTicket_Button_Click;
+            // 
             // HomePageEmployee
             // 
-            AutoScaleDimensions = new SizeF(17F, 41F);
+            AutoScaleDimensions = new SizeF(17F, 40F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1500, 955);
+            BackColor = SystemColors.InactiveCaption;
+            ClientSize = new Size(1500, 932);
+            Controls.Add(newTicket_Button);
             Controls.Add(button1);
             Controls.Add(label1);
             Controls.Add(maintenanceTickets_Button);
             Controls.Add(button5);
             Controls.Add(BookingAndEvents_Button);
-            Controls.Add(ExistingEvents_Buttons);
+            Controls.Add(existingEvents_Button);
+            Font = new Font("Segoe UI Variable Display", 9F, FontStyle.Regular, GraphicsUnit.Point);
             Margin = new Padding(5);
             Name = "HomePageEmployee";
             Text = "Form1";
@@ -133,12 +166,13 @@ namespace nitutz
         }
 
         #endregion
-        private Button ExistingEvents_Buttons;
+        private Button existingEvents_Button;
         private Button BookingAndEvents_Button;
         private Button button5;
         private Button maintenanceTickets_Button;
         private Label label1;
         private Button button1;
         private Button button2;
+        private Button newTicket_Button;
     }
 }
