@@ -46,9 +46,9 @@ namespace nitutz
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(541, 320);
+            textBox2.Location = new Point(318, 195);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(363, 47);
+            textBox2.Size = new Size(363, 31);
             textBox2.TabIndex = 8;
             textBox2.TextChanged += textBox2_TextChanged;
             // 
@@ -73,12 +73,15 @@ namespace nitutz
             // 
             // button1
             // 
+            button1.BackColor = SystemColors.ControlDarkDark;
+            button1.Font = new Font("Segoe UI Variable Display", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            button1.ForeColor = SystemColors.ControlLightLight;
             button1.Location = new Point(354, 350);
             button1.Name = "button1";
             button1.Size = new Size(111, 65);
             button1.TabIndex = 6;
             button1.Text = "Continue";
-            button1.UseVisualStyleBackColor = true;
+            button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
             // wopaSignIn_Label
@@ -97,6 +100,7 @@ namespace nitutz
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.InactiveCaption;
             ClientSize = new Size(800, 450);
             Controls.Add(wopaSignIn_Label);
             Controls.Add(button1);
