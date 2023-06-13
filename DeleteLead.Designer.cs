@@ -38,20 +38,20 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Arial Rounded MT Bold", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(272, 59);
+            label1.Font = new Font("Britannic Bold", 22F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(278, 48);
             label1.Name = "label1";
-            label1.Size = new Size(203, 37);
+            label1.Size = new Size(245, 48);
             label1.TabIndex = 0;
             label1.Text = "Delete Lead";
             // 
             // CompanyNamelabel
             // 
             CompanyNamelabel.AutoSize = true;
-            CompanyNamelabel.Font = new Font("Arial Rounded MT Bold", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            CompanyNamelabel.Location = new Point(168, 154);
+            CompanyNamelabel.Font = new Font("Segoe UI Symbol", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            CompanyNamelabel.Location = new Point(194, 160);
             CompanyNamelabel.Name = "CompanyNamelabel";
-            CompanyNamelabel.Size = new Size(187, 26);
+            CompanyNamelabel.Size = new Size(145, 25);
             CompanyNamelabel.TabIndex = 3;
             CompanyNamelabel.Text = "Company Name:";
             // 
@@ -65,30 +65,33 @@
             // 
             // Deletebutton1
             // 
-            Deletebutton1.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            Deletebutton1.Location = new Point(361, 208);
+            Deletebutton1.BackColor = SystemColors.ControlDarkDark;
+            Deletebutton1.Font = new Font("Segoe UI Symbol", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            Deletebutton1.Location = new Point(329, 223);
             Deletebutton1.Name = "Deletebutton1";
-            Deletebutton1.Size = new Size(176, 52);
+            Deletebutton1.Size = new Size(163, 52);
             Deletebutton1.TabIndex = 6;
             Deletebutton1.Text = "Delete Lead";
-            Deletebutton1.UseVisualStyleBackColor = true;
+            Deletebutton1.UseVisualStyleBackColor = false;
             Deletebutton1.Click += Deletebutton1_Click;
             // 
             // button1
             // 
-            button1.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            button1.BackColor = SystemColors.ControlDarkDark;
+            button1.Font = new Font("Segoe UI Symbol", 9F, FontStyle.Bold, GraphicsUnit.Point);
             button1.Location = new Point(17, 19);
             button1.Name = "button1";
             button1.Size = new Size(80, 36);
             button1.TabIndex = 7;
             button1.Text = "BACK";
-            button1.UseVisualStyleBackColor = true;
+            button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
             // DeleteLead
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.InactiveCaption;
             ClientSize = new Size(800, 450);
             Controls.Add(button1);
             Controls.Add(Deletebutton1);
