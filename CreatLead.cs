@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
+
 
 namespace nitutz
 {
@@ -27,12 +29,43 @@ namespace nitutz
 
         private void button1_Click(object sender, EventArgs e)
         {
-            DateTime currentDate = DateTime.Now;
+            bool ReadyToAdd = true;
+            if (CompanyNameTextBox.Text == "" || ContacttextBox1.Text == "" || PhontextBox1.Text == "" || EmailtextBox1.Text == "")
+            {
+                ReadyToAdd = false;
+                MessageBox.Show("Please fill all the fields");
+            }
+            if (!EmailtextBox1.Text.Contains("@") && !EmailtextBox1.Text.Contains(".com"))
+            {
+                ReadyToAdd = false;
+                MessageBox.Show("Please enter a valid email address");
+            }
+            if (!PhontextBox1.Text.Length.Equals(10))
+            {
+                ReadyToAdd = false;
+                MessageBox.Show("Please enter a valid phone number");
+            }
+            if (Regex.IsMatch(CompanyNameTextBox.Text, @"\d"))
+            {
+                ReadyToAdd = false;
+                MessageBox.Show("Please enter a valid company name");
+            }
+            if (Regex.IsMatch(ContacttextBox1.Text, @"\d"))
+            {
+                ReadyToAdd = false;
+                MessageBox.Show("Please enter a valid Contact name");
+            }
+            if (ReadyToAdd == true)
+            {
 
-            Lead L = new Lead(CompanyNameTextBox.Text, ContacttextBox1.Text, PhontextBox1.Text,
-            EmailtextBox1.Text, currentDate, (int)NumOfWorkstationumericUpDown1.Value,
-             (LeadStatus)StatuscomboBox1.SelectedItem, (LeadSource)SourcecomboBox1.SelectedItem,
-             Program.seekEemploye("coral@wopa.space"), true);
+                DateTime currentDate = DateTime.Now;
+
+                Lead L = new Lead(CompanyNameTextBox.Text, ContacttextBox1.Text, PhontextBox1.Text,
+                EmailtextBox1.Text, currentDate, (int)NumOfWorkstationumericUpDown1.Value,
+                 (LeadStatus)StatuscomboBox1.SelectedItem, (LeadSource)SourcecomboBox1.SelectedItem,
+                 Program.seekEemploye("coral@wopa.space"), true);
+            }
+
 
         }
 
