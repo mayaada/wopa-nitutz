@@ -223,7 +223,7 @@ namespace nitutz
             {
                 Event Event = new Event(
                 rdr.GetValue(0).ToString(), DateTime.Parse(rdr.GetValue(1).ToString()), DateTime.Parse(rdr.GetValue(2).ToString()),
-                (int)rdr.GetValue(3)
+                (int)rdr.GetValue(3), false
                 );
                 Events.Add(Event);
             }
@@ -258,7 +258,7 @@ namespace nitutz
             {
                 BookingStatus BookingStatus = (BookingStatus)Enum.Parse(typeof(BookingStatus), rdr.GetValue(4).ToString().Replace(" ", string.Empty));
                 Booking Booking = new Booking(
-                (int)rdr.GetValue(0), DateTime.Parse(rdr.GetValue(1).ToString()), DateTime.Parse(rdr.GetValue(2).ToString()), DateTime.Parse(rdr.GetValue(3).ToString()),
+                (int)rdr.GetValue(0), DateTime.Parse(rdr.GetValue(1).ToString()), TimeSpan.Parse(rdr.GetValue(2).ToString()), TimeSpan.Parse(rdr.GetValue(3).ToString()),
                 BookingStatus, seekEmployee(rdr.GetValue(5).ToString()), seekTenant(rdr.GetValue(6).ToString()), seekEvent(rdr.GetValue(7).ToString()), seekMeetingLocation(rdr.GetValue(8).ToString()), false
                 );
                 Bookings.Add(Booking);
