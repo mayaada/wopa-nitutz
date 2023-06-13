@@ -108,7 +108,8 @@ namespace nitutz
             if (currentTicket == null)
             {
                 // add message box
-            } else
+            }
+            else
             {
                 currentIssue = currentTicket.getRefferenceIssue();
                 TicketEditForm form = new TicketEditForm(currentIssue, currentTicket);
@@ -116,17 +117,43 @@ namespace nitutz
                 this.Hide();
 
             }
-
-
-
         }
 
         private void pendingTicketListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            currentTicket = (Ticket)pendingTicketListBox.SelectedItem;
 
+            if (currentTicket == null)
+            {
+                // add message box
+            }
+            else
+            {
+                currentIssue = currentTicket.getRefferenceIssue();
+                TicketEditForm form = new TicketEditForm(currentIssue, currentTicket);
+                form.Show();
+                this.Hide();
+            }
         }
 
         private void resolvedTicketListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            currentTicket = (Ticket)resolvedTicketListBox.SelectedItem;
+
+            if (currentTicket == null)
+            {
+                // add message box
+            }
+            else
+            {
+                currentIssue = currentTicket.getRefferenceIssue();
+                TicketEditForm form = new TicketEditForm(currentIssue, currentTicket);
+                form.Show();
+                this.Hide();
+            }
+        }
+
+        private void resolvedTickets_Lable_Click(object sender, EventArgs e)
         {
 
         }
