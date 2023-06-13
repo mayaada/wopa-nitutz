@@ -1,4 +1,4 @@
-﻿
+
 // create class Ticket like employee
 using System.Xml.Serialization;
 using System.Collections.Generic;
@@ -141,14 +141,29 @@ namespace nitutz
         public void updateTicketInDB()
         {
             SqlCommand c = new SqlCommand();
-            c.CommandText = "EXECUTE dbo.Update_Ticket @Ticket_ID, @Time_Time, @Date_Opened, @Ticket_Status, @Opened_By_Employee, @Opened_By_Tenant, @Refference_Issue";
+            c.CommandText = "EXECUTE dbo.Update_Ticket @Ticket_ID, @Time_Time, @Date_Opened, @Ticket_Status, @Opened_By_Employee, @Opened_By_Tenant, @Refference_Issue, @Refference_Location";
             c.Parameters.AddWithValue("@Ticket_ID", ticketID);
             c.Parameters.AddWithValue("@Time_Time", time);
             c.Parameters.AddWithValue("@Date_Opened", dateOpened);
-            c.Parameters.AddWithValue("@Ticket_Status", ticketStatus);
-            c.Parameters.AddWithValue("@Opened_By_Employee", openedByEmployee);
-            c.Parameters.AddWithValue("@Opened_By_Tenant", openedByTenant);
-            c.Parameters.AddWithValue("@Refference_Issue", refferenceIssue);
+            c.Parameters.AddWithValue("@Ticket_Status", ticketStatus.ToString());
+            if(openedByEmployee != null)
+            {
+                c.Parameters.AddWithValue("@Opened_By_Employee", openedByEmployee.getEmail());
+            } else
+            {
+                c.Parameters.AddWithValue("@Opened_By_Employee", DBNull.Value);
+            }
+            if(openedByTenant != null)
+            {
+                c.Parameters.AddWithValue("@Opened_By_Tenant", openedByTenant.getCompanyName());
+            } else
+            {
+                c.Parameters.AddWithValue("@Opened_By_Tenant", DBNull.Value);
+
+            }
+            c.Parameters.AddWithValue("@Refference_Issue", refferenceIssue.getIssueName());
+
+            c.Parameters.AddWithValue("@Refference_Location", refferenceIssue.getIssueLocation());
             SQL_CON SC = new SQL_CON();
             SC.execute_non_query(c);
         }
