@@ -125,7 +125,7 @@ namespace nitutz
 
         private void PopulateListView()
         {
-            itemsLeased = currentLease.getItemsLeased();
+            List<LeasedItem> itemsLeased = currentLease.getItemsLeased();
 
             listView1.Items.Clear();
 
@@ -133,7 +133,7 @@ namespace nitutz
             foreach (LeasedItem itemLeased in itemsLeased)
             {
                 ListViewItem item = new ListViewItem(itemLeased.getNumber().ToString());
-                item.SubItems.Add(itemLeased.getNumber().ToString());
+                //item.SubItems.Add(itemLeased.getNumber().ToString());
                 item.SubItems.Add(itemLeased.getFloor().ToString());
                 item.SubItems.Add(itemLeased.getType().getType());
                 listView1.Items.Add(item);
@@ -274,7 +274,7 @@ namespace nitutz
         private void AddItem_Button_Click(object sender, EventArgs e)
         {
             LeasedItem addedItem = null; // Initialize addedItem as null
-            LeasedItemType type = Program.seekLeasedItemType(addLeasedItem_combobox.Text);
+            LeasedItemType type = Program.seekLeasedItemType(addLeasedItem_combobox.SelectedItem.ToString());
             List<LeasedItem> programLeasedItems = Program.GetLeasedItemDataList();
 
             foreach (LeasedItem leasedItem in programLeasedItems)

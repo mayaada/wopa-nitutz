@@ -142,12 +142,10 @@ namespace nitutz
             {   
                 c.Parameters.AddWithValue("@electricCharging", DBNull.Value);
             }
-            if(isAvailable)
-            {
-                c.Parameters.AddWithValue("@isAvailable", isAvailable);
+            
+            c.Parameters.AddWithValue("@isAvailable", isAvailable);
 
-            }
-            if(relatesTo != null)
+            if (relatesTo != null)
             {
                 c.Parameters.AddWithValue("@LeaseID", relatesTo.getLeaseID());
             } else
