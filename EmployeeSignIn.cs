@@ -60,15 +60,16 @@ namespace nitutz
                 MessageBox.Show("Invalid password. Please enter a valid password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            if(Program.seekTenant(inputEmail)==null){
+            if (Program.seekTenant(inputEmail) == null)
+            {
                 continueToNext = false;
                 MessageBox.Show("Invalid email. Please enter a valid email.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
 
-            if(continueToNext == true)
+            if (continueToNext == true)
             {
-                
+
 
                 // Check if the input exists in the List<Employee>
                 bool exists = Program.Employees.Any(employee => employee.getEmail() == inputEmail);
@@ -109,6 +110,13 @@ namespace nitutz
         private void label3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Backbutton_Click(object sender, EventArgs e)
+        {
+            MainForm MainForm = new MainForm();
+            MainForm,Show();
+            this.Hide();
         }
     }
 }

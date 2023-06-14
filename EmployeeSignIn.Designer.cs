@@ -34,6 +34,7 @@ namespace nitutz
             label2 = new Label();
             button1 = new Button();
             wopaSignIn_Label = new Label();
+            Backbutton = new Button();
             SuspendLayout();
             // 
             // textBox3
@@ -96,12 +97,23 @@ namespace nitutz
             wopaSignIn_Label.TextAlign = ContentAlignment.TopCenter;
             wopaSignIn_Label.Click += label3_Click;
             // 
+            // Backbutton
+            // 
+            Backbutton.Location = new Point(21, 21);
+            Backbutton.Name = "Backbutton";
+            Backbutton.Size = new Size(77, 42);
+            Backbutton.TabIndex = 9;
+            Backbutton.Text = "BACK";
+            Backbutton.UseVisualStyleBackColor = true;
+            Backbutton.Click += Backbutton_Click;
+            // 
             // employeeSignIn
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.InactiveCaption;
             ClientSize = new Size(800, 450);
+            Controls.Add(Backbutton);
             Controls.Add(wopaSignIn_Label);
             Controls.Add(button1);
             Controls.Add(label2);
@@ -122,5 +134,6 @@ namespace nitutz
         private Label label2;
         private Button button1;
         private Label wopaSignIn_Label;
+        private Button Backbutton;
     }
 }
