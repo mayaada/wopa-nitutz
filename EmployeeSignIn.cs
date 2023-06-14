@@ -59,7 +59,7 @@ namespace nitutz
                 continueToNext = false;
                 MessageBox.Show("Invalid password. Please enter a valid password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else 
+            else
             {
                 continueToNext = true;
 

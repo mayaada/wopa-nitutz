@@ -81,7 +81,7 @@
             SearchCNbutton.ForeColor = SystemColors.InactiveBorder;
             SearchCNbutton.Location = new Point(574, 137);
             SearchCNbutton.Name = "SearchCNbutton";
-            SearchCNbutton.Size = new Size(134, 31);
+            SearchCNbutton.Size = new Size(138, 53);
             SearchCNbutton.TabIndex = 3;
             SearchCNbutton.Text = "Search";
             SearchCNbutton.UseVisualStyleBackColor = false;

@@ -12,9 +12,11 @@ namespace nitutz
 {
     public partial class AddNewLeasedItem : Form
     {
-        public AddNewLeasedItem()
+        private Employee currentUser;
+        public AddNewLeasedItem(Employee currentUser)
         {
             InitializeComponent();
+            this.currentUser = currentUser;
         }
 
         private void AddNewLeasedItem_Load(object sender, EventArgs e)
@@ -110,7 +112,7 @@ namespace nitutz
 
         private void BACKbutton1_Click(object sender, EventArgs e)
         {
-            CRUD_LI F = new CRUD_LI();
+            CRUD_LI F = new CRUD_LI(currentUser);
             F.Show();
             this.Hide();
         }

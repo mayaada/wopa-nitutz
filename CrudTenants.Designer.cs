@@ -31,6 +31,7 @@
             UpdateTenantButton = new Button();
             AddTenantButton = new Button();
             ManageTenantsLable = new Label();
+            BACKbutton = new Button();
             SuspendLayout();
             // 
             // UpdateTenantButton
@@ -70,12 +71,26 @@
             ManageTenantsLable.Text = "Manage Tenants";
             ManageTenantsLable.Click += ManageTenantsLable_Click;
             // 
+            // BACKbutton
+            // 
+            BACKbutton.BackColor = SystemColors.ControlDarkDark;
+            BACKbutton.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            BACKbutton.ForeColor = SystemColors.ButtonHighlight;
+            BACKbutton.Location = new Point(25, 21);
+            BACKbutton.Name = "BACKbutton";
+            BACKbutton.Size = new Size(77, 45);
+            BACKbutton.TabIndex = 10;
+            BACKbutton.Text = "BACK";
+            BACKbutton.UseVisualStyleBackColor = false;
+            BACKbutton.Click += BACKbutton_Click;
+            // 
             // CrudTenants
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.InactiveCaption;
             ClientSize = new Size(800, 450);
+            Controls.Add(BACKbutton);
             Controls.Add(ManageTenantsLable);
             Controls.Add(AddTenantButton);
             Controls.Add(UpdateTenantButton);
@@ -90,5 +105,6 @@
         private Button UpdateTenantButton;
         private Button AddTenantButton;
         private Label ManageTenantsLable;
+        private Button BACKbutton;
     }
 }

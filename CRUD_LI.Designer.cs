@@ -31,6 +31,7 @@
             label1 = new Label();
             button1 = new Button();
             button2 = new Button();
+            button3 = new Button();
             SuspendLayout();
             // 
             // label1
@@ -70,17 +71,32 @@
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
             // 
+            // button3
+            // 
+            button3.BackColor = SystemColors.ControlDarkDark;
+            button3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            button3.ForeColor = SystemColors.Window;
+            button3.Location = new Point(23, 12);
+            button3.Name = "button3";
+            button3.Size = new Size(112, 34);
+            button3.TabIndex = 3;
+            button3.Text = "Back";
+            button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
+            // 
             // CRUD_LI
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.InactiveCaption;
             ClientSize = new Size(800, 450);
+            Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(label1);
             Name = "CRUD_LI";
             Text = "CRUD_LI";
+            Load += CRUD_LI_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -90,5 +106,6 @@
         private Label label1;
         private Button button1;
         private Button button2;
+        private Button button3;
     }
 }

@@ -12,15 +12,17 @@ namespace nitutz
 {
     public partial class CrudLeads : Form
     {
-        public CrudLeads()
+        private Employee currentUser;
+        public CrudLeads(Employee currentUser)
         {
             InitializeComponent();
+            this.currentUser = currentUser;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             this.Hide();
-            UpdateLead updateLead = new UpdateLead();
+            UpdateLead updateLead = new UpdateLead(currentUser);
             updateLead.Show();
         }
 
@@ -32,15 +34,22 @@ namespace nitutz
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            CreatLead CreatLeadForm = new CreatLead();
+            CreatLead CreatLeadForm = new CreatLead(currentUser);
             CreatLeadForm.Show();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             this.Hide();
-            DeleteLead DeleteLead = new DeleteLead();
+            DeleteLead DeleteLead = new DeleteLead(currentUser);
             DeleteLead.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            HomePageEmployee homepageemployee = new HomePageEmployee(currentUser);
+            this.Hide();
+            homepageemployee.Show();
         }
     }
 }

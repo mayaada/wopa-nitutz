@@ -12,12 +12,13 @@ namespace nitutz
 {
     public partial class CrudLeasedItems : Form
     {
-        public CrudLeasedItems()
+        private Employee currentUser;
+        public CrudLeasedItems(Employee currentUser)
         {
             InitializeComponent();
             InitializeListView();
             PopulateListView();
-
+            this.currentUser = currentUser;
         }
 
         private void InitializeListView()
@@ -161,7 +162,7 @@ namespace nitutz
 
         private void BACKbutton_Click(object sender, EventArgs e)
         {
-            CRUD_LI f = new CRUD_LI();
+            CRUD_LI f = new CRUD_LI(currentUser);
             f.Show();
             this.Hide();
 

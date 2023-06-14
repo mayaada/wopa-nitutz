@@ -13,9 +13,12 @@ namespace nitutz
 {
     public partial class CreateTenant : Form
     {
-        public CreateTenant()
+        private Employee currentUser;
+        public CreateTenant(Employee currentUser)
         {
             InitializeComponent();
+            this.currentUser = currentUser;
+
         }
 
         private void CreateTenant_Load(object sender, EventArgs e)
@@ -55,21 +58,25 @@ namespace nitutz
 
         private void AddTenantButton_Click(object sender, EventArgs e)
         {
+            bool ReadyToAdd = true;
 
 
             if (CompanyNameTB.Text == "" || EmailTB.Text == "" || WebsiteTB.Text == "")
             {
+                ReadyToAdd = false;
                 MessageBox.Show("Please fill all the fields", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             if (!EmailTB.Text.Contains("@") && !EmailTB.Text.Contains(".com"))
             {
+                ReadyToAdd = false;
                 MessageBox.Show("Please fill in the email field correctly", "Faild", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             if (!WebsiteTB.Text.Contains("www.") && !WebsiteTB.Text.Contains(".com"))
             {
+                ReadyToAdd = false;
                 MessageBox.Show("Please fill in the 'website' field correctly", "Faild", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            else
+            if (ReadyToAdd)
             {
                 // Create a new tenant object
                 DateTime currentDate = DateTime.Now;
@@ -88,7 +95,7 @@ namespace nitutz
 
         private void Backbutton_Click(object sender, EventArgs e)
         {
-            CrudTenants mf = new CrudTenants();
+            CrudTenants mf = new CrudTenants(currentUser);
             mf.Show();
             this.Close();
         }
