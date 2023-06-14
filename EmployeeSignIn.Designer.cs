@@ -40,7 +40,7 @@ namespace nitutz
             // 
             textBox3.Location = new Point(318, 274);
             textBox3.Name = "textBox3";
-            textBox3.Size = new Size(215, 31);
+            textBox3.Size = new Size(234, 31);
             textBox3.TabIndex = 2;
             textBox3.TextChanged += textBox3_TextChanged;
             // 
@@ -48,7 +48,7 @@ namespace nitutz
             // 
             textBox2.Location = new Point(318, 195);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(363, 31);
+            textBox2.Size = new Size(234, 31);
             textBox2.TabIndex = 8;
             textBox2.TextChanged += textBox2_TextChanged;
             // 

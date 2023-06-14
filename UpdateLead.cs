@@ -17,11 +17,13 @@ namespace nitutz
     public partial class UpdateLead : Form
     {
         private Lead lead;
-        public UpdateLead()
+        private Employee currentUser;
+        public UpdateLead(Employee currentUser)
         {
             InitializeComponent();
             Updatebutton.Hide();
             LeadStatuscomboBox1.DataSource = Enum.GetValues(typeof(LeadStatus));
+            this.currentUser = currentUser;
         }
 
         private void UpdateLead_Load(object sender, EventArgs e)
@@ -159,7 +161,7 @@ namespace nitutz
 
         private void BACKbutton1_Click(object sender, EventArgs e)
         {
-            CrudLeads CrudLeads = new CrudLeads();
+            CrudLeads CrudLeads = new CrudLeads(currentUser);
             CrudLeads.Show();
             this.Hide();
 

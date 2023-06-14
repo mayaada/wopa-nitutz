@@ -39,119 +39,138 @@
             locationDropDownBox = new ComboBox();
             endTimeComboBox = new ComboBox();
             startTimeComboBox = new ComboBox();
+            button1 = new Button();
             SuspendLayout();
             // 
             // createBookingLable
             // 
             createBookingLable.AutoSize = true;
             createBookingLable.Font = new Font("Britannic Bold", 24F, FontStyle.Regular, GraphicsUnit.Point);
-            createBookingLable.Location = new Point(396, 15);
-            createBookingLable.Margin = new Padding(5, 0, 5, 0);
+            createBookingLable.Location = new Point(231, 9);
             createBookingLable.Name = "createBookingLable";
-            createBookingLable.Size = new Size(580, 89);
+            createBookingLable.Size = new Size(348, 53);
             createBookingLable.TabIndex = 0;
             createBookingLable.Text = "Create Booking";
             // 
             // dateLable
             // 
             dateLable.AutoSize = true;
-            dateLable.Location = new Point(425, 171);
-            dateLable.Margin = new Padding(5, 0, 5, 0);
+            dateLable.Location = new Point(250, 104);
             dateLable.Name = "dateLable";
-            dateLable.Size = new Size(87, 41);
+            dateLable.Size = new Size(53, 25);
             dateLable.TabIndex = 1;
             dateLable.Text = "Date:";
             // 
             // startTimeLable
             // 
             startTimeLable.AutoSize = true;
-            startTimeLable.Location = new Point(425, 276);
-            startTimeLable.Margin = new Padding(5, 0, 5, 0);
+            startTimeLable.Location = new Point(250, 168);
             startTimeLable.Name = "startTimeLable";
-            startTimeLable.Size = new Size(158, 41);
+            startTimeLable.Size = new Size(95, 25);
             startTimeLable.TabIndex = 3;
             startTimeLable.Text = "Start Time:";
             // 
             // endTimePicker
             // 
             endTimePicker.AutoSize = true;
-            endTimePicker.Location = new Point(425, 370);
-            endTimePicker.Margin = new Padding(5, 0, 5, 0);
+            endTimePicker.Location = new Point(250, 226);
             endTimePicker.Name = "endTimePicker";
-            endTimePicker.Size = new Size(148, 41);
+            endTimePicker.Size = new Size(89, 25);
             endTimePicker.TabIndex = 3;
             endTimePicker.Text = "End Time:";
             // 
             // LocationLable
             // 
             LocationLable.AutoSize = true;
-            LocationLable.Location = new Point(425, 463);
-            LocationLable.Margin = new Padding(5, 0, 5, 0);
+            LocationLable.Location = new Point(250, 282);
             LocationLable.Name = "LocationLable";
-            LocationLable.Size = new Size(138, 41);
+            LocationLable.Size = new Size(83, 25);
             LocationLable.TabIndex = 6;
             LocationLable.Text = "Location:";
             // 
             // BookMeetingRoomButton
             // 
-            BookMeetingRoomButton.Location = new Point(1003, 597);
-            BookMeetingRoomButton.Margin = new Padding(5);
+            BookMeetingRoomButton.BackColor = SystemColors.ControlDarkDark;
+            BookMeetingRoomButton.Font = new Font("Segoe UI Symbol", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            BookMeetingRoomButton.ForeColor = SystemColors.Window;
+            BookMeetingRoomButton.Location = new Point(590, 364);
             BookMeetingRoomButton.Name = "BookMeetingRoomButton";
-            BookMeetingRoomButton.Size = new Size(252, 97);
+            BookMeetingRoomButton.Size = new Size(148, 59);
             BookMeetingRoomButton.TabIndex = 7;
             BookMeetingRoomButton.Text = "Book Meeting Room";
-            BookMeetingRoomButton.UseVisualStyleBackColor = true;
+            BookMeetingRoomButton.UseVisualStyleBackColor = false;
             BookMeetingRoomButton.Click += BookMeetingRoomButton_Click;
             // 
             // CreateEvent_Button
             // 
-            CreateEvent_Button.Location = new Point(139, 597);
-            CreateEvent_Button.Margin = new Padding(5);
+            CreateEvent_Button.BackColor = SystemColors.ControlDarkDark;
+            CreateEvent_Button.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            CreateEvent_Button.ForeColor = SystemColors.Window;
+            CreateEvent_Button.Location = new Point(82, 364);
             CreateEvent_Button.Name = "CreateEvent_Button";
-            CreateEvent_Button.Size = new Size(252, 97);
+            CreateEvent_Button.Size = new Size(148, 59);
             CreateEvent_Button.TabIndex = 7;
             CreateEvent_Button.Text = "Book and Create Event";
-            CreateEvent_Button.UseVisualStyleBackColor = true;
+            CreateEvent_Button.UseVisualStyleBackColor = false;
             CreateEvent_Button.Click += bookAndCreateEvent_Button;
             // 
             // date_Button
             // 
-            date_Button.Location = new Point(617, 171);
+            date_Button.Location = new Point(363, 104);
+            date_Button.Margin = new Padding(2);
             date_Button.Name = "date_Button";
-            date_Button.Size = new Size(406, 47);
+            date_Button.Size = new Size(240, 31);
             date_Button.TabIndex = 8;
             date_Button.ValueChanged += date_Button_ValueChanged;
             // 
             // locationDropDownBox
             // 
             locationDropDownBox.FormattingEnabled = true;
-            locationDropDownBox.Location = new Point(619, 459);
+            locationDropDownBox.Location = new Point(364, 280);
+            locationDropDownBox.Margin = new Padding(2);
             locationDropDownBox.Name = "locationDropDownBox";
-            locationDropDownBox.Size = new Size(302, 49);
+            locationDropDownBox.Size = new Size(179, 33);
             locationDropDownBox.TabIndex = 9;
             locationDropDownBox.SelectedIndexChanged += locationDropDownBox_SelectedIndexChanged;
             // 
             // endTimeComboBox
             // 
             endTimeComboBox.FormattingEnabled = true;
-            endTimeComboBox.Location = new Point(617, 366);
+            endTimeComboBox.Location = new Point(363, 223);
+            endTimeComboBox.Margin = new Padding(2);
             endTimeComboBox.Name = "endTimeComboBox";
-            endTimeComboBox.Size = new Size(302, 49);
+            endTimeComboBox.Size = new Size(179, 33);
             endTimeComboBox.TabIndex = 10;
             // 
             // startTimeComboBox
             // 
             startTimeComboBox.FormattingEnabled = true;
-            startTimeComboBox.Location = new Point(617, 272);
+            startTimeComboBox.Location = new Point(363, 166);
+            startTimeComboBox.Margin = new Padding(2);
             startTimeComboBox.Name = "startTimeComboBox";
-            startTimeComboBox.Size = new Size(302, 49);
+            startTimeComboBox.Size = new Size(179, 33);
             startTimeComboBox.TabIndex = 11;
+            // 
+            // button1
+            // 
+            button1.BackColor = SystemColors.ControlDarkDark;
+            button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            button1.ForeColor = SystemColors.Window;
+            button1.Location = new Point(21, 27);
+            button1.Name = "button1";
+            button1.Size = new Size(112, 34);
+            button1.TabIndex = 12;
+            button1.Text = "Back";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // NewBookingForEmployee
             // 
-            AutoScaleDimensions = new SizeF(17F, 41F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1360, 738);
+            BackColor = SystemColors.InactiveCaption;
+            ClientSize = new Size(800, 450);
+            Controls.Add(button1);
             Controls.Add(startTimeComboBox);
             Controls.Add(endTimeComboBox);
             Controls.Add(locationDropDownBox);
@@ -163,7 +182,6 @@
             Controls.Add(startTimeLable);
             Controls.Add(dateLable);
             Controls.Add(createBookingLable);
-            Margin = new Padding(5);
             Name = "NewBookingForEmployee";
             Text = "NewBookingForEmployee";
             Load += newEmployeeBooking_Load;
@@ -184,5 +202,6 @@
         private ComboBox locationDropDownBox;
         private ComboBox endTimeComboBox;
         private ComboBox startTimeComboBox;
+        private Button button1;
     }
 }

@@ -14,10 +14,12 @@ namespace nitutz
     public partial class UpdateTenant : Form
     {
         private Tenant tenant;
-        public UpdateTenant()
+        private Employee currentUser;
+        public UpdateTenant(Employee currentUser)
         {
             InitializeComponent();
             UpdateButton.Hide();
+            this.currentUser = currentUser;
 
         }
 
@@ -135,7 +137,7 @@ namespace nitutz
 
         private void Backbutton_Click(object sender, EventArgs e)
         {
-            CrudTenants mf = new CrudTenants();
+            CrudTenants mf = new CrudTenants(currentUser);
             mf.Show();
             this.Close();
 
@@ -149,7 +151,7 @@ namespace nitutz
 
         private void Backbutton_Click_1(object sender, EventArgs e)
         {
-            CrudTenants CrudTenants = new CrudTenants();
+            CrudTenants CrudTenants = new CrudTenants(currentUser);
             CrudTenants.Show();
             this.Hide();
         }

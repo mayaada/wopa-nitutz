@@ -14,12 +14,13 @@ namespace nitutz
 {
     public partial class CreatLead : Form
     {
-        public CreatLead()
+        private Employee currentUser;
+        public CreatLead(Employee currentUser)
         {
             InitializeComponent();
             StatuscomboBox1.DataSource = Enum.GetValues(typeof(LeadStatus));
             SourcecomboBox1.DataSource = Enum.GetValues(typeof(LeadSource));
-
+            this.currentUser = currentUser;
         }
 
         private void CreatLead_Load(object sender, EventArgs e)
@@ -110,7 +111,7 @@ namespace nitutz
 
         private void Backbutton2_Click(object sender, EventArgs e)
         {
-            CrudLeads CrudLeads = new CrudLeads();
+            CrudLeads CrudLeads = new CrudLeads(currentUser);
             CrudLeads.Show();
             this.Hide();
 

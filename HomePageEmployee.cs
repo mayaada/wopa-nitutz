@@ -35,7 +35,7 @@ namespace nitutz
 
         private void button5_Click(object sender, EventArgs e)
         {
-            CrudLeads CrudLeads = new CrudLeads();
+            CrudLeads CrudLeads = new CrudLeads(currentUser);
             CrudLeads.Show();
             this.Hide();
         }
@@ -56,7 +56,7 @@ namespace nitutz
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            CrudTenants CrudTenants = new CrudTenants();
+            CrudTenants CrudTenants = new CrudTenants(currentUser);
             CrudTenants.Show();
             this.Hide();
         }
@@ -78,6 +78,20 @@ namespace nitutz
         private void newTicket_Button_Click(object sender, EventArgs e)
         {
             this.Hide();
+        }
+
+        private void leasesButton_Click(object sender, EventArgs e)
+        {
+            ViewTenantForEmployee form = new ViewTenantForEmployee();
+            this.Hide();
+            form.Show();
+        }
+
+        private void leasedItemsButton_Click(object sender, EventArgs e)
+        {
+            CRUD_LI form = new CRUD_LI(currentUser);
+            this.Hide();
+            this.Show();
         }
     }
 }

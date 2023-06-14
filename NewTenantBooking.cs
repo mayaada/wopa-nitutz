@@ -124,10 +124,9 @@ namespace nitutz
 
         private void BackButton_Click(object sender, EventArgs e)
         {
+            HomePageTenant homepage = new HomePageTenant(currentUser);
             this.Hide();
-
-            // TenantHomePage homepage = new TenantHomePage(currentUser);
-            //homepage.Show();
+            homepage.Show();           
 
 
         }

@@ -13,9 +13,11 @@ namespace nitutz
 {
     public partial class DeleteLead : Form
     {
-        public DeleteLead()
+        private Employee currentUser;
+        public DeleteLead(Employee currentUser)
         {
             InitializeComponent();
+            this.currentUser = currentUser;
         }
 
         private void DeleteLead_Load(object sender, EventArgs e)
@@ -53,7 +55,7 @@ namespace nitutz
 
         private void button1_Click(object sender, EventArgs e)
         {
-            CrudLeads CrudLeads = new CrudLeads();
+            CrudLeads CrudLeads = new CrudLeads(currentUser);
             CrudLeads.Show();
             this.Hide();
 
