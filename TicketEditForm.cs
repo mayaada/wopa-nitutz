@@ -151,7 +151,7 @@ namespace nitutz
             }
         }
 
-            private void backButton_Click(object sender, EventArgs e)
+        private void backButton_Click(object sender, EventArgs e)
         {
             MaintenanceTicketManagementForm form = new MaintenanceTicketManagementForm(currentUser);
             form.Show();

@@ -204,9 +204,9 @@
             backButton.BackColor = SystemColors.ControlDarkDark;
             backButton.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             backButton.ForeColor = SystemColors.Window;
-            backButton.Location = new Point(536, 918);
+            backButton.Location = new Point(8, 25);
             backButton.Name = "backButton";
-            backButton.Size = new Size(218, 63);
+            backButton.Size = new Size(156, 63);
             backButton.TabIndex = 19;
             backButton.Text = "Back";
             backButton.UseVisualStyleBackColor = false;
