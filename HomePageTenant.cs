@@ -44,7 +44,9 @@ namespace nitutz
 
         private void newBookingButton_Click(object sender, EventArgs e)
         {
-
+            NewTenantBooking NewTenantBooking = new NewTenantBooking(currentUser);
+            NewTenantBooking.Show();
+            this.Hide();
         }
 
         private void OpenNewTicket_Click(object sender, EventArgs e)
