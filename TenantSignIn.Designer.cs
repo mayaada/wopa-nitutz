@@ -34,6 +34,7 @@
             textBox3 = new TextBox();
             label3 = new Label();
             ContinueButton = new Button();
+            button1 = new Button();
             SuspendLayout();
             // 
             // label1
@@ -96,12 +97,23 @@
             ContinueButton.UseVisualStyleBackColor = false;
             ContinueButton.Click += ContinueButton_Click;
             // 
+            // button1
+            // 
+            button1.Location = new Point(11, 24);
+            button1.Name = "button1";
+            button1.Size = new Size(122, 61);
+            button1.TabIndex = 8;
+            button1.Text = "BACK";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // TenantSignIn
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.InactiveCaption;
             ClientSize = new Size(800, 450);
+            Controls.Add(button1);
             Controls.Add(ContinueButton);
             Controls.Add(label3);
             Controls.Add(textBox3);
@@ -122,5 +134,6 @@
         private TextBox textBox3;
         private Label label3;
         private Button ContinueButton;
+        private Button button1;
     }
 }
