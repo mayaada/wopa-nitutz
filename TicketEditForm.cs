@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -115,9 +116,42 @@ namespace nitutz
             currentIssue.updateIssue();
             currentTicket.updateTicketInDB();
 
+            SendMail("Somr fileds in your Ticket have been changed, please notice to view changes.");
+
+        }
+        private void SendMail(string email)
+        {
+
+            string from = "ta4126463@gmail.com";
+            string to = "ta4126463@gmail.com";
+            string fromPassword = "iwaoyfhfccyrnmsy";
+
+
+            MailMessage mail = new MailMessage();
+            mail.From = new MailAddress(from);
+            mail.To.Add(new MailAddress(to));
+            mail.Subject = "Confirmation email";
+            mail.Body = "<html><body>" + email + "</body></html>";
+            mail.IsBodyHtml = true;
+
+            var SmtpServer = new SmtpClient("smtp.gmail.com")
+            {
+                Port = 587,
+                Credentials = new System.Net.NetworkCredential(from, fromPassword),
+                EnableSsl = true,
+            };
+            try
+            {
+                SmtpServer.Send(mail);
+                MessageBox.Show("Your email has been sent.");
+            }
+            catch (SmtpException ex)
+            {
+                MessageBox.Show("An error occurred while sending the email: " + ex.Message);
+            }
         }
 
-        private void backButton_Click(object sender, EventArgs e)
+            private void backButton_Click(object sender, EventArgs e)
         {
             MaintenanceTicketManagementForm form = new MaintenanceTicketManagementForm(currentUser);
             form.Show();
