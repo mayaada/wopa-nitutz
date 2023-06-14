@@ -39,6 +39,7 @@
             PrioritycomboBox1 = new ComboBox();
             DescriptiontextBox1 = new TextBox();
             CreateNewButton = new Button();
+            BackButton = new Button();
             SuspendLayout();
             // 
             // IssueLabel
@@ -146,12 +147,27 @@
             CreateNewButton.UseVisualStyleBackColor = false;
             CreateNewButton.Click += CreateNewButton_Click;
             // 
+            // BackButton
+            // 
+            BackButton.BackColor = SystemColors.ControlDarkDark;
+            BackButton.Font = new Font("Segoe UI Variable Display", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            BackButton.ForeColor = SystemColors.Window;
+            BackButton.Location = new Point(14, 14);
+            BackButton.Margin = new Padding(5);
+            BackButton.Name = "BackButton";
+            BackButton.Size = new Size(93, 47);
+            BackButton.TabIndex = 13;
+            BackButton.Text = "Back";
+            BackButton.UseVisualStyleBackColor = false;
+            BackButton.Click += BackButton_Click;
+            // 
             // NewIssueByTenant
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.InactiveCaption;
             ClientSize = new Size(800, 450);
+            Controls.Add(BackButton);
             Controls.Add(CreateNewButton);
             Controls.Add(DescriptiontextBox1);
             Controls.Add(PrioritycomboBox1);
@@ -183,5 +199,6 @@
         private ComboBox PrioritycomboBox1;
         private TextBox DescriptiontextBox1;
         private Button CreateNewButton;
+        private Button BackButton;
     }
 }

@@ -111,5 +111,12 @@ namespace nitutz
 
 
         }
+
+        private void BackButton_Click(object sender, EventArgs e)
+        {
+            HomePageTenant HomePageTenant = new HomePageTenant(currentUser);
+            HomePageTenant.Show();
+            this.Hide();
+        }
     }
 }
