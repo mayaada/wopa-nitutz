@@ -42,6 +42,8 @@ namespace nitutz
 
         private void button1_Click(object sender, EventArgs e)
         {
+           
+       
             bool continueToNext = true;
             string inputEmail = textBox2.Text.Trim(); // Get the user input from textBox2 and trim any leading/trailing whitespace
             string inputPassword = textBox3.Text.Trim(); // Get the user input from textBox3 and trim any leading/trailing whitespace
@@ -59,17 +61,9 @@ namespace nitutz
                 continueToNext = false;
                 MessageBox.Show("Invalid password. Please enter a valid password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            if (Program.seekTenant(inputEmail) == null)
+            else
             {
-                continueToNext = false;
-                MessageBox.Show("Invalid email. Please enter a valid email.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            }
-
-            if (continueToNext == true)
-            {
-
+                continueToNext = true;
 
                 // Check if the input exists in the List<Employee>
                 bool exists = Program.Employees.Any(employee => employee.getEmail() == inputEmail);
@@ -89,6 +83,13 @@ namespace nitutz
                     // Input does not exist in the list, display an error message
                     MessageBox.Show("Invalid email. Please enter a valid email.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+
+
+            
+
+
+        
+
 
 
             }
