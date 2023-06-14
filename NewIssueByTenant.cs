@@ -54,17 +54,30 @@ namespace nitutz
 
         private void CreateNewButton_Click(object sender, EventArgs e)
         {
-            DateTime currentDate = DateTime.Now;
-            TimeSpan currentTime = DateTime.Now.TimeOfDay;
-            IssueType issueType = (IssueType)TypecomboBox1.SelectedItem;
-            Priority issuePriority = (Priority)PrioritycomboBox1.SelectedItem;
-            String issue = IssuetextBox1.Text;
-            String location = LocationtextBox1.Text;
-            int ticketID = new Random().Next(100000, 999999);
 
-            Issue I = new Issue(issue, location, issueType, issuePriority, "Null", true);
-            Ticket T = new Ticket(ticketID, currentTime, currentDate, currentUser, I, true);
-            SendMail("Your Ticket has been successfully updateded, we will process your request soon.");
+            bool readyTocreate = true;
+
+            if (IssuetextBox1.Text == null || LocationtextBox1.Text == null)
+            {
+                readyTocreate = false;
+                MessageBox.Show("Please enter an issue");
+            }
+
+            if (readyTocreate == true)
+            {
+
+                DateTime currentDate = DateTime.Now;
+                TimeSpan currentTime = DateTime.Now.TimeOfDay;
+                IssueType issueType = (IssueType)TypecomboBox1.SelectedItem;
+                Priority issuePriority = (Priority)PrioritycomboBox1.SelectedItem;
+                String issue = IssuetextBox1.Text;
+                String location = LocationtextBox1.Text;
+                int ticketID = new Random().Next(100000, 999999);
+
+                Issue I = new Issue(issue, location, issueType, issuePriority, "Null", true);
+                Ticket T = new Ticket(ticketID, currentTime, currentDate, currentUser, I, true);
+                SendMail("Your Ticket has been successfully updateded, we will process your request soon.");
+            }
 
 
 
