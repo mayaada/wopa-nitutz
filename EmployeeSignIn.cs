@@ -115,7 +115,7 @@ namespace nitutz
         private void Backbutton_Click(object sender, EventArgs e)
         {
             MainForm MainForm = new MainForm();
-            MainForm,Show();
+            MainForm.Show();
             this.Hide();
         }
     }

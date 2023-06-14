@@ -38,6 +38,7 @@ namespace nitutz
             newTicket_Button = new Button();
             leasesButton = new Button();
             leasedItemsButton = new Button();
+            button3 = new Button();
             SuspendLayout();
             // 
             // existingEvents_Button
@@ -103,7 +104,7 @@ namespace nitutz
             label1.Location = new Point(539, 32);
             label1.Margin = new Padding(5, 0, 5, 0);
             label1.Name = "label1";
-            label1.Size = new Size(437, 89);
+            label1.Size = new Size(262, 53);
             label1.TabIndex = 6;
             label1.Text = "Home Page";
             // 
@@ -173,12 +174,23 @@ namespace nitutz
             leasedItemsButton.UseVisualStyleBackColor = false;
             leasedItemsButton.Click += leasedItemsButton_Click;
             // 
+            // button3
+            // 
+            button3.Location = new Point(13, 16);
+            button3.Name = "button3";
+            button3.Size = new Size(115, 57);
+            button3.TabIndex = 12;
+            button3.Text = "BACK";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
             // HomePageEmployee
             // 
-            AutoScaleDimensions = new SizeF(17F, 40F);
+            AutoScaleDimensions = new SizeF(10F, 24F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.InactiveCaption;
             ClientSize = new Size(1500, 932);
+            Controls.Add(button3);
             Controls.Add(leasedItemsButton);
             Controls.Add(leasesButton);
             Controls.Add(newTicket_Button);
@@ -208,5 +220,6 @@ namespace nitutz
         private Button newTicket_Button;
         private Button leasesButton;
         private Button leasedItemsButton;
+        private Button button3;
     }
 }

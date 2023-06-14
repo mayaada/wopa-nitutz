@@ -93,5 +93,12 @@ namespace nitutz
             this.Hide();
             this.Show();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            employeeSignIn employeeSignIn = new employeeSignIn();
+            employeeSignIn.Show();
+            this.Hide();
+        }
     }
 }
