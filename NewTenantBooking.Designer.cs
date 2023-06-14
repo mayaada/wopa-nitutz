@@ -49,7 +49,7 @@
             createBookingLable.Location = new Point(400, 38);
             createBookingLable.Margin = new Padding(5, 0, 5, 0);
             createBookingLable.Name = "createBookingLable";
-            createBookingLable.Size = new Size(348, 53);
+            createBookingLable.Size = new Size(580, 89);
             createBookingLable.TabIndex = 0;
             createBookingLable.Text = "Create Booking";
             // 
@@ -59,7 +59,7 @@
             dateLable.Location = new Point(199, 176);
             dateLable.Margin = new Padding(5, 0, 5, 0);
             dateLable.Name = "dateLable";
-            dateLable.Size = new Size(50, 24);
+            dateLable.Size = new Size(86, 40);
             dateLable.TabIndex = 1;
             dateLable.Text = "Date:";
             // 
@@ -67,7 +67,7 @@
             // 
             DatePicker.Location = new Point(400, 175);
             DatePicker.Name = "DatePicker";
-            DatePicker.Size = new Size(598, 31);
+            DatePicker.Size = new Size(598, 47);
             DatePicker.TabIndex = 14;
             DatePicker.ValueChanged += DatePicker_ValueChanged;
             // 
@@ -77,7 +77,7 @@
             startTimeLable.Location = new Point(199, 280);
             startTimeLable.Margin = new Padding(5, 0, 5, 0);
             startTimeLable.Name = "startTimeLable";
-            startTimeLable.Size = new Size(92, 24);
+            startTimeLable.Size = new Size(158, 40);
             startTimeLable.TabIndex = 3;
             startTimeLable.Text = "Start Time:";
             // 
@@ -87,7 +87,7 @@
             endTimeLable.Location = new Point(199, 380);
             endTimeLable.Margin = new Padding(5, 0, 5, 0);
             endTimeLable.Name = "endTimeLable";
-            endTimeLable.Size = new Size(85, 24);
+            endTimeLable.Size = new Size(144, 40);
             endTimeLable.TabIndex = 5;
             endTimeLable.Text = "End Time:";
             // 
@@ -97,7 +97,7 @@
             label1.Location = new Point(199, 480);
             label1.Margin = new Padding(5, 0, 5, 0);
             label1.Name = "label1";
-            label1.Size = new Size(82, 24);
+            label1.Size = new Size(138, 40);
             label1.TabIndex = 7;
             label1.Text = "Location:";
             // 
@@ -120,7 +120,7 @@
             startTimeComboBox.FormattingEnabled = true;
             startTimeComboBox.Location = new Point(400, 276);
             startTimeComboBox.Name = "startTimeComboBox";
-            startTimeComboBox.Size = new Size(307, 32);
+            startTimeComboBox.Size = new Size(307, 48);
             startTimeComboBox.TabIndex = 10;
             startTimeComboBox.SelectedIndexChanged += startTimeComboBox_SelectedIndexChanged;
             // 
@@ -129,7 +129,7 @@
             endTimeComboBox.FormattingEnabled = true;
             endTimeComboBox.Location = new Point(400, 376);
             endTimeComboBox.Name = "endTimeComboBox";
-            endTimeComboBox.Size = new Size(307, 32);
+            endTimeComboBox.Size = new Size(307, 48);
             endTimeComboBox.TabIndex = 11;
             // 
             // BackButton
@@ -150,7 +150,7 @@
             // 
             locationComboBox.Location = new Point(400, 476);
             locationComboBox.Name = "locationComboBox";
-            locationComboBox.Size = new Size(307, 32);
+            locationComboBox.Size = new Size(307, 48);
             locationComboBox.TabIndex = 13;
             // 
             // button1
@@ -160,15 +160,15 @@
             button1.ForeColor = SystemColors.ControlLightLight;
             button1.Location = new Point(20, 30);
             button1.Name = "button1";
-            button1.Size = new Size(87, 44);
+            button1.Size = new Size(115, 65);
             button1.TabIndex = 15;
-            button1.Text = "BACK";
+            button1.Text = "Back";
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click_1;
             // 
             // NewTenantBooking
             // 
-            AutoScaleDimensions = new SizeF(10F, 24F);
+            AutoScaleDimensions = new SizeF(17F, 40F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.InactiveCaption;
             ClientSize = new Size(1360, 720);
