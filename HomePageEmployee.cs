@@ -89,7 +89,7 @@ namespace nitutz
 
         private void leasedItemsButton_Click(object sender, EventArgs e)
         {
-            CRUD_LI form = new CRUD_LI();
+            CRUD_LI form = new CRUD_LI(currentUser);
             this.Hide();
             this.Show();
         }
