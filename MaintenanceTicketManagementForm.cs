@@ -160,6 +160,10 @@ namespace nitutz
 
         private void button1_Click(object sender, EventArgs e)
         {
+            HomePageEmployee homepageemployee = new HomePageEmployee(currentUser);
+            this.Hide();
+            homepageemployee.Show();
+    
 
         }
     }
