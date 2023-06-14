@@ -37,7 +37,7 @@ namespace nitutz
             typeComboBox.Text = currentIssue.getIssueType().ToString();
             priorityComboBox.Text = currentIssue.getIssuePriority().ToString();
             dateOpenedTextBox.Text = currentTicket.getDateOpened().ToString("dd-MM-yyyy");
-            timeOpenedTextBox.Text = currentTicket.getTime().ToString("HH:mm");
+            timeOpenedTextBox.Text = DateTime.Today.Add(currentTicket.getTime()).ToString("HH:mm:ss");
             openedByTextBox.Text = checkOpenedByClass();
             statusComboBox.Text = currentTicket.getTicketStatus().ToString();
         }
