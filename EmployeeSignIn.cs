@@ -59,9 +59,16 @@ namespace nitutz
                 continueToNext = false;
                 MessageBox.Show("Invalid password. Please enter a valid password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else
+
+            if(Program.seekTenant(inputEmail)==null){
+                continueToNext = false;
+                MessageBox.Show("Invalid email. Please enter a valid email.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+            if(continueToNext == true)
             {
-                continueToNext = true;
+                
 
                 // Check if the input exists in the List<Employee>
                 bool exists = Program.Employees.Any(employee => employee.getEmail() == inputEmail);
