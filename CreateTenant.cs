@@ -13,9 +13,12 @@ namespace nitutz
 {
     public partial class CreateTenant : Form
     {
-        public CreateTenant()
+        private Employee currentUser;
+        public CreateTenant(Employee currentUser)
         {
             InitializeComponent();
+            this.currentUser = currentUser;
+
         }
 
         private void CreateTenant_Load(object sender, EventArgs e)
@@ -88,7 +91,7 @@ namespace nitutz
 
         private void Backbutton_Click(object sender, EventArgs e)
         {
-            CrudTenants mf = new CrudTenants();
+            CrudTenants mf = new CrudTenants(currentUser);
             mf.Show();
             this.Close();
         }

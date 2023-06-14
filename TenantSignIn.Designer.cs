@@ -90,7 +90,7 @@
             ContinueButton.ForeColor = SystemColors.ButtonHighlight;
             ContinueButton.Location = new Point(334, 329);
             ContinueButton.Name = "ContinueButton";
-            ContinueButton.Size = new Size(114, 34);
+            ContinueButton.Size = new Size(114, 50);
             ContinueButton.TabIndex = 7;
             ContinueButton.Text = "Continue";
             ContinueButton.UseVisualStyleBackColor = false;

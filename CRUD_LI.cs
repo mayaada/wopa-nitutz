@@ -12,14 +12,16 @@ namespace nitutz
 {
     public partial class CRUD_LI : Form
     {
-        public CRUD_LI()
+        private Employee currentUser;
+        public CRUD_LI(Employee currentUser)
         {
             InitializeComponent();
+            this.currentUser = currentUser;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            AddNewLeasedItem f = new AddNewLeasedItem();
+            AddNewLeasedItem f = new AddNewLeasedItem(currentUser);
             f.Show();
             this.Hide();
 
@@ -27,7 +29,7 @@ namespace nitutz
 
         private void button2_Click(object sender, EventArgs e)
         {
-            CrudLeasedItems f = new CrudLeasedItems();
+            CrudLeasedItems f = new CrudLeasedItems(currentUser);
             f.Show();
             this.Hide();
 
@@ -39,6 +41,18 @@ namespace nitutz
             //MyMaintenancerequests MyMaintenancerequestsForm = new MyMaintenancerequests();
             //MyMaintenancerequestsForm.Show(); // Show the MyMaintenancerequests form
             //this.Hide();
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            HomePageEmployee homepageemployee = new HomePageEmployee(currentUser);
+            this.Hide();
+            homepageemployee.Show();
+        }
+
+        private void CRUD_LI_Load(object sender, EventArgs e)
+        {
 
         }
     }

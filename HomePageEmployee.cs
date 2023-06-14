@@ -35,7 +35,7 @@ namespace nitutz
 
         private void button5_Click(object sender, EventArgs e)
         {
-            CrudLeads CrudLeads = new CrudLeads();
+            CrudLeads CrudLeads = new CrudLeads(currentUser);
             CrudLeads.Show();
             this.Hide();
         }
@@ -56,7 +56,7 @@ namespace nitutz
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            CrudTenants CrudTenants = new CrudTenants();
+            CrudTenants CrudTenants = new CrudTenants(currentUser);
             CrudTenants.Show();
             this.Hide();
         }
