@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            TextBox textBox1;
             Searchbutton1 = new Button();
             label1 = new Label();
             CompanytextBox1 = new TextBox();
@@ -36,11 +35,11 @@
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
             ViewLeasebutton1 = new Button();
             button1 = new Button();
-            textBox1 = new TextBox();
+            EmailtextBox4 = new TextBox();
+            NOEtextBox4 = new TextBox();
+            CompanyNameTEXTBOX = new TextBox();
             SuspendLayout();
             // 
             // Searchbutton1
@@ -111,30 +110,6 @@
             label5.TabIndex = 6;
             label5.Text = "Email:";
             // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(429, 197);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(150, 31);
-            textBox1.TabIndex = 7;
-            textBox1.TextChanged += textBox1_TextChanged;
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(429, 249);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(150, 31);
-            textBox2.TabIndex = 8;
-            textBox2.TextChanged += textBox2_TextChanged;
-            // 
-            // textBox3
-            // 
-            textBox3.Location = new Point(429, 315);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(150, 31);
-            textBox3.TabIndex = 9;
-            textBox3.TextChanged += textBox3_TextChanged;
-            // 
             // ViewLeasebutton1
             // 
             ViewLeasebutton1.BackColor = SystemColors.ControlDarkDark;
@@ -161,17 +136,41 @@
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
+            // EmailtextBox4
+            // 
+            EmailtextBox4.Location = new Point(450, 249);
+            EmailtextBox4.Name = "EmailtextBox4";
+            EmailtextBox4.Size = new Size(150, 31);
+            EmailtextBox4.TabIndex = 13;
+            EmailtextBox4.TextChanged += EmailtextBox4_TextChanged;
+            // 
+            // NOEtextBox4
+            // 
+            NOEtextBox4.Location = new Point(450, 315);
+            NOEtextBox4.Name = "NOEtextBox4";
+            NOEtextBox4.Size = new Size(150, 31);
+            NOEtextBox4.TabIndex = 14;
+            NOEtextBox4.TextChanged += NOEtextBox4_TextChanged;
+            // 
+            // CompanyNameTEXTBOX
+            // 
+            CompanyNameTEXTBOX.Location = new Point(450, 197);
+            CompanyNameTEXTBOX.Name = "CompanyNameTEXTBOX";
+            CompanyNameTEXTBOX.Size = new Size(141, 31);
+            CompanyNameTEXTBOX.TabIndex = 15;
+            CompanyNameTEXTBOX.TextChanged += CompanyNameTEXTBOX_TextChanged;
+            // 
             // ViewTenantForEmployee
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.InactiveCaption;
             ClientSize = new Size(800, 450);
+            Controls.Add(CompanyNameTEXTBOX);
+            Controls.Add(NOEtextBox4);
+            Controls.Add(EmailtextBox4);
             Controls.Add(button1);
             Controls.Add(ViewLeasebutton1);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
@@ -195,10 +194,10 @@
         private Label label3;
         private Label label4;
         private Label label5;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
         private Button ViewLeasebutton1;
         private Button button1;
+        private TextBox EmailtextBox4;
+        private TextBox NOEtextBox4;
+        private TextBox CompanyNameTEXTBOX;
     }
 }

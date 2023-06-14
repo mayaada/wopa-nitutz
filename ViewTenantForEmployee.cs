@@ -24,31 +24,29 @@ namespace nitutz
 
         private void Searchbutton1_Click(object sender, EventArgs e)
         {
-            string input = CompanytextBox1.Text; // Get the user input from textBox2
-            tenantExists = Program.seekTenant(input);
-            if (string.IsNullOrWhiteSpace(input))
+
+            bool toSearch = true;
+            if (CompanytextBox1.Text == "")
             {
-                // One or both of the textboxes are empty or contain only whitespace
+                toSearch = false;
                 MessageBox.Show("Please enter a valid Company Name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return; // Exit the event handler
+                return;
             }
-            // Check if the input exists in the List<Employee>
 
-            bool exists = Program.Tenants.Any(tenant => tenant.getCompanyName() == input);
-
-            if (exists)
+            if (Program.seekTenant(CompanytextBox1.Text) == null)
             {
-                textBox1.Text = tenantExists.getCompanyName();
-                textBox2.Text = tenantExists.getContactEmail();
-                textBox3.Text = tenantExists.getNumberOfEmployees().ToString();
-
+                toSearch = false;
+                MessageBox.Show("Tenant does not exist", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
-            else
+            if (toSearch == true)
             {
-                // Input does not exist in the list, display an error message
-                MessageBox.Show("Invalid input. Please enter a valid email.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                tenantExists = Program.seekTenant(CompanytextBox1.Text);
+                CompanyNameTEXTBOX.Text = tenantExists.getCompanyName();
+                EmailtextBox4.Text = tenantExists.getContactEmail();
+                NOEtextBox4.Text = tenantExists.getNumberOfEmployees().ToString();
             }
+
         }
 
         private void CompanytextBox1_TextChanged(object sender, EventArgs e)
@@ -91,6 +89,23 @@ namespace nitutz
         }
 
         private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+        private void EmailtextBox4_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void NOEtextBox4_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CompanyNameTEXTBOX_TextChanged(object sender, EventArgs e)
         {
 
         }
