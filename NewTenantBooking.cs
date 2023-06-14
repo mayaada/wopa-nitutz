@@ -95,7 +95,7 @@ namespace nitutz
 
             //check constraints
 
-            bool readyToAdd = true; 
+            bool readyToAdd = true;
 
             if (bookingDate < DateTime.Now.Date)
             {
@@ -107,10 +107,10 @@ namespace nitutz
             {
                 MessageBox.Show("End Time cannot precede Start Time", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 readyToAdd = false;
-            } 
+            }
 
-            if(readyToAdd)
-            {   
+            if (readyToAdd)
+            {
                 // create booking with updated fields
                 Booking newBooking = new Booking(bookingDate, selectedStartTime, selectedEndTime, currentUser, meetingLocation, true, bookingStatus);
 
@@ -126,9 +126,21 @@ namespace nitutz
         {
             HomePageTenant homepage = new HomePageTenant(currentUser);
             this.Hide();
-            homepage.Show();           
+            homepage.Show();
 
 
+        }
+
+        private void startTimeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            HomePageTenant HomePageTenant = new HomePageTenant(currentUser);
+            HomePageTenant.Show();
+            this.Hide();
         }
     }
 }
