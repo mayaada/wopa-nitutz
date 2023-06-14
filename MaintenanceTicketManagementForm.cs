@@ -107,7 +107,7 @@ namespace nitutz
 
             if (currentTicket == null)
             {
-                // add message box
+                MessageBox.Show("No ticket found");
             }
             else
             {
@@ -125,7 +125,7 @@ namespace nitutz
 
             if (currentTicket == null)
             {
-                // add message box
+                MessageBox.Show("No ticket found");
             }
             else
             {
@@ -142,7 +142,7 @@ namespace nitutz
 
             if (currentTicket == null)
             {
-                // add message box
+                MessageBox.Show("No ticket found");
             }
             else
             {
