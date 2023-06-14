@@ -79,5 +79,19 @@ namespace nitutz
         {
             this.Hide();
         }
+
+        private void leasesButton_Click(object sender, EventArgs e)
+        {
+            ViewTenantForEmployee form = new ViewTenantForEmployee();
+            this.Hide();
+            form.Show();
+        }
+
+        private void leasedItemsButton_Click(object sender, EventArgs e)
+        {
+            CRUD_LI form = new CRUD_LI();
+            this.Hide();
+            this.Show();
+        }
     }
 }
